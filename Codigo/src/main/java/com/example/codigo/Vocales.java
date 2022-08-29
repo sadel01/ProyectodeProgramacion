@@ -5,6 +5,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.geom.CubicCurve2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.QuadCurve2D;
 import javax.swing.JPanel;
@@ -42,6 +43,21 @@ public class Vocales extends JPanel {
                     g2.draw(new QuadCurve2D.Double(x+130,y+50, x+120, y+100,x+160,y+100));
                     x=x+155;
                 }
+
+                // E MINUSCULA
+
+                if(palabra.charAt(i)=='e'){
+                    Graphics2D g2 = (Graphics2D) g;
+                    BasicStroke grosor = new BasicStroke(3);
+                    g2.setStroke(grosor);
+                    x=x-30;
+                    g2.draw(new CubicCurve2D.Double(x+30, y+100, x+110, y+100, x+120, y, x+80, y));
+                    g2.draw(new CubicCurve2D.Double(x+80, y, x+40, y, x+60, y+100, x+140, y+100));
+
+                    x=x+140;
+                }
+
+
                 // O MINUSCULA
                 if(palabra.charAt(i)=='o'){
                     Graphics2D g2=(Graphics2D) g;
@@ -54,7 +70,7 @@ public class Vocales extends JPanel {
                     x=x+155;
                 }
 
-                //U minuscule
+                //u minuscule
                 if(palabra.charAt(i) == 'u'){
                     Graphics2D g2=(Graphics2D) g;
                     BasicStroke grosor = new BasicStroke(3);
@@ -210,6 +226,68 @@ public class Vocales extends JPanel {
                     x = x + 20;
                     aux = 0;
                 }
+            }
+
+            // Guion
+            if(palabra.charAt(i)=='-'){
+                Graphics2D g2 = (Graphics2D) g;
+                BasicStroke grosor = new BasicStroke(3);
+                g2.setStroke(grosor);
+                g2.drawLine(x+30, y+50, x+80, y+50);
+                x=x+100;
+                }
+
+            // Guion bajo
+            if(palabra.charAt(i)=='_'){
+                Graphics2D g2 = (Graphics2D) g;
+                BasicStroke grosor = new BasicStroke(3);
+                g2.setStroke(grosor);
+                g2.drawLine(x+30, y+100, x+120, y+100);
+                x=x+150;
+            }
+
+            // Abre corchete
+            if(palabra.charAt(i)=='['){
+                Graphics2D g2 = (Graphics2D) g;
+                BasicStroke grosor = new BasicStroke(3);
+                g2.setStroke(grosor);
+                g2.drawLine(x+30, y-60, x+30, y+110);
+                g2.drawLine(x+30, y-60, x+60, y-60); // Linea horizontal arriba
+                g2.drawLine(x+30, y+110, x+60, y+110); // Linea horizontal abajo
+                x=x+90;
+            }
+
+            // Cierre corchete
+            if(palabra.charAt(i)==']'){
+                x+=30;
+                Graphics2D g2 = (Graphics2D) g;
+                BasicStroke grosor = new BasicStroke(3);
+                g2.setStroke(grosor);
+                g2.drawLine(x+30, y-60, x+30, y+110);
+                g2.drawLine(x+30, y-60, x, y-60); // Linea horizontal arriba
+                g2.drawLine(x+30, y+110, x, y+110); // Linea horizontal abajo
+                x=x+100;
+            }
+
+            // Abre llave
+            if(palabra.charAt(i)=='{'){
+                Graphics2D g2 = (Graphics2D) g;
+                BasicStroke grosor = new BasicStroke(3);
+                g2.setStroke(grosor);
+                g2.draw(new CubicCurve2D.Double(x+80,y-60,x+30,y-60,x+80,y+25,x+30,y+25)); // Curva superior
+                g2.draw(new CubicCurve2D.Double(x+30, y+25, x+80, y+25, x+30, y+110, x+80, y+110)); // Curva inferior
+                x=x+100;
+            }
+
+            // Cierra llave
+            if(palabra.charAt(i)=='}'){
+                x=x-10;
+                Graphics2D g2 = (Graphics2D) g;
+                BasicStroke grosor = new BasicStroke(3);
+                g2.setStroke(grosor);
+                g2.draw(new CubicCurve2D.Double(x+80,y+25,x+30,y+25,x+80,y+110,x+30,y+110)); // Curva inferior
+                g2.draw(new CubicCurve2D.Double(x+30, y-60, x+80, y-60, x+30, y+25, x+80, y+25)); // Curva superior
+                x=x+100;
             }
         }
     }            
