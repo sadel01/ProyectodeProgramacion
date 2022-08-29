@@ -9,8 +9,8 @@ public class Principal {
 
     public static void main(String[] args) {
         String palabra;
-        //palabra="";
-        palabra=JOptionPane.showInputDialog("PALABRA");
+        palabra="; <aeiou> ;";
+        //palabra=JOptionPane.showInputDialog("PALABRA");
         Ventana v = new Ventana();
         v.add(new Vocales(palabra));
         v.setVisible(true);
