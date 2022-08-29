@@ -54,7 +54,7 @@ public class Vocales extends JPanel {
                     x=x+155;
                 }
 
-                //u minuscule
+                //U minuscule
                 if(palabra.charAt(i) == 'u'){
                     Graphics2D g2=(Graphics2D) g;
                     BasicStroke grosor = new BasicStroke(3);
@@ -64,7 +64,7 @@ public class Vocales extends JPanel {
 
                     g2.draw(new QuadCurve2D.Double(x+70, y+100, x+105, y+100, x+105, y)); //Inicio segunda curva
                     g2.draw(new QuadCurve2D.Double(x+105, y, x+105, y+100, x+135, y+100)); //Finañ segunda curva
-                    x = x + 138;
+                    x = x + 133;
                 }
 
                 // PUNTO
