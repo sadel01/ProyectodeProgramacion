@@ -5,30 +5,27 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-<<<<<<< HEAD
-=======
 import java.awt.geom.CubicCurve2D;
 import java.awt.geom.Line2D;
->>>>>>> main
 import java.awt.geom.QuadCurve2D;
 import javax.swing.JPanel;
 
 
 public class Vocales extends JPanel {
-    
+
     String palabra;
 
     public Vocales(String palabra) {
         this.palabra = palabra;
     }
-    
+
     @Override
     public void paintComponent(Graphics g){
-        
+
         int x=50,y=250, aux=0;
         super.paintComponent(g);
         g.setColor(Color.BLACK);
-        
+
         //palabra en A mayuscula
         for(int i = 0 ;i<palabra.length() ;i++ ){
             //ESPACIO
@@ -46,8 +43,6 @@ public class Vocales extends JPanel {
                     g2.draw(new QuadCurve2D.Double(x+130,y+50, x+120, y+100,x+160,y+100));
                     x=x+155;
                 }
-<<<<<<< HEAD
-=======
 
                 // E MINUSCULA
 
@@ -63,7 +58,6 @@ public class Vocales extends JPanel {
                 }
 
 
->>>>>>> main
                 // O MINUSCULA
                 if(palabra.charAt(i)=='o'){
                     Graphics2D g2=(Graphics2D) g;
@@ -75,8 +69,6 @@ public class Vocales extends JPanel {
                     g2.draw(new QuadCurve2D.Double(x+38,y+25, x+90, y+85,x+150,y));
                     x=x+155;
                 }
-<<<<<<< HEAD
-=======
 
                 // U MINUSCULA
                 if(palabra.charAt(i) == 'u'){
@@ -91,7 +83,6 @@ public class Vocales extends JPanel {
                     x = x + 138;
                 }
 
->>>>>>> main
                 // PUNTO
                 if(palabra.charAt(i)=='.'){
                     Graphics2D g2=(Graphics2D) g;
@@ -108,9 +99,6 @@ public class Vocales extends JPanel {
                     g2.fillOval(x+30, y+95, 8, 8);
                     g2.draw(new QuadCurve2D.Double(x+35, y+100, x+38, y+104,x+30, y+108));
                     x=x+70;
-<<<<<<< HEAD
-                }  
-=======
                 }
 
                 //Comillas españolas mayor que
@@ -158,7 +146,6 @@ public class Vocales extends JPanel {
                     x = x + 20;
                 }
 
->>>>>>> main
                 // PUNTO Y COMA
                 if(palabra.charAt(i)==';'){
                     Graphics2D g2=(Graphics2D) g;
@@ -170,13 +157,9 @@ public class Vocales extends JPanel {
                     g2.fillOval(x+30, y+95, 8, 8);
                     g2.draw(new QuadCurve2D.Double(x+35, y+100, x+38, y+104,x+30, y+108));
                     x=x+70;
-<<<<<<< HEAD
-                } 
-=======
                 }
 
->>>>>>> main
-                //COMILLAS 
+                //COMILLAS
                 if (palabra.charAt(i) == '"'){
 
                     if (aux == 0) {
@@ -217,11 +200,8 @@ public class Vocales extends JPanel {
                     //punto bajo
                     g2.fillOval(x+30, y+95, 8, 8);
                     x=x+70;
-                } 
+                }
             }
-<<<<<<< HEAD
-        }        
-=======
 
             //Comillas simples
             if (palabra.charAt(i) == '\'' ){
@@ -310,7 +290,6 @@ public class Vocales extends JPanel {
                 x=x+100;
             }
         }
->>>>>>> main
     }            
 }            
              
