@@ -1,5 +1,5 @@
 
-package clasesyobjetos.principal;
+package com.example.codigo;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

@@ -1,5 +1,5 @@
 
-package clasesyobjetos.principal;
+package com.example.codigo;
 
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
