@@ -12,20 +12,20 @@ import javax.swing.JPanel;
 
 
 public class Vocales extends JPanel {
-    
+
     String palabra;
 
     public Vocales(String palabra) {
         this.palabra = palabra;
     }
-    
+
     @Override
     public void paintComponent(Graphics g){
-        
+
         int x=50,y=250, aux=0;
         super.paintComponent(g);
         g.setColor(Color.BLACK);
-        
+
         //palabra en A mayuscula
         for(int i = 0 ;i<palabra.length() ;i++ ){
             //ESPACIO
@@ -159,7 +159,7 @@ public class Vocales extends JPanel {
                     x=x+70;
                 }
 
-                //COMILLAS 
+                //COMILLAS
                 if (palabra.charAt(i) == '"'){
 
                     if (aux == 0) {
@@ -200,7 +200,7 @@ public class Vocales extends JPanel {
                     //punto bajo
                     g2.fillOval(x+30, y+95, 8, 8);
                     x=x+70;
-                } 
+                }
             }
 
             //Comillas simples
