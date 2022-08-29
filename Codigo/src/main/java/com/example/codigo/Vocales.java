@@ -57,6 +57,16 @@ public class Vocales extends JPanel {
                     x=x+140;
                 }
 
+                //I MINUSCULA
+                if(palabra.charAt(i) == 'i'){
+                    Graphics2D g2=(Graphics2D) g;
+                    BasicStroke grosor = new BasicStroke(3);
+                    g2.setStroke(grosor);
+                    g2.draw(new QuadCurve2D.Double(x+5, y+100, x+70, y+100, x+70, y+30));
+                    g2.draw(new QuadCurve2D.Double(x+70, y+30, x+70, y+100, x+135, y+100));
+                    g2.fillOval(x+67, y, 7, 7);
+                    x = x + 138;
+                }
 
                 // O MINUSCULA
                 if(palabra.charAt(i)=='o'){
@@ -79,7 +89,7 @@ public class Vocales extends JPanel {
                     g2.draw(new QuadCurve2D.Double(x+40, y, x+40, y+100, x+70, y+100)); //Final primera curva
 
                     g2.draw(new QuadCurve2D.Double(x+70, y+100, x+105, y+100, x+105, y)); //Inicio segunda curva
-                    g2.draw(new QuadCurve2D.Double(x+105, y, x+105, y+100, x+135, y+100)); //Finañ segunda curva
+                    g2.draw(new QuadCurve2D.Double(x+105, y, x+105, y+100, x+135, y+100)); //Final segunda curva
                     x = x + 133;
                 }
 
@@ -101,7 +111,7 @@ public class Vocales extends JPanel {
                     x=x+70;
                 }
 
-                //Comillas españolas mayor que
+                //COMILLAS ESPAÑOLAS MAYOR QUE
                 if (palabra.charAt(i) == '>'){
                     Graphics2D g2=(Graphics2D) g;
                     BasicStroke grosor = new BasicStroke(3);
@@ -114,7 +124,7 @@ public class Vocales extends JPanel {
                     x = x + 120;
                 }
 
-                //Comillas españolas menor que
+                //COMILLAS ESPAÑOLAS MENOR QUE
                 if (palabra.charAt(i) == '<'){
                     x=x+40;
                     Graphics2D g2=(Graphics2D) g;
@@ -128,7 +138,7 @@ public class Vocales extends JPanel {
                     x = x + 80;
                 }
 
-                //Cierra parenthesis
+                //CIERRA PARENTESIS
                 if (palabra.charAt(i) == ')'){
                     Graphics2D g2=(Graphics2D) g;
                     BasicStroke grosor = new BasicStroke(3);
@@ -137,7 +147,7 @@ public class Vocales extends JPanel {
                     x = x + 45;
                 }
 
-                //Abre parenthesis
+                //ABRE PARENTESIS
                 if (palabra.charAt(i) == '('){
                     Graphics2D g2=(Graphics2D) g;
                     BasicStroke grosor = new BasicStroke(3);
@@ -203,7 +213,7 @@ public class Vocales extends JPanel {
                 }
             }
 
-            //Comillas simples
+            //COMILLAS SIMPLES
             if (palabra.charAt(i) == '\'' ){
 
                 if (aux == 0) {
@@ -228,7 +238,7 @@ public class Vocales extends JPanel {
                 }
             }
 
-            // Guion
+            // GUION
             if(palabra.charAt(i)=='-'){
                 Graphics2D g2 = (Graphics2D) g;
                 BasicStroke grosor = new BasicStroke(3);
@@ -237,7 +247,7 @@ public class Vocales extends JPanel {
                 x=x+100;
                 }
 
-            // Guion bajo
+            // GUION BAJO
             if(palabra.charAt(i)=='_'){
                 Graphics2D g2 = (Graphics2D) g;
                 BasicStroke grosor = new BasicStroke(3);
@@ -246,7 +256,7 @@ public class Vocales extends JPanel {
                 x=x+150;
             }
 
-            // Abre corchete
+            // ABRE CORCHETE
             if(palabra.charAt(i)=='['){
                 Graphics2D g2 = (Graphics2D) g;
                 BasicStroke grosor = new BasicStroke(3);
@@ -257,7 +267,7 @@ public class Vocales extends JPanel {
                 x=x+90;
             }
 
-            // Cierre corchete
+            // CIERRE CORCHETE
             if(palabra.charAt(i)==']'){
                 x+=30;
                 Graphics2D g2 = (Graphics2D) g;
@@ -269,7 +279,7 @@ public class Vocales extends JPanel {
                 x=x+100;
             }
 
-            // Abre llave
+            // ABRE LLAVE
             if(palabra.charAt(i)=='{'){
                 Graphics2D g2 = (Graphics2D) g;
                 BasicStroke grosor = new BasicStroke(3);
@@ -279,7 +289,7 @@ public class Vocales extends JPanel {
                 x=x+100;
             }
 
-            // Cierra llave
+            // CIERRA LLAVE
             if(palabra.charAt(i)=='}'){
                 x=x-10;
                 Graphics2D g2 = (Graphics2D) g;
