@@ -53,8 +53,7 @@ public class Vocales extends JPanel {
                     x=x-30;
                     g2.draw(new CubicCurve2D.Double(x+30, y+100, x+110, y+100, x+120, y, x+80, y));
                     g2.draw(new CubicCurve2D.Double(x+80, y, x+40, y, x+60, y+100, x+140, y+100));
-
-                    x=x+140;
+                    x=x+135;
                 }
 
                 //I MINUSCULA
@@ -65,7 +64,7 @@ public class Vocales extends JPanel {
                     g2.draw(new QuadCurve2D.Double(x+5, y+100, x+70, y+100, x+70, y+30));
                     g2.draw(new QuadCurve2D.Double(x+70, y+30, x+70, y+100, x+135, y+100));
                     g2.fillOval(x+67, y, 7, 7);
-                    x = x + 138;
+                    x = x + 128;
                 }
 
                 // O MINUSCULA
