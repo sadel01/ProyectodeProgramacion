@@ -9,7 +9,7 @@ public class Principal {
 
     public static void main(String[] args) {
         String palabra;
-        palabra="a;o;,;.";
+        palabra="; <aeiou> ;";
         //palabra=JOptionPane.showInputDialog("PALABRA");
         Ventana v = new Ventana();
         v.add(new Vocales(palabra));
