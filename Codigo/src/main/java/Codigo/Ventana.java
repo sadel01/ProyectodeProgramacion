@@ -1,7 +1,5 @@
 
-package com.example.codigo;
-
-
+package Codigo;
 
 import javax.swing.JFrame;
 

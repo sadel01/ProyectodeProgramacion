@@ -1,8 +1,5 @@
 
-package com.example.codigo;
-
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
+package Codigo;
 
 
 public class Principal {

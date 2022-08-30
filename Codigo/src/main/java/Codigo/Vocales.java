@@ -1,5 +1,5 @@
 
-package com.example.codigo;
+package Codigo;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -45,7 +45,6 @@ public class Vocales extends JPanel {
                 }
 
                 // E MINUSCULA
-
                 if(palabra.charAt(i)=='e'){
                     Graphics2D g2 = (Graphics2D) g;
                     BasicStroke grosor = new BasicStroke(3);
