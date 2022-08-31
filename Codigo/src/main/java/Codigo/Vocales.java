@@ -1,33 +1,41 @@
 
 package Codigo;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import javax.swing.JPanel;
+import javafx.scene.Node;
+import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color;
+import java.awt.*;
 import java.awt.geom.CubicCurve2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.QuadCurve2D;
-import javax.swing.JPanel;
 
 
 public class Vocales extends JPanel {
-
     String palabra;
+
+    public Circle lol2() {
+
+        Circle circle = new Circle();
+        circle.setCenterX(200);
+        circle.setCenterY(200);
+        circle.setRadius(100);
+        circle.setFill(Color.RED);
+
+        return circle;
+    }
 
     public Vocales(String palabra) {
         this.palabra = palabra;
     }
 
-    @Override
-    public void paintComponent(Graphics g){
+    public void paint(Graphics g){
 
         int x=50,y=250, aux=0;
-        super.paintComponent(g);
-        g.setColor(Color.BLACK);
+        //g.setColor(Color.BLACK);
 
         //palabra en A mayuscula
-        for(int i = 0 ;i<palabra.length() ;i++ ){
+        for (int i = 0; i<palabra.length(); i++ ){
             //ESPACIO
             if(palabra.charAt(i)==' '){
                 x=x+80;
@@ -298,9 +306,9 @@ public class Vocales extends JPanel {
                 x=x+100;
             }
         }
-    }            
+    }
 }            
-             
+
                 
             
         

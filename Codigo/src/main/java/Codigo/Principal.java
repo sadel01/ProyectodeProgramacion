@@ -9,7 +9,7 @@ public class Principal {
         palabra="aaaaaoo";
         //palabra=JOptionPane.showInputDialog("PALABRA");
         Ventana v = new Ventana();
-        v.add(new Vocales(palabra));
+        //v.add(new Vocales(palabra));
         v.setVisible(true);
     }
 }

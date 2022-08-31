@@ -3,12 +3,13 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.codigo.ControladorBase">
     <children>
         <TextField fx:id="barraDeTexto" layoutX="446.0" layoutY="974.0" onKeyPressed="#AccionEscribirBarraDeTexto" onKeyTyped="#AccionEscribirBarraDeTexto" prefHeight="40.0" prefWidth="600.0" />
-        <TextArea layoutX="1645.0" layoutY="-2.0" prefHeight="1080.0" prefWidth="277.0" />
-        <Pane fx:id="ventanaMuestra" layoutX="23.0" layoutY="30.0" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: green;" />
+        <TextArea fx:id="textoCoordenadas" layoutX="1645.0" layoutY="-2.0" prefHeight="1080.0" prefWidth="277.0" />
+      <AnchorPane fx:id="ventanaMuestra" layoutX="103.0" layoutY="98.0" prefHeight="394.0" prefWidth="709.0" />
+      <TextFlow fx:id="pane" layoutX="143.0" layoutY="754.0" prefHeight="200.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

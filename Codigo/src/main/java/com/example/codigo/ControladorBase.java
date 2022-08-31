@@ -1,17 +1,20 @@
 package com.example.codigo;
 
+import Codigo.Ventana;
 import Codigo.Vocales;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import java.awt.Graphics;
+
 import java.awt.*;
-import java.awt.geom.QuadCurve2D;
 import java.io.IOException;
 
 public class ControladorBase extends Application {
@@ -32,11 +35,25 @@ public class ControladorBase extends Application {
     private TextField barraDeTexto;
 
     @FXML
-    private Pane ventanaMuestra;
+    private TextFlow pane;
+
+    @FXML
+    private TextArea textoCoordenadas;
+
+    @FXML
+    private AnchorPane ventanaMuestra;
 
     @FXML
     void AccionEscribirBarraDeTexto(KeyEvent event) {
-        Vocales v = new Vocales("aoaoa");
+        Vocales v = new Vocales("c");
+        String palabra = "A";
+        for (int i = 0; i<barraDeTexto.getText().length(); i++) {
+
+            if (barraDeTexto.getText().charAt(i) == 'a') {
+            }
+            else {
+            }
+        }
     }
 
 }
