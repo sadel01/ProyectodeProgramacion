@@ -1,15 +1,12 @@
 
-package com.example.codigo;
-
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
+package Codigo;
 
 
 public class Principal {
 
     public static void main(String[] args) {
         String palabra;
-        palabra="; <aeiou> ;";
+        palabra="aaaaaoo";
         //palabra=JOptionPane.showInputDialog("PALABRA");
         Ventana v = new Ventana();
         v.add(new Vocales(palabra));
