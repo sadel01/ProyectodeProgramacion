@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="base" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="codigo.proyecto.Controlador">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="codigo.proyecto.Letras">
     <children>
         <TextField fx:id="CuadroTexto" layoutX="491.0" layoutY="934.0" prefHeight="74.0" prefWidth="876.0" />
         <Button layoutX="1386.0" layoutY="939.0" mnemonicParsing="false" onMouseClicked="#obtenerLetra" prefHeight="65.0" prefWidth="107.0" text="OK">

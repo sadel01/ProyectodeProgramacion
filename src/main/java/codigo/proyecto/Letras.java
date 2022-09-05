@@ -12,7 +12,7 @@ import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 
-public class Controlador {
+public class Letras {
 
     @FXML
     private Label welcomeText;
