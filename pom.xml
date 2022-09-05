@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>codigo.proyecto/codigo.proyecto.HelloApplication</mainClass>
+                            <mainClass>codigo.proyecto/codigo.proyecto.Ventana</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
