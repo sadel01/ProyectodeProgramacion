@@ -11,8 +11,8 @@ public class Ventana extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Ventana.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
-        stage.setTitle("Hello!");
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        stage.setTitle("Transformador a Script");
         stage.setScene(scene);
         stage.show();
     }

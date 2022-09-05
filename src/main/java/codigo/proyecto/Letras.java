@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -173,8 +174,9 @@ public class Letras {
     }
 
     @FXML
-    void BorrarPalabra(ActionEvent event) {
+    void BorrarPalabra(MouseEvent event) {
         root.getChildren().clear();
+        CuadroTexto.clear();
         x = 50;
         y = 250;
     }
