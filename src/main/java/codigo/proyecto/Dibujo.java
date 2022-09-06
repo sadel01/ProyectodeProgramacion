@@ -10,7 +10,7 @@ import javafx.scene.shape.QuadCurve;
 public class Dibujo {
 
     int x = 50;
-    int y = 250;
+    int y = 300;
 
 
     void LetraA(int det, AnchorPane root) {
@@ -37,7 +37,7 @@ public class Dibujo {
         x = x+120;
     }
 
-    void LetraB(AnchorPane root){
+    void LetraB(int det,AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -66,46 +66,41 @@ public class Dibujo {
         root.getChildren().add(b);
 
         x = x+120;
-    }
+    }// no
 
-    void LetraC(AnchorPane root){
-
-        QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
-        af.setFill(Color.TRANSPARENT);
-        af.setStroke(Color.BLACK);
-        af.setStrokeWidth(2);
-
-
-        CubicCurve c = new CubicCurve(x+80, y+40, x, y, x, y+150, x+90, y+100);
+    void LetraC(int det, AnchorPane root){
+        if(det == 0){
+            QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
+            af.setFill(Color.TRANSPARENT);
+            af.setStroke(Color.BLACK);
+            af.setStrokeWidth(2);
+            root.getChildren().add(af);
+        }
+        CubicCurve c = new CubicCurve(x+85, y+32, x-5, y+10+5, x-5, y+120, x+90, y+110);
         c.setFill(Color.TRANSPARENT);
         c.setStroke(Color.BLACK);
         c.setStrokeWidth(2);
 
-        QuadCurve b = new QuadCurve(x+90,y+100, x+100, y+110,x+120,y+110);
-        b.setFill(Color.TRANSPARENT);
-        b.setStroke(Color.BLACK);
-        b.setStrokeWidth(2);
-
         root.getChildren().add(c);
-        root.getChildren().add(af);
-        root.getChildren().add(b);
 
-        x = x+120;
+        x = x+90;
     }
 
-    void LetraD(AnchorPane root){
-
-        QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
-        af.setFill(Color.TRANSPARENT);
-        af.setStroke(Color.BLACK);
-        af.setStrokeWidth(2);
+    void LetraD(int det,AnchorPane root){
+        if(det == 0){
+            QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
+            af.setFill(Color.TRANSPARENT);
+            af.setStroke(Color.BLACK);
+            af.setStrokeWidth(2);
+            root.getChildren().add(af);
+        }
 
         Circle c = new Circle(x+60, y+70, 40);
         c.setFill(Color.TRANSPARENT);
         c.setStroke(Color.BLACK);
         c.setStrokeWidth(2);
 
-        Line l = new Line(x+100, y+78, x+100, y);
+        Line l = new Line(x+100, y+78, x+100, y-40);
         l.setFill(Color.TRANSPARENT);
         l.setStroke(Color.BLACK);
         l.setStrokeWidth(2);
@@ -117,7 +112,6 @@ public class Dibujo {
 
         root.getChildren().add(c);
         root.getChildren().add(l);
-        root.getChildren().add(af);
         root.getChildren().add(b);
         x = x+120;
 
@@ -125,39 +119,52 @@ public class Dibujo {
 
     void LetraE(int det,AnchorPane root){
         if(det == 0){
-            CubicCurve c1 = new CubicCurve(x, y+110, x+130, y+70, x+50, y-20,x+50, y+50);
-            c1.setFill(Color.TRANSPARENT);
-            c1.setStroke(Color.BLACK);
-            c1.setStrokeWidth(2);
+            //curvaA
+            QuadCurve a = new QuadCurve(x,y+110,x+60,y+110,x+50,y+50);
+            a.setFill(Color.TRANSPARENT);
+            a.setStroke(Color.BLACK);
+            a.setStrokeWidth(2);
 
-            QuadCurve qv1 = new QuadCurve(x+50, y+50, x+60, y+110,x+120, y+110);
-            qv1.setFill(Color.TRANSPARENT);
-            qv1.setStroke(Color.BLACK);
-            qv1.setStrokeWidth(2);
+            //curvaC
+            QuadCurve c = new QuadCurve(x+30,y+50,x+40,y+10,x+50,y+50);
+            c.setFill(Color.TRANSPARENT);
+            c.setStroke(Color.BLACK);
+            c.setStrokeWidth(2);
 
-            root.getChildren().add(c1);
-            root.getChildren().add(qv1);
+            //roots
+            root.getChildren().add(a);
+            root.getChildren().add(c);
         }
         else{
-            CubicCurve c1 = new CubicCurve(x+60, y+30, x+160, y+5, x-20, y-30,x+70, y+80);
-            c1.setFill(Color.TRANSPARENT);
-            c1.setStroke(Color.BLACK);
-            c1.setStrokeWidth(2);
+            x=x+30;
+            //curvaA
+            QuadCurve a = new QuadCurve(x+30,y+30,x+50,y+25,x+55,y-5);
+            a.setFill(Color.TRANSPARENT);
+            a.setStroke(Color.BLACK);
+            a.setStrokeWidth(2);
 
-            QuadCurve qv1 = new QuadCurve(x+70, y+80, x+95, y+110,x+120, y+110);
-            qv1.setFill(Color.TRANSPARENT);
-            qv1.setStroke(Color.BLACK);
-            qv1.setStrokeWidth(2);
+            //curvaC
+            QuadCurve c = new QuadCurve(x+30,y+50,x+55,y-50,x+55,y-5);
+            c.setFill(Color.TRANSPARENT);
+            c.setStroke(Color.BLACK);
+            c.setStrokeWidth(2);
 
-            root.getChildren().add(c1);
-            root.getChildren().add(qv1);
+            //roots
+            root.getChildren().add(a);
+            root.getChildren().add(c);
         }
+        QuadCurve b = new QuadCurve(x+80,y+110,x+20,y+110,x+30,y+50);
+        b.setFill(Color.TRANSPARENT);
+        b.setStroke(Color.BLACK);
+        b.setStrokeWidth(2);
 
+        root.getChildren().add(b);
+        //tamaño letra
+        x = x+80;
 
-        x = x+120;
     }
 
-    void LetraF(AnchorPane root){
+    void LetraF(int det,AnchorPane root){
 
 
         CubicCurve c1 = new CubicCurve(x+30, y+210, x+10, y-70, x+180, y+60, x, y+110);
@@ -178,14 +185,17 @@ public class Dibujo {
 
 
 
-    }
+    }// no
 
-    void LetraG(AnchorPane root){
+    void LetraG(int det,AnchorPane root){
+        if(det == 0){
+            QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
+            af.setFill(Color.TRANSPARENT);
+            af.setStroke(Color.BLACK);
+            af.setStrokeWidth(2);
 
-        QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
-        af.setFill(Color.TRANSPARENT);
-        af.setStroke(Color.BLACK);
-        af.setStrokeWidth(2);
+            root.getChildren().add(af);
+        }
 
         Circle c = new Circle(x+60, y+70, 40);
         c.setFill(Color.TRANSPARENT);
@@ -199,13 +209,12 @@ public class Dibujo {
 
         root.getChildren().add(c);
         root.getChildren().add(cu);
-        root.getChildren().add(af);
 
         x = x+120;
 
     }
 
-    void LetraH(AnchorPane root){
+    void LetraH(int det,AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -233,7 +242,7 @@ public class Dibujo {
 
         x = x+120;
 
-    }
+    }// no
 
     void LetraI(int det,AnchorPane root){
         if(det == 0){
@@ -269,21 +278,23 @@ public class Dibujo {
 
     }
 
-    void LetraJ(AnchorPane root){
+    void LetraJ(int det,AnchorPane root){
+        if(det == 0){
+            QuadCurve ci = new QuadCurve(x, y+110, x+70, y+100, x+60, y+30);
+            ci.setFill(Color.TRANSPARENT);
+            ci.setStroke(Color.BLACK);
+            ci.setStrokeWidth(2);
 
-        QuadCurve ci = new QuadCurve(x, y+110, x+70, y+100, x+70, y+30);
-        ci.setFill(Color.TRANSPARENT);
-        ci.setStroke(Color.BLACK);
-        ci.setStrokeWidth(2);
-
-        CubicCurve cf = new CubicCurve(x+120, y+110, x-80, y+170 ,x+130, y+350,x+70, y+30);
+            root.getChildren().add(ci);
+        }
+        CubicCurve cf = new CubicCurve(x+120, y+110, x-80, y+170 ,x+130, y+350,x+60, y+30);
         cf.setFill(Color.TRANSPARENT);
         cf.setStroke(Color.BLACK);
         cf.setStrokeWidth(2);
 
-        Circle cd1 = new Circle(x+70, y+15, 2);
+        Circle cd1 = new Circle(x+60, y+15, 2);
 
-        root.getChildren().add(ci);
+
         root.getChildren().add(cf);
         root.getChildren().add(cd1);
 
@@ -291,7 +302,7 @@ public class Dibujo {
 
     }
 
-    void LetraK(AnchorPane root){
+    void LetraK(int det,AnchorPane root){
 
         CubicCurve cb1 = new CubicCurve(x, y+110, x+120, y+55-55, x+50, y-40, x+50, y+110);
         cb1.setFill(Color.TRANSPARENT);
@@ -314,28 +325,57 @@ public class Dibujo {
         root.getChildren().add(q1);
 
         x = x+120;
+    }//no
+
+    void LetraL(int det,AnchorPane root){
+        if(det == 0){
+            //curvaA
+            QuadCurve a = new QuadCurve(x,y+110,x+60,y+110,x+55,y+20);
+            a.setFill(Color.TRANSPARENT);
+            a.setStroke(Color.BLACK);
+            a.setStrokeWidth(2);
+
+            //curvaC
+            QuadCurve c = new QuadCurve(x+25,y+20,x+40,y-105,x+55,y+20);
+            c.setFill(Color.TRANSPARENT);
+            c.setStroke(Color.BLACK);
+            c.setStrokeWidth(2);
+
+            root.getChildren().add(a);
+            root.getChildren().add(c);
+        }
+        else{
+            x=x+35;
+            //curvaA
+            QuadCurve a = new QuadCurve(x+25,y+30,x+50,y+20,x+50,y-20);
+            a.setFill(Color.TRANSPARENT);
+            a.setStroke(Color.BLACK);
+            a.setStrokeWidth(2);
+
+            //curvaC
+            QuadCurve c = new QuadCurve(x+25,y+20,x+50,y-140,x+50,y-20);
+            c.setFill(Color.TRANSPARENT);
+            c.setStroke(Color.BLACK);
+            c.setStrokeWidth(2);
+
+
+            root.getChildren().add(a);
+            root.getChildren().add(c);
+        }
+
+        //curvaB
+        QuadCurve b = new QuadCurve(x+80,y+110,x+20,y+110,x+25,y+20);
+        b.setFill(Color.TRANSPARENT);
+        b.setStroke(Color.BLACK);
+        b.setStrokeWidth(2);
+
+        root.getChildren().add(b);
+
+        x = x+80;
+
     }
 
-    void LetraL(AnchorPane root){
-
-        CubicCurve c1 = new CubicCurve(x, y+110, x+130, y+70, x+50, y-20,x+50, y);
-        c1.setFill(Color.TRANSPARENT);
-        c1.setStroke(Color.BLACK);
-        c1.setStrokeWidth(2);
-
-        QuadCurve qv1 = new QuadCurve(x+50, y, x+60, y+110,x+120, y+110);
-        qv1.setFill(Color.TRANSPARENT);
-        qv1.setStroke(Color.BLACK);
-        qv1.setStrokeWidth(2);
-
-
-        root.getChildren().add(c1);
-        root.getChildren().add(qv1);
-
-        x = x+120;
-    }
-
-    void LetraM(AnchorPane root){
+    void LetraM(int det,AnchorPane root){
 
         CubicCurve cb1 = new CubicCurve(x, y+110, x+20, y+110, x+25, y-50,x+30, y+110);
         cb1.setFill(Color.TRANSPARENT);
@@ -357,9 +397,9 @@ public class Dibujo {
         root.getChildren().add(qv1);
 
         x = x+120;
-    }
+    }//
 
-    void LetraN(AnchorPane root){
+    void LetraN(int det,AnchorPane root){
 
         QuadCurve cn1 = new QuadCurve(x+20,y+50, x+20, y+110, x,y+110);
         cn1.setFill(Color.TRANSPARENT);
@@ -381,9 +421,9 @@ public class Dibujo {
         root.getChildren().add(cb);
 
         x = x+120;
-    }
+    }//no
 
-    void LetraN_(AnchorPane root){
+    void LetraN_(int det,AnchorPane root){
 
         QuadCurve cn1 = new QuadCurve(x+20,y+50, x+20, y+110, x,y+110);
         cn1.setFill(Color.TRANSPARENT);
@@ -411,7 +451,7 @@ public class Dibujo {
         root.getChildren().add(ft);
 
         x = x+120;
-    }
+    }//no
 
     void LetraO(int det,AnchorPane root){
         Circle cd1 = new Circle(x+60, y+70, 40);
@@ -438,12 +478,15 @@ public class Dibujo {
         x = x+85;
     }
 
-    void LetraP(AnchorPane root){
+    void LetraP(int det,AnchorPane root){
+        if(det == 0){
+            QuadCurve af = new QuadCurve(x+20,y+82, x+20, y+110, x,y+110);
+            af.setFill(Color.TRANSPARENT);
+            af.setStroke(Color.BLACK);
+            af.setStrokeWidth(2);
 
-        QuadCurve af = new QuadCurve(x+20,y+82, x+20, y+110, x,y+110);
-        af.setFill(Color.TRANSPARENT);
-        af.setStroke(Color.BLACK);
-        af.setStrokeWidth(2);
+            root.getChildren().add(af);
+        }
 
         Circle cd1 = new Circle(x+60, y+70, 40);
         cd1.setFill(Color.TRANSPARENT);
@@ -455,12 +498,12 @@ public class Dibujo {
         l1.setStroke(Color.BLACK);
         l1.setStrokeWidth(2);
 
-        QuadCurve b = new QuadCurve(x+100,y+78, x+100, y+110,x+120,y+110);
+        QuadCurve b = new QuadCurve(x+90,y+97, x+87, y+113,x+120,y+110);
         b.setFill(Color.TRANSPARENT);
         b.setStroke(Color.BLACK);
         b.setStrokeWidth(2);
 
-        root.getChildren().add(af);
+
         root.getChildren().add(cd1);
         root.getChildren().add(l1);
         root.getChildren().add(b);
@@ -468,13 +511,15 @@ public class Dibujo {
         x = x+120;
     }
 
-    void LetraQ(AnchorPane root){
+    void LetraQ(int det,AnchorPane root){
+        if(det == 0){
+            QuadCurve af = new QuadCurve(x+30,y+97, x+20, y+110, x,y+110);
+            af.setFill(Color.TRANSPARENT);
+            af.setStroke(Color.BLACK);
+            af.setStrokeWidth(2);
 
-        QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
-        af.setFill(Color.TRANSPARENT);
-        af.setStroke(Color.BLACK);
-        af.setStrokeWidth(2);
-
+            root.getChildren().add(af);
+        }
         Circle cd1 = new Circle(x+60, y+70, 40);
         cd1.setFill(Color.TRANSPARENT);
         cd1.setStroke(Color.BLACK);
@@ -490,7 +535,6 @@ public class Dibujo {
         b.setStroke(Color.BLACK);
         b.setStrokeWidth(2);
 
-        root.getChildren().add(af);
         root.getChildren().add(cd1);
         root.getChildren().add(l1);
         root.getChildren().add(b);
@@ -498,7 +542,7 @@ public class Dibujo {
         x = x+120;
     }
 
-    void LetraR(AnchorPane root){
+    void LetraR(int det,AnchorPane root){
         //CurvaA
         QuadCurve a = new QuadCurve(x+20,y+35, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -528,7 +572,7 @@ public class Dibujo {
 
     }
 
-    void LetraS(AnchorPane root){
+    void LetraS(int det,AnchorPane root){
 
         //CurvaA
         QuadCurve a = new QuadCurve(x+20,y+35, x+25, y+110,x,y+110);
@@ -573,10 +617,10 @@ public class Dibujo {
 
     }
 
-    void LetraT(AnchorPane root){
+    void LetraT(int det,AnchorPane root){
 
         //CurvaA
-        QuadCurve a = new QuadCurve(x+30,y, x+30, y+110,x,y+110);
+        QuadCurve a = new QuadCurve(x+30,y-40, x+30, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
         a.setStroke(Color.BLACK);
         a.setStrokeWidth(2);
@@ -649,7 +693,7 @@ public class Dibujo {
         x=x+110;
     }
 
-    void LetraV(AnchorPane root){
+    void LetraV(int det,AnchorPane root){
 
         //curvaA
         QuadCurve a = new QuadCurve(x+25,y+50, x+25, y+110,x,y+110);
@@ -699,7 +743,7 @@ public class Dibujo {
         x=x+100;
     }
 
-    void LetraW(AnchorPane root){
+    void LetraW(int det,AnchorPane root){
         //curvaA
         QuadCurve a = new QuadCurve(x+25,y+50, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -762,7 +806,7 @@ public class Dibujo {
         x=x+150;
     }
 
-    void LetraX(AnchorPane root){
+    void LetraX(int det,AnchorPane root){
         //curva a
         QuadCurve a = new QuadCurve(x+100,y+40, x+40, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -783,7 +827,7 @@ public class Dibujo {
         x=x+125;
     }
 
-    void LetraY(AnchorPane root){
+    void LetraY(int det,AnchorPane root){
         //curvaA
         QuadCurve a = new QuadCurve(x+25,y+50, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -855,7 +899,7 @@ public class Dibujo {
 
     }
 
-    void LetraZ(AnchorPane root){
+    void LetraZ(int det,AnchorPane root){
         //curvaA
         QuadCurve a = new QuadCurve(x+20,y+30, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);

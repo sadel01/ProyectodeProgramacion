@@ -25,7 +25,8 @@ public class Controlador extends Dibujo{
 
     @FXML
     void obtenerLetra() {
-        String palabra = CuadroTexto.getText();
+        //String palabra = CuadroTexto.getText();
+        String palabra = "vr ror wrn";
 
 
         for (int i = 0; i < palabra.length(); i++) {
@@ -34,141 +35,87 @@ public class Controlador extends Dibujo{
             }
             else{
                 if(palabra.charAt(i) == 'a'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'  ){
-                            LetraA(1,root);//se hace la letra a sin la primera curva
-                        }
-                        else{
-                            LetraA(0,root);// se hace la letra a con la curva
-                        }
-                    }
-                    else{
-                        LetraA(0,root);// se hace la letra a con la curva
-                    }
+                    LetraA(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='b'){
-                    LetraB(root);
+                    LetraB(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='c'){
-                    LetraC(root);
+                    LetraC(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='d'){
-                    LetraD(root);
+                    LetraD(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'e'){
-                    if(i >= 1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'){
-                            LetraE(1,root);
-                        }
-                        else{
-                            LetraE(0,root);
-                        }
-                    }
-                    else{
-                        LetraE(0,root);
-                    }
+                    LetraE(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='f'){
-                    LetraF(root);
+                    LetraF(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='g'){
-                    LetraG(root);
+                    LetraG(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='h'){
-                    LetraH(root);
+                    LetraH(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'i'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'){
-                            LetraI(1,root);
-                        }
-                        else{
-                            LetraI(0,root);
-                        }
-                    }
-                    else{
-                        LetraI(0,root);
-                    }
+                    LetraI(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='j'){
-                    LetraJ(root);
+                    LetraJ(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'k'){
-                    LetraK(root);
+                    LetraK(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'l'){
-                    LetraL(root);
+                    LetraL(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'm'){
-                    LetraM(root);
+                    LetraM(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'n'){
-                    LetraN(root);
+                    LetraN(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'ñ'){
-                    LetraN_(root);
+                    LetraN_(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'o'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'){
-                            LetraO(1,root);
-                        }
-                        else{
-                            LetraO(0,root);
-                        }
-
-                    }
-                    else{
-                        LetraO(0,root);
-                    }
-
+                    LetraO(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'p'){
-                    LetraP(root);
+                    LetraP(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'q'){
-                    LetraQ(root);
+                    LetraQ(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='r'){
-                    LetraR(root);
+                    LetraR(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='s'){
-                    LetraS(root);
+                    LetraS(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i)=='t'){
-                    LetraT(root);
+                    LetraT(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'u'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'  ){
-                            LetraU(1,root);//se hace la letra u sin la primera curva
-                        }
-                        else{
-                            LetraU(0,root);// se hace la letra u con la curva
-                        }
-                    }
-                    else{
-                        LetraU(0,root);// se hace la letra u con la curva
-                    }
+                    LetraU(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'v'){
-                    LetraV(root);
+                    LetraV(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'w'){
-                    LetraW(root);
+                    LetraW(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'x'){
-                    LetraX(root);
+                    LetraX(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'y'){
-                    LetraY(root);
+                    LetraY(Det(palabra,i),root);
                 }
                 if(palabra.charAt(i) == 'z'){
-                    LetraZ(root);
+                    LetraZ(Det(palabra,i),root);
                 }
-
             }
-
         }
     }
 
@@ -207,6 +154,19 @@ public class Controlador extends Dibujo{
         root.getChildren().add(l2);
         root.getChildren().add(l3);
         root.getChildren().add(l4);
+    }
+    int Det(String palabra, int i){
+        if(i>=1){
+            if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'  ){
+                return 1;// letra con una 'v','o' o 'w' antes
+            }
+            else{
+                return 0;
+            }
+        }
+        else{
+            return 0;
+        }
     }
 
 
