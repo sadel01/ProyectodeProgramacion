@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>codigo</groupId>
-    <artifactId>ProyectoProgramacion</artifactId>
+    <artifactId>proyecto</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ProyectoProgramacion</name>
+    <name>ProyectodeProgramacion</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,8 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>codigo.proyectoprogramacion/codigo.proyectoprogramacion.HelloApplication
-                            </mainClass>
+                            <mainClass>codigo.proyecto/codigo.proyecto.Ventana</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
