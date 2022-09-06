@@ -1,8 +1,8 @@
-module codigo.proyectoprogramacion {
+module codigo.proyecto {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens codigo.proyectoprogramacion to javafx.fxml;
-    exports codigo.proyectoprogramacion;
+    opens codigo.proyecto to javafx.fxml;
+    exports codigo.proyecto;
 }
