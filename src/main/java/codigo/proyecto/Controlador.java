@@ -25,8 +25,8 @@ public class Controlador extends Dibujo{
 
     @FXML
     void obtenerLetra() {
-        //String palabra = CuadroTexto.getText();
-        String palabra = "vr ror wrn";
+        String palabra = CuadroTexto.getText();
+        //String palabra = "vr ror wrn";
 
 
         for (int i = 0; i < palabra.length(); i++) {
