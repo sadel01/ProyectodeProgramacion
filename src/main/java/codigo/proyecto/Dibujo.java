@@ -1,11 +1,5 @@
 package codigo.proyecto;
 
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -13,180 +7,13 @@ import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 
-public class Letras {
-
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    private AnchorPane root;
-
-    @FXML
-    private TextField CuadroTexto;
-
-    @FXML
-    void obtenerLetra() {
-        String palabra = CuadroTexto.getText();
-
-
-        for (int i = 0; i < palabra.length(); i++) {
-            if(palabra.charAt(i)==' '){
-                x = x+85;
-            }
-            else{
-                if(palabra.charAt(i) == 'a'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'  ){
-                            LetraA(1);//se hace la letra a sin la primera curva
-                        }
-                        else{
-                            LetraA(0);// se hace la letra a con la curva
-                        }
-                    }
-                    else{
-                        LetraA(0);// se hace la letra a con la curva
-                    }
-                }
-                if(palabra.charAt(i)=='b'){
-                    LetraB();
-                }
-                if(palabra.charAt(i)=='c'){
-                    LetraC();
-                }
-                if(palabra.charAt(i)=='d'){
-                    LetraD();
-                }
-                if(palabra.charAt(i) == 'e'){
-                    if(i >= 1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'){
-                            LetraE(1);
-                        }
-                        else{
-                            LetraE(0);
-                        }
-                    }
-                    else{
-                        LetraE(0);
-                    }
-                }
-                if(palabra.charAt(i)=='f'){
-                    LetraF();
-                }
-                if(palabra.charAt(i)=='g'){
-                    LetraG();
-                }
-                if(palabra.charAt(i)=='h'){
-                    LetraH();
-                }
-                if(palabra.charAt(i) == 'i'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'){
-                            LetraI(1);
-                        }
-                        else{
-                            LetraI(0);
-                        }
-                    }
-                    else{
-                        LetraI(0);
-                    }
-                }
-                if(palabra.charAt(i)=='j'){
-                    LetraJ();
-                }
-                if(palabra.charAt(i) == 'k'){
-                    LetraK();
-                }
-                if(palabra.charAt(i) == 'l'){
-                    LetraL();
-                }
-                if(palabra.charAt(i) == 'm'){
-                    LetraM();
-                }
-                if(palabra.charAt(i) == 'n'){
-                    LetraN();
-                }
-                if(palabra.charAt(i) == 'ñ'){
-                    LetraN_();
-                }
-                if(palabra.charAt(i) == 'o'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'){
-                            LetraO(1);
-                        }
-                        else{
-                            LetraO(0);
-                        }
-
-                    }
-                    else{
-                        LetraO(0);
-                    }
-
-                }
-                if(palabra.charAt(i) == 'p'){
-                    LetraP();
-                }
-                if(palabra.charAt(i) == 'q'){
-                    LetraQ();
-                }
-                if(palabra.charAt(i)=='r'){
-                    LetraR();
-                }
-                if(palabra.charAt(i)=='s'){
-                    LetraS();
-                }
-                if(palabra.charAt(i)=='t'){
-                    LetraT();
-                }
-                if(palabra.charAt(i) == 'u'){
-                    if(i>=1){
-                        if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'  ){
-                            LetraU(1);//se hace la letra u sin la primera curva
-                        }
-                        else{
-                            LetraU(0);// se hace la letra u con la curva
-                        }
-                    }
-                    else{
-                        LetraU(0);// se hace la letra u con la curva
-                    }
-                }
-                if(palabra.charAt(i) == 'v'){
-                    LetraV();
-                }
-                if(palabra.charAt(i) == 'w'){
-                    LetraW();
-                }
-                if(palabra.charAt(i) == 'x'){
-                    LetraX();
-                }
-                if(palabra.charAt(i) == 'y'){
-                    LetraY();
-                }
-                if(palabra.charAt(i) == 'z'){
-                    LetraZ();
-                }
-
-            }
-
-        }
-    }
-
-    @FXML
-    void BorrarPalabra(MouseEvent event) {
-        root.getChildren().clear();
-        CuadroTexto.clear();
-        x = 50;
-        y = 250;
-    }
-
+public class Dibujo {
 
     int x = 50;
     int y = 250;
 
 
-    void LetraA(int det) {
+    void LetraA(int det, AnchorPane root) {
         Circle cd1 = new Circle(x+60, y+70, 40);
         cd1.setFill(Color.TRANSPARENT);
         cd1.setStroke(Color.BLACK);
@@ -210,7 +37,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraB(){
+    void LetraB(AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -241,7 +68,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraC(){
+    void LetraC(AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -266,7 +93,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraD(){
+    void LetraD(AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -296,7 +123,7 @@ public class Letras {
 
     }
 
-    void LetraE(int det){
+    void LetraE(int det,AnchorPane root){
         if(det == 0){
             CubicCurve c1 = new CubicCurve(x, y+110, x+130, y+70, x+50, y-20,x+50, y+50);
             c1.setFill(Color.TRANSPARENT);
@@ -330,8 +157,7 @@ public class Letras {
         x = x+120;
     }
 
-
-    void LetraF(){
+    void LetraF(AnchorPane root){
 
 
         CubicCurve c1 = new CubicCurve(x+30, y+210, x+10, y-70, x+180, y+60, x, y+110);
@@ -354,7 +180,7 @@ public class Letras {
 
     }
 
-    void LetraG(){
+    void LetraG(AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -379,7 +205,7 @@ public class Letras {
 
     }
 
-    void LetraH(){
+    void LetraH(AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -409,7 +235,7 @@ public class Letras {
 
     }
 
-    void LetraI(int det){
+    void LetraI(int det,AnchorPane root){
         if(det == 0){
             //curvaA
             QuadCurve a = new QuadCurve(x+20,y+30, x+25, y+110,x,y+110);
@@ -443,7 +269,7 @@ public class Letras {
 
     }
 
-    void LetraJ(){
+    void LetraJ(AnchorPane root){
 
         QuadCurve ci = new QuadCurve(x, y+110, x+70, y+100, x+70, y+30);
         ci.setFill(Color.TRANSPARENT);
@@ -465,9 +291,7 @@ public class Letras {
 
     }
 
-
-
-    void LetraK(){
+    void LetraK(AnchorPane root){
 
         CubicCurve cb1 = new CubicCurve(x, y+110, x+120, y+55-55, x+50, y-40, x+50, y+110);
         cb1.setFill(Color.TRANSPARENT);
@@ -492,7 +316,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraL(){
+    void LetraL(AnchorPane root){
 
         CubicCurve c1 = new CubicCurve(x, y+110, x+130, y+70, x+50, y-20,x+50, y);
         c1.setFill(Color.TRANSPARENT);
@@ -511,7 +335,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraM(){
+    void LetraM(AnchorPane root){
 
         CubicCurve cb1 = new CubicCurve(x, y+110, x+20, y+110, x+25, y-50,x+30, y+110);
         cb1.setFill(Color.TRANSPARENT);
@@ -535,7 +359,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraN(){
+    void LetraN(AnchorPane root){
 
         QuadCurve cn1 = new QuadCurve(x+20,y+50, x+20, y+110, x,y+110);
         cn1.setFill(Color.TRANSPARENT);
@@ -559,7 +383,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraN_(){
+    void LetraN_(AnchorPane root){
 
         QuadCurve cn1 = new QuadCurve(x+20,y+50, x+20, y+110, x,y+110);
         cn1.setFill(Color.TRANSPARENT);
@@ -589,7 +413,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraO(int det){
+    void LetraO(int det,AnchorPane root){
         Circle cd1 = new Circle(x+60, y+70, 40);
         cd1.setFill(Color.TRANSPARENT);
         cd1.setStroke(Color.BLACK);
@@ -614,7 +438,7 @@ public class Letras {
         x = x+85;
     }
 
-    void LetraP(){
+    void LetraP(AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+82, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -644,7 +468,7 @@ public class Letras {
         x = x+120;
     }
 
-    void LetraQ(){
+    void LetraQ(AnchorPane root){
 
         QuadCurve af = new QuadCurve(x+20,y+78, x+20, y+110, x,y+110);
         af.setFill(Color.TRANSPARENT);
@@ -673,7 +497,8 @@ public class Letras {
 
         x = x+120;
     }
-    void LetraR(){
+
+    void LetraR(AnchorPane root){
         //CurvaA
         QuadCurve a = new QuadCurve(x+20,y+35, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -702,7 +527,8 @@ public class Letras {
 
 
     }
-    void LetraS(){
+
+    void LetraS(AnchorPane root){
 
         //CurvaA
         QuadCurve a = new QuadCurve(x+20,y+35, x+25, y+110,x,y+110);
@@ -746,7 +572,8 @@ public class Letras {
 
 
     }
-    void LetraT(){
+
+    void LetraT(AnchorPane root){
 
         //CurvaA
         QuadCurve a = new QuadCurve(x+30,y, x+30, y+110,x,y+110);
@@ -776,7 +603,8 @@ public class Letras {
 
 
     }
-    void LetraU(int det){
+
+    void LetraU(int det,AnchorPane root){
         if(det == 0){
             //curvaA
             QuadCurve a = new QuadCurve(x+20,y+30, x+25, y+110,x,y+110);
@@ -820,7 +648,8 @@ public class Letras {
         //largo de letra i
         x=x+110;
     }
-    void LetraV(){
+
+    void LetraV(AnchorPane root){
 
         //curvaA
         QuadCurve a = new QuadCurve(x+25,y+50, x+25, y+110,x,y+110);
@@ -869,7 +698,8 @@ public class Letras {
         //espacioLetra v
         x=x+100;
     }
-    void LetraW(){
+
+    void LetraW(AnchorPane root){
         //curvaA
         QuadCurve a = new QuadCurve(x+25,y+50, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -931,7 +761,8 @@ public class Letras {
         //espacioLetra v
         x=x+150;
     }
-    void LetraX(){
+
+    void LetraX(AnchorPane root){
         //curva a
         QuadCurve a = new QuadCurve(x+100,y+40, x+40, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -951,7 +782,8 @@ public class Letras {
         //tamañoLetra x
         x=x+125;
     }
-    void LetraY(){
+
+    void LetraY(AnchorPane root){
         //curvaA
         QuadCurve a = new QuadCurve(x+25,y+50, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -1022,7 +854,8 @@ public class Letras {
         x=x+130;
 
     }
-    void LetraZ(){
+
+    void LetraZ(AnchorPane root){
         //curvaA
         QuadCurve a = new QuadCurve(x+20,y+30, x+25, y+110,x,y+110);
         a.setFill(Color.TRANSPARENT);
@@ -1071,36 +904,4 @@ public class Letras {
         //largo de z
         x=x+130;
     }
-
-    void cuadrado() {
-
-        Line l1 = new Line(x, y, x, y+110);
-        Line l2 = new Line(x, y, x+120, y);
-        Line l3 = new Line(x+120, y, x+120, y+110);
-        Line l4 = new Line(x+120, y+110, x, y+110);
-
-        l1.setFill(Color.TRANSPARENT);
-        l1.setStroke(Color.BLUE);
-        l1.setStrokeWidth(2);
-
-        l2.setFill(Color.TRANSPARENT);
-        l2.setStroke(Color.BLUE);
-        l2.setStrokeWidth(2);
-
-        l3.setFill(Color.TRANSPARENT);
-        l3.setStroke(Color.BLUE);
-        l3.setStrokeWidth(2);
-
-        l4.setFill(Color.TRANSPARENT);
-        l4.setStroke(Color.BLUE);
-        l4.setStrokeWidth(2);
-
-        root.getChildren().add(l1);
-        root.getChildren().add(l2);
-        root.getChildren().add(l3);
-        root.getChildren().add(l4);
-    }
-
-
-
 }
