@@ -24,7 +24,7 @@ public class Controlador extends Dibujo{
     private TextField CuadroTexto;
 
     @FXML
-    void obtenerLetra() {
+    void obtenerLetra(MouseEvent event) {
         String palabra = CuadroTexto.getText();
         //String palabra = "vr ror wrn";
 
