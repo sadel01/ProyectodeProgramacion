@@ -1,7 +1,6 @@
 package codigo.proyecto;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,7 +12,7 @@ import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 
-public class Letras {
+public class Controlador {
 
     @FXML
     private Label welcomeText;
