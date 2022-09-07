@@ -28,12 +28,12 @@ public class Controlador extends Dibujo{
         String palabra = CuadroTexto.getText();
         //String palabra = "vr ror wrn";
 
-
         for (int i = 0; i < palabra.length(); i++) {
             if(palabra.charAt(i)==' '){
                 x = x+85;
             }
             else{
+                //cuadrado();
                 if(palabra.charAt(i) == 'a'){
                     LetraA(Det(palabra,i),root);
                 }
