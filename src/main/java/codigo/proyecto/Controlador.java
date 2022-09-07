@@ -64,6 +64,9 @@ public class Controlador extends Dibujo{
                 if(palabra.charAt(i)=='j'){
                     LetraJ(Det(palabra,i),root);
                 }
+                if(palabra.charAt(i)=='J') {
+                    LetraJ_M(root);
+                }
                 if(palabra.charAt(i) == 'k'){
                     LetraK(Det(palabra,i),root);
                 }

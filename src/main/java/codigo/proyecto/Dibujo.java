@@ -1,4 +1,4 @@
-package codigo.proyecto;
+package codigo.proyecto; // K L M N Ñ O P Q
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -327,6 +327,35 @@ public class Dibujo {
 
         x = x+120;
 
+    }
+
+    void LetraJ_M(AnchorPane root) {
+        QuadCurve qv1 = new QuadCurve(x+20, y+10, x-50, y-30, x+80, y-40); //
+        qv1.setFill(Color.TRANSPARENT);
+        qv1.setStroke(Color.BLACK);
+        qv1.setStrokeWidth(2);
+
+        CubicCurve cb1 = new CubicCurve(x+80, y-40,x+120, y-50, x+60, y-200, x+60, y+180);
+        cb1.setFill(Color.TRANSPARENT);
+        cb1.setStroke(Color.BLACK);
+        cb1.setStrokeWidth(2);
+
+        CubicCurve cb2 = new CubicCurve(x+60, y+180,x+60, y+250, x-60, y+130, x+70, y+115);
+        cb2.setFill(Color.TRANSPARENT);
+        cb2.setStroke(Color.BLACK);
+        cb2.setStrokeWidth(2);
+
+        QuadCurve qv2 = new QuadCurve(x+70, y+115, x+90, y+110, x+120, y+110);
+        qv2.setFill(Color.TRANSPARENT);
+        qv2.setStroke(Color.BLACK);
+        qv2.setStrokeWidth(2);
+
+        root.getChildren().add(qv1);
+        root.getChildren().add(cb1);
+        root.getChildren().add(cb2);
+        root.getChildren().add(qv2);
+
+        x=x+120;
     }
 
     void cuadrado(AnchorPane root) {
