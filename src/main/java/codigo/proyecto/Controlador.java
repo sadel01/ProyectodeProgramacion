@@ -25,96 +25,15 @@ public class Controlador extends Dibujo{
 
     @FXML
     void obtenerLetra(MouseEvent event) {
-        String palabra = CuadroTexto.getText();
-        //String palabra = "vr ror wrn";
+        //String palabra = CuadroTexto.getText();
+        String palabra = "rrr";
 
         for (int i = 0; i < palabra.length(); i++) {
             if(palabra.charAt(i)==' '){
                 x = x+85;
             }
             else{
-                //cuadrado();
-                if(palabra.charAt(i) == 'a'){
-                    LetraA(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='b'){
-                    LetraB(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='c'){
-                    LetraC(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='d'){
-                    LetraD(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'e'){
-                    LetraE(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='f'){
-                    LetraF(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='g'){
-                    LetraG(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='h'){
-                    LetraH(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'i'){
-                    LetraI(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='j'){
-                    LetraJ(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'k'){
-                    LetraK(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'l'){
-                    LetraL(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'm'){
-                    LetraM(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'n'){
-                    LetraN(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'ñ'){
-                    LetraN_(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'o'){
-                    LetraO(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'p'){
-                    LetraP(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'q'){
-                    LetraQ(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='r'){
-                    LetraR(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='s'){
-                    LetraS(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i)=='t'){
-                    LetraT(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'u'){
-                    LetraU(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'v'){
-                    LetraV(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'w'){
-                    LetraW(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'x'){
-                    LetraX(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'y'){
-                    LetraY(Det(palabra,i),root);
-                }
-                if(palabra.charAt(i) == 'z'){
-                    LetraZ(Det(palabra,i),root);
-                }
+                Selector(palabra.charAt(i),Det(palabra,i),root);
             }
         }
     }
@@ -129,10 +48,10 @@ public class Controlador extends Dibujo{
 
     void cuadrado() {
 
-        Line l1 = new Line(x, y, x, y+110);
-        Line l2 = new Line(x, y, x+120, y);
-        Line l3 = new Line(x+120, y, x+120, y+110);
-        Line l4 = new Line(x+120, y+110, x, y+110);
+        Line l1 = new Line(x, y, x, y+60);
+        Line l2 = new Line(x, y, x+60, y);
+        Line l3 = new Line(x+60, y, x+60, y+60);
+        Line l4 = new Line(x+60, y+60, x, y+60);
 
         l1.setFill(Color.TRANSPARENT);
         l1.setStroke(Color.BLUE);
@@ -154,6 +73,7 @@ public class Controlador extends Dibujo{
         root.getChildren().add(l2);
         root.getChildren().add(l3);
         root.getChildren().add(l4);
+        x=x+60;
     }
     int Det(String palabra, int i){
         if(i>=1){
