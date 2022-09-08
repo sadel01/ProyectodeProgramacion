@@ -39,6 +39,8 @@ public class Dibujo {
         root.getChildren().add(lc);
         root.getChildren().add(ld);*/
 
+         */
+
         if(letra == 'a'){
             Circle cd1 = new Circle(x+60, y+70, 40);
             cd1.setFill(Color.TRANSPARENT);
@@ -336,32 +338,27 @@ public class Dibujo {
             x = x+32;
         }
         if(letra =='k'){
-            QuadCurve qv1 = new QuadCurve(x, y+110, x+50, y+110, x+50, y+40); //Curva izquierda (conector)
-            qv1.setFill(Color.TRANSPARENT);
-            qv1.setStroke(Color.BLACK);
-            qv1.setStrokeWidth(grosor);
 
-            CubicCurve cb1 = new CubicCurve(x+40, y+50,x+100, y+20, x+70, y-200, x+50, y+40); //"l" superior
+            CubicCurve cb1 = new CubicCurve(x+5, y,x+40, y, x, y-150, x+2, y+50); //"l" superior
             cb1.setFill(Color.TRANSPARENT);
             cb1.setStroke(Color.BLACK);
             cb1.setStrokeWidth(grosor);
 
-            CubicCurve cb2 = new CubicCurve(x+50, y+40,x+90, y, x+130, y+60, x+60, y+70); //Semi ovalo
+            CubicCurve cb2 = new CubicCurve(x+3, y+18,x+10, y-10, x+45, y+20, x+20, y+30); //Semi ovalo
             cb2.setFill(Color.TRANSPARENT);
             cb2.setStroke(Color.BLACK);
             cb2.setStrokeWidth(grosor);
 
-            CubicCurve cb3 = new CubicCurve(x+60, y+70,x+90, y+110, x+120, y+110, x+120, y+110);  //Curva derecha (conector)
+            CubicCurve cb3 = new CubicCurve(x+20, y+30,x+40, y+72, x+50, y+50, x+58, y+15);  //Curva derecha (conector)
             cb3.setFill(Color.TRANSPARENT);
             cb3.setStroke(Color.BLACK);
             cb3.setStrokeWidth(grosor);
 
             root.getChildren().add(cb1);
-            root.getChildren().add(qv1);
             root.getChildren().add(cb2);
             root.getChildren().add(cb3);
 
-            x = x+120;
+            x = x+57;
         }
         if(letra =='l'){
             if(det == 0){
