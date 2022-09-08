@@ -26,7 +26,7 @@ public class Controlador extends Dibujo{
     @FXML
     void obtenerLetra(MouseEvent event) {
         //String palabra = CuadroTexto.getText();
-        String palabra = "rrr";
+        String palabra = "jrkkrjkj";
 
         for (int i = 0; i < palabra.length(); i++) {
             if(palabra.charAt(i)==' '){
@@ -75,6 +75,7 @@ public class Controlador extends Dibujo{
         root.getChildren().add(l4);
         x=x+60;
     }
+
     int Det(String palabra, int i){
         if(i>=1){
             if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'  ){
@@ -88,7 +89,4 @@ public class Controlador extends Dibujo{
             return 0;
         }
     }
-
-
-
 }
