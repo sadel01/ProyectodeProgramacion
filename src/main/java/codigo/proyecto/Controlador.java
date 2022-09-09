@@ -25,8 +25,8 @@ public class Controlador extends Dibujo{
 
     @FXML
     void obtenerLetra(MouseEvent event) {
-        //String palabra = CuadroTexto.getText();
-        String palabra = "qo qr qp qk qj";
+        String palabra = CuadroTexto.getText();
+        //String palabra = "rstuvwxyz";
 
         for (int i = 0; i < palabra.length(); i++) {
             //cuadrado();
