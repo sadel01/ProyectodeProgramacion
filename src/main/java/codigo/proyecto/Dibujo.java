@@ -13,11 +13,6 @@ public class Dibujo {
     int y = 300;
     int grosor = 4;
     public void Selector(char letra, int det, AnchorPane root){
-        /*Line la= new Line(x, y, x, y+50);
-        Line lb = new Line(x, y, x+60, y);
-        Line lc = new Line(x+60, y, x+60, y+50);
-        Line ld = new Line(x+60, y+50, x, y+50);
-
         if(letra == 'a'){
             Circle cd1 = new Circle(x+60, y+70, 40);
             cd1.setFill(Color.TRANSPARENT);
@@ -470,14 +465,22 @@ public class Dibujo {
             cb1.setStroke(Color.BLACK);
             cb1.setStrokeWidth(grosor);
 
-            CubicCurve cb2 = new CubicCurve(x+25, y+50, x, y+38, x+40, y+38, x+55, y+15); //Curva principal
+            CubicCurve cb2 = new CubicCurve(x+25, y+50, x, y+60, x, y+30, x+30, y+35); //Curva principal
             cb2.setFill(Color.TRANSPARENT);
             cb2.setStroke(Color.BLACK);
             cb2.setStrokeWidth(grosor);
 
+            QuadCurve d = new QuadCurve(x+30, y+35,x+40,y+30,x+55,y+15);
+            d.setFill(Color.TRANSPARENT);
+            d.setStroke(Color.BLACK);
+            d.setStrokeWidth(grosor);
+
             root.getChildren().add(qv1);
             root.getChildren().add(cb1);
             root.getChildren().add(cb2);
+            root.getChildren().add(d);
+
+
 
             x = x + 55;
 
