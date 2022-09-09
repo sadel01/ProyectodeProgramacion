@@ -29,6 +29,7 @@ public class Controlador extends Dibujo{
         //String palabra = "rstuvwxyz";
 
         for (int i = 0; i < palabra.length(); i++) {
+            //cuadrado();
             if(palabra.charAt(i)==' '){
                 x = x+85;
             }
@@ -48,32 +49,31 @@ public class Controlador extends Dibujo{
 
     void cuadrado() {
 
-        Line l1 = new Line(x, y, x, y+60);
-        Line l2 = new Line(x, y, x+60, y);
-        Line l3 = new Line(x+60, y, x+60, y+60);
-        Line l4 = new Line(x+60, y+60, x, y+60);
+        Line la= new Line(x, y, x, y+50);
+        Line lb = new Line(x, y, x+60, y);
+        Line lc = new Line(x+60, y, x+60, y+50);
+        Line ld = new Line(x+60, y+50, x, y+50);
 
-        l1.setFill(Color.TRANSPARENT);
-        l1.setStroke(Color.BLUE);
-        l1.setStrokeWidth(2);
+        la.setFill(Color.TRANSPARENT);
+        la.setStroke(Color.BLUE);
+        la.setStrokeWidth(grosor);
 
-        l2.setFill(Color.TRANSPARENT);
-        l2.setStroke(Color.BLUE);
-        l2.setStrokeWidth(2);
+        lb.setFill(Color.TRANSPARENT);
+        lb.setStroke(Color.BLUE);
+        lb.setStrokeWidth(grosor);
 
-        l3.setFill(Color.TRANSPARENT);
-        l3.setStroke(Color.BLUE);
-        l3.setStrokeWidth(2);
+        lc.setFill(Color.TRANSPARENT);
+        lc.setStroke(Color.BLUE);
+        lc.setStrokeWidth(grosor);
 
-        l4.setFill(Color.TRANSPARENT);
-        l4.setStroke(Color.BLUE);
-        l4.setStrokeWidth(2);
+        ld.setFill(Color.TRANSPARENT);
+        ld.setStroke(Color.BLUE);
+        ld.setStrokeWidth(grosor);
 
-        root.getChildren().add(l1);
-        root.getChildren().add(l2);
-        root.getChildren().add(l3);
-        root.getChildren().add(l4);
-        x=x+60;
+        root.getChildren().add(la);
+        root.getChildren().add(lb);
+        root.getChildren().add(lc);
+        root.getChildren().add(ld);
     }
 
     int Det(String palabra, int i){
