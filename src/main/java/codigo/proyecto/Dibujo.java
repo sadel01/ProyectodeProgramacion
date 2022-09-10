@@ -38,7 +38,7 @@ public class Dibujo {
                 c.setStroke(Color.BLACK);
                 c.setStrokeWidth(grosor);
 
-                CubicCurve c2 = new CubicCurve(x+30, y-50, x+50, y-60, x+40, y+100, x+60, y+15); // DER
+                CubicCurve c2 = new CubicCurve(x+30, y-50, x+50, y-60, x+40, y+120, x+65, y+15); // DER
                 c2.setFill(Color.TRANSPARENT);
                 c2.setStroke(Color.BLACK);
                 c2.setStrokeWidth(grosor);
@@ -53,7 +53,7 @@ public class Dibujo {
                 root.getChildren().add(c3);
             }
 
-            x = x+60;
+            x = x+65;
 
         }
         if(letra == 'b' || letra == 'B'){
