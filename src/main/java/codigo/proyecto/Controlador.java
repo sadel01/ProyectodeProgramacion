@@ -37,6 +37,7 @@ public class Controlador extends Dibujo implements Initializable {
     @FXML
     void obtenerLetra(MouseEvent event) {
         String palabra = CuadroTexto.getText();
+        //String palabra = "Hola";
 
         for (int i = 0; i < palabra.length(); i++) {
             //cuadrado();
@@ -95,10 +96,10 @@ public class Controlador extends Dibujo implements Initializable {
 
     void cuadrado() {
 
-        Line la= new Line(x, y, x, y+50);
-        Line lb = new Line(x, y, x+60, y);
-        Line lc = new Line(x+60, y, x+60, y+50);
-        Line ld = new Line(x+60, y+50, x, y+50);
+        Line la= new Line(x, y-50, x, y+50);
+        Line lb = new Line(x, y-50, x+80, y-50);
+        Line lc = new Line(x+80, y-50, x+80, y+50);
+        Line ld = new Line(x+80, y+50, x, y+50);
 
         la.setFill(Color.TRANSPARENT);
         la.setStroke(Color.BLUE);
