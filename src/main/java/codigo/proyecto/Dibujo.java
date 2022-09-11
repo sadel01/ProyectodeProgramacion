@@ -1,4 +1,4 @@
-package codigo.proyecto; // K L M N Ñ O P Q
+package codigo.proyecto; 
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -146,8 +146,6 @@ public class Dibujo {
 
 
         }
-
-
         if(letra == 'c' || letra == 'C'){
 
             if(letra == 'c'){
@@ -190,7 +188,6 @@ public class Dibujo {
             }
 
         }
-
         if(letra == 'd' || letra == 'D'){
 
             if (letra == 'd'){
@@ -336,7 +333,6 @@ public class Dibujo {
 
 
         }
-
         if(letra =='g' || letra =='G'){
 
             if (letra == 'g'){
@@ -390,7 +386,6 @@ public class Dibujo {
             }
 
         }
-
         if(letra =='h' || letra == 'H'){
 
             if(letra == 'h'){
@@ -444,8 +439,6 @@ public class Dibujo {
                 x = x+70;
             }
         }
-
-
         if(letra =='i' || letra == 'I'){
 
             if (letra == 'i'){
@@ -483,74 +476,146 @@ public class Dibujo {
 
 
         }
+        if(letra =='j' || letra == 'J'){
+            if (letra == 'j'){
+                CubicCurve cb1 = new CubicCurve(x - 15, y + 65, x - 15, y + 50, x + 30, y + 35, x + 30, y + 15); //"l" superior
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(Color.BLACK);
+                cb1.setStrokeWidth(grosor);
 
-        if(letra =='j'){
-            CubicCurve cb1 = new CubicCurve(x-15, y+65,x-15, y+50, x+30, y+35, x+30, y+15); //"l" superior
-            cb1.setFill(Color.TRANSPARENT);
-            cb1.setStroke(color);
-            cb1.setStrokeWidth(grosor);
+                root.getChildren().add(cb1);
 
-            root.getChildren().add(cb1);
+                CubicCurve cb2 = new CubicCurve(x, y + 70, x - 5, y + 95, x - 20, y + 85, x - 15, y + 65); //Semi ovalo
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(Color.BLACK);
+                cb2.setStrokeWidth(grosor);
 
-            CubicCurve cb2 = new CubicCurve(x, y+70,x-5, y+95, x-20, y+85, x-15, y+65); //Semi ovalo
-            cb2.setFill(Color.TRANSPARENT);
-            cb2.setStroke(color);
-            cb2.setStrokeWidth(grosor);
+                root.getChildren().add(cb2);
 
-            root.getChildren().add(cb2);
+                CubicCurve cb3 = new CubicCurve(x, y, x - 1, y + 20, x + 5, y + 60, x, y + 70); //"l" superior
+                cb3.setFill(Color.TRANSPARENT);
+                cb3.setStroke(Color.BLACK);
+                cb3.setStrokeWidth(grosor);
 
-            CubicCurve cb3 = new CubicCurve(x, y,x-1, y+20, x+5, y+60, x, y+70); //"l" superior
-            cb3.setFill(Color.TRANSPARENT);
-            cb3.setStroke(color);
-            cb3.setStrokeWidth(grosor);
+                root.getChildren().add(cb3);
 
-            root.getChildren().add(cb3);
+                Circle cd1 = new Circle(x, y - 10, grosor);
 
-            Circle cd1 = new Circle(x, y-10, grosor);
+                root.getChildren().add(cd1);
 
-            root.getChildren().add(cd1);
+                x = x + 30;
+            }
+            else{
+                QuadCurve qv1 = new QuadCurve(x, y-40,x+20,y-50,x+50,y-40);
+                qv1.setFill(Color.TRANSPARENT);
+                qv1.setStroke(Color.BLACK);
+                qv1.setStrokeWidth(grosor);
 
-            x = x+30;
+                CubicCurve cb1 = new CubicCurve(x+50, y-40,x+70, y-40, x+30, y-120, x+50, y+40); //"l" superior
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(Color.BLACK);
+                cb1.setStrokeWidth(grosor);
+
+                CubicCurve cb2 = new CubicCurve(x+50, y+41,x+40, y+55, x+10, y+60, x+5, y+40); //Semi ovalo
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(Color.BLACK);
+                cb2.setStrokeWidth(grosor);
+
+                root.getChildren().add(qv1);
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
+
+                x = x + 50;
+            }
         }
-        if(letra =='k'){
+        if(letra == 'k' || letra == 'K'){
 
-            CubicCurve cb1 = new CubicCurve(x+2, y,x+37, y, x-3, y-150, x-1, y+50); //"l" superior
-            cb1.setFill(Color.TRANSPARENT);
-            cb1.setStroke(color);
-            cb1.setStrokeWidth(grosor);
+            if (letra == 'k') {
+                CubicCurve cb1 = new CubicCurve(x+2, y,x+37, y, x-3, y-150, x-1, y+50); //"l" superior
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(Color.BLACK);
+                cb1.setStrokeWidth(grosor);
 
-            CubicCurve cb2 = new CubicCurve(x, y+18,x+7, y-10, x+42, y+20, x+17, y+30); //Semi ovalo
-            cb2.setFill(Color.TRANSPARENT);
-            cb2.setStroke(color);
-            cb2.setStrokeWidth(grosor);
+                CubicCurve cb2 = new CubicCurve(x, y+18,x+7, y-10, x+42, y+20, x+17, y+30); //Semi ovalo
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(Color.BLACK);
+                cb2.setStrokeWidth(grosor);
 
-            CubicCurve cb3 = new CubicCurve(x+17, y+30,x+37, y+72, x+47, y+50, x+55, y+15);  //Curva derecha (conector)
-            cb3.setFill(Color.TRANSPARENT);
-            cb3.setStroke(color);
-            cb3.setStrokeWidth(grosor);
+                CubicCurve cb3 = new CubicCurve(x+17, y+30,x+37, y+72, x+47, y+50, x+55, y+15);  //Curva derecha (conector)
+                cb3.setFill(Color.TRANSPARENT);
+                cb3.setStroke(Color.BLACK);
+                cb3.setStrokeWidth(grosor);
 
-            root.getChildren().add(cb1);
-            root.getChildren().add(cb2);
-            root.getChildren().add(cb3);
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
+                root.getChildren().add(cb3);
 
-            x = x+55;
+                x = x+55;
+            }
+            else{
+                CubicCurve cb1 = new CubicCurve(x, y-20, x+40, y-120, x+40, y+80, x+10, y+40); // primera curva hacia
+                // abajo
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(color);
+                cb1.setStrokeWidth(grosor);
+
+                CubicCurve cb2 = new CubicCurve(x+10, y+40,x-20, y, x+60, y, x+60, y-50); //Semi ovalo
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(Color.BLACK);
+                cb2.setStrokeWidth(grosor);
+
+                CubicCurve cb3 = new CubicCurve(x+33, y-5,x+60, y-10, x+60, y+115, x+80, y+15);  //Curva derecha (conector)
+                cb3.setFill(Color.TRANSPARENT);
+                cb3.setStroke(Color.BLACK);
+                cb3.setStrokeWidth(grosor);
+
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
+                root.getChildren().add(cb3);
+
+                x = x +80;
+            }
+
         }
-        if(letra =='l'){
+        if(letra =='l' || letra == 'L'){
+            if (letra == 'l') {
+                CubicCurve cb1 = new CubicCurve(x, y + 15, x + 37, y - 40, x - 3, y - 120, x - 1, y + 40); //Curva principal
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(color);
+                cb1.setStrokeWidth(grosor);
 
-            CubicCurve cb1 = new CubicCurve(x, y+15,x+37, y-40, x-3, y-120, x-1, y+40); //Curva principal
-            cb1.setFill(Color.TRANSPARENT);
-            cb1.setStroke(color);
-            cb1.setStrokeWidth(grosor);
+                CubicCurve cb2 = new CubicCurve(x - 1, y + 40, x, y + 60, x + 20, y + 60, x + 30, y + 15);  //Curva derecha (conector)
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(color);
+                cb2.setStrokeWidth(grosor);
 
-            CubicCurve cb2 = new CubicCurve(x-1, y+40,x, y+60, x+20, y+60, x+30, y+15);  //Curva derecha (conector)
-            cb2.setFill(Color.TRANSPARENT);
-            cb2.setStroke(color);
-            cb2.setStrokeWidth(grosor);
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
 
-            root.getChildren().add(cb1);
-            root.getChildren().add(cb2);
+                x = x + 30;
+            }
+            else{
+                CubicCurve cb1 = new CubicCurve(x, y+15, x+80, y-80, x+5, y-60, x+15, y-5); //Curva principal
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(color);
+                cb1.setStrokeWidth(grosor);
 
-            x = x+30;
+                CubicCurve cb2 = new CubicCurve(x+15, y-5,x+15, y+100, x-30, y+10, x+20, y+50); //Semi ovalo
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(Color.BLACK);
+                cb2.setStrokeWidth(grosor);
+
+                QuadCurve qv1 = new QuadCurve(x+20, y+50,x+45,y+60,x+50,y+15);
+                qv1.setFill(Color.TRANSPARENT);
+                qv1.setStroke(Color.BLACK);
+                qv1.setStrokeWidth(grosor);
+
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
+                root.getChildren().add(qv1);
+
+                x = x + 50;
+            }
         }
         if(letra =='m'){
 
@@ -656,37 +721,52 @@ public class Dibujo {
 
             x = x + 60;
         }
-        if(letra =='p'){
+        if(letra =='p' || letra == 'P'){
+            if (letra == 'p') {
+                QuadCurve qv1 = new QuadCurve(x, y, x - 2, y + 15, x, y + 85);
+                qv1.setFill(Color.TRANSPARENT);
+                qv1.setStroke(color);
+                qv1.setStrokeWidth(grosor);
 
-            QuadCurve qv1 = new QuadCurve(x, y,x-2,y+15,x,y+85);
-            qv1.setFill(Color.TRANSPARENT);
-            qv1.setStroke(color);
-            qv1.setStrokeWidth(grosor);
+                CubicCurve cb1 = new CubicCurve(x + 1, y + 15, x + 40, y - 15, x + 35, y + 50, x + 25, y + 50); //Curva principal
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(color);
+                cb1.setStrokeWidth(grosor);
 
-            CubicCurve cb1 = new CubicCurve(x+1, y+15, x+40, y-15, x+35, y+50, x+25, y+50); //Curva principal
-            cb1.setFill(Color.TRANSPARENT);
-            cb1.setStroke(color);
-            cb1.setStrokeWidth(grosor);
+                CubicCurve cb2 = new CubicCurve(x + 25, y + 50, x, y + 60, x, y + 30, x + 30, y + 35); //Curva principal
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(color);
+                cb2.setStrokeWidth(grosor);
 
-            CubicCurve cb2 = new CubicCurve(x+25, y+50, x, y+60, x, y+30, x+30, y+35); //Curva principal
-            cb2.setFill(Color.TRANSPARENT);
-            cb2.setStroke(color);
-            cb2.setStrokeWidth(grosor);
+                QuadCurve d = new QuadCurve(x + 30, y + 35, x + 40, y + 30, x + 55, y + 15);
+                d.setFill(Color.TRANSPARENT);
+                d.setStroke(color);
+                d.setStrokeWidth(grosor);
 
-            QuadCurve d = new QuadCurve(x+30, y+35,x+40,y+30,x+55,y+15);
-            d.setFill(Color.TRANSPARENT);
-            d.setStroke(color);
-            d.setStrokeWidth(grosor);
+                root.getChildren().add(qv1);
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
+                root.getChildren().add(d);
 
-            root.getChildren().add(qv1);
-            root.getChildren().add(cb1);
-            root.getChildren().add(cb2);
-            root.getChildren().add(d);
+                x = x + 55;
+            }
+            else{
+                CubicCurve cb1 = new CubicCurve(x, y+15, x, y-70, x+30, y-90, x+25, y+85); // primera curva hacia
+                // abajo
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(color);
+                cb1.setStrokeWidth(grosor);
 
+                CubicCurve cb2 = new CubicCurve(x + 24, y-20, x+60, y-110, x+70, y+60, x + 26, y+30); //Curva principal
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(color);
+                cb2.setStrokeWidth(grosor);
 
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
 
-            x = x + 55;
-
+                x = x + 58;
+            }
         }
         if(letra =='q'){
 
