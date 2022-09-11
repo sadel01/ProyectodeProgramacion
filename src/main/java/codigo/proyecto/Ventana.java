@@ -14,6 +14,8 @@ public class Ventana extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Transformador a Script");
         stage.setScene(scene);
+        stage.setMinWidth(1300);
+        stage.setMinHeight(750);
         stage.show();
     }
 
