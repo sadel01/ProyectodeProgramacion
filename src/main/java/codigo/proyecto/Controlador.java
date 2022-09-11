@@ -20,9 +20,6 @@ import java.util.ResourceBundle;
 public class Controlador extends Dibujo implements Initializable {
 
     @FXML
-    private Label welcomeText;
-
-    @FXML
     private AnchorPane root;
 
     @FXML
