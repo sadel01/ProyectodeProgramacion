@@ -17,8 +17,8 @@ public class Dibujo {
     public void SelectorColor(String clr){
         if(clr.equals("Rojo")){
             color = Color.RED;
-        }else if(clr.equals("Amarillo")){
-            color = Color.YELLOW;
+        }else if(clr.equals("Verde")){
+            color = Color.GREEN;
         }else if(clr.equals("Azul")){
             color = Color.BLUE;
         }else if(clr.equals("Negro")){

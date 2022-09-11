@@ -54,9 +54,9 @@ public class Controlador extends Dibujo implements Initializable {
         if(Colores.getValue().equals("Rojo")){
             rectColor.setFill(Color.RED);
             rectColor.setStroke(Color.RED);
-        }else if(Colores.getValue().equals("Amarillo")){
-            rectColor.setFill(Color.YELLOW);
-            rectColor.setStroke(Color.YELLOW);
+        }else if(Colores.getValue().equals("Verde")){
+            rectColor.setFill(Color.GREEN);
+            rectColor.setStroke(Color.GREEN);
         }else if(Colores.getValue().equals("Azul")){
             rectColor.setFill(Color.BLUE);
             rectColor.setStroke(Color.BLUE);
@@ -137,9 +137,10 @@ public class Controlador extends Dibujo implements Initializable {
     }
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Colores.getItems().addAll("Rojo", "Amarillo", "Azul", "Negro", "Gris", "Naranjo", "Violeta", "Morado", "Celeste" , "Rosado");
+        Colores.getItems().addAll("Azul", "Celeste", "Gris", "Morado", "Naranjo", "Negro", "Rojo", "Rosado", "Verde", "Violeta");
         Colores.setValue("Negro");
         Colores.setOnAction(actionEvent -> {SelectorColor(Colores.getValue()); ColorRectangulo();});
     }
