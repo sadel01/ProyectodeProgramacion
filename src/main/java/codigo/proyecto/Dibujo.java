@@ -373,7 +373,7 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                CubicCurve c2 = new CubicCurve(x+25, y, x+35, y+100, x+10, y+100, x+10, y+80);
+                CubicCurve c2 = new CubicCurve(x+25, y, x+35, y+90, x+10, y+90, x+10, y+80);
                 c2.setFill(Color.TRANSPARENT);
                 c2.setStroke(color);
                 c2.setStrokeWidth(grosor);
@@ -674,17 +674,17 @@ public class Dibujo {
                 qv1.setStroke(color);
                 qv1.setStrokeWidth(grosor);
 
-                QuadCurve qv2 = new QuadCurve(x + 8, y + 50, x + 15, y-50, x + 25, y+48);
+                QuadCurve qv2 = new QuadCurve(x + 8, y + 50, x + 15, y-50, x + 28, y+48);
                 qv2.setFill(Color.TRANSPARENT);
                 qv2.setStroke(color);
                 qv2.setStrokeWidth(grosor);
 
-                QuadCurve qv3 = new QuadCurve(x + 25, y + 48, x + 35, y-50, x + 40, y+48);
+                QuadCurve qv3 = new QuadCurve(x + 28, y + 48, x + 40, y-50, x + 48, y+48);
                 qv3.setFill(Color.TRANSPARENT);
                 qv3.setStroke(color);
                 qv3.setStrokeWidth(grosor);
 
-                CubicCurve cb2 = new CubicCurve(x + 40, y+48, x + 40, y+60, x + 55, y + 65, x + 60, y + 15); //Curva principal
+                CubicCurve cb2 = new CubicCurve(x + 48, y+48, x+50, y+60, x + 68, y + 65, x + 70, y + 15); //Curva principal
                 cb2.setFill(Color.TRANSPARENT);
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
@@ -694,7 +694,7 @@ public class Dibujo {
                 root.getChildren().add(qv3);
                 root.getChildren().add(cb2);
 
-                x = x + 60;
+                x = x + 70;
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x+5, y+15, x-15, y-70, x+29, y-85, x+15, y+50); // primera curva hacia
@@ -708,7 +708,7 @@ public class Dibujo {
                 qv1.setStroke(color);
                 qv1.setStrokeWidth(grosor);
 
-                QuadCurve qv2 = new QuadCurve(x+40, y+40, x + 72, y-93, x + 65, y+60);
+                QuadCurve qv2 = new QuadCurve(x+40, y+40, x + 60, y-83, x + 65, y+50);
                 qv2.setFill(Color.TRANSPARENT);
                 qv2.setStroke(color);
                 qv2.setStrokeWidth(grosor);
@@ -768,23 +768,23 @@ public class Dibujo {
                 qv1.setStroke(color);
                 qv1.setStrokeWidth(grosor);
 
-                QuadCurve qv1_5 = new QuadCurve(x + 8, y + 50, x + 5, y + 10, x + 20, y);
-                qv1_5.setFill(Color.TRANSPARENT);
-                qv1_5.setStroke(color);
-                qv1_5.setStrokeWidth(grosor);
+                QuadCurve qv2 = new QuadCurve(x + 8, y + 50, x + 30, y-50, x + 30, y+48);
+                qv2.setFill(Color.TRANSPARENT);
+                qv2.setStroke(color);
+                qv2.setStrokeWidth(grosor);
 
-                CubicCurve cb1 = new CubicCurve(x + 21, y, x + 15, y + 85, x + 30, y + 55, x + 40, y + 15); //Curva principal
+                CubicCurve cb1 = new CubicCurve(x + 30, y+48, x + 30, y+60, x + 45, y + 65, x + 50, y + 15); //Curva principal
                 cb1.setFill(Color.TRANSPARENT);
                 cb1.setStroke(color);
                 cb1.setStrokeWidth(grosor);
 
-                CubicCurve cb2 = new CubicCurve(x + 5, y - 15, x + 10, y - 25, x + 15, y - 5, x + 20, y - 15);
+                CubicCurve cb2 = new CubicCurve(x + 15, y - 15, x + 20, y - 25, x + 25, y - 5, x + 30, y - 15);
                 cb2.setFill(Color.TRANSPARENT);
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
 
                 root.getChildren().add(qv1);
-                root.getChildren().add(qv1_5);
+                root.getChildren().add(qv2);
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
 
@@ -824,20 +824,26 @@ public class Dibujo {
 
                     root.getChildren().add(tilde);
                 }
-                Circle cd1 = new Circle(x + 23, y + 25, 25);
-                cd1.setFill(Color.TRANSPARENT);
-                cd1.setStroke(color);
-                cd1.setStrokeWidth(grosor);
+                CubicCurve cb1 = new CubicCurve(x, y+20, x, y+60, x + 30, y + 60, x + 30, y + 20); //Curva principal
+                cb1.setFill(Color.TRANSPARENT);
+                cb1.setStroke(color);
+                cb1.setStrokeWidth(grosor);
 
-                QuadCurve qv1 = new QuadCurve(x + 10, y + 5, x + 30, y + 40, x + 60, y + 15);
+                CubicCurve cb2 = new CubicCurve(x + 30, y+20, x + 30, y-5, x, y-5, x, y+20);
+                cb2.setFill(Color.TRANSPARENT);
+                cb2.setStroke(color);
+                cb2.setStrokeWidth(grosor);
+
+                QuadCurve qv1 = new QuadCurve(x+5, y+6, x + 30, y + 50, x + 50, y + 15);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
                 qv1.setStrokeWidth(grosor);
 
-                root.getChildren().add(cd1);
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
                 root.getChildren().add(qv1);
 
-                x = x + 60;
+                x = x + 50;
             }
             else{
                 if(letra == 'Ó'){
@@ -1422,12 +1428,12 @@ public class Dibujo {
                 a.setStrokeWidth(grosor);
 
                 //CurvaB
-                CubicCurve b = new CubicCurve(x+24,y,x+24,y+140,x-40,y+105,x+24,y+50);
+                CubicCurve b = new CubicCurve(x+24,y,x+35,y+113,x-40,y+98,x+24,y+50);
                 b.setFill(Color.TRANSPARENT);
                 b.setStroke(color);
                 b.setStrokeWidth(grosor);
 
-                QuadCurve c = new QuadCurve(x+23,y+50, x+35, y+50,x+45,y+15);
+                QuadCurve c = new QuadCurve(x+23,y+51, x+35, y+50,x+45,y+15);
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
@@ -1438,7 +1444,7 @@ public class Dibujo {
                 root.getChildren().add(c);
 
                 //espacioLetra v
-                x=x+46;
+                x=x+45;
             }
             else{
                 //curvaA
