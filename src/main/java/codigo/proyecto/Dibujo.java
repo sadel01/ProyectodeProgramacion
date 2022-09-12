@@ -38,7 +38,7 @@ public class Dibujo {
         }
     }
 
-    public void Selector(char letra, int det, AnchorPane root){
+    public void Selector(char letra, AnchorPane root){
 
         if(letra == 'a' || letra == 'A'){
 
