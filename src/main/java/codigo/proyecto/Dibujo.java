@@ -548,6 +548,8 @@ public class Dibujo {
                 root.getChildren().add(cb3);
 
                 Circle cd1 = new Circle(x, y - 10, grosor);
+                cd1.setFill(color);
+                cd1.setStroke(color);
 
                 root.getChildren().add(cd1);
 
