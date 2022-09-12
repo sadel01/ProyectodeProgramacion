@@ -38,11 +38,19 @@ public class Dibujo {
         }
     }
 
-    public void Selector(char letra, int det, AnchorPane root){
+    public void Selector(char letra, AnchorPane root){
 
-        if(letra == 'a' || letra == 'A'){
+        if(letra == 'a' || letra == 'A' || letra == 'á' || letra == 'Á') {
+            if(letra == 'a' || letra == 'á'){
+                if(letra == 'á'){
+                    Line tilde = new Line(x+15,y-10,x+30,y-30);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
 
-            if(letra == 'a'){
+                    root.getChildren().add(tilde);
+                }
+
                 CubicCurve c= new CubicCurve(x+30, y+10, x-5, y-30, x-20, y+85, x+25, y+30);
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
@@ -60,6 +68,14 @@ public class Dibujo {
                 x = x+60;
 
             }else{
+                if(letra == 'Á'){
+                    Line tilde = new Line(x+30,y-60,x+45,y-80);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
 
                 CubicCurve c = new CubicCurve(x, y+50, x+20, y+60, x+20, y-50, x+30, y-50); // IZQ
                 c.setFill(Color.TRANSPARENT);
@@ -165,17 +181,17 @@ public class Dibujo {
                 x = x+60;
             }else{
 
-                CubicCurve c = new CubicCurve(x+20, y-40, x, y-10, x+10, y+110, x+60, y+15); // C
+                CubicCurve c = new CubicCurve(x+20, y-40, x-25, y-10, x+10, y+110, x+60, y+15); // C
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                CubicCurve c2 = new CubicCurve(x+20, y-40, x+30, y-60, x+60, y-50, x+10, y);
+                CubicCurve c2 = new CubicCurve(x+20, y-40, x+30+15, y-60, x+60+15, y-50+15, x+10, y);
                 c2.setFill(Color.TRANSPARENT);
                 c2.setStroke(color);
                 c2.setStrokeWidth(grosor);
 
-                CubicCurve c3 = new CubicCurve(x+10, y, x-20, y+10, x, y-30, x+10, y-40);
+                CubicCurve c3 = new CubicCurve(x+10, y, x-20, y+10, x-20, y-30, x, y-40);
                 c3.setFill(Color.TRANSPARENT);
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
@@ -238,9 +254,17 @@ public class Dibujo {
 
 
         }
-        if(letra == 'e' || letra == 'E'){
+        if(letra == 'e' || letra == 'E' || letra == 'é' || letra == 'É'){
 
-            if (letra == 'e'){
+            if (letra == 'e' || letra == 'é'){
+                if(letra == 'é'){
+                    Line tilde = new Line(x+30,y-10,x+45,y-30);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
                 CubicCurve b = new CubicCurve(x, y+25, x-5, y-20, x+50, y, x+5, y+30);
                 b.setFill(Color.TRANSPARENT);
                 b.setStroke(color);
@@ -256,6 +280,14 @@ public class Dibujo {
 
                 x = x+50;
             }else{
+                if(letra == 'É'){
+                    Line tilde = new Line(x+30,y-60,x+45,y-80);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
                 CubicCurve c2 = new CubicCurve(x+25, y-10, x-20, y-10, x, y+120, x+60, y+15);
                 c2.setFill(Color.TRANSPARENT);
                 c2.setStroke(color);
@@ -439,24 +471,40 @@ public class Dibujo {
                 x = x+70;
             }
         }
-        if(letra == 'i' || letra == 'I'){
+        if(letra == 'i' || letra == 'I' || letra == 'í' || letra == 'Í'){
 
-            if (letra == 'i'){
-                Circle p = new Circle(x+2, y-10, 2);
-                p.setFill(Color.TRANSPARENT);
-                p.setStroke(color);
-                p.setStrokeWidth(grosor);
+            if (letra == 'i' || letra == 'í'){
+                if(letra == 'í'){
+                    Line tilde = new Line(x,y-10,x+15,y-30);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
 
-                CubicCurve c = new CubicCurve(x+2, y, x-5, y+80, x+30, y+40, x+40, y+15);
+                    root.getChildren().add(tilde);
+                }
+                else{
+                    Circle p = new Circle(x+2, y-10, 2);
+                    p.setFill(Color.TRANSPARENT);
+                    p.setStroke(color);
+                    p.setStrokeWidth(grosor);
+
+                    root.getChildren().add(p);
+                }
+                CubicCurve c = new CubicCurve(x+2, y, x-10, y+80, x+30, y+40, x+40, y+15);
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
-
                 root.getChildren().add(c);
-                root.getChildren().add(p);
-
                 x = x+40;
             }else{
+                if(letra == 'Í'){
+                    Line tilde = new Line(x+30,y-60,x+45,y-80);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
                 CubicCurve c = new CubicCurve(x+25, y-20, x+20, y-70, x+60, y-60, x+40, y+30); // primera curva hacia
                 // abajo
                 c.setFill(Color.TRANSPARENT);
@@ -770,8 +818,16 @@ public class Dibujo {
                 x = x + 55;
             }
         }
-        if(letra == 'o' || letra == 'O'){
-            if (letra == 'o') {
+        if(letra == 'o' || letra == 'O' || letra == 'ó' || letra == 'Ó'){
+            if (letra == 'o' || letra == 'ó') {
+                if(letra == 'ó'){
+                    Line tilde = new Line(x+20,y-10,x+35,y-30);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
                 Circle cd1 = new Circle(x + 23, y + 25, 25);
                 cd1.setFill(Color.TRANSPARENT);
                 cd1.setStroke(color);
@@ -788,6 +844,14 @@ public class Dibujo {
                 x = x + 60;
             }
             else{
+                if(letra == 'Ó'){
+                    Line tilde = new Line(x+20,y-60,x+35,y-80);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
                 CubicCurve cb1 = new CubicCurve(x+13, y-10, x, y+70, x+57, y+70, x+57, y-10); //Curva principal
                 cb1.setFill(Color.TRANSPARENT);
                 cb1.setStroke(color);
@@ -1031,7 +1095,7 @@ public class Dibujo {
         if(letra == 't' || letra == 'T'){
             if(letra == 't'){
                 //CurvaA
-                CubicCurve a = new CubicCurve(x+10,y-50,x-20,y,x+15,y+100,x+30,y+15);
+                CubicCurve a = new CubicCurve(x+10,y-40,x-15,y,x+15,y+100,x+30,y+15);
                 a.setFill(Color.TRANSPARENT);
                 a.setStroke(color);
                 a.setStrokeWidth(grosor);
@@ -1073,8 +1137,31 @@ public class Dibujo {
 
             }
         }
-        if(letra == 'u' || letra == 'U'){
-            if(letra == 'u'){
+        if(letra == 'u' || letra == 'U' ||letra == 'ü' || letra =='Ü' || letra == 'ú' || letra == 'Ú' ){
+            if(letra == 'u' || letra == 'ü' || letra == 'ú'){
+                if(letra == 'ü'){
+                    Circle p = new Circle(x+2, y-10, 2);
+                    p.setFill(Color.TRANSPARENT);
+                    p.setStroke(color);
+                    p.setStrokeWidth(grosor);
+
+                    Circle p2 = new Circle(x+28, y-10, 2);
+                    p2.setFill(Color.TRANSPARENT);
+                    p2.setStroke(color);
+                    p2.setStrokeWidth(grosor);
+
+                    root.getChildren().add(p);
+                    root.getChildren().add(p2);
+
+                }
+                if(letra == 'ú'){
+                    Line tilde = new Line(x+20,y-10,x+35,y-30);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+2,y,x-6,y+30,x+9,y+80,x+24,y+15);
                 a.setFill(Color.TRANSPARENT);
@@ -1095,6 +1182,28 @@ public class Dibujo {
                 x=x+50;
             }
             else{
+                if(letra == 'Ü'){
+                    Circle p = new Circle(x+2, y-60, 2);
+                    p.setFill(Color.TRANSPARENT);
+                    p.setStroke(color);
+                    p.setStrokeWidth(grosor);
+
+                    Circle p2 = new Circle(x+33, y-60, 2);
+                    p2.setFill(Color.TRANSPARENT);
+                    p2.setStroke(color);
+                    p2.setStrokeWidth(grosor);
+
+                    root.getChildren().add(p);
+                    root.getChildren().add(p2);
+                }
+                if(letra == 'Ú'){
+                    Line tilde = new Line(x+20,y-60,x+35,y-80);
+                    tilde.setFill(Color.TRANSPARENT);
+                    tilde.setStroke(color);
+                    tilde.setStrokeWidth(grosor);
+
+                    root.getChildren().add(tilde);
+                }
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+2,y-35,x-6,y+30,x+9,y+80,x+24+5,y+15);
                 a.setFill(Color.TRANSPARENT);

@@ -20,9 +20,6 @@ import java.util.ResourceBundle;
 public class Controlador extends Dibujo implements Initializable {
 
     @FXML
-    private Label welcomeText;
-
-    @FXML
     private AnchorPane root;
 
     @FXML
@@ -36,8 +33,8 @@ public class Controlador extends Dibujo implements Initializable {
 
     @FXML
     void obtenerLetra(MouseEvent event) {
-        String palabra = CuadroTexto.getText();
-        //String palabra = "";
+        //String palabra = CuadroTexto.getText();
+        String palabra = "aCá";
 
         for (int i = 0; i < palabra.length(); i++) {
             //cuadrado();
@@ -46,7 +43,7 @@ public class Controlador extends Dibujo implements Initializable {
             }
             else{
                 //cuadrado();
-                Selector(palabra.charAt(i),Det(palabra,i),root);
+                Selector(palabra.charAt(i), root);
             }
         }
     }
@@ -85,7 +82,6 @@ public class Controlador extends Dibujo implements Initializable {
         }
     }
 
-
     @FXML
     void BorrarPalabra(MouseEvent event) {
         root.getChildren().clear();
@@ -93,51 +89,6 @@ public class Controlador extends Dibujo implements Initializable {
         x = 50;
         y = 250;
     }
-
-    void cuadrado() {
-
-        Line la= new Line(x, y-50, x, y+50);
-        Line lb = new Line(x, y-50, x+80, y-50);
-        Line lc = new Line(x+80, y-50, x+80, y+50);
-        Line ld = new Line(x+80, y+50, x, y+50);
-
-        la.setFill(Color.TRANSPARENT);
-        la.setStroke(Color.BLUE);
-        la.setStrokeWidth(grosor);
-
-        lb.setFill(Color.TRANSPARENT);
-        lb.setStroke(Color.BLUE);
-        lb.setStrokeWidth(grosor);
-
-        lc.setFill(Color.TRANSPARENT);
-        lc.setStroke(Color.BLUE);
-        lc.setStrokeWidth(grosor);
-
-        ld.setFill(Color.TRANSPARENT);
-        ld.setStroke(Color.BLUE);
-        ld.setStrokeWidth(grosor);
-
-        root.getChildren().add(la);
-        root.getChildren().add(lb);
-        root.getChildren().add(lc);
-        root.getChildren().add(ld);
-    }
-
-    int Det(String palabra, int i){
-        if(i>=1){
-            if(palabra.charAt(i-1) == 'v' || palabra.charAt(i-1) == 'w' || palabra.charAt(i-1) == 'o'  ){
-                return 1;// letra con una 'v','o' o 'w' antes
-            }
-            else{
-                return 0;
-            }
-        }
-        else{
-            return 0;
-        }
-    }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
