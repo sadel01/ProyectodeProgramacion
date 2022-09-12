@@ -36,8 +36,8 @@ public class Controlador extends Dibujo implements Initializable {
 
     @FXML
     void obtenerLetra(MouseEvent event) {
-        String palabra = CuadroTexto.getText();
-        //String palabra = "";
+        //String palabra = CuadroTexto.getText();
+        String palabra = "aCá";
 
         for (int i = 0; i < palabra.length(); i++) {
             //cuadrado();
