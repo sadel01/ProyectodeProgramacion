@@ -548,6 +548,8 @@ public class Dibujo {
                 root.getChildren().add(cb3);
 
                 Circle cd1 = new Circle(x, y - 10, grosor);
+                cd1.setFill(color);
+                cd1.setStroke(color);
 
                 root.getChildren().add(cd1);
 
@@ -859,7 +861,7 @@ public class Dibujo {
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
 
-                x = x + 57;
+                x = x + 65;
             }
         }
         if(letra == 'p' || letra == 'P'){
@@ -958,7 +960,7 @@ public class Dibujo {
                 root.getChildren().add(cb2);
                 root.getChildren().add(cb3);
 
-                x = x + 57;
+                x = x + 65;
             }
 
         }
