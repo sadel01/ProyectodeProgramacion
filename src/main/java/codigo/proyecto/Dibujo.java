@@ -1073,7 +1073,7 @@ public class Dibujo {
 
             }
         }
-        if(letra == 'u' || letra == 'U'){
+        if(letra == 'u' || letra == 'U' ||letra == 'ü' || letra =='Ü' ){
             if(letra == 'u'){
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+2,y,x-6,y+30,x+9,y+80,x+24,y+15);
@@ -1094,7 +1094,7 @@ public class Dibujo {
                 //largo de letra i
                 x=x+50;
             }
-            else{
+            if(letra == 'U' ){
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+2,y-35,x-6,y+30,x+9,y+80,x+24+5,y+15);
                 a.setFill(Color.TRANSPARENT);
@@ -1117,6 +1117,77 @@ public class Dibujo {
                 root.getChildren().add(a);
                 root.getChildren().add(b);
                 root.getChildren().add(c);
+
+                //largo de letra i
+                x=x+55;
+            }
+            if(letra == 'ü'){
+                //CurvaA
+                CubicCurve a = new CubicCurve(x+2,y,x-6,y+30,x+9,y+80,x+24,y+15);
+                a.setFill(Color.TRANSPARENT);
+                a.setStroke(color);
+                a.setStrokeWidth(grosor);
+
+                //CurvaB
+                CubicCurve b = new CubicCurve(x+28,y,x+18,y+30,x+33,y+100,x+48,y+15);
+                b.setFill(Color.TRANSPARENT);
+                b.setStroke(color);
+                b.setStrokeWidth(grosor);
+
+                Circle p = new Circle(x+2, y-10, 2);
+                p.setFill(Color.TRANSPARENT);
+                p.setStroke(color);
+                p.setStrokeWidth(grosor);
+
+                Circle p2 = new Circle(x+28, y-10, 2);
+                p2.setFill(Color.TRANSPARENT);
+                p2.setStroke(color);
+                p2.setStrokeWidth(grosor);
+
+                //roots
+                root.getChildren().add(a);
+                root.getChildren().add(b);
+                root.getChildren().add(p);
+                root.getChildren().add(p2);
+
+                //largo de letra i
+                x=x+50;
+            }
+            if(letra == 'Ü'){
+                //CurvaA
+                CubicCurve a = new CubicCurve(x+2,y-35,x-6,y+30,x+9,y+80,x+24+5,y+15);
+                a.setFill(Color.TRANSPARENT);
+                a.setStroke(color);
+                a.setStrokeWidth(grosor);
+
+                //CurvaB
+                CubicCurve b = new CubicCurve(x+28+5,y-35,x+18+5,y+30,x+33+5,y+100,x+48+5,y+15);
+                b.setFill(Color.TRANSPARENT);
+                b.setStroke(color);
+                b.setStrokeWidth(grosor);
+
+                //CurvaC
+                CubicCurve c = new CubicCurve(x+2,y-35,x+10,y-60,x-20,y-50,x-20,y-20);
+                c.setFill(Color.TRANSPARENT);
+                c.setStroke(color);
+                c.setStrokeWidth(grosor);
+
+                Circle p = new Circle(x+2, y-60, 2);
+                p.setFill(Color.TRANSPARENT);
+                p.setStroke(color);
+                p.setStrokeWidth(grosor);
+
+                Circle p2 = new Circle(x+33, y-60, 2);
+                p2.setFill(Color.TRANSPARENT);
+                p2.setStroke(color);
+                p2.setStrokeWidth(grosor);
+
+                //roots
+                root.getChildren().add(a);
+                root.getChildren().add(b);
+                root.getChildren().add(c);
+                root.getChildren().add(p);
+                root.getChildren().add(p2);
 
                 //largo de letra i
                 x=x+55;
