@@ -788,7 +788,7 @@ public class Dibujo {
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
 
-                x = x + 40;
+                x = x + 50;
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x+5, y+15, x-15, y-70, x+29, y-85, x+15, y+50); // primera curva hacia
