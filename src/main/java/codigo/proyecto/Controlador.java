@@ -1,26 +1,17 @@
 package codigo.proyecto;
 
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controlador extends Dibujo implements Initializable {
-
-    @FXML
-    private Label welcomeText;
 
     @FXML
     private AnchorPane root;
@@ -35,9 +26,8 @@ public class Controlador extends Dibujo implements Initializable {
     private Rectangle rectColor;
 
     @FXML
-    void obtenerLetra(MouseEvent event) {
-        //String palabra = CuadroTexto.getText();
-        String palabra = "aCá";
+    private void obtenerLetra(MouseEvent event) {
+        String palabra = CuadroTexto.getText();
 
         for (int i = 0; i < palabra.length(); i++) {
             //cuadrado();
@@ -45,13 +35,12 @@ public class Controlador extends Dibujo implements Initializable {
                 x = x+85;
             }
             else{
-                //cuadrado();
                 Selector(palabra.charAt(i), root);
             }
         }
     }
 
-    void ColorRectangulo(){
+    private void ColorRectangulo(){
         if(Colores.getValue().equals("Rojo")){
             rectColor.setFill(Color.RED);
             rectColor.setStroke(Color.RED);
@@ -85,8 +74,37 @@ public class Controlador extends Dibujo implements Initializable {
         }
     }
 
+    void cuadrado() {
+
+        Line l1 = new Line(x, y-50, x, y+50);
+        Line l2 = new Line(x, y-50, x+60, y-50);
+        Line l3 = new Line(x+60, y-50, x+60, y+50);
+        Line l4 = new Line(x+60, y+50, x, y+50);
+
+        l1.setFill(Color.TRANSPARENT);
+        l1.setStroke(Color.BLUE);
+        l1.setStrokeWidth(3);
+
+        l2.setFill(Color.TRANSPARENT);
+        l2.setStroke(Color.BLUE);
+        l2.setStrokeWidth(3);
+
+        l3.setFill(Color.TRANSPARENT);
+        l3.setStroke(Color.BLUE);
+        l3.setStrokeWidth(3);
+
+        l4.setFill(Color.TRANSPARENT);
+        l4.setStroke(Color.BLUE);
+        l4.setStrokeWidth(3);
+
+        root.getChildren().add(l1);
+        root.getChildren().add(l2);
+        root.getChildren().add(l3);
+        root.getChildren().add(l4);
+    }
+
     @FXML
-    void BorrarPalabra(MouseEvent event) {
+    private void BorrarPalabra(MouseEvent event) {
         root.getChildren().clear();
         CuadroTexto.clear();
         x = 50;
