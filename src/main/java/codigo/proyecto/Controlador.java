@@ -76,9 +76,9 @@ public class Controlador extends Dibujo implements Initializable {
 
     void cuadrado() {
 
-        Line l1 = new Line(x, y, x, y+50);
-        Line l2 = new Line(x, y, x+60, y);
-        Line l3 = new Line(x+60, y, x+60, y+50);
+        Line l1 = new Line(x, y-50, x, y+50);
+        Line l2 = new Line(x, y-50, x+60, y-50);
+        Line l3 = new Line(x+60, y-50, x+60, y+50);
         Line l4 = new Line(x+60, y+50, x, y+50);
 
         l1.setFill(Color.TRANSPARENT);
