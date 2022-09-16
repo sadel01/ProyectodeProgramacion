@@ -43,11 +43,11 @@ public class Dibujo {
         }
     }
 
-    public void Selector(char letra, AnchorPane root, TextFlow textoCoord){
+    public void Selector(char caracter, AnchorPane root, TextFlow textoCoord){
 
-        if(letra == 'a' || letra == 'A' || letra == 'á' || letra == 'Á') {
-            if(letra == 'a' || letra == 'á'){
-                if(letra == 'á'){
+        if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
+            if(caracter == 'a' || caracter == 'á'){
+                if(caracter == 'á'){
                     Line tilde = new Line(x+15,y-10,x+30,y-30);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -78,7 +78,7 @@ public class Dibujo {
                 x = x+60;
 
             }else{
-                if(letra == 'Á'){
+                if(caracter == 'Á'){
                     Line tilde = new Line(x+30,y-60,x+45,y-80);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -119,9 +119,9 @@ public class Dibujo {
 
 
         }
-        if(letra == 'b' || letra == 'B'){
+        if(caracter == 'b' || caracter == 'B'){
 
-            if(letra == 'b'){
+            if(caracter == 'b'){
                 CubicCurve cb1 = new CubicCurve(x, y+15, x+70, y-80, x-10, y-80, x, y+50); //"l" superior
                 cb1.setFill(Color.TRANSPARENT);
                 cb1.setStroke(color);
@@ -200,9 +200,9 @@ public class Dibujo {
                 x = x+80;
             }
         }
-        if(letra == 'c' || letra == 'C'){
+        if(caracter == 'c' || caracter == 'C'){
 
-            if(letra == 'c'){
+            if(caracter == 'c'){
                 CubicCurve c = new CubicCurve(x, y+25, x, y-20, x+40, y-5, x+25 , y+15);
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
@@ -258,9 +258,9 @@ public class Dibujo {
             }
 
         }
-        if(letra == 'd' || letra == 'D'){
+        if(caracter == 'd' || caracter == 'D'){
 
-            if (letra == 'd'){
+            if (caracter == 'd'){
                 CubicCurve c = new CubicCurve(x+25, y+15, x-15, y-30, x, y+90, x+25, y+25);
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
@@ -323,10 +323,10 @@ public class Dibujo {
                 x = x+90;
             }
         }
-        if(letra == 'e' || letra == 'E' || letra == 'é' || letra == 'É'){
+        if(caracter == 'e' || caracter == 'E' || caracter == 'é' || caracter == 'É'){
 
-            if (letra == 'e' || letra == 'é'){
-                if(letra == 'é'){
+            if (caracter == 'e' || caracter == 'é'){
+                if(caracter == 'é'){
                     Line tilde = new Line(x+30,y-10,x+45,y-30);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -355,7 +355,7 @@ public class Dibujo {
 
                 x = x+50;
             }else{
-                if(letra == 'É'){
+                if(caracter == 'É'){
                     Line tilde = new Line(x+30,y-60,x+45,y-80);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -394,11 +394,11 @@ public class Dibujo {
                 x = x+60;
             }
 
-            //tamaÃ±o letra
+            //tamaÃ±o caracter
         }
-        if(letra == 'f' || letra == 'F'){
+        if(caracter == 'f' || caracter == 'F'){
 
-            if (letra == 'f'){
+            if (caracter == 'f'){
                 CubicCurve c1 = new CubicCurve(x, y+10, x, y-60, x+60, y-60, x, y+10); // Curva Superior
                 c1.setFill(Color.TRANSPARENT);
                 c1.setStroke(color);
@@ -470,9 +470,9 @@ public class Dibujo {
 
 
         }
-        if(letra == 'g' || letra =='G'){
+        if(caracter == 'g' || caracter =='G'){
 
-            if (letra == 'g'){
+            if (caracter == 'g'){
                 CubicCurve c = new CubicCurve(x+25, y+10, x-10, y-20, x-10, y+70, x+25, y+40); // Circulo
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
@@ -544,9 +544,9 @@ public class Dibujo {
             }
 
         }
-        if(letra == 'h' || letra == 'H'){
+        if(caracter == 'h' || caracter == 'H'){
 
-            if(letra == 'h'){
+            if(caracter == 'h'){
                 CubicCurve c2 = new CubicCurve(x, y+15, x+50, y-50, x-10, y-90, x, y+50); // l
                 c2.setFill(Color.TRANSPARENT);
                 c2.setStroke(color);
@@ -617,10 +617,10 @@ public class Dibujo {
                 x = x+70;
             }
         }
-        if(letra == 'i' || letra == 'I' || letra == 'í' || letra == 'Í'){
+        if(caracter == 'i' || caracter == 'I' || caracter == 'í' || caracter == 'Í'){
 
-            if (letra == 'i' || letra == 'í'){
-                if(letra == 'í'){
+            if (caracter == 'i' || caracter == 'í'){
+                if(caracter == 'í'){
                     Line tilde = new Line(x,y-10,x+15,y-30);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -647,7 +647,7 @@ public class Dibujo {
                 root.getChildren().add(c);
                 x = x+40;
             }else{
-                if(letra == 'Í'){
+                if(caracter == 'Í'){
                     Line tilde = new Line(x+30,y-60,x+45,y-80);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -686,8 +686,8 @@ public class Dibujo {
                 x = x+50;
             }
         }
-        if(letra == 'j' || letra == 'J'){
-            if (letra == 'j'){
+        if(caracter == 'j' || caracter == 'J'){
+            if (caracter == 'j'){
                 CubicCurve cb1 = new CubicCurve(x - 15, y + 65, x - 15, y + 50, x + 30, y + 35, x + 30, y + 15); //"l" superior
                 cb1.setFill(Color.TRANSPARENT);
                 cb1.setStroke(color);
@@ -767,9 +767,9 @@ public class Dibujo {
                 x = x + 50;
             }
         }
-        if(letra == 'k' || letra == 'K'){
+        if(caracter == 'k' || caracter == 'K'){
 
-            if (letra == 'k') {
+            if (caracter == 'k') {
                 CubicCurve cb1 = new CubicCurve(x+2, y,x+37, y, x-3, y-150, x-1, y+50); //"l" superior
                 cb1.setFill(Color.TRANSPARENT);
                 cb1.setStroke(color);
@@ -833,8 +833,8 @@ public class Dibujo {
                 x = x +80;
             }
         }
-        if(letra == 'l' || letra == 'L'){
-            if (letra == 'l') {
+        if(caracter == 'l' || caracter == 'L'){
+            if (caracter == 'l') {
                 CubicCurve cb1 = new CubicCurve(x, y + 15, x + 37, y - 40, x - 3, y - 120, x - 1, y + 40); //Curva principal
                 cb1.setFill(Color.TRANSPARENT);
                 cb1.setStroke(color);
@@ -888,8 +888,8 @@ public class Dibujo {
                 x = x + 50;
             }
         }
-        if(letra == 'm' || letra == 'M'){
-            if (letra == 'm') {
+        if(caracter == 'm' || caracter == 'M'){
+            if (caracter == 'm') {
                 QuadCurve qv1 = new QuadCurve(x, y, x - 1, y + 50, x + 8, y + 50);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
@@ -962,8 +962,8 @@ public class Dibujo {
                 x = x + 78;
             }
         }
-        if(letra == 'n' || letra == 'N'){
-            if (letra == 'n') {
+        if(caracter == 'n' || caracter == 'N'){
+            if (caracter == 'n') {
                 QuadCurve qv1 = new QuadCurve(x, y, x - 1, y + 50, x + 8, y + 50);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
@@ -1018,8 +1018,8 @@ public class Dibujo {
                 x = x + 55;
             }
         }
-        if(letra == 'ñ' || letra == 'Ñ'){
-            if (letra == 'ñ') {
+        if(caracter == 'ñ' || caracter == 'Ñ'){
+            if (caracter == 'ñ') {
                 QuadCurve qv1 = new QuadCurve(x, y, x - 1, y + 50, x + 8, y + 50);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
@@ -1086,9 +1086,9 @@ public class Dibujo {
                 x = x + 55;
             }
         }
-        if(letra == 'o' || letra == 'O' || letra == 'ó' || letra == 'Ó'){
-            if (letra == 'o' || letra == 'ó') {
-                if(letra == 'ó'){
+        if(caracter == 'o' || caracter == 'O' || caracter == 'ó' || caracter == 'Ó'){
+            if (caracter == 'o' || caracter == 'ó') {
+                if(caracter == 'ó'){
                     Line tilde = new Line(x+20,y-10,x+35,y-30);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -1118,7 +1118,7 @@ public class Dibujo {
                 x = x + 50;
             }
             else{
-                if(letra == 'Ó'){
+                if(caracter == 'Ó'){
                     Line tilde = new Line(x+20,y-60,x+35,y-80);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -1142,8 +1142,8 @@ public class Dibujo {
                 x = x + 65;
             }
         }
-        if(letra == 'p' || letra == 'P'){
-            if (letra == 'p') {
+        if(caracter == 'p' || caracter == 'P'){
+            if (caracter == 'p') {
                 QuadCurve qv1 = new QuadCurve(x, y, x - 2, y + 15, x, y + 85);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
@@ -1189,8 +1189,8 @@ public class Dibujo {
                 x = x + 58;
             }
         }
-        if(letra == 'q' || letra == 'Q'){
-            if (letra == 'q') {
+        if(caracter == 'q' || caracter == 'Q'){
+            if (caracter == 'q') {
                 QuadCurve qv1 = new QuadCurve(x + 30, y, x + 28, y + 28, x + 30, y + 85);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
@@ -1242,8 +1242,8 @@ public class Dibujo {
             }
 
         }
-        if(letra == 'r' || letra == 'R' ){
-            if(letra =='r'){
+        if(caracter == 'r' || caracter == 'R' ){
+            if(caracter =='r'){
                 //CurvA
                 CubicCurve a = new CubicCurve(x+9-10,y+10,x+10-10,y-21,x-22-10,y+40,x+30,y);
                 a.setFill(Color.TRANSPARENT);
@@ -1260,7 +1260,7 @@ public class Dibujo {
                 root.getChildren().add(a);
                 root.getChildren().add(b);
 
-                //EspacioDeLetraR
+                //EspacioDecaracterR
                 x= x+55;
             }
             else{
@@ -1304,8 +1304,8 @@ public class Dibujo {
                 x = x +80;
             }
         }
-        if(letra == 's' || letra == 'S'){
-            if(letra =='s'){
+        if(caracter == 's' || caracter == 'S'){
+            if(caracter =='s'){
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+20,y+35,x-40,y-15,x+40,y-15,x,y+10+5);
                 a.setFill(Color.TRANSPARENT);
@@ -1329,7 +1329,7 @@ public class Dibujo {
                 root.getChildren().add(b);
                 root.getChildren().add(c);
 
-                //EspacioLetra s
+                //Espaciocaracter s
                 x = x+40;
             }
             else{
@@ -1366,8 +1366,8 @@ public class Dibujo {
             }
 
         }
-        if(letra == 't' || letra == 'T'){
-            if(letra == 't'){
+        if(caracter == 't' || caracter == 'T'){
+            if(caracter == 't'){
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+10,y-40,x-15,y,x+15,y+100,x+30,y+15);
                 a.setFill(Color.TRANSPARENT);
@@ -1384,7 +1384,7 @@ public class Dibujo {
                 root.getChildren().add(a);
                 root.getChildren().add(b);
 
-                //EspacioLetraT
+                //EspaciocaracterT
                 x=x+30;
             }
             else{
@@ -1411,9 +1411,9 @@ public class Dibujo {
 
             }
         }
-        if(letra == 'u' || letra == 'U' ||letra == 'ü' || letra =='Ü' || letra == 'ú' || letra == 'Ú' ){
-            if(letra == 'u' || letra == 'ü' || letra == 'ú'){
-                if(letra == 'ü'){
+        if(caracter == 'u' || caracter == 'U' ||caracter == 'ü' || caracter =='Ü' || caracter == 'ú' || caracter == 'Ú' ){
+            if(caracter == 'u' || caracter == 'ü' || caracter == 'ú'){
+                if(caracter == 'ü'){
                     Circle p = new Circle(x+2, y-10, 2);
                     p.setFill(Color.TRANSPARENT);
                     p.setStroke(color);
@@ -1428,7 +1428,7 @@ public class Dibujo {
                     root.getChildren().add(p2);
 
                 }
-                if(letra == 'ú'){
+                if(caracter == 'ú'){
                     Line tilde = new Line(x+20,y-10,x+35,y-30);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -1452,11 +1452,11 @@ public class Dibujo {
                 root.getChildren().add(a);
                 root.getChildren().add(b);
 
-                //largo de letra i
+                //largo de caracter i
                 x=x+50;
             }
             else{
-                if(letra == 'Ü'){
+                if(caracter == 'Ü'){
                     Circle p = new Circle(x+2, y-60, 2);
                     p.setFill(Color.TRANSPARENT);
                     p.setStroke(color);
@@ -1470,7 +1470,7 @@ public class Dibujo {
                     root.getChildren().add(p);
                     root.getChildren().add(p2);
                 }
-                if(letra == 'Ú'){
+                if(caracter == 'Ú'){
                     Line tilde = new Line(x+20,y-60,x+35,y-80);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
@@ -1501,12 +1501,12 @@ public class Dibujo {
                 root.getChildren().add(b);
                 root.getChildren().add(c);
 
-                //largo de letra i
+                //largo de caracter i
                 x=x+55;
             }
         }
-        if(letra == 'v' || letra == 'V'){
-            if(letra =='v'){
+        if(caracter == 'v' || caracter == 'V'){
+            if(caracter =='v'){
                 //curvaA
                 CubicCurve a = new CubicCurve(x-3,y, x+10, y+63,x+25,y+63,x+35,y);
                 a.setFill(Color.TRANSPARENT);
@@ -1530,7 +1530,7 @@ public class Dibujo {
                 root.getChildren().add(b);
                 root.getChildren().add(c);
 
-                //espacioLetra v
+                //espaciocaracter v
                 x=x+50;
             }
             else{
@@ -1563,13 +1563,13 @@ public class Dibujo {
                 root.getChildren().add(c);
                 root.getChildren().add(d);
 
-                //espacioLetra v
+                //espaciocaracter v
                 x=x+50;
 
             }
         }
-        if(letra == 'w' || letra == 'W'){
-            if(letra == 'w'){
+        if(caracter == 'w' || caracter == 'W'){
+            if(caracter == 'w'){
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+4,y,x-6,y+30,x+9,y+80,x+24,y+15);
                 a.setFill(Color.TRANSPARENT);
@@ -1599,7 +1599,7 @@ public class Dibujo {
                 root.getChildren().add(c);
                 root.getChildren().add(d);
 
-                //espacioLetra v
+                //espaciocaracter v
                 x=x+65;
 
             }
@@ -1641,8 +1641,8 @@ public class Dibujo {
                 x=x+70;
             }
         }
-        if(letra == 'x' || letra == 'X'){
-            if(letra == 'x' ){
+        if(caracter == 'x' || caracter == 'X'){
+            if(caracter == 'x' ){
                 //curva a
                 CubicCurve a = new CubicCurve(x-3,y+10,x+45,y+100,x+50,y+50,x+60,y+15);
                 a.setFill(Color.TRANSPARENT);
@@ -1659,7 +1659,7 @@ public class Dibujo {
                 root.getChildren().add(a);
                 root.getChildren().add(b);
 
-                //tamaÃ±oLetra x
+                //tamaÃ±ocaracter x
                 x=x+60;
             }
             else{
@@ -1686,13 +1686,13 @@ public class Dibujo {
                 root.getChildren().add(b);
                 root.getChildren().add(c);
 
-                //tamaÃ±oLetra x
+                //tamaÃ±ocaracter x
                 x=x+80;
 
             }
         }
-        if(letra == 'y' || letra == 'Y'){
-            if(letra == 'y'){
+        if(caracter == 'y' || caracter == 'Y'){
+            if(caracter == 'y'){
                 //curvaA
                 CubicCurve a = new CubicCurve(x+2,y,x-6,y+30,x+9,y+80,x+24,y+15);
                 a.setFill(Color.TRANSPARENT);
@@ -1715,7 +1715,7 @@ public class Dibujo {
                 root.getChildren().add(b);
                 root.getChildren().add(c);
 
-                //espacioLetra v
+                //espaciocaracter v
                 x=x+45;
             }
             else{
@@ -1751,8 +1751,8 @@ public class Dibujo {
 
             }
         }
-        if(letra == 'z' || letra == 'Z'){
-            if(letra == 'z' ){
+        if(caracter == 'z' || caracter == 'Z'){
+            if(caracter == 'z' ){
                 //CurvA
                 CubicCurve a = new CubicCurve(x-1,y+10,x,y-21,x-32,y+40,x+40,y);
                 a.setFill(Color.TRANSPARENT);
@@ -1821,8 +1821,8 @@ public class Dibujo {
                 x=x+65;
             }
         }
-        if(letra == '(' || letra == ')'){
-            if (letra == '('){
+        if(caracter == '(' || caracter == ')'){
+            if (caracter == '('){
                 QuadCurve qv1 = new QuadCurve(x+20, y-50, x, y, x+20, y + 50);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
@@ -1843,8 +1843,8 @@ public class Dibujo {
                 x = x + 25;
             }
         }
-        if(letra == '[' || letra == ']'){
-            if (letra == '['){
+        if(caracter == '[' || caracter == ']'){
+            if (caracter == '['){
                 Line l1 = new Line(x, y-50, x, y+50);
                 l1.setFill(Color.TRANSPARENT);
                 l1.setStroke(color);
@@ -1889,8 +1889,8 @@ public class Dibujo {
                 x = x + 35;
             }
         }
-        if(letra == '-' || letra == '_'){
-            if (letra == '-'){
+        if(caracter == '-' || caracter == '_'){
+            if (caracter == '-'){
                 Line l1 = new Line(x+10, y+25, x+40, y+25);
                 l1.setFill(Color.TRANSPARENT);
                 l1.setStroke(color);
@@ -1911,8 +1911,8 @@ public class Dibujo {
                 x = x + 70;
             }
         }
-        if(letra == '<' || letra == '>'){
-            if (letra == '<'){
+        if(caracter == '<' || caracter == '>'){
+            if (caracter == '<'){
                 Line l1 = new Line(x+10, y+25, x+50, y);
                 l1.setFill(Color.TRANSPARENT);
                 l1.setStroke(color);
@@ -1945,9 +1945,9 @@ public class Dibujo {
                 x = x + 65;
             }
         }
-        if(letra == '.' || letra == ','){
+        if(caracter == '.' || caracter == ','){
             Circle cd1;
-            if (letra == '.'){
+            if (caracter == '.'){
                 cd1 = new Circle(x + 10, y + 50, grosor - 1);
                 cd1.setFill(color);
                 cd1.setStroke(color);
@@ -1968,7 +1968,7 @@ public class Dibujo {
             root.getChildren().add(cd1);
             x = x + 20;
         }
-        if(letra == ':' || letra == ';'){
+        if(caracter == ':' || caracter == ';'){
 
             Circle cd1 = new Circle(x + 20, y+10, grosor - 1);
             cd1.setFill(color);
@@ -1978,7 +1978,7 @@ public class Dibujo {
             cd2.setFill(color);
             cd2.setStroke(color);
 
-            if (letra == ';'){
+            if (caracter == ';'){
                 QuadCurve qv1 = new QuadCurve(x+20, y+50, x+19, y+60, x+15, y + 65);
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
@@ -1991,8 +1991,8 @@ public class Dibujo {
             root.getChildren().add(cd2);
             x = x + 30;
         }
-        if(letra == '{' || letra == '}'){
-            if (letra == '{'){
+        if(caracter == '{' || caracter == '}'){
+            if (caracter == '{'){
                 CubicCurve c1 = new CubicCurve(x+25, y-50, x+10, y-50, x+30, y, x+5, y); // Curva Superior
                 c1.setFill(Color.TRANSPARENT);
                 c1.setStroke(color);
@@ -2025,9 +2025,9 @@ public class Dibujo {
                 x = x + 40;
             }
         }
-        if(letra == '"' ||letra =='\''){
+        if(caracter == '"' ||caracter =='\''){
             int rep = 0;
-            if(letra == '\''){
+            if(caracter == '\''){
                rep = 1;
             }
             else{
@@ -2073,8 +2073,8 @@ public class Dibujo {
             }
 
         }
-        if(letra == '¡' || letra == '!'){
-            if(letra == '¡'){
+        if(caracter == '¡' || caracter == '!'){
+            if(caracter == '¡'){
                 Circle a = new Circle(x+10, y, 2);
                 a.setFill(color);
                 a.setStroke(color);
@@ -2118,8 +2118,8 @@ public class Dibujo {
 
             }
         }
-        if(letra == '¿' || letra == '?'){
-            if(letra == '¿'){
+        if(caracter == '¿' || caracter == '?'){
+            if(caracter == '¿'){
                 Circle a = new Circle(x+10, y, 2);
                 a.setFill(color);
                 a.setStroke(color);

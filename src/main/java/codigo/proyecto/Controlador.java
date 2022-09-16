@@ -30,7 +30,6 @@ public class Controlador extends Dibujo implements Initializable {
     @FXML
     private TextFlow textoCoord;
 
-
     @FXML
     private void obtenerLetra(MouseEvent event) {
         String palabra = CuadroTexto.getText();
@@ -45,6 +44,7 @@ public class Controlador extends Dibujo implements Initializable {
             }
         }
     }
+    
     private void ColorRectangulo(){
         if(Colores.getValue().equals("Rojo")){
             rectColor.setFill(Color.RED);
