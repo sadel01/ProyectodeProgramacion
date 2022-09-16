@@ -199,10 +199,6 @@ public class Dibujo {
                 root.getChildren().add(c5);
                 x = x+80;
             }
-
-
-
-
         }
         if(letra == 'c' || letra == 'C'){
 
@@ -280,6 +276,15 @@ public class Dibujo {
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
 
+                Text t1 = new Text("d:\nX1: " + (x+25) + " Y1: " + (y+15) + "\nX2: " + (x+25) + " Y2: " + (y+25) + "\n");
+                Text t2 = new Text("X3: " + (x+25) + " Y3: " + (y+5) + "\nX4: " + (x+25) + " Y4: " + (y-25) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+25) + " Y5: " + (y+25) + "\nX6: " + (x+60) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
@@ -302,15 +307,21 @@ public class Dibujo {
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
 
+                Text t1 = new Text("D:\nX1: " + (x+20) + " Y1: " + (y+10) + "\nX2: " + (x+30) + " Y2: " + (y-50) + "\n");
+                Text t2 = new Text("X3: " + (x+30) + " Y3: " + (y-50) + "\nX4: " + (x+50) + " Y4: " + (y+50) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+50) + " Y5: " + (y+50) + "\nX6: " + (x+30) + " Y6: " + (y-30) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(c1);
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
 
                 x = x+90;
             }
-
-
-
         }
         if(letra == 'e' || letra == 'E' || letra == 'é' || letra == 'É'){
 
@@ -332,6 +343,12 @@ public class Dibujo {
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
+
+                Text t1 = new Text("e:\nX1: " + (x) + " Y1: " + (y+25) + "\nX2: " + (x+2) + " Y2: " + (y+30) + "\n");
+                Text t2 = new Text("X3: " + (x) + " Y3: " + (y+25) + "\nX4: " + (x+50) + " Y4: " + (y+15) + "\n\n");
+                t2.setFill(Color.RED);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
 
                 root.getChildren().add(b);
                 root.getChildren().add(c);
@@ -361,6 +378,15 @@ public class Dibujo {
                 c4.setStroke(color);
                 c4.setStrokeWidth(grosor);
 
+                Text t1 = new Text("E:\nX1: " + (x+25) + " Y1: " + (y-10) + "\nX2: " + (x+60) + " Y2: " + (y+15) + "\n");
+                Text t2 = new Text("X3: " + (x+25) + " Y3: " + (y-10) + "\nX4: " + (x+20) + " Y4: " + (y-50) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+20) + " Y5: " + (y-50) + "\nX6: " + (x) + " Y6: " + (y-50) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
                 root.getChildren().add(c4);
@@ -388,6 +414,15 @@ public class Dibujo {
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
 
+                Text t1 = new Text("f:\nX1: " + (x) + " Y1: " + (y+10) + "\nX2: " + (x) + " Y2: " + (y+10) + "\n");
+                Text t2 = new Text("X3: " + (x) + " Y3: " + (y) + "\nX4: " + (x+2) + " Y4: " + (y+15) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+2) + " Y5: " + (y+25) + "\nX6: " + (x+50) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(c1);
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
@@ -413,6 +448,18 @@ public class Dibujo {
                 c3.setFill(Color.TRANSPARENT);
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
+
+                Text t1 = new Text("F:\nX1: " + (x) + " Y1: " + (y-40) + "\nX2: " + (x+60) + " Y2: " + (y-50) + "\n");
+                Text t2 = new Text("X3: " + (x+30) + " Y3: " + (y-37) + "\nX4: " + (x+10) + " Y4: " + (y+40) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+10) + " Y5: " + (y) + "\nX6: " + (x+40) + " Y6: " + (y) + "\n");
+                t3.setFill(Color.BLUE);
+                Text t4 = new Text("X7: " + (x+10) + " Y7: " + (y+10) + "\nX8: " + (x+50) + " Y8: " + (y+15) + "\n\n");
+                t4.setFill(Color.GREEN);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -441,6 +488,15 @@ public class Dibujo {
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
 
+                Text t1 = new Text("g:\nX1: " + (x+25) + " Y1: " + (y+10) + "\nX2: " + (x+25) + " Y2: " + (y+40) + "\n");
+                Text t2 = new Text("X3: " + (x+25) + " Y3: " + (y) + "\nX4: " + (x+10) + " Y4: " + (y+80) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+10) + " Y5: " + (y+80) + "\nX6: " + (x+60) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
@@ -467,6 +523,18 @@ public class Dibujo {
                 c4.setStroke(color);
                 c4.setStrokeWidth(grosor);
 
+                Text t1 = new Text("G:\nX1: " + (x) + " Y1: " + (y+20) + "\nX2: " + (x+40) + " Y2: " + (y-50) + "\n");
+                Text t2 = new Text("X3: " + (x+40) + " Y3: " + (y-50) + "\nX4: " + (x+59) + " Y4: " + (y+20) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+60) + " Y5: " + (y+10) + "\nX6: " + (x+30) + " Y6: " + (y+80) + "\n");
+                t3.setFill(Color.BLUE);
+                Text t4 = new Text("X7: " + (x+30) + " Y7: " + (y+80) + "\nX8: " + (x+80) + " Y8: " + (y+15) + "\n\n");
+                t4.setFill(Color.GREEN);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
@@ -489,11 +557,19 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-
                 CubicCurve c3 = new CubicCurve(x+25, y+35, x+20, y+55, x+40, y+70, x+50, y+15);
                 c3.setFill(Color.TRANSPARENT);
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
+
+                Text t1 = new Text("h:\nX1: " + (x) + " Y1: " + (y+15) + "\nX2: " + (x) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x) + " Y3: " + (y+40) + "\nX4: " + (x+25) + " Y4: " + (y+35) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+25) + " Y5: " + (y+35) + "\nX6: " + (x+50) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -520,6 +596,18 @@ public class Dibujo {
                 c4.setFill(Color.TRANSPARENT);
                 c4.setStroke(color);
                 c4.setStrokeWidth(grosor);
+
+                Text t1 = new Text("H:\nX1: " + (x) + " Y1: " + (y-40) + "\nX2: " + (x+20) + " Y2: " + (y+40) + "\n");
+                Text t2 = new Text("X3: " + (x+20) + " Y3: " + (y+40) + "\nX4: " + (x+40) + " Y4: " + (y) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+40) + " Y5: " + (y) + "\nX6: " + (x+50) + " Y6: " + (y-50) + "\n");
+                t3.setFill(Color.BLUE);
+                Text t4 = new Text("X7: " + (x+50) + " Y7: " + (y-50) + "\nX8: " + (x+70) + " Y8: " + (y+15) + "\n\n");
+                t4.setFill(Color.GREEN);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -548,6 +636,10 @@ public class Dibujo {
 
                     root.getChildren().add(p);
                 }
+
+                Text t1 = new Text("i:\nX1: " + (x+2) + " Y1: " + (y) + "\nX2: " + (x+40) + " Y2: " + (y+15) + "\n\n");
+                textoCoord.getChildren().add(t1);
+
                 CubicCurve c = new CubicCurve(x+2, y, x-10, y+80, x+30, y+40, x+40, y+15);
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
@@ -574,13 +666,17 @@ public class Dibujo {
                 c2.setStroke(color);
                 c2.setStrokeWidth(grosor);
 
+                Text t1 = new Text("I:\nX1: " + (x+25) + " Y1: " + (y-20) + "\nX2: " + (x+40) + " Y2: " + (y+30) + "\n");
+                Text t2 = new Text("X3: " + (x+40) + " Y3: " + (y+30) + "\nX4: " + (x+35) + " Y4: " + (y+20) + "\n\n");
+                t2.setFill(Color.RED);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
 
                 x = x+60;
             }
-
-
         }
         if(letra == 'j' || letra == 'J'){
             if (letra == 'j'){
@@ -612,6 +708,15 @@ public class Dibujo {
 
                 root.getChildren().add(cd1);
 
+                Text t1 = new Text("j:\nX1: " + (x-15) + " Y1: " + (y+65) + "\nX2: " + (x+30) + " Y2: " + (y+15) + "\n");
+                Text t2 = new Text("X3: " + (x) + " Y3: " + (y+70) + "\nX4: " + (x-15) + " Y4: " + (y+65) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x) + " Y5: " + (y) + "\nX6: " + (x) + " Y6: " + (y+70) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 x = x + 30;
             }
             else{
@@ -629,6 +734,15 @@ public class Dibujo {
                 cb2.setFill(Color.TRANSPARENT);
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
+
+                Text t1 = new Text("J:\nX1: " + (x) + " Y1: " + (y-40) + "\nX2: " + (x+50) + " Y2: " + (y-40) + "\n");
+                Text t2 = new Text("X3: " + (x+50) + " Y3: " + (y-40) + "\nX4: " + (x+50) + " Y4: " + (y+40) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+50) + " Y5: " + (y+41) + "\nX6: " + (x+5) + " Y6: " + (y+40) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
 
                 root.getChildren().add(qv1);
                 root.getChildren().add(cb1);
@@ -655,6 +769,15 @@ public class Dibujo {
                 cb3.setStroke(color);
                 cb3.setStrokeWidth(grosor);
 
+                Text t1 = new Text("k:\nX1: " + (x+2) + " Y1: " + (y) + "\nX2: " + (x-1) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x) + " Y3: " + (y+18) + "\nX4: " + (x+17) + " Y4: " + (y+30) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+17) + " Y5: " + (y+30) + "\nX6: " + (x+55) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
                 root.getChildren().add(cb3);
@@ -678,13 +801,21 @@ public class Dibujo {
                 cb3.setStroke(color);
                 cb3.setStrokeWidth(grosor);
 
+                Text t1 = new Text("K:\nX1: " + (x) + " Y1: " + (y-20) + "\nX2: " + (x+10) + " Y2: " + (y+40) + "\n");
+                Text t2 = new Text("X3: " + (x+10) + " Y3: " + (y+40) + "\nX4: " + (x+60) + " Y4: " + (y-50) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+33) + " Y5: " + (y-5) + "\nX6: " + (x+80) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
                 root.getChildren().add(cb3);
 
                 x = x +80;
             }
-
         }
         if(letra == 'l' || letra == 'L'){
             if (letra == 'l') {
@@ -697,6 +828,12 @@ public class Dibujo {
                 cb2.setFill(Color.TRANSPARENT);
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
+
+                Text t1 = new Text("l:\nX1: " + (x) + " Y1: " + (y+15) + "\nX2: " + (x-1) + " Y2: " + (y+40) + "\n");
+                Text t2 = new Text("X3: " + (x-1) + " Y3: " + (y+40) + "\nX4: " + (x+30) + " Y4: " + (y+15) + "\n\n");
+                t2.setFill(Color.RED);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -718,6 +855,15 @@ public class Dibujo {
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
                 qv1.setStrokeWidth(grosor);
+
+                Text t1 = new Text("L:\nX1: " + (x) + " Y1: " + (y+15) + "\nX2: " + (x+15) + " Y2: " + (y-5) + "\n");
+                Text t2 = new Text("X3: " + (x+15) + " Y3: " + (y-5) + "\nX4: " + (x+20) + " Y4: " + (y+50) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+20) + " Y5: " + (y+50) + "\nX6: " + (x+50) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -748,6 +894,18 @@ public class Dibujo {
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
 
+                Text t1 = new Text("m:\nX1: " + (x) + " Y1: " + (y) + "\nX2: " + (x+8) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x+8) + " Y3: " + (y+50) + "\nX4: " + (x+28) + " Y4: " + (y+48) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+28) + " Y5: " + (y+48) + "\nX6: " + (x+48) + " Y6: " + (y+48) + "\n");
+                t3.setFill(Color.BLUE);
+                Text t4 = new Text("X7: " + (x+48) + " Y7: " + (y+48) + "\nX8: " + (x+70) + " Y8: " + (y+15) + "\n\n");
+                t4.setFill(Color.GREEN);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+
                 root.getChildren().add(qv1);
                 root.getChildren().add(qv2);
                 root.getChildren().add(qv3);
@@ -771,6 +929,15 @@ public class Dibujo {
                 qv2.setFill(Color.TRANSPARENT);
                 qv2.setStroke(color);
                 qv2.setStrokeWidth(grosor);
+
+                Text t1 = new Text("M:\nX1: " + (x+5) + " Y1: " + (y+15) + "\nX2: " + (x+15) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x+15) + " Y3: " + (y+50) + "\nX4: " + (x+40) + " Y4: " + (y+40) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+40) + " Y5: " + (y+40) + "\nX6: " + (x+65) + " Y6: " + (y+50) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(qv1);
@@ -796,6 +963,15 @@ public class Dibujo {
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
 
+                Text t1 = new Text("n:\nX1: " + (x) + " Y1: " + (y) + "\nX2: " + (x+8) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x+8) + " Y3: " + (y+50) + "\nX4: " + (x+30) + " Y4: " + (y+48) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+30) + " Y5: " + (y+48) + "\nX6: " + (x+50) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(qv1);
                 root.getChildren().add(qv2);
                 root.getChildren().add(cb2);
@@ -813,6 +989,12 @@ public class Dibujo {
                 qv1.setFill(Color.TRANSPARENT);
                 qv1.setStroke(color);
                 qv1.setStrokeWidth(grosor);
+
+                Text t1 = new Text("N:\nX1: " + (x+5) + " Y1: " + (y+15) + "\nX2: " + (x+15) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x+15) + " Y3: " + (y+50) + "\nX4: " + (x+45) + " Y4: " + (y+60) + "\n\n");
+                t2.setFill(Color.RED);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(qv1);
@@ -842,6 +1024,15 @@ public class Dibujo {
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
 
+                Text t1 = new Text("ñ:\nX1: " + (x) + " Y1: " + (y) + "\nX2: " + (x+8) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x+8) + " Y3: " + (y+50) + "\nX4: " + (x+30) + " Y4: " + (y+48) + "\n");
+                t2.setFill(Color.RED);
+                Text t3 = new Text("X5: " + (x+30) + " Y5: " + (y+48) + "\nX6: " + (x+50) + " Y6: " + (y+15) + "\n\n");
+                t3.setFill(Color.BLUE);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+
                 root.getChildren().add(qv1);
                 root.getChildren().add(qv2);
                 root.getChildren().add(cb1);
@@ -865,6 +1056,12 @@ public class Dibujo {
                 cb2.setFill(Color.TRANSPARENT);
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
+
+                Text t1 = new Text("Ñ:\nX1: " + (x+5) + " Y1: " + (y+15) + "\nX2: " + (x+15) + " Y2: " + (y+50) + "\n");
+                Text t2 = new Text("X3: " + (x+15) + " Y3: " + (y+50) + "\nX4: " + (x+45) + " Y4: " + (y+60) + "\n\n");
+                t2.setFill(Color.RED);
+                textoCoord.getChildren().add(t1);
+                textoCoord.getChildren().add(t2);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
