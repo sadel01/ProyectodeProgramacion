@@ -8,6 +8,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
+import javafx.scene.text.TextFlow;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,8 +28,13 @@ public class Controlador extends Dibujo implements Initializable {
     private Rectangle rectColor;
 
     @FXML
+    private TextFlow textoCoord;
+
+
+    @FXML
     private void obtenerLetra(MouseEvent event) {
         String palabra = CuadroTexto.getText();
+        textoCoord.setStyle("-fx-font-size: 20px;");
 
         for (int i = 0; i < palabra.length(); i++) {
             //cuadrado();
@@ -35,7 +42,7 @@ public class Controlador extends Dibujo implements Initializable {
                 x = x+85;
             }
             else{
-                Selector(palabra.charAt(i), root);
+                Selector(palabra.charAt(i), root, textoCoord);
             }
         }
     }
@@ -107,6 +114,7 @@ public class Controlador extends Dibujo implements Initializable {
     private void BorrarPalabra(MouseEvent event) {
         root.getChildren().clear();
         CuadroTexto.clear();
+        textoCoord.getChildren().clear();
         x = 50;
         y = 250;
     }
