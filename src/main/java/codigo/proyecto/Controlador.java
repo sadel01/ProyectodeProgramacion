@@ -35,7 +35,6 @@ public class Controlador extends Dibujo implements Initializable {
     private void obtenerLetra(MouseEvent event) {
         String palabra = CuadroTexto.getText();
         textoCoord.setStyle("-fx-font-size: 20px;");
-
         for (int i = 0; i < palabra.length(); i++) {
             //cuadrado();
             if(palabra.charAt(i)==' '){
@@ -46,7 +45,6 @@ public class Controlador extends Dibujo implements Initializable {
             }
         }
     }
-
     private void ColorRectangulo(){
         if(Colores.getValue().equals("Rojo")){
             rectColor.setFill(Color.RED);
