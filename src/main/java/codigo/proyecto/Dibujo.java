@@ -1851,7 +1851,7 @@ public class Dibujo {
                     x = x + 25;
                 }
             }
-            x=x+35;
+            x=x+20;
             if(aux == 0){
                 aux = 1;
             }
@@ -1862,23 +1862,92 @@ public class Dibujo {
         }
         if(letra == '¡' || letra == '!'){
             if(letra == '¡'){
-                Circle a = new Circle();
+                Circle a = new Circle(x+10, y, 2);
                 a.setFill(color);
                 a.setStroke(color);
                 a.setStrokeWidth(grosor);
 
-                QuadCurve b = new QuadCurve(x,y,x,y,x,y);
-                b.setFill(Color.TRANSPARENT);
+                QuadCurve b = new QuadCurve(x+10,y+10,x+5,y+80,x+10,y+80);
+                b.setFill(color);
                 b.setStroke(color);
                 b.setStrokeWidth(grosor);
 
+                QuadCurve c = new QuadCurve(x+10,y+10,x+15,y+80,x+10,y+80);
+                c.setFill(color);
+                c.setStroke(color);
+                c.setStrokeWidth(grosor);
+
                 root.getChildren().add(a);
                 root.getChildren().add(b);
+                root.getChildren().add(c);
+                x = x +25;
             }
             else{
+                Circle a = new Circle(x+10, y+80, 2);
+                a.setFill(color);
+                a.setStroke(color);
+                a.setStrokeWidth(grosor);
+
+                QuadCurve b = new QuadCurve(x+10,y+70,x+5,y,x+10,y);
+                b.setFill(color);
+                b.setStroke(color);
+                b.setStrokeWidth(grosor);
+
+                QuadCurve c = new QuadCurve(x+10,y+70,x+15,y,x+10,y);
+                c.setFill(color);
+                c.setStroke(color);
+                c.setStrokeWidth(grosor);
+
+                root.getChildren().add(a);
+                root.getChildren().add(b);
+                root.getChildren().add(c);
+                x = x +25;
 
             }
         }
-        if(letra == '¿' || letra == '?'){}
+        if(letra == '¿' || letra == '?'){
+            if(letra == '¿'){
+                Circle a = new Circle(x+10, y, 2);
+                a.setFill(color);
+                a.setStroke(color);
+                a.setStrokeWidth(grosor);
+
+                CubicCurve b = new CubicCurve(x+7,y+30,x,y,x+25,y,x,y+50);
+                b.setFill(color);
+                b.setStroke(color);
+                b.setStrokeWidth(grosor);
+
+                CubicCurve c = new CubicCurve(x,y+50,x-15,y+90,x+30,y+90,x+25,y+60);
+                c.setFill(Color.TRANSPARENT);
+                c.setStroke(color);
+                c.setStrokeWidth(grosor);
+
+                root.getChildren().add(a);
+                root.getChildren().add(b);
+                root.getChildren().add(c);
+                x=x+45;
+            }
+            else{
+                Circle a = new Circle(x+30, y+80, 2);
+                a.setFill(color);
+                a.setStroke(color);
+                a.setStrokeWidth(grosor);
+
+                CubicCurve b = new CubicCurve(x+27,y+50,x+20,y+75,x+35,y+80,x+30,y+47);
+                b.setFill(color);
+                b.setStroke(color);
+                b.setStrokeWidth(grosor);
+
+                CubicCurve c = new CubicCurve(x+27,y+50,x+65,y-15,x+5,y-20,x+10,y+20);
+                c.setFill(Color.TRANSPARENT);
+                c.setStroke(color);
+                c.setStrokeWidth(grosor);
+
+                root.getChildren().add(a);
+                root.getChildren().add(b);
+                root.getChildren().add(c);
+                x=x+45;
+            }
+        }
     }
 }
