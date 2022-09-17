@@ -30,21 +30,21 @@ public class Controlador extends Dibujo implements Initializable {
     @FXML
     private TextFlow textoCoord;
 
-
     @FXML
     private void obtenerLetra(MouseEvent event) {
-        String palabra = CuadroTexto.getText();
+        String palabra = ' '+CuadroTexto.getText();
         textoCoord.setStyle("-fx-font-size: 20px;");
-        for (int i = 0; i < palabra.length(); i++) {
+        for (int i = 1; i < palabra.length(); i++) {
             //cuadrado();
             if(palabra.charAt(i)==' '){
                 x = x+85;
             }
             else{
-                Selector(palabra.charAt(i), root, textoCoord);
+                Selector(palabra.charAt(i),palabra.charAt(i-1), root, textoCoord);
             }
         }
     }
+    
     private void ColorRectangulo(){
         if(Colores.getValue().equals("Rojo")){
             rectColor.setFill(Color.RED);
