@@ -43,7 +43,7 @@ public class Dibujo {
         }
     }
 
-    public void Selector(char caracter, AnchorPane root, TextFlow textoCoord){
+    public void Selector(char caracter,char caracterAnt, AnchorPane root, TextFlow textoCoord){
 
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
             if(caracter == 'a' || caracter == 'á'){
@@ -53,7 +53,18 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
+                    Text t1 = new Text(caracter +"\nX1: " + (x+15) + " Y1: " + (y-10) + "\nX2: " + (x+30) + " Y2: " + (y-30) + "\n");
+
+                    t1.setFill(Color.BROWN);
+
+                    textoCoord.getChildren().add(t1);
+
                     root.getChildren().add(tilde);
+                }
+                else{
+                    Text t1 = new Text(caracter+"\n");
+
+                    textoCoord.getChildren().add(t1);
                 }
 
                 CubicCurve c= new CubicCurve(x+30, y+10, x-5, y-30, x-20, y+85, x+25, y+30);
@@ -66,7 +77,7 @@ public class Dibujo {
                 c2.setStroke(color);
                 c2.setStrokeWidth(grosor);
 
-                Text t1 = new Text("a:\nX1: " + (x+30) + " Y1: " + (y+10) + "\nX2: " + (x+25) + " Y2: " + (y+30) + "\n");
+                Text t1 = new Text("X1: " + (x+30) + " Y1: " + (y+10) + "\nX2: " + (x+25) + " Y2: " + (y+30) + "\n");
                 Text t2 = new Text("X3: " + (x+35) + " Y3: " + (y) + "\nX4: " + (x+60) + " Y4: " + (y+15) + "\n\n");
                 t2.setFill(Color.RED);
 
@@ -84,7 +95,18 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
+                    Text t1 = new Text(caracter+"\nX1: " + (x+30) + " Y1: " + (y-60) + "\nX2: " + (x+45) + " Y2: " + (y-80) + "\n");
+
+                    t1.setFill(Color.BROWN);
+
+                    textoCoord.getChildren().add(t1);
+
                     root.getChildren().add(tilde);
+                }
+                else{
+                    Text t1 = new Text(caracter + "\n");
+
+                    textoCoord.getChildren().add(t1);
                 }
 
                 CubicCurve c = new CubicCurve(x, y+50, x+20, y+60, x+20, y-50, x+30, y-50); // IZQ
@@ -102,7 +124,7 @@ public class Dibujo {
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
 
-                Text t1 = new Text("A:\nX1: " + (x) + " Y1: " + (y+50) + "\nX2: " + (x+30) + " Y2: " + (y-50) + "\n");
+                Text t1 = new Text("X1: " + (x) + " Y1: " + (y+50) + "\nX2: " + (x+30) + " Y2: " + (y-50) + "\n");
                 Text t2 = new Text("X3: " + (x+30) + " Y3: " + (y-50) + "\nX4: " + (x+65) + " Y4: " + (y+15) + "\n");
                 t2.setFill(Color.RED);
                 Text t3 = new Text("X5: " + (x) + " Y5: " + (y+15) + "\nX6: " + (x+44) + " Y6: " + (y) + "\n\n");
@@ -327,12 +349,23 @@ public class Dibujo {
 
             if (caracter == 'e' || caracter == 'é'){
                 if(caracter == 'é'){
-                    Line tilde = new Line(x+30,y-10,x+45,y-30);
+                    Line tilde = new Line(x+20,y-10,x+35,y-30);
                     tilde.setFill(Color.TRANSPARENT);
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
+                    Text t1 = new Text(caracter + "\nX1: " + (x+20) + " Y1: " + (y-10) + "\nX2: " + (x+35) + " Y2: " + (y-30) + "\n");
+
+                    t1.setFill(Color.BROWN);
+
+                    textoCoord.getChildren().add(t1);
+
                     root.getChildren().add(tilde);
+                }
+                else{
+                    Text t1 = new Text(caracter +"\n");
+
+                    textoCoord.getChildren().add(t1);
                 }
                 CubicCurve b = new CubicCurve(x, y+25, x-5, y-20, x+53, y, x+2, y+30);
                 b.setFill(Color.TRANSPARENT);
@@ -344,7 +377,7 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                Text t1 = new Text("e:\nX1: " + (x) + " Y1: " + (y+25) + "\nX2: " + (x+2) + " Y2: " + (y+30) + "\n");
+                Text t1 = new Text("X1: " + (x) + " Y1: " + (y+25) + "\nX2: " + (x+2) + " Y2: " + (y+30) + "\n");
                 Text t2 = new Text("X3: " + (x) + " Y3: " + (y+25) + "\nX4: " + (x+50) + " Y4: " + (y+15) + "\n\n");
                 t2.setFill(Color.RED);
                 textoCoord.getChildren().add(t1);
@@ -361,7 +394,18 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
+                    Text t1 = new Text(caracter + "\nX1: " + (x+30) + " Y1: " + (y-20) + "\nX2: " + (x+40) + " Y2: " + (y+50) + "\n");
+
+                    t1.setFill(Color.BROWN);
+
+                    textoCoord.getChildren().add(t1);
+
                     root.getChildren().add(tilde);
+                }
+                else{
+                    Text t1 = new Text(caracter + "\n");
+
+                    textoCoord.getChildren().add(t1);
                 }
                 CubicCurve c2 = new CubicCurve(x+25, y-10, x-20, y-10, x, y+120, x+60, y+15);
                 c2.setFill(Color.TRANSPARENT);
@@ -378,7 +422,7 @@ public class Dibujo {
                 c4.setStroke(color);
                 c4.setStrokeWidth(grosor);
 
-                Text t1 = new Text("E:\nX1: " + (x+25) + " Y1: " + (y-10) + "\nX2: " + (x+60) + " Y2: " + (y+15) + "\n");
+                Text t1 = new Text("X1: " + (x+25) + " Y1: " + (y-10) + "\nX2: " + (x+60) + " Y2: " + (y+15) + "\n");
                 Text t2 = new Text("X3: " + (x+25) + " Y3: " + (y-10) + "\nX4: " + (x+20) + " Y4: " + (y-50) + "\n");
                 t2.setFill(Color.RED);
                 Text t3 = new Text("X5: " + (x+20) + " Y5: " + (y-50) + "\nX6: " + (x) + " Y6: " + (y-50) + "\n\n");
@@ -626,6 +670,12 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
+                    Text t1 = new Text(caracter+"\nX1: " + (x) + " Y1: " + (y-10) + "\nX2: " + (x+15) + " Y2: " + (y-30) + "\n");
+
+                    t1.setFill(Color.BROWN);
+
+                    textoCoord.getChildren().add(t1);
+
                     root.getChildren().add(tilde);
                 }
                 else{
@@ -633,6 +683,12 @@ public class Dibujo {
                     p.setFill(Color.TRANSPARENT);
                     p.setStroke(color);
                     p.setStrokeWidth(grosor);
+
+                    Text t1 = new Text(caracter+ "\nX1: " + (x+3) + " Y1: " + (y-10) + "\n");
+
+                    t1.setFill(Color.BROWN);
+
+                    textoCoord.getChildren().add(t1);
 
                     root.getChildren().add(p);
                 }
@@ -642,7 +698,7 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                Text t1 = new Text("i:\nX1: " + (x+2) + " Y1: " + (y) + "\nX2: " + (x+40) + " Y2: " + (y+15) + "\n\n");
+                Text t1 = new Text("X1: " + (x+2) + " Y1: " + (y) + "\nX2: " + (x+40) + " Y2: " + (y+15) + "\n\n");
                 textoCoord.getChildren().add(t1);
                 root.getChildren().add(c);
                 x = x+40;
@@ -653,7 +709,18 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
+                    Text t1 = new Text(caracter + "\nX1: " + (x+30) + " Y1: " + (y-60) + "\nX2: " + (x+45) + " Y2: " + (y-80) + "\n");
+
+                    t1.setFill(Color.BROWN);
+
+                    textoCoord.getChildren().add(t1);
+
                     root.getChildren().add(tilde);
+                }
+                else{
+                    Text t1 = new Text(caracter+"\n" );
+
+                    textoCoord.getChildren().add(t1);
                 }
 
                 CubicCurve c1 = new CubicCurve(x, y-50, x+20, y-60, x+30, y-40, x+50, y-40);
@@ -671,7 +738,7 @@ public class Dibujo {
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
 
-                Text t1 = new Text("I:\nX1: " + (x) + " Y1: " + (y-50) + "\nX2: " + (x+50) + " Y2: " + (y-40) + "\n");
+                Text t1 = new Text("X1: " + (x) + " Y1: " + (y-50) + "\nX2: " + (x+50) + " Y2: " + (y-40) + "\n");
                 Text t2 = new Text("X3: " + (x+50) + " Y3: " + (y-40) + "\nX4: " + (x+40) + " Y4: " + (y+20) + "\n");
                 t2.setFill(Color.RED);
                 Text t3 = new Text("X5: " + (x+40) + " Y5: " + (y+20) + "\nX6: " + (x) + " Y6: " + (y+30) + "\n\n");
@@ -1331,6 +1398,15 @@ public class Dibujo {
         }
         if(caracter == 'r' || caracter == 'R' ){
             if(caracter =='r'){
+                if(caracterAnt == ' '){
+                    CubicCurve a = new CubicCurve(x+20, y+40, x+10, y+60, x+50, y+65, x+60, y+15);
+                    a.setFill(Color.TRANSPARENT);
+                    a.setStroke(color);
+                    a.setStrokeWidth(grosor);
+
+                    root.getChildren().add(a);
+                    x=x+60;
+                }
                 //CurvA
                 CubicCurve a = new CubicCurve(x+9-10,y+10,x+10-10,y-21,x-22-10,y+40,x+30,y);
                 a.setFill(Color.TRANSPARENT);
@@ -1418,6 +1494,15 @@ public class Dibujo {
         }
         if(caracter == 's' || caracter == 'S'){
             if(caracter =='s'){
+                if(caracterAnt == ' '){
+                    CubicCurve a = new CubicCurve(x+20, y+40, x+10, y+60, x+50, y+65, x+60, y+15);
+                    a.setFill(Color.TRANSPARENT);
+                    a.setStroke(color);
+                    a.setStrokeWidth(grosor);
+
+                    root.getChildren().add(a);
+                    x=x+60;
+                }
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+20,y+35,x-40,y-15,x+40,y-15,x,y+10+5);
                 a.setFill(Color.TRANSPARENT);
