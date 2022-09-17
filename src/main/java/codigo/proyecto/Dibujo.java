@@ -1,6 +1,6 @@
 package codigo.proyecto; 
 
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -43,7 +43,21 @@ public class Dibujo {
         }
     }
 
-    public void Selector(char caracter,char caracterAnt, AnchorPane root, TextFlow textoCoord){
+    void fun(AnchorPane root, Button puntosDeControl, int... lista){
+
+        if (puntosDeControl.isDisable())
+        {
+            for (int i = 0; i < lista.length; i+=2) {
+                Circle c = new Circle(lista[i], lista[i+1], grosor);
+                c.setFill(Color.TRANSPARENT);
+                c.setStroke(Color.BLUE);
+                c.setStrokeWidth(grosor - 1);
+                root.getChildren().add(c);
+            }
+        }
+    }
+
+    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, Button puntosDeControl){
 
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
             if(caracter == 'a' || caracter == 'á'){
@@ -63,6 +77,8 @@ public class Dibujo {
                 Text t1 = new Text("X1: " + (x+30) + " Y1: " + (y+10) + "\nX2: " + (x+25) + " Y2: " + (y+30) + "\n");
                 Text t2 = new Text("X3: " + (x+35) + " Y3: " + (y) + "\nX4: " + (x+60) + " Y4: " + (y+15) + "\n");
                 t2.setFill(Color.RED);
+
+                fun(root, puntosDeControl, x-5, y-30, x-20, y+85, x+10, y+60, x+50, y+65);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
@@ -138,9 +154,6 @@ public class Dibujo {
                 textoCoord.getChildren().add(t4);
                 x = x+65;
             }
-
-
-
         }
         if(caracter == 'b' || caracter == 'B'){
 
