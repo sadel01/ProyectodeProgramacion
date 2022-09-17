@@ -2,6 +2,7 @@ package codigo.proyecto;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -31,6 +32,9 @@ public class Controlador extends Dibujo implements Initializable {
     private TextFlow textoCoord;
 
     @FXML
+    private Button puntosDeControl;
+
+    @FXML
     private void obtenerLetra(MouseEvent event) {
         String palabra = ' '+CuadroTexto.getText();
         textoCoord.setStyle("-fx-font-size: 20px;");
@@ -40,7 +44,8 @@ public class Controlador extends Dibujo implements Initializable {
                 x = x+85;
             }
             else{
-                Selector(palabra.charAt(i),palabra.charAt(i-1), root, textoCoord);
+                fun(root, puntosDeControl, 0);
+                Selector(palabra.charAt(i),palabra.charAt(i-1), root, textoCoord, puntosDeControl);
             }
         }
     }
@@ -113,8 +118,14 @@ public class Controlador extends Dibujo implements Initializable {
         root.getChildren().clear();
         CuadroTexto.clear();
         textoCoord.getChildren().clear();
+        puntosDeControl.setDisable(false);
         x = 50;
         y = 250;
+    }
+
+    @FXML
+    void MostrarPDC(MouseEvent event) {
+        puntosDeControl.setDisable(true);
     }
 
     @Override
