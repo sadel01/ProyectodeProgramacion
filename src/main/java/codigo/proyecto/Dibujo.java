@@ -45,15 +45,15 @@ public class Dibujo {
 
     void fun(AnchorPane root, Button puntosDeControl, int... lista){
 
-        System.out.println(lista[1]);
-
         if (puntosDeControl.isDisable())
         {
-            Circle c = new Circle(lista[0], lista[0], grosor);
-            c.setFill(Color.TRANSPARENT);
-            c.setStroke(Color.BLUE);
-            c.setStrokeWidth(grosor-1);
-            root.getChildren().add(c);
+            for (int i = 0; i < lista.length; i+=2) {
+                Circle c = new Circle(lista[i], lista[i+1], grosor);
+                c.setFill(Color.TRANSPARENT);
+                c.setStroke(Color.BLUE);
+                c.setStrokeWidth(grosor - 1);
+                root.getChildren().add(c);
+            }
         }
     }
 
@@ -95,7 +95,7 @@ public class Dibujo {
                 Text t2 = new Text("X3: " + (x+35) + " Y3: " + (y) + "\nX4: " + (x+60) + " Y4: " + (y+15) + "\n\n");
                 t2.setFill(Color.RED);
 
-                fun(root, puntosDeControl, x-5, y-30, y);
+                fun(root, puntosDeControl, x-5, y-30, x-20, y+85, x+10, y+60, x+50, y+65);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);

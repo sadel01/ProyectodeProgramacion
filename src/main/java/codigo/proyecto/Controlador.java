@@ -36,6 +36,7 @@ public class Controlador extends Dibujo implements Initializable {
 
     @FXML
     private void obtenerLetra(MouseEvent event) {
+        puntosDeControl.setVisible(false);
         String palabra = ' '+CuadroTexto.getText();
         textoCoord.setStyle("-fx-font-size: 20px;");
         for (int i = 1; i < palabra.length(); i++) {
@@ -44,7 +45,6 @@ public class Controlador extends Dibujo implements Initializable {
                 x = x+85;
             }
             else{
-                fun(root, puntosDeControl, 0);
                 Selector(palabra.charAt(i),palabra.charAt(i-1), root, textoCoord, puntosDeControl);
             }
         }
@@ -118,6 +118,7 @@ public class Controlador extends Dibujo implements Initializable {
         root.getChildren().clear();
         CuadroTexto.clear();
         textoCoord.getChildren().clear();
+        puntosDeControl.setVisible(true);
         puntosDeControl.setDisable(false);
         x = 50;
         y = 250;
