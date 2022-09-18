@@ -5,10 +5,12 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codigo.proyecto.Controlador">
@@ -23,15 +25,21 @@
                   <Insets />
                </opaqueInsets>
                 </TextField>
-                <Button mnemonicParsing="false" onMouseClicked="#obtenerLetra" prefHeight="40.0" prefWidth="120.0" text="OK" HBox.hgrow="ALWAYS">
+                <Button mnemonicParsing="false" onMouseClicked="#obtenerLetra" prefHeight="40.0" prefWidth="120.0" text="Ok" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" left="30.0" right="20.0" top="10.0" />
                     </HBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
                 </Button>
-                <Button mnemonicParsing="false" onMouseClicked="#BorrarPalabra" prefHeight="40.0" prefWidth="120.0" text="BORRAR">
+                <Button mnemonicParsing="false" onMouseClicked="#BorrarPalabra" prefHeight="40.0" prefWidth="120.0" text="Borrar">
                     <HBox.margin>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                     </HBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
                 </Button>
             </children>
         </HBox>
@@ -54,6 +62,14 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin></Rectangle>
+            <ToggleButton fx:id="puntosDeControl" mnemonicParsing="false" text="Mostrar puntos de control">
+               <HBox.margin>
+                  <Insets left="835.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </ToggleButton>
          </children>
       </HBox>
    </top>
