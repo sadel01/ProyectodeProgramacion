@@ -92,20 +92,15 @@ public class Dibujo {
                 c2.setStrokeWidth(grosor);
 
                 //Text t1 = new Text(caracter + ":\nX1: " + (x-5) + " Y1: " + (y-30) + "\nX2: " + (x-20) + " Y2: " + (y+85) + "\n"); //CTRL-X1:
-                Text t1 = new Text(caracter + ":\nXI: " + (x+30) + " YI: " + (y+10));
-                Text t2 = new Text( "\nCX1: " + (x-5) + " CY1: " + (y-30));
-                Text t3 = new Text( "\nCX2: " + (x-20) + " CY2: " + (y+85));
-                Text t4 = new Text( "\nXF: " + (x+25) + " YF: " + (y+30) + "\n\n");
-
+                Text t1 = new Text(caracter + ":\nXI: " + (x+30) + " YI: " + (y+10) + "\tXF: " + (x+25) + " YF: " + (y+30));
+                Text t2 = new Text( "\nX1: " + (x-5) + " Y1: " + (y-30) + "\tX2: " + (x-20) + " Y2: " + (y+85));
+                
                 t2.setFill(Color.RED);
-                t3.setFill(Color.DARKBLUE);
 
-                fun(root, puntosDeControl, x-5,y-30, x-20, y+85, x+10, y+60, x+50, y+65);
+                fun(root, puntosDeControl, x+30, y+10, x-5, y-30, x-20, y+85, x+25, y+30, x+35, y, x+10, y+60, x+50, y+65, x+60, y+15);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
-                textoCoord.getChildren().add(t3);
-                textoCoord.getChildren().add(t4);
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
 
