@@ -1,8 +1,11 @@
 package codigo.proyecto; 
 
-import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Line;
@@ -10,14 +13,17 @@ import javafx.scene.shape.QuadCurve;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import java.util.ArrayList;
+
 public class Dibujo {
 
     int x = 50;
     int y = 300;
-
     int aux=0;
     int grosor = 4;
+    ArrayList<Circle> circulos = new ArrayList<>();
     Color color = Color.BLACK;
+    Color color2 = Color.web("#5F9EA0");
 
     public void SelectorColor(String clr){
         if(clr.equals("Rojo")){
@@ -43,26 +49,42 @@ public class Dibujo {
         }
     }
 
-    void fun(AnchorPane root, Button puntosDeControl, int... lista){
 
-        if (puntosDeControl.isDisable())
-        {
-            for (int i = 0; i < lista.length; i+=2) {
-                Circle c = new Circle(lista[i], lista[i+1], grosor);
-                c.setFill(Color.TRANSPARENT);
-                c.setStroke(Color.BLUE);
-                c.setStrokeWidth(grosor - 1);
-                root.getChildren().add(c);
+    void fun(AnchorPane root, ToggleButton puntosdeControl, int... lista){
+
+        int j = 0;
+
+        for (int i = 0; i < lista.length; i+=2) {
+            Circle c = new Circle(lista[i], lista[i+1], grosor);
+            c.setFill(Color.TRANSPARENT);
+            c.setStroke(Color.TRANSPARENT);
+            c.setStrokeWidth(grosor - 1);
+            root.getChildren().add(c);
+
+            circulos.add(c);
+        }
+    }
+
+    void BotonAct(ToggleButton puntosdeControl) {
+
+        if (!puntosdeControl.isSelected()) {
+            for (int i = 0; i < circulos.size(); i++) {
+                circulos.get(i).setStroke(Color.TRANSPARENT);
+                puntosdeControl.setText("Mostrar puntos de control");
+            }
+        } else {
+            for (int i = 0; i < circulos.size(); i++) {
+                circulos.get(i).setStroke(color2);
+                puntosdeControl.setText("Ocultar puntos de control");
             }
         }
     }
 
-    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, Button puntosDeControl){
+    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl){
+
 
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
             if(caracter == 'a' || caracter == 'á'){
-                Text t3 = new Text(caracter+":\n");
-                textoCoord.getChildren().add(t3);
 
                 CubicCurve c= new CubicCurve(x+30, y+10, x-5, y-30, x-20, y+85, x+25, y+30);
                 c.setFill(Color.TRANSPARENT);
@@ -74,11 +96,10 @@ public class Dibujo {
                 c2.setStroke(color);
                 c2.setStrokeWidth(grosor);
 
-                Text t1 = new Text("X1: " + (x+30) + " Y1: " + (y+10) + "\nX2: " + (x+25) + " Y2: " + (y+30) + "\n");
-                Text t2 = new Text("X3: " + (x+35) + " Y3: " + (y) + "\nX4: " + (x+60) + " Y4: " + (y+15) + "\n");
-                t2.setFill(Color.RED);
+                Text t1 = new Text(caracter + ":\nX1: " + (x-5) + " Y1: " + (y-30) + "\nX2: " + (x-20) + " Y2: " + (y+85) + "\n");
+                Text t2 = new Text("X3: " + (x+10) + " Y3: " + (y+60) + "\nX4: " + (x+50) + " Y4: " + (y+65) + "\n\n");
 
-                fun(root, puntosDeControl, x-5, y-30, x-20, y+85, x+10, y+60, x+50, y+65);
+                fun(root, puntosDeControl, x-5,y-30, x-20, y+85, x+10, y+60, x+50, y+65);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
@@ -91,22 +112,11 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
-                    Text t4 = new Text("X5: " + (x+15) + " Y5: " + (y-10) + "\nX6: " + (x+30) + " Y6: " + (y-30) + "\n");
-
-                    t4.setFill(Color.BLUE);
-
-                    textoCoord.getChildren().add(t4);
-
                     root.getChildren().add(tilde);
                 }
-                Text t4 = new Text("\n");
-                textoCoord.getChildren().add(t4);
                 x = x+60;
 
             }else{
-                Text t5 = new Text(caracter + "\n");
-                textoCoord.getChildren().add(t5);
-
                 CubicCurve c = new CubicCurve(x, y+50, x+20, y+60, x+20, y-50, x+30, y-50); // IZQ
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
@@ -122,11 +132,9 @@ public class Dibujo {
                 c3.setStroke(color);
                 c3.setStrokeWidth(grosor);
 
-                Text t1 = new Text("X1: " + (x) + " Y1: " + (y+50) + "\nX2: " + (x+30) + " Y2: " + (y-50) + "\n");
-                Text t2 = new Text("X3: " + (x+30) + " Y3: " + (y-50) + "\nX4: " + (x+65) + " Y4: " + (y+15) + "\n");
-                t2.setFill(Color.RED);
-                Text t3 = new Text("X5: " + (x) + " Y5: " + (y+15) + "\nX6: " + (x+44) + " Y6: " + (y) + "\n");
-                t3.setFill(Color.BLUE);
+                Text t1 = new Text(caracter + ":\nX1: " + (x-5) + " Y1: " + (y-30) + "\nX2: " + (x-20) + " Y2: " + (y+85) + "\n");
+                Text t2 = new Text(caracter + ":\nX1: " + (x-5) + " Y1: " + (y-30) + "\nX2: " + (x-20) + " Y2: " + (y+85) + "\n");
+                Text t3 = new Text("X3: " + (x+10) + " Y3: " + (y+60) + "\nX4: " + (x+50) + " Y4: " + (y+65) + "\n\n");
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
@@ -181,6 +189,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+
+                fun(root, puntosDeControl, x+70, y-80, x-10, y+80, x+50, y-50, x+35, y+100, x, y+30, x+60, x+50);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
