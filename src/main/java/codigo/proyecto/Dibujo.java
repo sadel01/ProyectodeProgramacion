@@ -1568,8 +1568,8 @@ public class Dibujo {
         }
         if(caracter == 'o' || caracter == 'O' || caracter == 'ó' || caracter == 'Ó'){
             if (caracter == 'o' || caracter == 'ó') {
-                Text t1 = new Text(caracter +"\n");
-                textoCoord.getChildren().add(t1);
+                Text t= new Text("\n"+caracter +"\n");
+                textoCoord.getChildren().add(t);
 
                 CubicCurve cb1 = new CubicCurve(x, y+20, x, y+60, x + 30, y + 60, x + 30, y + 20); //Curva principal
                 cb1.setFill(Color.TRANSPARENT);
@@ -1586,15 +1586,25 @@ public class Dibujo {
                 qv1.setStroke(color);
                 qv1.setStrokeWidth(grosor);
 
-                Text t2 = new Text("X1: " + (x) + " Y1: " + (y+20) + "\nX2: " + (x+30) + " Y2: " + (y+20) + "\n");
-                Text t3 = new Text("X3: " + (x+30) + " Y3: " + (y+20) + "\nX4: " + (x) + " Y4: " + (y+20) + "\n");
-                t3.setFill(Color.RED);
-                Text t4 = new Text("X5: " + (x+5) + " Y5: " + (y+6) + "\nX6: " + (x+50) + " Y6: " + (y+15) + "\n");
-                t4.setFill(Color.BLUE);
+                Text t1 = new Text("\nX1: " + (x) + " Y1: " + (y+20) + "\tX2: " + (x+30) + " Y2: " + (y+20));
+                Text t2 = new Text( "\nX3: " + (x) + " Y3: " + (y+60) + "\tX4: "+(x+30)+"Y4: "+(y+60)+"\n");
+                Text t3 = new Text("\nX1: " + (x+30) + " Y1: " + (y+20) + "\tX2: " + (x) + " Y2: " + (y+20) );
+                Text t4 = new Text( "\nX3: " + (x+30) + " Y3: " + (y-5) + "\tX4: "+(x)+"Y4: "+(y-5)+"\n");
+                Text t5 = new Text("\nX1: " + (x+5) + " Y1: " + (y+6) + "\tX2: " + (x+50) + " Y2: " + (y+15) );
+                Text t6 = new Text( "\nX3: " + (x+30) + " Y3: " + (y+50) +"\n");
 
+                fun(root,puntosDeControl,x, y+20, x, y+60, x + 30, y + 60, x + 30, y + 20,x + 30, y+20, x + 30, y-5, x, y-5, x, y+20,x+5, y+6, x + 30, y + 50, x + 50, y + 15);
+
+                t2.setFill(Color.RED);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+
+                textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
 
                 if(caracter == 'ó'){
                     Line tilde = new Line(x+20,y-10,x+35,y-30);
@@ -1602,17 +1612,18 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
-                    Text t5 = new Text("X7: " + (x+20) + " Y7: " + (y-10) + "\nX8: " + (x+35) + " Y8: " + (y-30) + "\n");
+                    Text t7 = new Text("\nX1: " + (x+20) + " Y1: " + (y-10) + "\tX2: " + (x+35) + " Y2: " + (y-30)+"\n");
+                    fun(root,puntosDeControl,x+20,y-10,x+35,y-30);
 
-                    t5.setFill(Color.GREEN);
+                    t7.setFill(Color.BLUE);
 
-                    textoCoord.getChildren().add(t5);
+                    textoCoord.getChildren().add(t7);
 
                     root.getChildren().add(tilde);
 
                 }
-                Text t5 = new Text( "\n");
-                textoCoord.getChildren().add(t5);
+                Text t8 = new Text( "\n");
+                textoCoord.getChildren().add(t8);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -1621,8 +1632,8 @@ public class Dibujo {
                 x = x + 50;
             }
             else{
-                Text t1 = new Text(caracter+"\n");
-                textoCoord.getChildren().add(t1);
+                Text t = new Text("\n"+caracter+"\n");
+                textoCoord.getChildren().add(t);
 
                 CubicCurve cb1 = new CubicCurve(x+13, y-10, x, y+70, x+57, y+70, x+57, y-10); //Curva principal
                 cb1.setFill(Color.TRANSPARENT);
@@ -1634,12 +1645,20 @@ public class Dibujo {
                 cb2.setStroke(color);
                 cb2.setStrokeWidth(grosor);
 
-                Text t2 = new Text("X1: " + (x+13) + " Y1: " + (y-10) + "\nX2: " + (x+57) + " Y2: " + (y-10) + "\n");
-                Text t3 = new Text("X3: " + (x+57) + " Y3: " + (y-10) + "\nX4: " + (x+45) + " Y4: " + (y+10) + "\n");
-                t3.setFill(Color.RED);
+                Text t1 = new Text("\nX1: " + (x+13) + " Y1: " + (y-10) + "\tX2: " + (x+57) + " Y2: " + (y-10));
+                Text t2 = new Text( "\nX3: " + (x) + " Y3: " + (y+70) + "\tX4: "+(x+57)+"Y4: "+(y+70)+"\n");
 
+                Text t3 = new Text("\nX1: " + (x+57) + " Y1: " + (y-10) + "\tX2: " + (x+45) + " Y2: " + (y+10));
+                Text t4 = new Text( "\nX3: " + (x+40) + " Y3: " + (y-125) + "\tX4: "+(x-55)+"Y4: "+(y+50)+"\n");
+
+                fun(root,puntosDeControl,x+13, y-10, x, y+70, x+57, y+70, x+57, y-10,x+57, y-10,x+40, y-125, x-55, y+50, x+45, y+10);
+                t2.setFill(Color.RED);
+                t4.setFill(Color.RED);
+
+                textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -1649,15 +1668,16 @@ public class Dibujo {
                     tilde.setStroke(color);
                     tilde.setStrokeWidth(grosor);
 
-                    Text t4 = new Text("X5: " + (x+20) + " Y5: " + (y-60) + "\nX6: " + (x+35) + " Y6: " + (y-80) + "\n");
-                    t4.setFill(Color.BLUE);
+                    Text t5 = new Text("\nX1: " + (x+20) + " Y1: " + (y-60) + "\tX2: " + (x+35) + " Y2: " + (y-80) + "\n");
+                    fun(root,puntosDeControl,x+20,y-60,x+35,y-80);
+                    t5.setFill(Color.BLUE);
 
-                    textoCoord.getChildren().add(t4);
+                    textoCoord.getChildren().add(t5);
 
                     root.getChildren().add(tilde);
                 }
-                Text t4 = new Text( "\n");
-                textoCoord.getChildren().add(t4);
+                Text t6 = new Text( "\n");
+                textoCoord.getChildren().add(t6);
 
                 x = x + 65;
             }
