@@ -46,7 +46,7 @@ public class Dibujo {
         }
     }
 
-    void fun(AnchorPane root, ToggleButton puntosdeControl, int... lista){
+    public void fun(AnchorPane root, ToggleButton puntosdeControl, int... lista){
 
         int j = 0;
 
@@ -61,7 +61,7 @@ public class Dibujo {
         }
     }
 
-    void BotonAct(ToggleButton puntosdeControl) {
+    public void BotonAct(ToggleButton puntosdeControl) {
 
         if (!puntosdeControl.isSelected()) {
             for (int i = 0; i < circulos.size(); i++) {
