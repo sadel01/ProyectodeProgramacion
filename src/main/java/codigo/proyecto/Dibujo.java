@@ -1525,11 +1525,21 @@ public class Dibujo {
         }
         if(caracter == 'r' || caracter == 'R' ){
             if(caracter =='r'){
+                Text t = new Text("\n"+caracter+"\n");
+                textoCoord.getChildren().add(t);
                 if(caracterAnt == ' '){
                     CubicCurve a = new CubicCurve(x+20, y+40, x+10, y+60, x+50, y+65, x+60, y+15);
                     a.setFill(Color.TRANSPARENT);
                     a.setStroke(color);
                     a.setStrokeWidth(grosor);
+
+                    Text t6 = new Text( "\nX1: " + (x+20) + " Y1: " + (y+40) + "\tX2: " + (x+60) + " Y2: " + (y+15) );
+                    Text t7 = new Text( "\nX1: " + (x+10) + " Y1: " + (y+60) + "\tX2: " + (x+50) + " Y2: " + (y+65) + "\n");
+
+                    t7.setFill(Color.RED);
+
+                    textoCoord.getChildren().add(t6);
+                    textoCoord.getChildren().add(t7);
 
                     fun(root,puntosDeControl,x+20, y+40, x+10, y+60, x+50, y+65, x+60, y+15);
 
@@ -1548,14 +1558,20 @@ public class Dibujo {
                 b.setStroke(color);
                 b.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x-1) + " Y1: " + (y+10) + "\nX2: " + (x+30) + " Y2: " + (y) + "\n");
-                Text t2 = new Text("X3: " + (x+30) + " Y3: " + (y) + "\nX4: " + (x+55) + " Y4: " + (y+15) + "\n\n");
+                Text t1 = new Text("\nX1: " + (x-1) + " Y1: " + (y+10) + "\tX2: " + (x+30) + " Y2: " + (y) );
+                Text t2 = new Text("\nX3: " + (x+30) + " Y3: " + (y) + "\tX4: " + (x+55) + " Y4: " + (y+15) + "\n");
+
+                Text t3 = new Text("\nX1: " + (x-1) + " Y1: " + (y+10) + "\tX2: " + (x+30) + " Y2: " + (y));
+                Text t4 = new Text("\nX3: " + (x+30) + " Y3: " + (y) + "\tX4: " + (x+55) + " Y4: " + (y+15) + "\n");
                 fun(root,puntosDeControl,x+9-10,y+10,x+10-10,y-21,x-22-10,y+40,x+30,y,x+30,y,x+9,y+28,x+25,y+95,x+55,y+15);
 
                 t2.setFill(Color.RED);
+                t4.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
 
                 //Roots
                 root.getChildren().add(a);
@@ -1595,23 +1611,39 @@ public class Dibujo {
                 e.setStroke(color);
                 e.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x) + " Y1: " + (y+15) + "\nX2: " + (x+20) + " Y2: " + (y-50) + "\n");
-                Text t2 = new Text("X3: " + (x+20) + " Y3: " + (y-50) + "\nX4: " + (x+10) + " Y4: " + (y+50) + "\n");
-                Text t3 = new Text("X5: " + (x+20) + " Y5: " + (y-40) + "\nX6: " + (x+20) + " Y6: " + (y) + "\n");
-                Text t4 = new Text("X7: " + (x+20) + " Y7: " + (y+40) + "\nX8: " + (x+60) + " Y8: " + (y+55) + "\n");
-                Text t5 = new Text("X9: " + (x+60) + " Y9: " + (y+55) + "\nX10: " + (x+80) + " Y10: " + (y+15) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\nX1: " + (x) + " Y1: " + (y+15) + "\tX2: " + (x+20) + " Y2: " + (y-50) );
+                Text t2 = new Text("\nX3: " + (x+15) + " Y3: " + (y-20) +"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+20) + " Y1: " + (y-50) + "\tX2: " + (x+10) + " Y2: " + (y+50) );
+                Text t4 = new Text("\nX3: " + (x+25) + " Y3: " + (y) +"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+20) + " Y1: " + (y-40) + "\tX2: " + (x+20) + " Y2: " + (y) );
+                Text t6 = new Text("\nX3: " + (x+80) + " Y3: " + (y-80) + "\tX4: " + (x+50) + " Y4: " + (y+20)+"\n" );
+
+                Text t7 = new Text("\nX1: " + (x+20) + " Y1: " + (y+40) + "\tX2: " + (x+60) + " Y2: " + (y+55) );
+                Text t8 = new Text("\nX3: " + (x+40) + " Y3: " + (y) + "\tX4: " + (x+40) + " Y4: " + (y+55)+"\n" );
+
+                Text t9 = new Text("\nX1: " + (x+60) + " Y1: " + (y+55) + "\tX2: " + (x+80) + " Y2: " + (y+15) );
+                Text t10 = new Text("\nX3: " + (x+70) + " Y3: " + (y+55) + "\n" );
+
                 fun(root,puntosDeControl,x,y+15,x+15,y-20,x+20,y-50,x+20,y-50,x+25,y,x+10,y+50,x+20,y-40,x+80,y-80,x+50,y+20,x+20,y,x+20,y,x+40,y,x+40,y+55,x+60,y+55,x+60,y+55,x+70,y+55,x+80,y+15);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
-                t5.setFill(Color.ORANGE);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+                t8.setFill(Color.RED);
+                t10.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
                 textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
+                textoCoord.getChildren().add(t9);
+                textoCoord.getChildren().add(t10);
 
                 //Roots
                 root.getChildren().add(a);
@@ -1625,12 +1657,21 @@ public class Dibujo {
         }
         if(caracter == 's' || caracter == 'S'){
             if(caracter =='s'){
+                Text t= new Text("\n"+caracter +"\n");
+                textoCoord.getChildren().add(t);
+
                 if(caracterAnt == ' '){
                     CubicCurve a = new CubicCurve(x+20, y+40, x+10, y+60, x+50, y+65, x+60, y+15);
                     a.setFill(Color.TRANSPARENT);
                     a.setStroke(color);
                     a.setStrokeWidth(grosor);
                     fun(root,puntosDeControl,x+20, y+40, x+10, y+60, x+50, y+65, x+60, y+15);
+                    Text t7 = new Text("\nX1: " + (x+20) + " Y1: " + (y+40) + "\tX2: " + (x+60) + " Y2: " + (y+15) );
+                    Text t8 = new Text("\nX3: " + (x+10) + " Y3: " + (y+60) + "\tX4: " + (x+50) + " Y4: " + (y+65)+"\n" );
+                    t8.setFill(Color.RED);
+                    textoCoord.getChildren().add(t7);
+                    textoCoord.getChildren().add(t8);
+
 
                     root.getChildren().add(a);
                     x=x+60;
@@ -1653,17 +1694,28 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+20) + " Y1: " + (y+35) + "\nX2: " + (x) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x+20) + " Y3: " + (y+35) + "\nX4: " + (x+22) + " Y4: " + (y+40) + "\n");
-                Text t3 = new Text("X5: " + (x+22) + " Y5: " + (y+40) + "\nX6: " + (x+40) + " Y6: " + (y+15) + "\n\n");
+                Text t1 = new Text("\nX1: " + (x+20) + " Y1: " + (y+35) + "\tX2: " + (x) + " Y2: " + (y+15) );
+                Text t2 = new Text("\nX3: " + (x-40) + " Y3: " + (y-15) + "\tX4: " + (x+40) + " Y4: " + (y-15)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+20) + " Y1: " + (y+35) + "\tX2: " + (x+22) + " Y2: " + (y+40) );
+                Text t4 = new Text("\nX3: " + (x+45) + " Y3: " + (y+60) + "\tX4: " + (x-10) + " Y4: " + (y+60)+"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+22) + " Y1: " + (y+40) + "\tX2: " + (x+40) + " Y2: " + (y+15) );
+                Text t6 = new Text("\nX3: " + (x+35) + " Y3: " + (y+30) +"\n" );
                 fun(root,puntosDeControl,x+20,y+35,x-40,y-15,x+40,y-15,x,y+10+5,x+20,y+35,x+45,y+60,x-10,y+60,x+22,y+40,x+22,y+40,x+35,y+30,x+40,y+15);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+
 
                 //Roots
                 root.getChildren().add(a);
@@ -1698,20 +1750,33 @@ public class Dibujo {
                 d.setStroke(color);
                 d.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x-1) + " Y1: " + (y+15) + "\nX2: " + (x+10) + " Y2: " + (y+40) + "\n");
-                Text t2 = new Text("X3: " + (x+10) + " Y3: " + (y+40) + "\nX4: " + (x+25) + " Y4: " + (y) + "\n");
-                Text t3 = new Text("X5: " + (x+44) + " Y5: " + (y+47) + "\nX6: " + (x+70) + " Y6: " + (y+15) + "\n");
-                Text t4 = new Text("X7: " + (x+25) + " Y7: " + (y) + "\nX8: " + (x+35) + " Y8: " + (y-20) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x-1) + " Y1: " + (y+15) + "\tX2: " + (x+10) + " Y2: " + (y+40));
+                Text t2 = new Text("\nX3: " + (x) + " Y3: " + (y-15) + "\tX4: " + (x-30) + " Y4: " + (y+20)+"\n" );
+
+                Text t3 = new Text("X1: " + (x+10) + " Y1: " + (y+40) + "\tX2: " + (x+25) + " Y2: " + (y) );
+                Text t4 = new Text("\nX3: " + (x+65) + " Y3: " + (y+70) + "\tX4: " + (x+50) + " Y4: " + (y+10)+"\n" );
+
+                Text t5 = new Text("X1: " + (x+44) + " Y1: " + (y+47) + "\tX2: " + (x+70) + " Y2: " + (y+15) );
+                Text t6 = new Text("\nX3: " + (x+55) + " Y3: " + (y+45) +"\n" );
+
+                Text t7 = new Text("X1: " + (x+25) + " Y1: " + (y) + "\tX2: " + (x+35) + " Y2: " + (y-20) );
+                Text t8 = new Text("\nX3: " + (x-30) + " Y3: " + (y-30) + "\tX4: " + (x+90) + " Y4: " + (y-80)+"\n" );
+
                 fun(root,puntosDeControl,x-1,y+15,x,y-15,x-30,y+20,x+10,y+40,x+10,y+40,x+65,y+70,x+50,y+10,x+25,y,x+44,y+47,x+55,y+45,x+70,y+15,x+25,y,x-30,y-30,x+90,y-80,x+35,y-20);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+                t8.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
 
                 root.getChildren().add(a);
                 root.getChildren().add(b);
@@ -1736,14 +1801,20 @@ public class Dibujo {
                 b.setStroke(color);
                 b.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+10) + " Y1: " + (y-40) + "\nX2: " + (x+30) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x-10) + " Y3: " + (y-25) + "\nX4: " + (x+15) + " Y4: " + (y-25) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\nX1: " + (x+10) + " Y1: " + (y-40) + "\tX2: " + (x+30) + " Y2: " + (y+15));
+                Text t2 = new Text("\nX3: " + (x-15) + " Y3: " + (y) + "\tX4: " + (x+15) + " Y4: " + (y+100)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x-10) + " Y1: " + (y-25) + "\tX2: " + (x+15) + " Y2: " + (y-25));
+                Text t4 = new Text("\nX3: " + (x-5) + " Y3: " + (y-30) + "\tX4: " + (x+10) + " Y4: " + (y-20)+"\n" );
                 fun(root,puntosDeControl,x+10,y-40,x-15,y,x+15,y+100,x+30,y+15,x-10,y-25,x-5,y-30,x+10,y-20,x+15,y-25);
 
                 t2.setFill(Color.RED);
+                t4.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
 
                 //Roots
                 root.getChildren().add(a);
@@ -1765,14 +1836,21 @@ public class Dibujo {
                 b.setStroke(color);
                 b.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+10) + " Y1: " + (y-50) + "\nX2: " + (x+30) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x-30) + " Y3: " + (y-40) + "\nX4: " + (x+45) + " Y4: " + (y-55) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x+10) + " Y1: " + (y-50) + "\tX2: " + (x+30) + " Y2: " + (y+15));
+                Text t2 = new Text("\nX3: " + (x-20) + " Y3: " + (y) + "\tX4: " + (x+15) + " Y4: " + (y+100)+"\n" );
+
+                Text t3 = new Text("\nX3: " + (x-30) + " Y3: " + (y-40) + "\tX4: " + (x+45) + " Y4: " + (y-55) );
+                Text t4 = new Text("\nX3: " + (x-20) + " Y3: " + (y-55) + "\tX4: " + (x+40) + " Y4: " + (y-40)+"\n" );
                 fun(root,puntosDeControl,x+10,y-50,x-20,y,x+15,y+100,x+30,y+15,x-30,y-40,x-20,y-55,x+40,y-40,x+45,y-55);
 
                 t2.setFill(Color.RED);
+                t4.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+
 
                 root.getChildren().add(a);
                 root.getChildren().add(b);
@@ -1781,7 +1859,7 @@ public class Dibujo {
         }
         if(caracter == 'u' || caracter == 'U' ||caracter == 'ü' || caracter =='Ü' || caracter == 'ú' || caracter == 'Ú' ){
             if(caracter == 'u' || caracter == 'ü' || caracter == 'ú'){
-                Text t = new Text(caracter +"\n");
+                Text t = new Text("\n"+caracter +"\n");
                 textoCoord.getChildren().add(t);
 
                 //CurvaA
@@ -1798,14 +1876,19 @@ public class Dibujo {
 
                 fun(root,puntosDeControl,x+2,y,x-6,y+30,x+9,y+80,x+24,y+15,x+28,y,x+18,y+30,x+33,y+100,x+48,y+15);
 
-                Text t1 = new Text("X1: " + (x+2) + " Y1: " + (y) + "\nX2: " + (x+24) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x+28) + " Y3: " + (y) + "\nX4: " + (x+48) + " Y4: " + (y+15) + "\n");
+                Text t1 = new Text("\nX1: " + (x+2) + " Y1: " + (y) + "\tX2: " + (x+24) + " Y2: " + (y+15));
+                Text t2 = new Text("\nX3: " + (x-6) + " Y3: " + (y+30) + "\tX4: " + (x+9) + " Y4: " + (y+80)+"\n" );
+                Text t3 = new Text("\nX1: " + (x+28) + " Y1: " + (y) + "\tX2: " + (x+48) + " Y2: " + (y+15) );
+                Text t4 = new Text("\nX3: " + (x+18) + " Y3: " + (y+30) + "\tX4: " + (x+33) + " Y4: " + (y+100)+"\n" );
 
-                t1.setFill(Color.RED);
-                t2.setFill(Color.BLUE);;
+                t2.setFill(Color.RED);
+                t4.setFill(Color.RED);;
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+
 
                 //roots
                 root.getChildren().add(a);
@@ -1827,14 +1910,18 @@ public class Dibujo {
 
                     fun(root,puntosDeControl,x+2, y-10,x+28, y-10);
 
-                    Text t3 = new Text("X5: " + (x+2) + " Y5: " + (y-10) + "\n");
-                    Text t4 = new Text("X6: " + (x+28) + " Y6: " + (y-10) +"\n");
+                    Text t5 = new Text("\nX1: " + (x+2) + " Y1: " + (y-10) );
+                    Text t6 = new Text("\n" );
+                    Text t7 = new Text("\nX1: " + (x+28) + " Y1: " + (y-10));
+                    Text t8 = new Text("\n" );
 
-                    t3.setFill(Color.GREEN);
-                    t4.setFill(Color.PURPLE);
+                    t5.setFill(Color.BLUE);
+                    t6.setFill(Color.BLUE);
 
-                    textoCoord.getChildren().add(t3);
-                    textoCoord.getChildren().add(t4);
+                    textoCoord.getChildren().add(t5);
+                    textoCoord.getChildren().add(t6);
+                    textoCoord.getChildren().add(t7);
+                    textoCoord.getChildren().add(t8);
 
                 }
                 if(caracter == 'ú'){
@@ -1845,22 +1932,22 @@ public class Dibujo {
 
                     fun(root,puntosDeControl,x+20,y-10,x+35,y-30);
 
-                    Text t3 = new Text("X5: " + (x+20) + " Y5: " + (y-10) + "\nX6: " + (x+35) + " Y6: " + (y-30) + "\n");
-                    t3.setFill(Color.GREEN);
+                    Text t9 = new Text("\nX1: " + (x+20) + " Y1: " + (y-10) + "\tX2: " + (x+35) + " Y2: " + (y-30) + "\n");
+                    t9.setFill(Color.BLUE);
 
-                    textoCoord.getChildren().add(t3);
+                    textoCoord.getChildren().add(t9);
 
                     root.getChildren().add(tilde);
                 }
-                Text t3 = new Text( "\n");
-                textoCoord.getChildren().add(t3);
+                Text t10 = new Text( "\n");
+                textoCoord.getChildren().add(t10);
 
                 //largo de caracter i
                 x=x+50;
             }
             else{
-                Text t1 = new Text(caracter +"\n");
-                textoCoord.getChildren().add(t1);
+                Text t = new Text(caracter +"\n");
+                textoCoord.getChildren().add(t);
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+2,y-35,x-6,y+30,x+9,y+80,x+24+5,y+15);
                 a.setFill(Color.TRANSPARENT);
@@ -1881,17 +1968,25 @@ public class Dibujo {
 
                 fun(root,puntosDeControl,x+2,y-35,x-6,y+30,x+9,y+80,x+24+5,y+15,x+28+5,y-35,x+18+5,y+30,x+33+5,y+100,x+48+5,y+15,x+2,y-35,x+10,y-60,x-20,y-50,x-20,y-20);
 
-                Text t2 = new Text("X1: " + (x+2) + " Y1: " + (y-35) + "\nX2: " + (x+29) + " Y2: " + (y+15) + "\n");
-                Text t3 = new Text("X3: " + (x+33) + " Y3: " + (y-35) + "\nX4: " + (x+53) + " Y4: " + (y+15) + "\n");
-                Text t4 = new Text("X5: " + (x+2) + " Y5: " + (y-35) + "\nX6: " + (x+20) + " Y6: " + (y-20) + "\n");
+                Text t1 = new Text("\nX1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x+29) + " Y2: " + (y+15) );
+                Text t2 = new Text("\nX3: " + (x-6) + " Y3: " + (y+30) + "\tX4: " + (x+9) + " Y4: " + (y+80)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+33) + " Y1: " + (y-35) + "\tX2: " + (x+53) + " Y2: " + (y+15) );
+                Text t4 = new Text("\nX3: " + (x+22) + " Y3: " + (y+30) + "\tX4: " + (x+38) + " Y4: " + (y+100)+"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x+20) + " Y2: " + (y-20) );
+                Text t6 = new Text("\nX3: " + (x+10) + " Y3: " + (y-60) + "\tX4: " + (x-20) + " Y4: " + (y-50)+"\n" );
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
 
+                textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
 
                 //roots
                 root.getChildren().add(a);
@@ -1912,14 +2007,14 @@ public class Dibujo {
                     fun(root,puntosDeControl,x+2, y-60,x+33, y-60);
 
 
-                    Text t5 = new Text("X7: " + (x+2) + " Y7: " + (y-60) +"\n");
-                    Text t6 = new Text("X8: " + (x+33) + " Y8: " + (y-60) +"\n");
+                    Text t7 = new Text("\nX1: " + (x+2) + " Y1: " + (y-60) +"\n");
+                    Text t8 = new Text("\nX1: " + (x+33) + " Y1: " + (y-60) +"\n");
 
-                    t5.setFill(Color.PURPLE);
-                    t6.setFill(Color.BROWN);
+                    t7.setFill(Color.BLUE);
+                    t8.setFill(Color.BLUE);
 
-                    textoCoord.getChildren().add(t5);
-                    textoCoord.getChildren().add(t6);
+                    textoCoord.getChildren().add(t7);
+                    textoCoord.getChildren().add(t8);
 
                     root.getChildren().add(p);
                     root.getChildren().add(p2);
@@ -1931,13 +2026,13 @@ public class Dibujo {
                     tilde.setStrokeWidth(grosor);
                     fun(root,puntosDeControl,x+20,y-60,x+35,y-80);
 
-                    Text t5 = new Text("X7: " + (x+20) + " Y7: " + (y-60) + "\nX8: " + (x+35) + " Y8: " + (y-80) + "\n");
-                    t5.setFill(Color.PURPLE);
-                    textoCoord.getChildren().add(t5);
+                    Text t9 = new Text("\nX1: " + (x+20) + " Y1: " + (y-60) + "\tX2: " + (x+35) + " Y2: " + (y-80) + "\n");
+                    t9.setFill(Color.BLUE);
+                    textoCoord.getChildren().add(t9);
                     root.getChildren().add(tilde);
                 }
-                Text t5 = new Text("\n");
-                textoCoord.getChildren().add(t5);
+                Text t10 = new Text("\n");
+                textoCoord.getChildren().add(t10);
 
                 //largo de caracter i
                 x=x+55;
@@ -1963,17 +2058,26 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x-3) + " Y1: " + (y) + "\nX2: " + (x+63) + " Y2: " + (y) + "\n");
-                Text t2 = new Text("X3: " + (x+35) + " Y3: " + (y) + "\nX4: " + (x+30) + " Y4: " + (y+25) + "\n");
-                Text t3 = new Text("X5: " + (x+30) + " Y5: " + (y+25) + "\nX6: " + (x+50) + " Y6: " + (y+15) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\nX1: " + (x-3) + " Y1: " + (y) + "\tX2: " + (x+63) + " Y2: " + (y));
+                Text t2 = new Text("\nX3: " + (x+10) + " Y3: " + (y+63) + "\tX4: " + (x+25) + " Y4: " + (y+63)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+35) + " Y1: " + (y) + "\tX2: " + (x+30) + " Y2: " + (y+25) );
+                Text t4 = new Text("\nX3: " + (x+35) + " Y3: " + (y-20) + "\tX4: " + (x+10) + " Y4: " + (y+12)+"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+30) + " Y1: " + (y+25) + "\tX2: " + (x+50) + " Y2: " + (y+15) );
+                Text t6 = new Text("\nX3: " + (x+35) + " Y3: " + (y+25) + "\tX4: " + (x+45) + " Y4: " + (y+20)+"\n" );
                 fun(root,puntosDeControl,x-3,y, x+10, y+63,x+25,y+63,x+35,y,x+35,y,x+35,y-20,x+10,y+12,x+30,y+25,x+30,y+25,x+35,y+25,x+45,y+20,x+50,y+15);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
 
                 //Roots
                 root.getChildren().add(a);
@@ -2008,20 +2112,32 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\nX2: " + (x-20) + " Y2: " + (y-20) + "\n");
-                Text t2 = new Text("X3: " + (x+2) + " Y3: " + (y-35) + "\nX4: " + (x+35) + " Y4: " + (y-15) + "\n");
-                Text t3 = new Text("X5: " + (x+35) + " Y5: " + (y-15) + "\nX6: " + (x+30) + " Y6: " + (y+10) + "\n");
-                Text t4 = new Text("X7: " + (x+30) + " Y7: " + (y+10) + "\nX8: " + (x+50) + " Y8: " + (y) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x-20) + " Y2: " + (y-20));
+                Text t2 = new Text("\nX3: " + (x+10) + " Y3: " + (y-60) + "\tX4: " + (x-20) + " Y4: " + (y-50)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x+35) + " Y2: " + (y-15) );
+                Text t4 = new Text("\nX3: " + (x-6) + " Y3: " + (y+30) + "\tX4: " + (x+9) + " Y4: " + (y+100)+"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+35) + " Y1: " + (y-15) + "\tX2: " + (x+30) + " Y2: " + (y+10));
+                Text t6 = new Text("\nX3: " + (x+35) + " Y3: " + (y-35) + "\tX4: " + (x+10) + " Y4: " + (y-3)+"\n" );
+
+                Text t7 = new Text("\nX1: " + (x+30) + " Y1: " + (y+10) + "\tX2: " + (x+50) + " Y2: " + (y));
+                Text t8 = new Text("\nX3: " + (x+35) + " Y3: " + (y+10) + "\tX4: " + (x+45) + " Y4: " + (y+5)+"\n" );
                 fun(root,puntosDeControl,x+2,y-35,x+10,y-60,x-20,y-50,x-20,y-20,x+2,y-35,x-6,y+30,x+9,y+100,x+35,y-15,x+35,y-15,x+35,y-20-15,x+10,y+12-15,x+30,y+25-15,x+30,y+25-15,x+35,y+25-15,x+45,y+20-15,x+50,y);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+                t8.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
 
                 //Roots
                 root.getChildren().add(a);
@@ -2059,20 +2175,33 @@ public class Dibujo {
                 d.setStroke(color);
                 d.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+4) + " Y1: " + (y) + "\nX2: " + (x+24) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x+24) + " Y3: " + (y+15) + "\nX4: " + (x+50) + " Y4: " + (y) + "\n");
-                Text t3 = new Text("X5: " + (x+50) + " Y5: " + (y) + "\nX6: " + (x+45) + " Y6: " + (y+25) + "\n");
-                Text t4 = new Text("X7: " + (x+45) + " Y7: " + (y+25) + "\nX7: " + (x+65) + " Y7: " + (y+15) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x+4) + " Y1: " + (y) + "\tX2: " + (x+24) + " Y2: " + (y+15) );
+                Text t2 = new Text("\nX3: " + (x-6) + " Y3: " + (y+30) + "\tX4: " + (x+9) + " Y4: " + (y+80)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+24) + " Y1: " + (y+15) + "\tX2: " + (x+50) + " Y2: " + (y) );
+                Text t4 = new Text("\nX3: " + (x+20) + " Y3: " + (y+73) + "\tX4: " + (x+40) + " Y4: " + (y+83)+"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+50) + " Y1: " + (y) + "\tX2: " + (x+45) + " Y2: " + (y+25) );
+                Text t6 = new Text("\nX3: " + (x+50) + " Y3: " + (y-20) + "\tX4: " + (x+25) + " Y4: " + (y+12)+"\n" );
+
+                Text t7 = new Text("\nX1: " + (x+45) + " Y1: " + (y+25) + "\tX2: " + (x+65) + " Y2: " + (y+15));
+                Text t8 = new Text("\nX3: " + (x+50) + " Y3: " + (y+25) + "\tX4: " + (x+60) + " Y4: " + (y+20)+"\n" );
                 fun(root,puntosDeControl,x+4,y,x-6,y+30,x+9,y+80,x+24,y+15,x+24,y+15, x+20, y+73,x+40,y+83,x+50,y,x+50,y,x+50,y-20,x+25,y+12,x+45,y+25,x+45,y+25,x+50,y+25,x+60,y+20,x+65,y+15);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
+                t4.setFill(Color.RED);
+                t5.setFill(Color.RED);
+                t8.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
+
 
                 //Roots
                 root.getChildren().add(a);
@@ -2113,23 +2242,39 @@ public class Dibujo {
                 e.setStroke(color);
                 e.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\nX2: " + (x+29) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x+30) + " Y3: " + (y+25) + "\nX4: " + (x+60) + " Y4: " + (y-13) + "\n");
-                Text t3 = new Text("X5: " + (x+2) + " Y5: " + (y-35) + "\nX6: " + (x-20) + " Y6: " + (y-20) + "\n");
-                Text t4 = new Text("X7: " + (x+55) + " Y7: " + (y-15) + "\nX8: " + (x+55) + " Y8: " + (y+10) + "\n");
-                Text t5 = new Text("X9: " + (x+55) + " Y9: " + (y+10) + "\nX10: " + (x+75) + " Y10: " + (y) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x+29) + " Y2: " + (y+15));
+                Text t2 = new Text("\nX3: " + (x-6) + " Y3: " + (y+30) + "\tX4: " + (x+9) + " Y4: " + (y+80)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+30) + " Y1: " + (y+25) + "\tX2: " + (x+60) + " Y2: " + (y-13));
+                Text t4 = new Text("\nX3: " + (x+25) + " Y3: " + (y+73) + "\tX4: " + (x+45) + " Y4: " + (y+83)+"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x-20) + " Y2: " + (y-20) );
+                Text t6 = new Text("\nX3: " + (x+10) + " Y3: " + (y-60) + "\tX4: " + (x-20) + " Y4: " + (y-50)+"\n" );
+
+                Text t7 = new Text("\nX1: " + (x+55) + " Y1: " + (y-15) + "\tX2: " + (x+55) + " Y2: " + (y+10));
+                Text t8 = new Text("\nX3: " + (x+60) + " Y3: " + (y-35) + "\tX4: " + (x+35) + " Y4: " + (y-3)+"\n" );
+
+                Text t9 = new Text("\nX1: " + (x+55) + " Y1: " + (y+10) + "\tX2: " + (x+75) + " Y2: " + (y));
+                Text t10 = new Text("\nX3: " + (x+60) + " Y3: " + (y+10) + "\tX4: " + (x+70) + " Y4: " + (y+5)+"\n" );
+
                 fun(root,puntosDeControl,x+2,y-35,x-6,y+30,x+9,y+80,x+24+5,y+15,x+30,y, x+25, y+73,x+45,y+83,x+60,y-13,x+2,y-35,x+10,y-60,x-20,y-50,x-20,y-20,x+35+25,y-15,x+35+25,y-20-15,x+10+25,y+12-15,x+30+25,y+25-15,x+30+25,y+25-15,x+35+25,y+25-15,x+45+25,y+20-15,x+50+25,y);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
-                t5.setFill(Color.ORANGE);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+                t8.setFill(Color.RED);
+                t10.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
                 textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
+                textoCoord.getChildren().add(t9);
+                textoCoord.getChildren().add(t10);
 
 
                 root.getChildren().add(a);
@@ -2159,15 +2304,21 @@ public class Dibujo {
                 root.getChildren().add(a);
                 root.getChildren().add(b);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x-3) + " Y1: " + (y+10) + "\nX2: " + (x+60) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x+5) + " Y3: " + (y+50) + "\nX4: " + (x+45) + " Y4: " + (y) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x-3) + " Y1: " + (y+10) + "\tX2: " + (x+60) + " Y2: " + (y+15));
+                Text t2 = new Text("\nX3: " + (x+45) + " Y3: " + (y+100) + "\tX4: " + (x+50) + " Y4: " + (y+50)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+5) + " Y1: " + (y+50) + "\tX2: " + (x+45) + " Y2: " + (y) );
+                Text t4 = new Text("\nX3: " + (x+30) + " Y3: " + (y+10)+"\n" );
 
                 fun(root,puntosDeControl,x-3,y+10,x+45,y+100,x+50,y+50,x+60,y+15,x+5,y+50, x+30, y+10,x+45,y);
 
                 t2.setFill(Color.RED);
+                t4.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
 
                 //tamaÃ±ocaracter x
                 x=x+60;
@@ -2191,17 +2342,27 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\nX2: " + (x+80) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x) + " Y3: " + (y+50) + "\nX4: " + (x+45) + " Y4: " + (y-50) + "\n");
-                Text t3 = new Text("X5: " + (x+2) + " Y5: " + (y-35) + "\nX6: " + (x-20) + " Y6: " + (y-20) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x+80) + " Y2: " + (y+15) );
+                Text t2 = new Text("\nX3: " + (x+45) + " Y3: " + (y+100) + "\tX4: " + (x+50) + " Y4: " + (y+50)+"\n" );
+
+                Text t3 = new Text("\nX1: " + (x) + " Y1: " + (y+50) + "\tX2: " + (x+45) + " Y2: " + (y-50) );
+                Text t4 = new Text("\nX3: " + (x-10) + " Y3: " + (y) +"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x-20) + " Y2: " + (y-20) );
+                Text t6 = new Text("\nX3: " + (x-5) + " Y3: " + (y-60) + "\tX4: " + (x-20) + " Y4: " + (y-50)+"\n" );
+
                 fun(root,puntosDeControl,x+2,y-35,x+45,y+100,x+50,y+50,x+80,y+15,x,y+50, x-10, y,x+45,y-50,x+2,y-35,x-5,y-60,x-20,y-50,x-20,y-20);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
 
                 //roots
                 root.getChildren().add(a);
@@ -2232,17 +2393,27 @@ public class Dibujo {
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y) + "\nX2: " + (x+24) + " Y2: " + (y+15) + "\n");
-                Text t2 = new Text("X3: " + (x+24) + " Y3: " + (y) + "\nX4: " + (x+24) + " Y4: " + (y+50) + "\n");
-                Text t3 = new Text("X5: " + (x+23) + " Y5: " + (y+51) + "\nX6: " + (x+45) + " Y7: " + (y+15) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y) + "\tX2: " + (x+24) + " Y2: " + (y+15) );
+                Text t2 = new Text("\nX3: " + (x-6) + " Y3: " + (y+30) + "\tX4: " + (x+9) + " Y4: " + (y+80)+"\n" );
+
+                Text t3 = new Text("\n"+"X1: " + (x+24) + " Y1: " + (y) + "\tX4: " + (x+24) + " Y2: " + (y+50) );
+                Text t4 = new Text("\nX3: " + (x+35) + " Y3: " + (y+113) + "\tX4: " + (x-40) + " Y4: " + (y+98)+"\n" );
+
+                Text t5 = new Text("\n"+"X1: " + (x+23) + " Y1: " + (y+51) + "\tX6: " + (x+45) + " Y2: " + (y+15));
+                Text t6 = new Text("\nX3: " + (x+35) + " Y3: " + (y+50)+"\n");
+
                 fun(root,puntosDeControl,x+2,y,x-6,y+30,x+9,y+80,x+24,y+15,x+24,y,x+35,y+113,x-40,y+98,x+24,y+50,x+23,y+51, x+35, y+50,x+45,y+15);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
 
                 //Roots
                 root.getChildren().add(a);
@@ -2276,20 +2447,34 @@ public class Dibujo {
                 d.setStroke(color);
                 d.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\nX2: " + (x+30) + " Y2: " + (y-35) + "\n");
-                Text t2 = new Text("X3: " + (x+30) + " Y3: " + (y-50) + "\nX4: " + (x+25) + " Y4: " + (y+10) + "\n");
-                Text t3 = new Text("X5: " + (x+28) + " Y5: " + (y+10) + "\nX6: " + (x+50) + " Y6: " + (y) + "\n");
-                Text t4 = new Text("X7: " + (x+2) + " Y7: " + (y-35) + "\nX8: " + (x-20) + " Y8: " + (y-20) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x+30) + " Y2: " + (y-35) );
+                Text t2 = new Text("\nX3: " + (x-6) + " Y3: " + (y-20) + "\tX4: " + (x+9) + " Y4: " + (y+30)+"\n" );
+
+                Text t3 = new Text("\n"+"X1: " + (x+30) + " Y1: " + (y-50) + "\tX2: " + (x+25) + " Y2: " + (y+10) );
+                Text t4 = new Text("\nX3: " + (x+30) + " Y3: " + (y+90) + "\tX4: " + (x-35) + " Y4: " + (y+55)+"\n" );
+
+                Text t5 = new Text("\n"+"X1: " + (x+28) + " Y1: " + (y+10) + "\tX2: " + (x+50) + " Y2: " + (y) );
+                Text t6 = new Text("\nX3: " + (x+40) + " Y3: " + (y+10)+"\n" );
+
+                Text t7 = new Text("\n"+"X1: " + (x+2) + " Y1: " + (y-35) + "\tX2: " + (x-20) + " Y2: " + (y-20) );
+                Text t8 = new Text("\nX3: " + (x+10) + " Y3: " + (y-60) + "\tX4: " + (x-20) + " Y4: " + (y-50)+"\n" );
+
                 fun(root,puntosDeControl,x+2,y-35,x-6,y+30-50,x+9,y+80-50,x+30,y+15-50,x+30,y-50,x+30,y+140-50,x-40+5,y+105-50,x+25,y+10,x+23+5,y+10, x+40, y+10,x+50,y,x+2,y-35,x+10,y-60,x-20,y-50,x-20,y-20);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+                t8.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
+
 
                 //Roots
                 root.getChildren().add(a);
@@ -2332,24 +2517,39 @@ public class Dibujo {
                 e.setStroke(color);
                 e.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x-1) + " Y1: " + (y+10) + "\nX2: " + (x+40) + " Y2: " + (y) + "\n");
-                Text t2 = new Text("X3: " + (x+40) + " Y3: " + (y) + "\nX4: " + (x+7) + " Y4: " + (y+47) + "\n");
-                Text t3 = new Text("X5: " + (x+7) + " Y5: " + (y+47) + "\nX6: " + (x+35) + " Y6: " + (y+90) + "\n");
-                Text t4 = new Text("X7: " + (x+35) + " Y7: " + (y+90) + "\nX8: " + (x+40) + " Y8: " + (y+50) + "\n");
-                Text t5 = new Text("X9: " + (x+40) + " Y9: " + (y+50) + "\nX10: " + (x+60) + " Y10: " + (y+15) + "\n\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x-1) + " Y1: " + (y+10) + "\tX2: " + (x+40) + " Y2: " + (y));
+                Text t2 = new Text("\nX3: " + (x) + " Y3: " + (y-21) + "\tX4: " + (x-32) + " Y4: " + (y+40)+"\n" );
+
+                Text t3 = new Text("\n"+"X1: " + (x+40) + " Y1: " + (y) + "\tX2: " + (x+7) + " Y2: " + (y+47) );
+                Text t4 = new Text("\n" );
+
+                Text t5 = new Text("\n"+"X1: " + (x+7) + " Y1: " + (y+47) + "\tX2: " + (x+35) + " Y2: " + (y+90) );
+                Text t6 = new Text("\nX3: " + (x+50) + " Y3: " + (y+10) + "\tX4: " + (x+45) + " Y4: " + (y+80)+"\n" );
+
+                Text t7 = new Text("\n"+"X1: " + (x+35) + " Y1: " + (y+90) + "\tX2: " + (x+40) + " Y2: " + (y+50) );
+                Text t8 = new Text("\nX3: " + (x+15) + " Y3: " + (y+120) + "\tX4: " + (x-15) + " Y4: " + (y+45)+"\n" );
+
+                Text t9 = new Text("\n"+"X1: " + (x+40) + " Y1: " + (y+50) + "\tX2: " + (x+60) + " Y2: " + (y+15));
+                Text t10 = new Text("\nX3: " + (x+55) + " Y3: " + (y+50) + "\tX4: " + (x+60) + " Y4: " + (y+15)+"\n" );
 
                 fun(root,puntosDeControl,x-1,y+10,x,y-21,x-32,y+40,x+40,y,x+40,y,x+7,y+47,x+7,y+47,x+50,y+10,x+45,y+80,x+35,y+90,x+35,y+90,x+15,y+120,x-15,y+45,x+40,y+50,x+40,y+50,x+55,y+50,x+60,y+15);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
-                t5.setFill(Color.ORANGE);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+                t8.setFill(Color.RED);
+                t10.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
                 textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
+                textoCoord.getChildren().add(t9);
+                textoCoord.getChildren().add(t10);
 
                 //roots
                 root.getChildren().add(a);
@@ -2382,21 +2582,33 @@ public class Dibujo {
                 d.setStroke(color);
                 d.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter +"\n"+"X1: " + (x) + " Y1: " + (y-50) + "\nX2: " + (x+65) + " Y2: " + (y-50) + "\n");
-                Text t2 = new Text("X1: " + (x+65) + " Y1: " + (y-50) + "\nX2: " + (x) + " Y2: " + (y+50) + "\n");
-                Text t3 = new Text("X1: " + (x+50) + " Y1: " + (y+10) + "\nX2: " + (x+65) + " Y2: " + (y+15) + "\n");
-                Text t4 = new Text("X1: " + (x) + " Y1: " + (y+15) + "\nX2: " + (x+40) + " Y2: " + (y+15) + "\n");
+                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x) + " Y1: " + (y-50) + "\tX2: " + (x+65) + " Y2: " + (y-50));
+                Text t2 = new Text("\nX3: " + (x+25) + " Y3: " + (y-45) +"\n" );
+
+                Text t3 = new Text("\nX1: " + (x+65) + " Y1: " + (y-50) + "\tX2: " + (x) + " Y2: " + (y+50) );
+                Text t4 = new Text("\nX3: " + (x+25) + " Y3: " + (y-45) +"\n" );
+
+                Text t5 = new Text("\nX1: " + (x+50) + " Y1: " + (y+10) + "\tX2: " + (x+65) + " Y2: " + (y+15));
+                Text t6 = new Text("\nX3: " + (x+10) + " Y3: " + (y+20) + "\tX4: " + (x+50) + " Y4: " + (y+100)+"\n" );
+
+                Text t7 = new Text("\nX1: " + (x) + " Y1: " + (y+15) + "\tX2: " + (x+40) + " Y2: " + (y+15));
+                Text t8 = new Text("\nX3: " + (x+10) + " Y3: " + (y-15) + "\tX4: " + (x+20) + " Y4: " + (y+40)+"\n" );
 
                 fun(root,puntosDeControl,x,y-50,x+25,y-45,x+65,y-50,x+65,y-50,x+25,y-45,x,y+50,x,y+50,x+10,y+20,x+50,y+100,x+65,y+15,x,y+50-35,x+10,y+20-35,x+20,y+40,x+40,y+15);
 
                 t2.setFill(Color.RED);
-                t3.setFill(Color.BLUE);
-                t4.setFill(Color.GREEN);
+                t4.setFill(Color.RED);
+                t6.setFill(Color.RED);
+                t8.setFill(Color.RED);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                textoCoord.getChildren().add(t5);
+                textoCoord.getChildren().add(t6);
+                textoCoord.getChildren().add(t7);
+                textoCoord.getChildren().add(t8);
 
                 root.getChildren().add(a);
                 root.getChildren().add(b);
