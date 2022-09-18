@@ -188,7 +188,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
 
-                fun(root, puntosDeControl, x+70, y-80, x-10, y+80, x+50, y-50, x+35, y+100, x, y+30, x+60, x+50);
+                fun(root, puntosDeControl, x, y+15, x, y+50, x, y+30, x+5, y+50, x+5, y+50, x+60, y+20);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -235,6 +235,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
                 textoCoord.getChildren().add(t5);
+                fun(root, puntosDeControl, x+30, y-20, x+40, y+50, x+40, y+50, x+30, y+20, x+20, y+10, x+30,y-50,x+30,y-50,x+30,y+20,x+58,y+40,x+80,y+15);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -262,6 +263,8 @@ public class Dibujo {
                 t2.setFill(Color.RED);
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+
+                fun(root,puntosDeControl,x,y+25,x+25,y+15,x,y+25,x+60,y+15);
 
 
                 root.getChildren().add(c);
@@ -293,6 +296,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                fun(root,puntosDeControl,x+20,y-40,x+60,y+15,x+20,y-40,x+10,y,x+10,y,x,y-40);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -328,6 +332,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                fun(root,puntosDeControl,x+25,y+15,x+25,y+25,x+25,y+5,x+25,y+25,x+25,y+25,x+60,y+15);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -359,6 +364,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                fun(root,puntosDeControl,x+20,y+10,x+30,y-50,x+30,y-50,x+50,y+50,x+50,y+50,x+30,y-30);
 
                 root.getChildren().add(c1);
                 root.getChildren().add(c2);
@@ -493,6 +499,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
 
+                fun(root,puntosDeControl,x,y+10,x,y+10,x,y,x+2,y+15,x+2,y+25,x+50,y+15);
+
                 root.getChildren().add(c1);
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
@@ -530,6 +538,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                fun(root,puntosDeControl,x,y-40,x+60,y-50,x+30,y-37,x+10,y+40,x+10,y,x+40,y,x+10,y+10,x+50,y+15);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -566,6 +575,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                fun(root,puntosDeControl,x+25,y+10,x+25,y+40,x+25,y,x+10,y+80,x+10,y+80,x+60,y+15);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -604,6 +614,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                fun(root,puntosDeControl,x,y+20,x+40,y-50,x+40,y-50,x+59,y+20,x+60,y+10,x+30,y+80,x+30,y+80,x+80,y+15);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -640,6 +651,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+
+                fun(root,puntosDeControl,x,y+15,x,y+50,x,y+40,x+25,y+35,x+25,y+35,x+50,y+15);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -678,6 +691,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+
+                fun(root,puntosDeControl,x,y-40,x+20,y+40,x+20,y+40,x+40,y,x+40,y,x+50,y-50,x+50,y-50,x+70,y+15);
 
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
@@ -824,6 +839,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+                fun(root,puntosDeControl,x-15,y+65,x+30,y+15,x,y+70,x-15,y+65,x,y,x,y+70);
 
                 x = x + 30;
             }
@@ -859,6 +875,7 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
+                fun(root,puntosDeControl,x,y-40,x+50,y-40,x+50,y-40,x+40,y+30,x+40,y+30,x+5,y+40,x+5,y+40,x+50,y-15);
                 root.getChildren().add(qv1);
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -894,6 +911,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
 
+                fun(root,puntosDeControl,x+2,y,x-1,y+50,x,y+18,x+17,y+30,x+17,y+30,x+55,y+15);
+
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
                 root.getChildren().add(cb3);
@@ -926,6 +945,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
 
+                fun(root,puntosDeControl,x,y-20,x+10,y+40,x+10,y+40,x+60,y-50,x+33,y-5,x+80,y+15);
+
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
                 root.getChildren().add(cb3);
@@ -950,6 +971,7 @@ public class Dibujo {
                 t2.setFill(Color.RED);
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+                fun(root,puntosDeControl,x,y+15,x-1,y+40,x-1,y+40,x+30,y+15);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -980,6 +1002,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+
+                fun(root,puntosDeControl,x,y+15,x+15,y-5,x+15,y-5,x+20,y+50,x+20,y+50,x+50,y+15);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
@@ -1022,6 +1046,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t3);
                 textoCoord.getChildren().add(t4);
 
+                fun(root,puntosDeControl,x,y,x+8,y+50,x+8,y+50,x+28,y+48,x+28,y+48,x+48,y+48,x+48,y+48,x+70,y+15);
+
                 root.getChildren().add(qv1);
                 root.getChildren().add(qv2);
                 root.getChildren().add(qv3);
@@ -1054,6 +1080,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
+
+                fun(root,puntosDeControl,x+5,y+15,x+15,y+50,x+15,y+50,x+40,y+40,x+40,y+40,x+65,y+50);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(qv1);
@@ -1088,6 +1116,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t2);
                 textoCoord.getChildren().add(t3);
 
+                fun(root,puntosDeControl,x,y,x+8,y+50,x+8,y+50,x+30,y+48,x+30,y+48,x+50,y+15);
+
                 root.getChildren().add(qv1);
                 root.getChildren().add(qv2);
                 root.getChildren().add(cb2);
@@ -1114,6 +1144,7 @@ public class Dibujo {
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(qv1);
+                fun(root,puntosDeControl,x+5,y+15,x+15,y+50,x+15,y+50,x+45,y+60);
 
                 x = x + 55;
             }
@@ -1154,6 +1185,8 @@ public class Dibujo {
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
 
+                fun(root,puntosDeControl,x,y,x+8,y+50,x+8,y+50,x+30,y+48,x+30,y+48,x+50,y+15);
+
                 x = x + 50;
             }
             else{
@@ -1178,6 +1211,8 @@ public class Dibujo {
                 t2.setFill(Color.RED);
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+
+                fun(root,puntosDeControl,x+5,y+15,x+15,y+50,x+15,y+50,x+45,y+60);
 
                 root.getChildren().add(cb1);
                 root.getChildren().add(cb2);
