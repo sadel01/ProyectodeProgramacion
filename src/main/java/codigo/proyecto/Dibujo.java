@@ -1,11 +1,8 @@
 package codigo.proyecto; 
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Line;
@@ -49,7 +46,6 @@ public class Dibujo {
         }
     }
 
-
     void fun(AnchorPane root, ToggleButton puntosdeControl, int... lista){
 
         int j = 0;
@@ -82,7 +78,6 @@ public class Dibujo {
 
     public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl){
 
-
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
             if(caracter == 'a' || caracter == 'á'){
 
@@ -96,13 +91,21 @@ public class Dibujo {
                 c2.setStroke(color);
                 c2.setStrokeWidth(grosor);
 
-                Text t1 = new Text(caracter + ":\nX1: " + (x-5) + " Y1: " + (y-30) + "\nX2: " + (x-20) + " Y2: " + (y+85) + "\n");
-                Text t2 = new Text("X3: " + (x+10) + " Y3: " + (y+60) + "\nX4: " + (x+50) + " Y4: " + (y+65) + "\n\n");
+                //Text t1 = new Text(caracter + ":\nX1: " + (x-5) + " Y1: " + (y-30) + "\nX2: " + (x-20) + " Y2: " + (y+85) + "\n"); //CTRL-X1:
+                Text t1 = new Text(caracter + ":\nXI: " + (x+30) + " YI: " + (y+10));
+                Text t2 = new Text( "\nCX1: " + (x-5) + " CY1: " + (y-30));
+                Text t3 = new Text( "\nCX2: " + (x-20) + " CY2: " + (y+85));
+                Text t4 = new Text( "\nXF: " + (x+25) + " YF: " + (y+30) + "\n\n");
+
+                t2.setFill(Color.RED);
+                t3.setFill(Color.DARKBLUE);
 
                 fun(root, puntosDeControl, x-5,y-30, x-20, y+85, x+10, y+60, x+50, y+65);
 
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
+                textoCoord.getChildren().add(t3);
+                textoCoord.getChildren().add(t4);
                 root.getChildren().add(c);
                 root.getChildren().add(c2);
 
@@ -767,6 +770,7 @@ public class Dibujo {
                 root.getChildren().add(c1);
                 root.getChildren().add(c2);
                 root.getChildren().add(c3);
+
                 if(caracter == 'Í'){
                     Line tilde = new Line(x+30,y-60,x+45,y-80);
                     tilde.setFill(Color.TRANSPARENT);
@@ -781,9 +785,10 @@ public class Dibujo {
 
                     root.getChildren().add(tilde);
                 }
+
                 Text t4 = new Text("\n");
                 textoCoord.getChildren().add(t4);
-                x = x+50;
+                x = x+55;
             }
         }
         if(caracter == 'j' || caracter == 'J'){
