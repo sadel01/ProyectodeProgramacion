@@ -913,8 +913,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t1);
                 textoCoord.getChildren().add(t2);
 
-
                 fun(root,puntosDeControl,x+2, y, x-10, y+80, x+30, y+40, x+40, y+15);
+                root.getChildren().add(c);
 
                 if(caracter == 'í'){
                     Line tilde = new Line(x,y-10,x+15,y-30);
