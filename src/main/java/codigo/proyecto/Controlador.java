@@ -84,7 +84,6 @@ public class Controlador extends Dibujo implements Initializable {
         }
     }
 
-
     @FXML
     private void BorrarPalabra(MouseEvent event) {
         root.getChildren().clear();
@@ -92,10 +91,9 @@ public class Controlador extends Dibujo implements Initializable {
         textoCoord.getChildren().clear();
         puntosDeControl.setDisable(true);
         puntosDeControl.setText("Mostrar puntos de control");
-        x = 50;
-        y = 250;
+        x = 30;
+        y = 100;
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
