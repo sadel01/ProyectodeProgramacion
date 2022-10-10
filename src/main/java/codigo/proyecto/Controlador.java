@@ -84,34 +84,6 @@ public class Controlador extends Dibujo implements Initializable {
         }
     }
 
-    void cuadrado() {
-
-        Line l1 = new Line(x, y-50, x, y+50);
-        Line l2 = new Line(x, y-50, x+60, y-50);
-        Line l3 = new Line(x+60, y-50, x+60, y+50);
-        Line l4 = new Line(x+60, y+50, x, y+50);
-
-        l1.setFill(Color.TRANSPARENT);
-        l1.setStroke(Color.BLUE);
-        l1.setStrokeWidth(3);
-
-        l2.setFill(Color.TRANSPARENT);
-        l2.setStroke(Color.BLUE);
-        l2.setStrokeWidth(3);
-
-        l3.setFill(Color.TRANSPARENT);
-        l3.setStroke(Color.BLUE);
-        l3.setStrokeWidth(3);
-
-        l4.setFill(Color.TRANSPARENT);
-        l4.setStroke(Color.BLUE);
-        l4.setStrokeWidth(3);
-
-        root.getChildren().add(l1);
-        root.getChildren().add(l2);
-        root.getChildren().add(l3);
-        root.getChildren().add(l4);
-    }
 
     @FXML
     private void BorrarPalabra(MouseEvent event) {
