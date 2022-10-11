@@ -1,6 +1,7 @@
 package codigo.proyecto;
 
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -76,7 +77,16 @@ public class Dibujo {
         }
     }
 
-    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl){
+
+
+    public void Selector(String caracter2, String palabra, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl){
+
+        char caracter = ' ';
+        char caracterAnt = ' ';
+        if(caracter2.length() > 0 && palabra.length() > 1){
+            caracter = caracter2.charAt(0);
+            caracterAnt = palabra.charAt(palabra.length()-2);
+        }
 
         if (x >= 1130) {
             if(caracterAnt!=' '){
@@ -3514,4 +3524,5 @@ public class Dibujo {
             }
         }
     }
+
 }
