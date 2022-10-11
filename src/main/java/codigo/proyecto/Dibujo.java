@@ -1,4 +1,4 @@
-package codigo.proyecto; //j - q
+package codigo.proyecto;
 
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyEvent;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 public class Dibujo {
 
-    int x = 50;
-    int y = 300;
-    int aux=0;
+    int x = 30;
+    int y = 100;
+    int aux = 0;
     int grosor = 4;
     ArrayList<Circle> circulos = new ArrayList<>();
     Color color = Color.BLACK;
@@ -79,19 +79,35 @@ public class Dibujo {
 
 
 
-    public void Selector(String caracter2, String palabra, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl){
+    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar){
+        if(borrar==1){
+            x=30;
+            y=100;
+        }
 
-        char caracter = ' ';
-        char caracterAnt = ' ';
-        if(caracter2.length() > 0 && palabra.length() > 1){
-            caracter = caracter2.charAt(0);
-            caracterAnt = palabra.charAt(palabra.length()-2);
+
+        if (x >= 1130) {
+            if(caracter!=' ' && caracterAnt !=' '){
+                Line l1 = new Line(x+20, y+30, x+50, y+30);
+                l1.setFill(Color.TRANSPARENT);
+                l1.setStroke(color);
+                l1.setStrokeWidth(grosor);
+                root.getChildren().add(l1);
+            }
+            x = 30;
+            y = y + 150;
+        }
+
+        if(caracter == ' '){
+            if(x!=30) {
+                x = x + 50;
+            }
         }
 
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
             if(caracter == 'a' || caracter == 'á'){
 
-                CubicCurve c= new CubicCurve(x+30, y+10, x-5, y-30, x-20, y+85, x+25, y+30);
+                CubicCurve c = new CubicCurve(x+30, y+10, x-5, y-30, x-20, y+85, x+25, y+30);
                 c.setFill(Color.TRANSPARENT);
                 c.setStroke(color);
                 c.setStrokeWidth(grosor);
@@ -1527,6 +1543,11 @@ public class Dibujo {
                 textoCoord.getChildren().add(t6);
 
                 fun(root,puntosDeControl,x,y, x+50, y+50, x+30, y-50, x+30, y+60, x+45, y+65, x+8,y+50,x+8,y+50,x+30,y+48,x+30,y+48,x+50,y+15);
+
+                root.getChildren().add(cb1);
+                root.getChildren().add(cb2);
+                root.getChildren().add(qv1);
+                root.getChildren().add(qv2);
 
                 x = x + 50;
             }
