@@ -3326,7 +3326,7 @@ public class Dibujo {
                 x = x + 40;
             }
         }
-        if(caracter == '"' ||caracter =='\''){
+        if(caracter == '"' || caracter =='\''){
             int rep = 0;
             if(caracter == '\''){
                rep = 1;

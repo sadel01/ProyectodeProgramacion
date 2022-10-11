@@ -45,12 +45,13 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
 
     @FXML
     private void obtenerLetra(KeyEvent event) {
-        puntosDeControl.setDisable(false);
+
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
         String palabra = " " + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
         for(int i=0;i<palabra.length();i++){
+
             if(i==0){
                 Selector(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1);
             }
@@ -58,10 +59,16 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
                 Selector(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0);
             }
 
+            if (puntosDeControl.isSelected()){
+                BotonAct(puntosDeControl);
+            }
+
         }
 
         if (palabra.length() < 2){
             puntosDeControl.setDisable(true);
+        }else{
+            puntosDeControl.setDisable(false);
         }
     }
 
