@@ -79,16 +79,16 @@ public class Dibujo {
     public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl){
 
         if (x >= 1130) {
-
-            Line l1 = new Line(x+20, y+30, x+50, y+30);
-            l1.setFill(Color.TRANSPARENT);
-            l1.setStroke(color);
-            l1.setStrokeWidth(grosor);
-
-            root.getChildren().add(l1);
-
+            if(caracterAnt!=' '){
+                Line l1 = new Line(x+20, y+30, x+50, y+30);
+                l1.setFill(Color.TRANSPARENT);
+                l1.setStroke(color);
+                l1.setStrokeWidth(grosor);
+                root.getChildren().add(l1);
+            }
             x = 30;
             y = y + 150;
+
         }
 
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
