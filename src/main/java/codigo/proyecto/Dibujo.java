@@ -79,17 +79,15 @@ public class Dibujo {
 
 
 
-    public void Selector(String caracter2, String palabra, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl){
-
-        char caracter = ' ';
-        char caracterAnt = ' ';
-        if(caracter2.length() > 0 && palabra.length() > 1){
-            caracter = caracter2.charAt(0);
-            caracterAnt = palabra.charAt(palabra.length()-2);
+    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar){
+        if(borrar==1){
+            x=30;
+            y=100;
         }
 
+
         if (x >= 1130) {
-            if(caracterAnt!=' '){
+            if(caracter!=' ' && caracterAnt !=' '){
                 Line l1 = new Line(x+20, y+30, x+50, y+30);
                 l1.setFill(Color.TRANSPARENT);
                 l1.setStroke(color);
@@ -98,7 +96,12 @@ public class Dibujo {
             }
             x = 30;
             y = y + 150;
+        }
 
+        if(caracter == ' '){
+            if(x!=30) {
+                x = x + 50;
+            }
         }
 
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {

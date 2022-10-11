@@ -43,40 +43,23 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
 
     @FXML
     private void obtenerLetra(KeyEvent event) {
+
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-
         String palabra = " " + CuadroTexto.getText();
-
-        String letra = event.getCharacter();
-
-        System.out.println(event);
-
-        Selector(event.getCharacter(), palabra,root, textoCoord, puntosDeControl);
-
-        CuadroTexto.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.BACK_SPACE){
-                    System.out.println("Borrar ultima letra");
-                }
+        root.getChildren().clear();
+        textoCoord.getChildren().clear();
+        for(int i=0;i<palabra.length();i++){
+            if(i==0){
+                Selector(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1);
             }
-        });
+            else{
+                Selector(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0);
+            }
 
-
-
-    }
-
-
-    public void obtenerLetra2(KeyEvent event) {
-        textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-
-        String palabra = " " + CuadroTexto.getText();
-
+        }
         String letra = event.getCharacter();
-
-        Selector(event.getCharacter(), palabra,root, textoCoord, puntosDeControl);
-
     }
+
 
     private void ColorRectangulo() {
 
