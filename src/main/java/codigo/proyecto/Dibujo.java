@@ -1,8 +1,10 @@
 package codigo.proyecto;
 
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.CubicCurve;
@@ -79,14 +81,15 @@ public class Dibujo {
 
 
 
-    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar){
+    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl,
+                         int borrar){
         if(borrar==1){
             x=30;
             y=100;
         }
 
 
-        if (x >= 1130) {
+        if (x >= 1050) {
             if(caracter!=' ' && caracterAnt !=' '){
                 Line l1 = new Line(x+20, y+30, x+50, y+30);
                 l1.setFill(Color.TRANSPARENT);

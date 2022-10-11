@@ -6,12 +6,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
@@ -57,6 +59,10 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
             }
 
         }
+
+        if (palabra.length() < 2){
+            puntosDeControl.setDisable(true);
+        }
     }
 
 
@@ -95,16 +101,6 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
         }
     }
 
-    @FXML
-    private void BorrarPalabra(MouseEvent event) {
-        root.getChildren().clear();
-        CuadroTexto.clear();
-        textoCoord.getChildren().clear();
-        puntosDeControl.setDisable(true);
-        puntosDeControl.setText("Mostrar puntos de control");
-        x = 30;
-        y = 100;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
