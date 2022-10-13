@@ -21,6 +21,11 @@ public class Dibujo {
     int y = 100;
     int aux = 0;
     int grosor = 4;
+    //variables para el subrayado
+    boolean auxSub=false;
+    int xInicialSu=0;
+    int yInicialSu=0;
+    //-----------------------
     ArrayList<Circle> circulos = new ArrayList<>();
     Color color = Color.BLACK;
     Color color2 = Color.web("#5F9EA0");
@@ -78,17 +83,22 @@ public class Dibujo {
             }
         }
     }
+    public void Subrayar(int xa,int ya,int xb,int yb, AnchorPane root){
+        Line subrayado = new Line(xa,ya,xb,yb+55);
+        subrayado.setFill(Color.TRANSPARENT);
+        subrayado.setStroke(color);
+        subrayado.setStrokeWidth(grosor);
+        root.getChildren().add(subrayado);
+    }
 
 
 
-    public void Selector(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl,
-                         int borrar){
+    public void Letras(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar){
+
         if(borrar==1){
             x=30;
             y=100;
         }
-
-
         if (x >= 1050) {
             if(caracter!=' ' && caracterAnt !=' '){
                 Line l1 = new Line(x+20, y+30, x+50, y+30);
@@ -99,12 +109,14 @@ public class Dibujo {
             }
             x = 30;
             y = y + 150;
+            xInicialSu=x;
+            yInicialSu=y+55;
         }
-
         if(caracter == ' '){
             if(x!=30) {
                 x = x + 50;
             }
+            auxSub=false;
         }
 
         if(caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
@@ -153,8 +165,12 @@ public class Dibujo {
 
                     root.getChildren().add(tilde);
                 }
-
                 x = x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
+
+
 
             }else{
                 CubicCurve c = new CubicCurve(x, y+50, x+20, y+60, x+20, y-50, x+30, y-50); // IZQ
@@ -216,6 +232,9 @@ public class Dibujo {
 
 
                 x = x+65;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'b' || caracter == 'B'){
@@ -262,6 +281,9 @@ public class Dibujo {
                 root.getChildren().add(cb2);
                 root.getChildren().add(cb3);
                 x = x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
 
                 QuadCurve c = new QuadCurve(x+30, y-20, x+30, y+50, x+40, y+50); // inferior b
@@ -330,6 +352,9 @@ public class Dibujo {
                 root.getChildren().add(c4);
                 root.getChildren().add(c5);
                 x = x+80;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'c' || caracter == 'C'){
@@ -367,6 +392,9 @@ public class Dibujo {
                 root.getChildren().add(c1);
 
                 x = x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
 
                 CubicCurve c = new CubicCurve(x+20, y-40, x-25, y-10, x+10, y+110, x+60, y+15); // C
@@ -411,6 +439,9 @@ public class Dibujo {
                 root.getChildren().add(c3);
 
                 x = x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
 
         }
@@ -459,6 +490,9 @@ public class Dibujo {
                 root.getChildren().add(c3);
 
                 x = x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
 
                 CubicCurve c1 = new CubicCurve(x+20, y+10, x-10, y+10, x, y-50, x+30, y-50); // izq sombrero
@@ -503,6 +537,9 @@ public class Dibujo {
                 root.getChildren().add(c3);
 
                 x = x+90;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'e' || caracter == 'E' || caracter == 'é' || caracter == 'É'){
@@ -555,6 +592,9 @@ public class Dibujo {
                 }
 
                 x = x+50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
 
                 CubicCurve c2 = new CubicCurve(x+25, y-10, x-20, y-10, x, y+120, x+60, y+15);
@@ -615,6 +655,9 @@ public class Dibujo {
                 }
 
                 x = x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
 
             //tamaÃ±o caracter
@@ -665,6 +708,9 @@ public class Dibujo {
                 root.getChildren().add(c3);
 
                 x = x+50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
                 CubicCurve c = new CubicCurve(x, y-40, x+10, y-70, x+50, y-10, x+60, y-50);
                 c.setFill(Color.TRANSPARENT);
@@ -716,6 +762,9 @@ public class Dibujo {
                 root.getChildren().add(c3);
 
                 x = x+50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
 
 
@@ -765,6 +814,9 @@ public class Dibujo {
                 root.getChildren().add(c3);
 
                 x = x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
                 CubicCurve c = new CubicCurve(x, y+20, x+70, y+10, x+60, y-50, x+40, y-50); // mitad e
                 c.setFill(Color.TRANSPARENT);
@@ -820,6 +872,9 @@ public class Dibujo {
                 root.getChildren().add(c4);
 
                 x = x + 80;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'h' || caracter == 'H'){
@@ -868,6 +923,9 @@ public class Dibujo {
                 root.getChildren().add(c3);
 
                 x = x+50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
                 CubicCurve c = new CubicCurve(x, y-40, x+10, y-60, x+30, y-30, x+20, y+40); // primera curva hacia abajo
                 c.setFill(Color.TRANSPARENT);
@@ -923,6 +981,9 @@ public class Dibujo {
                 root.getChildren().add(c4);
 
                 x = x+70;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'i' || caracter == 'I' || caracter == 'í' || caracter == 'Í'){
@@ -978,6 +1039,9 @@ public class Dibujo {
                     root.getChildren().add(p);
                 }
                 x = x+40;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }else{
 
 
@@ -1041,6 +1105,9 @@ public class Dibujo {
                 }
 
                 x = x+55;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'j' || caracter == 'J'){
@@ -1095,6 +1162,9 @@ public class Dibujo {
                 fun(root,puntosDeControl,x-15,y+65,x-15, y+50, x+30, y+35, x+30,y+15,x,y+70, x-5, y+95, x-20, y+85,x-15,y+65,x,y, x-1, y+20, x+5, y+60, x,y+70);
 
                 x = x + 30;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 QuadCurve qv1 = new QuadCurve(x, y-40,x+20,y-50,x+50,y-40);
@@ -1150,6 +1220,9 @@ public class Dibujo {
                 root.getChildren().add(cb4);
 
                 x = x + 50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'k' || caracter == 'K'){
@@ -1197,6 +1270,9 @@ public class Dibujo {
                 root.getChildren().add(cb3);
 
                 x = x+55;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x, y-20, x+40, y-120, x+40, y+80, x+10, y+40); // primera curva hacia
@@ -1242,6 +1318,10 @@ public class Dibujo {
                 root.getChildren().add(cb3);
 
                 x = x +80;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+
+                }
             }
         }
         if(caracter == 'l' || caracter == 'L'){
@@ -1276,6 +1356,10 @@ public class Dibujo {
                 root.getChildren().add(cb2);
 
                 x = x + 30;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+
+                }
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x, y+15, x+80, y-80, x+5, y-60, x+15, y-5); //Curva principal
@@ -1320,6 +1404,10 @@ public class Dibujo {
                 root.getChildren().add(qv1);
 
                 x = x + 50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+
+                }
             }
         }
         if(caracter == 'm' || caracter == 'M'){
@@ -1378,6 +1466,9 @@ public class Dibujo {
                 root.getChildren().add(cb2);
 
                 x = x + 70;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x+5, y+15, x-15, y-70, x+29, y-85, x+15, y+50); // primera curva hacia
@@ -1423,6 +1514,9 @@ public class Dibujo {
                 root.getChildren().add(qv2);
 
                 x = x + 78;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'n' || caracter == 'N'){
@@ -1469,6 +1563,9 @@ public class Dibujo {
                 root.getChildren().add(cb2);
 
                 x = x + 50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x+5, y+15, x-15, y-70, x+29, y-85, x+15, y+50); // primera curva hacia
@@ -1501,6 +1598,10 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+5,y+15, x-15, y-70, x+29, y-85, x+40, y-93, x+15,y+50,x+15,y+50,x+45,y+60);
 
                 x = x + 55;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+
+                }
             }
         }
         if(caracter == 'ñ' || caracter == 'Ñ'){
@@ -1553,6 +1654,9 @@ public class Dibujo {
                 root.getChildren().add(qv2);
 
                 x = x + 50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x+5, y+15, x-15, y-70, x+29, y-85, x+15, y+50); // primera curva hacia
@@ -1598,6 +1702,9 @@ public class Dibujo {
                 root.getChildren().add(qv1);
 
                 x = x + 55;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'o' || caracter == 'O' || caracter == 'ó' || caracter == 'Ó'){
@@ -1664,6 +1771,9 @@ public class Dibujo {
                 root.getChildren().add(qv1);
 
                 x = x + 50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 Text t = new Text("\n"+caracter+"\n");
@@ -1714,6 +1824,9 @@ public class Dibujo {
                 textoCoord.getChildren().add(t6);
 
                 x = x + 65;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'p' || caracter == 'P'){
@@ -1772,6 +1885,9 @@ public class Dibujo {
                 root.getChildren().add(d);
 
                 x = x + 55;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x, y+15, x, y-70, x+30, y-90, x+25, y+85); // primera curva hacia
@@ -1805,6 +1921,9 @@ public class Dibujo {
                 root.getChildren().add(cb2);
 
                 x = x + 58;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'q' || caracter == 'Q'){
@@ -1863,6 +1982,9 @@ public class Dibujo {
                 root.getChildren().add(cb2);
 
                 x = x + 60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 CubicCurve cb1 = new CubicCurve(x+13, y-10, x, y+70, x+57, y+70, x+57, y-10); //Curva principal
@@ -1907,6 +2029,9 @@ public class Dibujo {
                 root.getChildren().add(cb3);
 
                 x = x + 65;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
 
         }
@@ -1932,6 +2057,9 @@ public class Dibujo {
 
                     root.getChildren().add(a);
                     x=x+60;
+                    if(auxSub){
+                        Subrayar(xInicialSu,yInicialSu,x,y,root);
+                    }
                 }
                 //CurvA
                 CubicCurve a = new CubicCurve(x+9-10,y+10,x+10-10,y-21,x-22-10,y+40,x+30,y);
@@ -1966,6 +2094,9 @@ public class Dibujo {
 
                 //EspacioDecaracterR
                 x= x+55;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 //CurvA
@@ -2040,6 +2171,9 @@ public class Dibujo {
                 root.getChildren().add(e);
 
                 x = x +80;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 's' || caracter == 'S'){
@@ -2062,6 +2196,9 @@ public class Dibujo {
 
                     root.getChildren().add(a);
                     x=x+60;
+                    if(auxSub){
+                        Subrayar(xInicialSu,yInicialSu,x,y,root);
+                    }
                 }
                 //CurvaA
                 CubicCurve a = new CubicCurve(x+20,y+35,x-40,y-15,x+40,y-15,x,y+10+5);
@@ -2111,66 +2248,80 @@ public class Dibujo {
 
                 //Espaciocaracter s
                 x = x+40;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
-                //CurvaA
-                CubicCurve a = new CubicCurve(x-1,y+15,x,y-15,x-30,y+20,x+10,y+40);
-                a.setFill(Color.TRANSPARENT);
-                a.setStroke(color);
-                a.setStrokeWidth(grosor);
+                if(caracterAnt!='^'){
+                    //CurvaA
+                    CubicCurve a = new CubicCurve(x-1,y+15,x,y-15,x-30,y+20,x+10,y+40);
+                    a.setFill(Color.TRANSPARENT);
+                    a.setStroke(color);
+                    a.setStrokeWidth(grosor);
 
-                //CurvaB
-                CubicCurve b = new CubicCurve(x+10,y+40,x+65,y+70,x+50,y+10,x+25,y);
-                b.setFill(Color.TRANSPARENT);
-                b.setStroke(color);
-                b.setStrokeWidth(grosor);
+                    //CurvaB
+                    CubicCurve b = new CubicCurve(x+10,y+40,x+65,y+70,x+50,y+10,x+25,y);
+                    b.setFill(Color.TRANSPARENT);
+                    b.setStroke(color);
+                    b.setStrokeWidth(grosor);
 
-                //CurvaC
-                QuadCurve c = new QuadCurve(x+44,y+47,x+55,y+45,x+70,y+15);
-                c.setFill(Color.TRANSPARENT);
-                c.setStroke(color);
-                c.setStrokeWidth(grosor);
+                    //CurvaC
+                    QuadCurve c = new QuadCurve(x+44,y+47,x+55,y+45,x+70,y+15);
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
 
-                //CurvaD
-                CubicCurve d = new CubicCurve(x+25,y,x-30,y-30,x+90,y-80,x+35,y-20);
-                d.setFill(Color.TRANSPARENT);
-                d.setStroke(color);
-                d.setStrokeWidth(grosor);
+                    //CurvaD
+                    CubicCurve d = new CubicCurve(x+25,y,x-30,y-30,x+90,y-80,x+35,y-20);
+                    d.setFill(Color.TRANSPARENT);
+                    d.setStroke(color);
+                    d.setStrokeWidth(grosor);
 
-                Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x-1) + " Y1: " + (y+15) + "\tX2: " + (x+10) + " Y2: " + (y+40));
-                Text t2 = new Text("\nX3: " + (x) + " Y3: " + (y-15) + "\tX4: " + (x-30) + " Y4: " + (y+20)+"\n" );
+                    Text t1 = new Text("\n"+caracter +"\n"+"X1: " + (x-1) + " Y1: " + (y+15) + "\tX2: " + (x+10) + " Y2: " + (y+40));
+                    Text t2 = new Text("\nX3: " + (x) + " Y3: " + (y-15) + "\tX4: " + (x-30) + " Y4: " + (y+20)+"\n" );
 
-                Text t3 = new Text("X1: " + (x+10) + " Y1: " + (y+40) + "\tX2: " + (x+25) + " Y2: " + (y) );
-                Text t4 = new Text("\nX3: " + (x+65) + " Y3: " + (y+70) + "\tX4: " + (x+50) + " Y4: " + (y+10)+"\n" );
+                    Text t3 = new Text("X1: " + (x+10) + " Y1: " + (y+40) + "\tX2: " + (x+25) + " Y2: " + (y) );
+                    Text t4 = new Text("\nX3: " + (x+65) + " Y3: " + (y+70) + "\tX4: " + (x+50) + " Y4: " + (y+10)+"\n" );
 
-                Text t5 = new Text("X1: " + (x+44) + " Y1: " + (y+47) + "\tX2: " + (x+70) + " Y2: " + (y+15) );
-                Text t6 = new Text("\nX3: " + (x+55) + " Y3: " + (y+45) +"\n" );
+                    Text t5 = new Text("X1: " + (x+44) + " Y1: " + (y+47) + "\tX2: " + (x+70) + " Y2: " + (y+15) );
+                    Text t6 = new Text("\nX3: " + (x+55) + " Y3: " + (y+45) +"\n" );
 
-                Text t7 = new Text("X1: " + (x+25) + " Y1: " + (y) + "\tX2: " + (x+35) + " Y2: " + (y-20) );
-                Text t8 = new Text("\nX3: " + (x-30) + " Y3: " + (y-30) + "\tX4: " + (x+90) + " Y4: " + (y-80)+"\n" );
+                    Text t7 = new Text("X1: " + (x+25) + " Y1: " + (y) + "\tX2: " + (x+35) + " Y2: " + (y-20) );
+                    Text t8 = new Text("\nX3: " + (x-30) + " Y3: " + (y-30) + "\tX4: " + (x+90) + " Y4: " + (y-80)+"\n" );
 
-                fun(root,puntosDeControl,x-1,y+15,x,y-15,x-30,y+20,x+10,y+40,x+10,y+40,x+65,y+70,x+50,y+10,x+25,y,x+44,y+47,x+55,y+45,x+70,y+15,x+25,y,x-30,y-30,x+90,y-80,x+35,y-20);
+                    fun(root,puntosDeControl,x-1,y+15,x,y-15,x-30,y+20,x+10,y+40,x+10,y+40,x+65,y+70,x+50,y+10,x+25,y,x+44,y+47,x+55,y+45,x+70,y+15,x+25,y,x-30,y-30,x+90,y-80,x+35,y-20);
 
-                t2.setFill(Color.RED);
-                t4.setFill(Color.RED);
-                t6.setFill(Color.RED);
-                t8.setFill(Color.RED);
+                    t2.setFill(Color.RED);
+                    t4.setFill(Color.RED);
+                    t6.setFill(Color.RED);
+                    t8.setFill(Color.RED);
 
-                textoCoord.getChildren().add(t1);
-                textoCoord.getChildren().add(t2);
-                textoCoord.getChildren().add(t3);
-                textoCoord.getChildren().add(t4);
-                textoCoord.getChildren().add(t5);
-                textoCoord.getChildren().add(t6);
-                textoCoord.getChildren().add(t7);
-                textoCoord.getChildren().add(t8);
+                    textoCoord.getChildren().add(t1);
+                    textoCoord.getChildren().add(t2);
+                    textoCoord.getChildren().add(t3);
+                    textoCoord.getChildren().add(t4);
+                    textoCoord.getChildren().add(t5);
+                    textoCoord.getChildren().add(t6);
+                    textoCoord.getChildren().add(t7);
+                    textoCoord.getChildren().add(t8);
 
-                root.getChildren().add(a);
-                root.getChildren().add(b);
-                root.getChildren().add(c);
-                root.getChildren().add(d);
+                    root.getChildren().add(a);
+                    root.getChildren().add(b);
+                    root.getChildren().add(c);
+                    root.getChildren().add(d);
 
-                x = x+70;
+                    x = x+70;
+                    if(auxSub){
+                        Subrayar(xInicialSu,yInicialSu,x,y,root);
+                    }
+                }
+                else{// Cuando quiere subrayar
+                    auxSub=true;
+                    xInicialSu = x;
+                    yInicialSu = y+55;
+                }
+
             }
 
         }
@@ -2209,6 +2360,9 @@ public class Dibujo {
 
                 //EspaciocaracterT
                 x=x+30;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 //CurvaA
@@ -2242,6 +2396,9 @@ public class Dibujo {
                 root.getChildren().add(a);
                 root.getChildren().add(b);
                 x=x+30;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'u' || caracter == 'U' ||caracter == 'ü' || caracter =='Ü' || caracter == 'ú' || caracter == 'Ú' ){
@@ -2331,6 +2488,9 @@ public class Dibujo {
 
                 //largo de caracter i
                 x=x+50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 Text t = new Text(caracter +"\n");
@@ -2422,6 +2582,9 @@ public class Dibujo {
                 textoCoord.getChildren().add(t10);
 
                 //largo de caracter i
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
                 x=x+55;
             }
         }
@@ -2473,6 +2636,9 @@ public class Dibujo {
 
                 //espaciocaracter v
                 x=x+50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 //CurvaC
@@ -2534,6 +2700,9 @@ public class Dibujo {
 
                 //espaciocaracter v
                 x=x+50;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
 
             }
         }
@@ -2598,6 +2767,9 @@ public class Dibujo {
 
                 //espaciocaracter v
                 x=x+65;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
 
             }
             else{
@@ -2671,6 +2843,9 @@ public class Dibujo {
                 root.getChildren().add(e);
 
                 x=x+70;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
         if(caracter == 'x' || caracter == 'X'){
@@ -2709,6 +2884,9 @@ public class Dibujo {
 
                 //tamaÃ±ocaracter x
                 x=x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 //curva a
@@ -2758,6 +2936,9 @@ public class Dibujo {
 
                 //tamaÃ±ocaracter x
                 x=x+80;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
 
             }
         }
@@ -2809,6 +2990,9 @@ public class Dibujo {
 
                 //espaciocaracter v
                 x=x+45;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 //curvaA
@@ -2869,6 +3053,9 @@ public class Dibujo {
                 root.getChildren().add(c);
                 root.getChildren().add(d);
                 x=x+46;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
 
             }
         }
@@ -2947,6 +3134,9 @@ public class Dibujo {
 
                 //largo de z
                 x=x+60;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
             else{
                 QuadCurve a = new QuadCurve(x,y-50,x+25,y-45,x+65,y-50);
@@ -3002,8 +3192,13 @@ public class Dibujo {
                 root.getChildren().add(c);
                 root.getChildren().add(d);
                 x=x+65;
+                if(auxSub){
+                    Subrayar(xInicialSu,yInicialSu,x,y,root);
+                }
             }
         }
+    }
+    public void Simbolos(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar){
         if(caracter == '(' || caracter == ')'){
             if (caracter == '('){
                 QuadCurve qv1 = new QuadCurve(x+20, y-50, x, y, x+20, y + 50);
@@ -3019,6 +3214,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+20, y-50, x, y, x+20, y + 50);
 
                 x = x + 30;
+                if(auxSub){
+                }
             }
             else{
                 QuadCurve qv1 = new QuadCurve(x+5, y-50, x+25, y, x+5, y + 50);
@@ -3034,6 +3231,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+5, y-50, x+25, y, x+5, y + 50);
 
                 x = x + 25;
+                if(auxSub){
+                }
             }
         }
         if(caracter == '[' || caracter == ']'){
@@ -3070,6 +3269,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x,y-50,x,y+50,x,y-50,x+20,y-50,x,y+50,x+20,y+50);
 
                 x = x + 30;
+                if(auxSub){
+                }
             }
             else{
                 Line l1 = new Line(x+20, y-50, x+20, y+50);
@@ -3104,6 +3305,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+20,y-50,x+20,y+50,x,y-50,x+20,y-50,x,y+50,x+20,y+50);
 
                 x = x + 35;
+                if(auxSub){
+                }
             }
         }
         if(caracter == '-' || caracter == '_'){
@@ -3121,6 +3324,9 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+10, y+25, x+40, y+25);
 
                 x = x + 55;
+                if(auxSub){
+
+                }
             }
             else{
                 Line l1 = new Line(x+10, y+50, x+60, y+50);
@@ -3136,6 +3342,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+10,y+50,x+60,y+50);
 
                 x = x + 70;
+                if(auxSub){
+                }
             }
         }
         if(caracter == '<' || caracter == '>'){
@@ -3163,6 +3371,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+10, y+25, x+50, y,x+10, y+25, x+50, y+50);
 
                 x = x + 65;
+                if(auxSub){
+                }
             }
             else{
                 Line l1 = new Line(x+10, y, x+50, y+25);
@@ -3188,6 +3398,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+10, y, x+50, y+25,x+10, y+50, x+50, y+25);
 
                 x = x + 65;
+                if(auxSub){
+                }
             }
         }
         if(caracter == '.' || caracter == ','){
@@ -3226,6 +3438,8 @@ public class Dibujo {
             }
             root.getChildren().add(cd1);
             x = x + 20;
+            if(auxSub){
+            }
         }
         if(caracter == ':' || caracter == ';'){
 
@@ -3272,6 +3486,8 @@ public class Dibujo {
             root.getChildren().add(cd1);
             root.getChildren().add(cd2);
             x = x + 30;
+            if(auxSub){
+            }
         }
         if(caracter == '{' || caracter == '}'){
             if (caracter == '{'){
@@ -3298,6 +3514,8 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+25, y-50, x+10, y-50, x+30, y, x+5, y,x+25, y+50, x+10, y+50, x+30, y, x+5, y);
 
                 x = x + 40;
+                if(auxSub){
+                }
             }
             else{
                 CubicCurve c1 = new CubicCurve(x+25, y, x, y, x+25, y-50, x+5, y-50); // Curva Superior
@@ -3324,12 +3542,14 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+25, y, x, y, x+25, y-50, x+5, y-50,x+25, y, x, y, x+25, y+50, x+5, y+50);
 
                 x = x + 40;
+                if(auxSub){
+                }
             }
         }
         if(caracter == '"' || caracter =='\''){
             int rep = 0;
             if(caracter == '\''){
-               rep = 1;
+                rep = 1;
             }
             else{
                 rep = 2;
@@ -3358,6 +3578,9 @@ public class Dibujo {
                     root.getChildren().add(b);
                     fun(root,puntosDeControl,x + 5, y - 20, x, y - 35, x + 5, y - 50,x+5,y-20,x+25,y+15,x+35,y-20,x+7,y-20);
                     x = x + 25;
+                    if(auxSub){
+
+                    }
                 } else {
                     QuadCurve a = new QuadCurve(x + 5, y - 20, x + 10, y - 35, x + 5, y - 50);
                     a.setFill(Color.TRANSPARENT);
@@ -3373,7 +3596,7 @@ public class Dibujo {
                     Text t4 = new Text("X3: " + (x+5) + " Y3: " + (y-50) + "\nX4: " + (x+3) + " Y4: " + (y-50) + "\n\n");
 
                     t4.setFill(Color.RED);
-                    
+
                     textoCoord.getChildren().add(t3);
                     textoCoord.getChildren().add(t4);
 
@@ -3381,9 +3604,14 @@ public class Dibujo {
                     root.getChildren().add(b);
                     fun(root,puntosDeControl,x + 5, y - 20, x + 10, y - 35, x + 5, y - 50,x+5,y-50,x-25,y-90,x-25,y-40,x+3,y-50);
                     x = x + 25;
+                    if(auxSub){
+                    }
                 }
             }
             x=x+20;
+            if(auxSub){
+
+            }
             if(aux == 0){
                 aux = 1;
             }
@@ -3425,6 +3653,8 @@ public class Dibujo {
                 root.getChildren().add(c);
                 fun(root,puntosDeControl,x+10, y,x+10,y+10,x+5,y+80,x+10,y+80,x+10,y+10,x+15,y+80,x+10,y+80);
                 x = x +25;
+                if(auxSub){
+                }
             }
             else{
                 Circle a = new Circle(x+10, y+80, 2);
@@ -3458,6 +3688,8 @@ public class Dibujo {
                 root.getChildren().add(c);
                 fun(root,puntosDeControl,x+10, y+80,x+10,y+70,x+5,y,x+10,y,x+10,y+70,x+15,y,x+10,y);
                 x = x +25;
+                if(auxSub){
+                }
 
             }
         }
@@ -3494,6 +3726,9 @@ public class Dibujo {
                 root.getChildren().add(c);
                 fun(root,puntosDeControl,x+10, y, x+7,y+30,x,y,x+25,y,x,y+50,x,y+50,x-15,y+90,x+30,y+90,x+25,y+60);
                 x=x+45;
+                if(auxSub){
+
+                }
             }
             else{
                 Circle a = new Circle(x+30, y+80, 2);
@@ -3527,6 +3762,8 @@ public class Dibujo {
                 root.getChildren().add(c);
                 fun(root,puntosDeControl,x+30, y+80,x+27,y+50,x+20,y+75,x+35,y+80,x+30,y+47,x+27,y+50,x+65,y-15,x+5,y-20,x+10,y+20);
                 x=x+45;
+                if(auxSub){
+                }
             }
         }
     }
