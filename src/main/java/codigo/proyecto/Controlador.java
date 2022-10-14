@@ -53,10 +53,10 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
         for(int i=0;i<palabra.length();i++){
 
             if(i==0){
-                Selector(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1);
+                Letras(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1);
             }
             else{
-                Selector(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0);
+                Letras(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0);
             }
 
             if (puntosDeControl.isSelected()){
