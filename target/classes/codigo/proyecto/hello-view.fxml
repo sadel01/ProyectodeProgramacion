@@ -64,7 +64,7 @@
       </ScrollPane>
    </right>
    <center>
-      <ScrollPane fitToHeight="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
             <VBox prefHeight="610.0" prefWidth="1008.0">
                <children>

@@ -22,7 +22,7 @@ import java.net.URL;
 import java.nio.channels.Selector;
 import java.util.ResourceBundle;
 
-public class Controlador extends Dibujo implements Initializable, EventHandler<KeyEvent> {
+public class Controlador extends Dibujo implements Initializable{
 
     @FXML
     private AnchorPane root;
@@ -42,6 +42,9 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
     @FXML
     private ToggleButton puntosDeControl;
 
+    @FXML
+    private ScrollPane scrollPane;
+
 
     @FXML
     private void obtenerLetra(KeyEvent event) {
@@ -53,10 +56,10 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
         for(int i=0;i<palabra.length();i++){
 
             if(i==0){
-                Letras(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1);
+                Letras(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1, scrollPane);
             }
             else{
-                Letras(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0);
+                Letras(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0, scrollPane);
             }
 
             if (puntosDeControl.isSelected()){
@@ -123,15 +126,4 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
     }
 
-
-    @Override
-    public void handle(KeyEvent keyEvent) {
-        CuadroTexto.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                System.out.println("Hola");
-                System.out.println(keyEvent.getCode());
-            }
-        });
-    }
 }
