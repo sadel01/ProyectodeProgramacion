@@ -57,9 +57,9 @@
       </HBox>
    </top>
    <right>
-      <ScrollPane prefHeight="613.0" prefWidth="268.0" style="-fx-background-color: #5F9EA0;" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" prefHeight="613.0" prefWidth="300.0" style="-fx-background-color: #5F9EA0;" BorderPane.alignment="CENTER">
          <content>
-            <TextFlow fx:id="textoCoord" prefHeight="598.0" prefWidth="265.0" />
+            <TextFlow fx:id="textoCoord" prefHeight="598.0" prefWidth="331.0" />
          </content>
       </ScrollPane>
    </right>
