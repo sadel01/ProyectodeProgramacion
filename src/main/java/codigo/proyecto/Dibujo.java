@@ -100,7 +100,7 @@ public class Dibujo {
             x = 30;
             y = 100;
         }
-        if (x >= scrollPane.getWidth() - 150) {
+        if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
                 l1.setFill(Color.TRANSPARENT);
@@ -129,8 +129,8 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
-                pts(caracter, textoCoord, root, puntosDeControl, x+35, y, x+60, y+15, x+10, y+60, x+50, y+65);
+                pts(textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
+                pts(textoCoord, root, puntosDeControl, x+35, y, x+60, y+15, x+10, y+60, x+50, y+65);
 
                 fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
 
@@ -155,7 +155,7 @@ public class Dibujo {
                         tilde.setStrokeWidth(grosor);
 
                         if(cont < 1){
-                            pts(caracter, textoCoord, root, puntosDeControl, x+15, y-10, x+30, y-30);
+                            pts(textoCoord, root, puntosDeControl, x+15, y-10, x+30, y-30);
                             fun(root, puntosDeControl, x + 15, y - 10, x + 30, y - 30);
                         }
 
@@ -195,9 +195,9 @@ public class Dibujo {
                     c3.setStroke(color);
                     c3.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+50, x+30, y-50, x+20, y+60, x+20, y-50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y-50, x+65, y+15, x+50, y-60, x+40, y+120);
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x+44, y, x+10, y-10, x+30, y+30);
+                    pts(textoCoord, root, puntosDeControl, x, y+50, x+30, y-50, x+20, y+60, x+20, y-50);
+                    pts(textoCoord, root, puntosDeControl, x+30, y-50, x+65, y+15, x+50, y-60, x+40, y+120);
+                    pts(textoCoord, root, puntosDeControl, x, y+15, x+44, y, x+10, y-10, x+30, y+30);
 
 
                     fun(root, puntosDeControl, x, y + 50, x + 20, y + 60, x + 20, y - 50, x + 30, y - 50, x + 30, y - 50, x + 50, y - 60, x + 40, y + 120, x + 65, y + 15, x, y + 15, x + 10, y - 10, x + 30, y + 30, x + 44, y);
@@ -213,7 +213,7 @@ public class Dibujo {
                         tilde.setStrokeWidth(grosor);
 
                         if(cont < 1){
-                            pts(caracter, textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
+                            pts(textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
                             fun(root, puntosDeControl, x + 30, y - 60, x + 45, y - 80);
                         }
 
@@ -241,9 +241,9 @@ public class Dibujo {
 
                 fun(root, puntosDeControl, x, y + 15, x + 70, y - 80, x - 10, y - 80, x, y + 50, x, y + 30, x + 50, y - 50, x + 35, y + 100, x + 5, y + 50, x + 5, y + 50, x, y + 30, x + 60, y + 50, x + 60, y + 20);
 
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x, y+50, x+70, y-80, x-10, y-80);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+30, x+5, y+50, x+50, y-50, x+35, y+100);
-                pts(caracter, textoCoord, root, puntosDeControl, x+5, y+50, x+60, y+20, x, y+30, x+60, y+50);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x, y+50, x+70, y-80, x-10, y-80);
+                pts(textoCoord, root, puntosDeControl, x, y+30, x+5, y+50, x+50, y-50, x+35, y+100);
+                pts(textoCoord, root, puntosDeControl, x+5, y+50, x+60, y+20, x, y+30, x+60, y+50);
 
 
                 while(cont < auxBold) {
@@ -280,11 +280,11 @@ public class Dibujo {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
 
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y-20, x+40, y+50, x+30, y+50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+40, y+50, x+30, y+20, x+60, y+60, x+80, y-10);
-                pts(caracter, textoCoord, root, puntosDeControl, x+20, y+10, x+30, y-50, x-10, y+10, x, y-50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y-50, x+30, y+20, x+70, y-50, x+70, y);
-                pts(caracter, textoCoord, root, puntosDeControl, x+58, y+40, x+80, y+15, x+70, y+60);
+                pts(textoCoord, root, puntosDeControl, x+30, y-20, x+40, y+50, x+30, y+50);
+                pts(textoCoord, root, puntosDeControl, x+40, y+50, x+30, y+20, x+60, y+60, x+80, y-10);
+                pts(textoCoord, root, puntosDeControl, x+20, y+10, x+30, y-50, x-10, y+10, x, y-50);
+                pts(textoCoord, root, puntosDeControl, x+30, y-50, x+30, y+20, x+70, y-50, x+70, y);
+                pts(textoCoord, root, puntosDeControl, x+58, y+40, x+80, y+15, x+70, y+60);
 
 
                 fun(root, puntosDeControl, x + 30, y - 20, x + 30, y + 50, x + 40, y + 50, x + 40, y + 50, x + 60, y + 60, x + 80, y - 10, x + 30, y + 20, x + 20, y + 10, x - 10,
@@ -340,8 +340,8 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+25, x+25, y+15, x, y-20, x+40, y-5);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+25, x+60, y+15, x, y+45, x+30, y+80);
+                pts(textoCoord, root, puntosDeControl, x, y+25, x+25, y+15, x, y-20, x+40, y-5);
+                pts(textoCoord, root, puntosDeControl, x, y+25, x+60, y+15, x, y+45, x+30, y+80);
 
                 fun(root, puntosDeControl, x, y + 25, x, y - 20, x + 40, y - 5, x + 25, y + 15, x, y + 25, x, y + 45, x + 30, y + 80, x + 60, y + 15);
 
@@ -372,9 +372,9 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+20, y-40, x+60, y+15, x-25, y-10, x+10, y+110);
-                pts(caracter, textoCoord, root, puntosDeControl, x+20, y-40, x+10, y, x+45, y-60, x+75, y-35);
-                pts(caracter, textoCoord, root, puntosDeControl, x+10, y, x, y-40, x-20, y+10, x-20, y-30);
+                pts(textoCoord, root, puntosDeControl, x+20, y-40, x+60, y+15, x-25, y-10, x+10, y+110);
+                pts(textoCoord, root, puntosDeControl, x+20, y-40, x+10, y, x+45, y-60, x+75, y-35);
+                pts(textoCoord, root, puntosDeControl, x+10, y, x, y-40, x-20, y+10, x-20, y-30);
 
                 fun(root, puntosDeControl, x + 20, y - 40, x - 25, y - 10, x + 10, y + 110, x + 60, y + 15, x + 20, y - 40, x + 45, y - 60, x + 75, y - 35, x + 10, y, x + 10, y, x - 20, y + 10, x - 20, y - 30, x, y - 40);
 
@@ -417,9 +417,9 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+25, y+15, x+25, y+25, x-15, y-30, x, y+90);
-                pts(caracter, textoCoord, root, puntosDeControl, x+25, y+5, x+25, y+25, x+80, y-50, x+20, y-80);
-                pts(caracter, textoCoord, root, puntosDeControl, x+25, y+25, x+60, y+15, x+30, y+50, x+50, y+50);
+                pts(textoCoord, root, puntosDeControl, x+25, y+15, x+25, y+25, x-15, y-30, x, y+90);
+                pts(textoCoord, root, puntosDeControl, x+25, y+5, x+25, y+25, x+80, y-50, x+20, y-80);
+                pts(textoCoord, root, puntosDeControl, x+25, y+25, x+60, y+15, x+30, y+50, x+50, y+50);
 
                 fun(root, puntosDeControl, x + 25, y + 15, x - 15, y - 30, x, y + 90, x + 25, y + 25, x + 25, y + 5, x + 80, y - 50, x + 20, y - 80, x + 25, y + 25, x + 25, y + 25, x + 30, y + 50, x + 50, y + 50, x + 60, y + 15);
 
@@ -457,9 +457,9 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+20, y+10, x+30, y-50, x-10, y+10, x, y-50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y-50, x+50, y+50, x+80, y-50, x+80, y+50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+50, y+50, x+30, y-30, x+30, y+50, x+30, y+50);
+                pts(textoCoord, root, puntosDeControl, x+20, y+10, x+30, y-50, x-10, y+10, x, y-50);
+                pts(textoCoord, root, puntosDeControl, x+30, y-50, x+50, y+50, x+80, y-50, x+80, y+50);
+                pts(textoCoord, root, puntosDeControl, x+50, y+50, x+30, y-30, x+30, y+50, x+30, y+50);
 
                 fun(root, puntosDeControl, x + 20, y + 10, x - 10, y + 10, x, y - 50, x + 30, y - 50, x + 30, y - 50, x + 80, y - 50, x + 80, y + 50, x + 50, y + 50, x + 50, y + 50, x + 30, y + 50, x + 30, y + 50, x + 30, y - 30);
 
@@ -512,8 +512,8 @@ public class Dibujo {
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+25, x+2, y+30, x-5, y-20, x+53, y);
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+25, x+50, y+15, x, y+50, x+40, y+70);
+                    pts(textoCoord, root, puntosDeControl, x, y+25, x+2, y+30, x-5, y-20, x+53, y);
+                    pts(textoCoord, root, puntosDeControl, x, y+25, x+50, y+15, x, y+50, x+40, y+70);
 
                     fun(root, puntosDeControl, x, y + 25, x - 5, y - 20, x + 53, y, x + 2, y + 30, x, y + 25, x, y + 50, x + 40, y + 70, x + 50, y + 15);
 
@@ -527,7 +527,7 @@ public class Dibujo {
                         tilde.setStrokeWidth(grosor);
 
                         if(cont < 1){
-                            pts(caracter, textoCoord, root, puntosDeControl, x+20, y-10, x+35, y-30);
+                            pts(textoCoord, root, puntosDeControl, x+20, y-10, x+35, y-30);
                             fun(root, puntosDeControl, x + 20, y - 10, x + 35, y - 30);
                         }
 
@@ -564,8 +564,8 @@ public class Dibujo {
                     c4.setStroke(color);
                     c4.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+25, y-10, x+60, y+15, x-20, y-10, x, y+120);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+25, y-10, x+20, y-50, x-20, y-10, x+10, y-50);
+                    pts(textoCoord, root, puntosDeControl, x+25, y-10, x+60, y+15, x-20, y-10, x, y+120);
+                    pts(textoCoord, root, puntosDeControl, x+25, y-10, x+20, y-50, x-20, y-10, x+10, y-50);
 
 
                     fun(root, puntosDeControl, x + 25, y - 10, x - 20, y - 10, x, y + 120, x + 60, y + 15, x + 25, y - 10, x - 20, y - 10, x + 10, y - 50, x + 20, y - 50, x + 20, y - 50, x + 40, y - 50, x + 30, y - 10, x, y - 50);
@@ -582,7 +582,7 @@ public class Dibujo {
 
 
                         if(cont < 1){
-                            pts(caracter, textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
+                            pts(textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
                             fun(root, puntosDeControl, x + 30, y - 60, x + 45, y - 80);
                         }
 
@@ -609,9 +609,9 @@ public class Dibujo {
             if (caracter == 'f') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+10, x, y+10, x, y-60, x+60, y-60);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y, x+2, y+15, x, y+110, x+50, y+60);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y+25, x+50, y+15, x+35, y+60);
+                pts(textoCoord, root, puntosDeControl, x, y+10, x, y+10, x, y-60, x+60, y-60);
+                pts(textoCoord, root, puntosDeControl, x, y, x+2, y+15, x, y+110, x+50, y+60);
+                pts(textoCoord, root, puntosDeControl, x+2, y+25, x+50, y+15, x+35, y+60);
 
                 fun(root, puntosDeControl, x, y + 10, x, y - 60, x + 60, y - 60, x, y + 10, x, y, x, y + 110, x + 50, y + 60, x + 2, y + 15, x + 2, y + 25, x + 35, y + 60, x + 50, y + 15);
 
@@ -650,10 +650,10 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y-40, x+60, y-50, x+10, y-70, x+50, y-10);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y-37, x+10, y+40, x+20, y+70);
-                pts(caracter, textoCoord, root, puntosDeControl, x+10, y, x+40, y);
-                pts(caracter, textoCoord, root, puntosDeControl, x+10, y+10, x+50, y+15, x+20, y, x+30, y+20);
+                pts(textoCoord, root, puntosDeControl, x, y-40, x+60, y-50, x+10, y-70, x+50, y-10);
+                pts(textoCoord, root, puntosDeControl, x+30, y-37, x+10, y+40, x+20, y+70);
+                pts(textoCoord, root, puntosDeControl, x+10, y, x+40, y);
+                pts(textoCoord, root, puntosDeControl, x+10, y+10, x+50, y+15, x+20, y, x+30, y+20);
 
 
                 fun(root, puntosDeControl, x, y - 40, x + 10, y - 70, x + 50, y - 10, x + 60, y - 50, x + 30, y - 37, x + 20, y + 70, x + 10, y + 40, x + 10, y, x + 40, y, x + 10, y + 10, x + 20, y, x + 30, y + 20, x + 50, y + 15);
@@ -701,9 +701,9 @@ public class Dibujo {
             if (caracter == 'g') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+25, y+10, x+25, y+40, x-10, y-20, x-10, y+70);
-                pts(caracter, textoCoord, root, puntosDeControl, x+25, y, x+10, y+80, x+35, y+90, x+10, y+90);
-                pts(caracter, textoCoord, root, puntosDeControl, x+10, y+80, x+60, y+15, x+10, y+30, x+60, y+60);
+                pts(textoCoord, root, puntosDeControl, x+25, y+10, x+25, y+40, x-10, y-20, x-10, y+70);
+                pts(textoCoord, root, puntosDeControl, x+25, y, x+10, y+80, x+35, y+90, x+10, y+90);
+                pts(textoCoord, root, puntosDeControl, x+10, y+80, x+60, y+15, x+10, y+30, x+60, y+60);
 
 
                 fun(root, puntosDeControl, x + 25, y + 10, x - 10, y - 20, x - 10, y + 70, x + 25, y + 40, x + 25, y, x + 35, y + 90, x + 10, y + 90, x + 10, y + 80, x + 10, y + 80, x + 10, y + 30, x + 60, y + 60, x + 60, y + 15);
@@ -741,10 +741,10 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+20, x+40, y-50, x+70, y+10, x+60, y-50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+40, y-50, x+59, y+20, x, y-50, x+10, y+110);
-                pts(caracter, textoCoord, root, puntosDeControl, x+60, y+10, x+30, y+80, x+60, y+100, x+20, y+100);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y+80, x+80, y+15, x+40, y+60, x+60, y+60);
+                pts(textoCoord, root, puntosDeControl, x, y+20, x+40, y-50, x+70, y+10, x+60, y-50);
+                pts(textoCoord, root, puntosDeControl, x+40, y-50, x+59, y+20, x, y-50, x+10, y+110);
+                pts(textoCoord, root, puntosDeControl, x+60, y+10, x+30, y+80, x+60, y+100, x+20, y+100);
+                pts(textoCoord, root, puntosDeControl, x+30, y+80, x+80, y+15, x+40, y+60, x+60, y+60);
 
 
                 fun(root, puntosDeControl, x, y + 20, x + 70, y + 10, x + 60, y - 50, x + 40, y - 50, x + 40, y - 50, x, y - 50, x + 10, y + 110, x + 59, y + 20, x + 60, y + 10, x + 60, y + 100, x + 20, y + 100, x + 30, y + 80, x + 30, y + 80, x + 40, y + 60, x + 60, y + 60, x + 80, y + 15);
@@ -794,9 +794,9 @@ public class Dibujo {
             if (caracter == 'h') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x, y+50, x+50, y-50, x-10, y-90);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+40, x+25, y+35, x+10, y, x+25, y+5);
-                pts(caracter, textoCoord, root, puntosDeControl, x+25, y+35, x+50, y+15, x+25, y+60, x+40, y+60);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x, y+50, x+50, y-50, x-10, y-90);
+                pts(textoCoord, root, puntosDeControl, x, y+40, x+25, y+35, x+10, y, x+25, y+5);
+                pts(textoCoord, root, puntosDeControl, x+25, y+35, x+50, y+15, x+25, y+60, x+40, y+60);
 
 
                 fun(root, puntosDeControl, x, y + 15, x + 50, y - 50, x - 10, y - 90, x, y + 50, x, y + 40, x + 10, y, x + 25, y + 5, x + 25, y + 35, x + 25, y + 35, x + 25, y + 60, x + 40, y + 60, x + 50, y + 15);
@@ -835,10 +835,10 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y-40, x+20, y+40, x+10, y-60, x+30, y-30);
-                pts(caracter, textoCoord, root, puntosDeControl, x+20, y+40, x+40, y, x+10, y+80, x-10, y+30);
-                pts(caracter, textoCoord, root, puntosDeControl, x+40, y, x+50, y-50, x+60, y-10, x+60, x-50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+50, y-50, x+70, y+15, x+40, y-50, x+40, y+120);
+                pts(textoCoord, root, puntosDeControl, x, y-40, x+20, y+40, x+10, y-60, x+30, y-30);
+                pts(textoCoord, root, puntosDeControl, x+20, y+40, x+40, y, x+10, y+80, x-10, y+30);
+                pts(textoCoord, root, puntosDeControl, x+40, y, x+50, y-50, x+60, y-10, x+60, x-50);
+                pts(textoCoord, root, puntosDeControl, x+50, y-50, x+70, y+15, x+40, y-50, x+40, y+120);
 
 
                 fun(root, puntosDeControl, x, y - 40, x + 10, y - 60, x + 30, y - 30, x + 20, y + 40, x + 20, y + 40, x + 10, y + 80, x - 10, y + 30, x + 40, y, x + 40, y, x + 60, y - 10, x + 60, y - 50, x + 50, y - 50, x + 50, y - 50, x + 40, y - 50, x + 40, y + 120, x + 70, y + 15);
@@ -892,7 +892,7 @@ public class Dibujo {
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
+                    pts(textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
 
                     fun(root, puntosDeControl, x + 2, y, x - 10, y + 80, x + 30, y + 40, x + 40, y + 15);
                     root.getChildren().add(c);
@@ -904,7 +904,7 @@ public class Dibujo {
                         tilde.setStrokeWidth(grosor);
 
                         if(cont < 1){
-                            pts(caracter, textoCoord, root, puntosDeControl, x, y-10, x+15, y-30);
+                            pts(textoCoord, root, puntosDeControl, x, y-10, x+15, y-30);
                             fun(root, puntosDeControl, x, y - 10, x + 15, y - 30);
                         }
 
@@ -915,13 +915,10 @@ public class Dibujo {
                         p.setStroke(color);
                         p.setStrokeWidth(grosor);
 
-                        Text t3 = new Text("\nX1: " + (x + 3) + " Y1: " + (y - 10) + "\n");
-
-                        t3.setFill(Color.BLACK);
-
-                        fun(root, puntosDeControl, x + 3, y - 10);
-
-                        textoCoord.getChildren().add(t3);
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x+3, y-10);
+                            fun(root, puntosDeControl, x + 3, y - 10);
+                        }
 
                         root.getChildren().add(p);
                     }
@@ -956,9 +953,9 @@ public class Dibujo {
                     c3.setStroke(color);
                     c3.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y-50, x+50, y-40, x+20, y-60, x+30, y-40);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+50, y-40, x+40, y+20, x+70, x-40, x+50, y-120);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+40, y+20, x, y+30, x+35, y+70, x, y+40);
+                    pts(textoCoord, root, puntosDeControl, x, y-50, x+50, y-40, x+20, y-60, x+30, y-40);
+                    pts(textoCoord, root, puntosDeControl, x+50, y-40, x+40, y+20, x+70, x-40, x+50, y-120);
+                    pts(textoCoord, root, puntosDeControl, x+40, y+20, x, y+30, x+35, y+70, x, y+40);
 
 
                     fun(root, puntosDeControl, x, y - 50, x + 20, y - 60, x + 30, y - 40, x + 50, y - 40, x + 50, y - 40, x + 70, y - 40, x + 50, y - 120, x + 40, y + 20, x + 40, y + 20, x + 35, y + 70, x, y + 40, x, y + 30);
@@ -974,7 +971,7 @@ public class Dibujo {
                         tilde.setStrokeWidth(grosor);
 
                         if(cont < 1){
-                            pts(caracter, textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
+                            pts(textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
                             fun(root, puntosDeControl, x + 30, y - 60, x + 45, y - 80);
                         }
 
@@ -998,9 +995,10 @@ public class Dibujo {
             if (caracter == 'j') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x-15, y+65, x+30, y+15, x-15, y+50, x+30, y+35);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+70, x-15, y+65, x-5, y+95, x-20, y+85);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y, x, y+70, x-1, y+20, x+5, y+60);
+                pts(textoCoord, root, puntosDeControl, x-15, y+65, x+30, y+15, x-15, y+50, x+30, y+35);
+                pts(textoCoord, root, puntosDeControl, x, y+70, x-15, y+65, x-5, y+95, x-20, y+85);
+                pts(textoCoord, root, puntosDeControl, x, y, x, y+70, x-1, y+20, x+5, y+60);
+                pts(textoCoord, root, puntosDeControl, x, y-10);
 
                 while(cont < auxBold) {
                     CubicCurve cb1 = new CubicCurve(x - 15, y + 65, x - 15, y + 50, x + 30, y + 35, x + 30, y + 15); //"l" superior
@@ -1048,10 +1046,10 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y-40, x+50, y-40, x+20, y-50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+50, y-40, x+40, y+30, x+70, y-40, x+50, y-120);
-                pts(caracter, textoCoord, root, puntosDeControl, x+40, y+30, x+5, y+40, x+40, y+55, x+10, y+60);
-                pts(caracter, textoCoord, root, puntosDeControl, x+5, y+40, x+50, y-15, x, y+20, x+15, y);
+                pts(textoCoord, root, puntosDeControl, x, y-40, x+50, y-40, x+20, y-50);
+                pts(textoCoord, root, puntosDeControl, x+50, y-40, x+40, y+30, x+70, y-40, x+50, y-120);
+                pts(textoCoord, root, puntosDeControl, x+40, y+30, x+5, y+40, x+40, y+55, x+10, y+60);
+                pts(textoCoord, root, puntosDeControl, x+5, y+40, x+50, y-15, x, y+20, x+15, y);
 
                 while(cont < auxBold) {
                     QuadCurve qv1 = new QuadCurve(x, y - 40, x + 20, y - 50, x + 50, y - 40);
@@ -1098,9 +1096,9 @@ public class Dibujo {
             if (caracter == 'k') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y, x-1, y+50, x+37, y, x-3, y-150);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+18, x+17, y+30, x+7, y-10, x+42, y+20);
-                pts(caracter, textoCoord, root, puntosDeControl, x+17, y+30, x+55, y+15, x+37, y+72, x+47, y+50);
+                pts(textoCoord, root, puntosDeControl, x+2, y, x-1, y+50, x+37, y, x-3, y-150);
+                pts(textoCoord, root, puntosDeControl, x, y+18, x+17, y+30, x+7, y-10, x+42, y+20);
+                pts(textoCoord, root, puntosDeControl, x+17, y+30, x+55, y+15, x+37, y+72, x+47, y+50);
 
                 while(cont < auxBold) {
                     CubicCurve cb1 = new CubicCurve(x + 2, y, x + 37, y, x - 3, y - 150, x - 1, y + 50); //"l" superior
@@ -1138,9 +1136,9 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y-20, x+10, y+40, x+40, y-120, x+40, y+80);
-                pts(caracter, textoCoord, root, puntosDeControl, x+10, y+40, x+60, y-50, x-20, y, x+60, y);
-                pts(caracter, textoCoord, root, puntosDeControl, x+33, y-5, x+80, y+15, x+60, y-10, x+60, y+115);
+                pts(textoCoord, root, puntosDeControl, x, y-20, x+10, y+40, x+40, y-120, x+40, y+80);
+                pts(textoCoord, root, puntosDeControl, x+10, y+40, x+60, y-50, x-20, y, x+60, y);
+                pts(textoCoord, root, puntosDeControl, x+33, y-5, x+80, y+15, x+60, y-10, x+60, y+115);
 
                 while(cont < auxBold) {
                     CubicCurve cb1 = new CubicCurve(x, y - 20, x + 40, y - 120, x + 40, y + 80, x + 10, y + 40); // primera curva hacia
@@ -1194,8 +1192,8 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x-1, y+40, x+37, y-40, x-3, y-120);
-                    pts(caracter, textoCoord, root, puntosDeControl, x-1, y+40, x+30, y+15, x, y+60, x+20, y+60);
+                    pts(textoCoord, root, puntosDeControl, x, y+15, x-1, y+40, x+37, y-40, x-3, y-120);
+                    pts(textoCoord, root, puntosDeControl, x-1, y+40, x+30, y+15, x, y+60, x+20, y+60);
 
 
                     fun(root, puntosDeControl, x, y + 15, x + 37, y - 40, x - 3, y - 120, x, y + 60, x + 20, y + 60, x - 1, y + 40, x - 1, y + 40, x + 30, y + 15);
@@ -1233,9 +1231,9 @@ public class Dibujo {
                     qv1.setStroke(color);
                     qv1.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x+15, y-5, x+80, y-80, x+5, y-60);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+15, y-5, x+20, y+50, x+15, y+100, x-30, y+10);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+20, y+50, x+50, y+15, x+45, y+60);
+                    pts(textoCoord, root, puntosDeControl, x, y+15, x+15, y-5, x+80, y-80, x+5, y-60);
+                    pts(textoCoord, root, puntosDeControl, x+15, y-5, x+20, y+50, x+15, y+100, x-30, y+10);
+                    pts(textoCoord, root, puntosDeControl, x+20, y+50, x+50, y+15, x+45, y+60);
 
 
                     fun(root, puntosDeControl, x, y + 15, x + 15, y + 100, x - 30, y + 10, x + 45, y + 60, x + 15, y - 5, x + 15, y - 5, x + 20, y + 50, x + 20, y + 50, x + 50, y + 15);
@@ -1282,10 +1280,10 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y, x+8, y+50, x-1, y+50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+8, y+50, x+28, y+48, x+15, y-50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+28, y+48, x+48, y+48, x+40, y-50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+48, y+48, x+70, x+15, x+50, y+60, x+68, y+65);
+                    pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x-1, y+50);
+                    pts(textoCoord, root, puntosDeControl, x+8, y+50, x+28, y+48, x+15, y-50);
+                    pts(textoCoord, root, puntosDeControl, x+28, y+48, x+48, y+48, x+40, y-50);
+                    pts(textoCoord, root, puntosDeControl, x+48, y+48, x+70, x+15, x+50, y+60, x+68, y+65);
 
 
                     fun(root, puntosDeControl, x, y, x - 1, y + 50, x + 15, y - 50, x + 40, y - 50, x + 50, y + 60, x + 68, y + 65, x + 8, y + 50, x + 8, y + 50, x + 28, y + 48, x + 28, y + 48, x + 48, y + 48, x + 48, y + 48, x + 70, y + 15);
@@ -1325,9 +1323,9 @@ public class Dibujo {
                     qv2.setStroke(color);
                     qv2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+15, y+50, x+40, y+40, x+35, y-90);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+40, y+40, x+65, y+50, x+60, y-83);
+                    pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
+                    pts(textoCoord, root, puntosDeControl, x+15, y+50, x+40, y+40, x+35, y-90);
+                    pts(textoCoord, root, puntosDeControl, x+40, y+40, x+65, y+50, x+60, y-83);
 
 
                     fun(root, puntosDeControl, x + 5, y + 15, x - 15, y - 70, x + 29, y - 85, x + 35, y - 90, x + 60, y - 83, x + 15, y + 50, x + 15, y + 50, x + 40, y + 40, x + 40, y + 40, x + 65, y + 50);
@@ -1368,9 +1366,9 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+8, y+50, x+30, y+48, x+30, y-50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y+48, x+50, y+15, x+30, y+60, x+45, y+65);
+                    pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
+                    pts(textoCoord, root, puntosDeControl, x+8, y+50, x+30, y+48, x+30, y-50);
+                    pts(textoCoord, root, puntosDeControl, x+30, y+48, x+50, y+15, x+30, y+60, x+45, y+65);
 
 
                     fun(root, puntosDeControl, x, y, x + 50, y + 50, x + 30, y - 50, x + 30, y + 60, x + 45, y + 65, x + 8, y + 50, x + 8, y + 50, x + 30, y + 48, x + 30, y + 48, x + 50, y + 15);
@@ -1405,8 +1403,8 @@ public class Dibujo {
                         qv1.setStroke(color);
                         qv1.setStrokeWidth(grosor);
 
-                        pts(caracter, textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
-                        pts(caracter, textoCoord, root, puntosDeControl, x+15, y+50, x+45, y+60, x+40, y-93);
+                        pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
+                        pts(textoCoord, root, puntosDeControl, x+15, y+50, x+45, y+60, x+40, y-93);
 
 
                         root.getChildren().add(cb1);
@@ -1454,9 +1452,9 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+8, y+50, x+30, y+48, x+30, y-50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y+48, x+50, y+15, x+30, y+60, x+45, y+65);
+                    pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
+                    pts(textoCoord, root, puntosDeControl, x+8, y+50, x+30, y+48, x+30, y-50);
+                    pts(textoCoord, root, puntosDeControl, x+30, y+48, x+50, y+15, x+30, y+60, x+45, y+65);
 
 
 
@@ -1497,9 +1495,9 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+15, y+50, x+45, y+60, x+40, y-93);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+25, y-40, x+45, y-40, x+30, y-50, x+40, y-30);
+                    pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
+                    pts(textoCoord, root, puntosDeControl, x+15, y+50, x+45, y+60, x+40, y-93);
+                    pts(textoCoord, root, puntosDeControl, x+25, y-40, x+45, y-40, x+30, y-50, x+40, y-30);
 
 
                     fun(root, puntosDeControl, x + 5, y + 15, x + 30, y - 50, x + 40, y - 30, x - 15, y - 70, x + 29, y - 85, x + 40, y - 93, x + 15, y + 50, x + 15, y + 50, x + 45, y + 60);
@@ -1541,9 +1539,9 @@ public class Dibujo {
                     qv1.setStroke(color);
                     qv1.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+20, x+30, y+20, x, y+60, x+30, y+60);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y+20, x, y+20, x+30, y-5, x, y-5);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+5, y+6, x+50, y+15, x+30, y+50);
+                    pts(textoCoord, root, puntosDeControl, x, y+20, x+30, y+20, x, y+60, x+30, y+60);
+                    pts(textoCoord, root, puntosDeControl, x+30, y+20, x, y+20, x+30, y-5, x, y-5);
+                    pts(textoCoord, root, puntosDeControl, x+5, y+6, x+50, y+15, x+30, y+50);
 
 
                     fun(root, puntosDeControl, x, y + 20, x, y + 60, x + 30, y + 60, x + 30, y + 20, x + 30, y + 20, x + 30, y - 5, x, y - 5, x, y + 20, x + 5, y + 6, x + 30, y + 50, x + 50, y + 15);
@@ -1556,7 +1554,7 @@ public class Dibujo {
                         tilde.setStrokeWidth(grosor);
 
                         if(cont < 1){
-                            pts(caracter, textoCoord, root, puntosDeControl, x+20, y-10, x+35, y-30);
+                            pts(textoCoord, root, puntosDeControl, x+20, y-10, x+35, y-30);
                             fun(root, puntosDeControl, x + 20, y - 10, x + 35, y - 30);
                         }
 
@@ -1596,8 +1594,8 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+13, y-10, x+57, y-10, x, y+70, x+57, y+70);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+57, y-10, x+45, y+10, x+40, y-125, x-55, y+50);
+                    pts(textoCoord, root, puntosDeControl, x+13, y-10, x+57, y-10, x, y+70, x+57, y+70);
+                    pts(textoCoord, root, puntosDeControl, x+57, y-10, x+45, y+10, x+40, y-125, x-55, y+50);
 
 
                     fun(root, puntosDeControl, x + 13, y - 10, x, y + 70, x + 57, y + 70, x + 57, y - 10, x + 57, y - 10, x + 40, y - 125, x - 55, y + 50, x + 45, y + 10);
@@ -1611,7 +1609,7 @@ public class Dibujo {
                         tilde.setStrokeWidth(grosor);
 
                         if(cont < 1) {
-                            pts(caracter, textoCoord, root, puntosDeControl, x + 20, y - 60, x + 35, y - 80);
+                            pts(textoCoord, root, puntosDeControl, x + 20, y - 60, x + 35, y - 80);
                             fun(root, puntosDeControl, x + 20, y - 60, x + 35, y - 80);
                         }
                         root.getChildren().add(tilde);
@@ -1656,10 +1654,10 @@ public class Dibujo {
                     d.setStroke(color);
                     d.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y, x, y+85, x-2, y+15);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+1, y+15, x+25, y+50, x+40, y-15, x+35, y+50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+25, y+50, x+30, y+35, x, y+60, x, y+30);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y+35, x+55, y+15, x+40, y+30);
+                    pts(textoCoord, root, puntosDeControl, x, y, x, y+85, x-2, y+15);
+                    pts(textoCoord, root, puntosDeControl, x+1, y+15, x+25, y+50, x+40, y-15, x+35, y+50);
+                    pts(textoCoord, root, puntosDeControl, x+25, y+50, x+30, y+35, x, y+60, x, y+30);
+                    pts(textoCoord, root, puntosDeControl, x+30, y+35, x+55, y+15, x+40, y+30);
 
                     fun(root, puntosDeControl, x, y, x, y + 85, x - 2, y + 15, x + 1, y + 15, x + 25, y + 50, x + 40, y - 15, x + 35, y + 50, x + 25, y + 50, x + 30, y + 35, x, y + 60, x, y + 30, x + 30, y + 35, x + 55, y + 15, x + 40, y + 30);
 
@@ -1693,8 +1691,8 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x+25, y+85, x, y-70, x+30, y-90);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+24, y-20, x+26, y+30, x+60, y-110, x+70, y+60);
+                    pts(textoCoord, root, puntosDeControl, x, y+15, x+25, y+85, x, y-70, x+30, y-90);
+                    pts(textoCoord, root, puntosDeControl, x+24, y-20, x+26, y+30, x+60, y-110, x+70, y+60);
 
                     fun(root, puntosDeControl, x, y + 15, x, y - 70, x + 30, y - 90, x + 60, y - 110, x + 70, y + 60, x + 25, y + 85, x + 24, y - 20, x + 26, y + 30);
 
@@ -1738,10 +1736,10 @@ public class Dibujo {
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y, x+30, y+85, x+28, y+28);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+28, y+12, x+28, y+40, x-12, y-10, x-13, y+60);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y+47, x+60, y+15, x+50, y+47);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+30, y+85, x+30, y+47, x+40, y+80, x+40, y+50);
+                    pts(textoCoord, root, puntosDeControl, x+30, y, x+30, y+85, x+28, y+28);
+                    pts(textoCoord, root, puntosDeControl, x+28, y+12, x+28, y+40, x-12, y-10, x-13, y+60);
+                    pts(textoCoord, root, puntosDeControl, x+30, y+47, x+60, y+15, x+50, y+47);
+                    pts(textoCoord, root, puntosDeControl, x+30, y+85, x+30, y+47, x+40, y+80, x+40, y+50);
 
                     fun(root, puntosDeControl, x + 30, y + 85, x + 28, y + 28, x - 12, y - 10, x - 13, y + 60, x + 50, y + 47, x + 40, y + 80, x + 40, y + 50, x + 28, y + 12, x + 28, y + 40, x + 30, y + 47, x + 60, y + 15, x + 30, y + 85, x + 30, y + 47);
 
@@ -1780,9 +1778,9 @@ public class Dibujo {
                     cb3.setStroke(color);
                     cb3.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+13, y-10, x+57, y-10, x, y+70, x+57, y+70);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+57, y-10, x+45, y+10, x+40, y-125, x-55, y+50);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+35, y+37, x+65, y+47, x+45, y+27, x+55, y+62);
+                    pts(textoCoord, root, puntosDeControl, x+13, y-10, x+57, y-10, x, y+70, x+57, y+70);
+                    pts(textoCoord, root, puntosDeControl, x+57, y-10, x+45, y+10, x+40, y-125, x-55, y+50);
+                    pts(textoCoord, root, puntosDeControl, x+35, y+37, x+65, y+47, x+45, y+27, x+55, y+62);
 
 
                     fun(root, puntosDeControl, x + 13, y - 10, x + 57, y - 10, x, y + 70, x + 57, y + 70, x + 57, y - 10, x + 45, y + 10, x + 40, y - 125, x - 55, y + 50, x + 35, y + 37, x + 65, y + 47, x + 45, y + 27, x + 55, y + 62);
@@ -1843,8 +1841,8 @@ public class Dibujo {
                     b.setStroke(color);
                     b.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x-1, y+10, x+30, y, x+30, y, x+55, y+15);
-                    pts(caracter, textoCoord, root, puntosDeControl, x-1, y+10, x+30, y, x+30, y, x+55, y+15);
+                    pts(textoCoord, root, puntosDeControl, x-1, y+10, x+30, y, x+30, y, x+55, y+15);
+                    pts(textoCoord, root, puntosDeControl, x-1, y+10, x+30, y, x+30, y, x+55, y+15);
 
                     fun(root, puntosDeControl, x + 9 - 10, y + 10, x + 10 - 10, y - 21, x - 22 - 10, y + 40, x + 30, y, x + 30, y, x + 9, y + 28, x + 25, y + 95, x + 55, y + 15);
 
@@ -1897,11 +1895,11 @@ public class Dibujo {
                     e.setStroke(color);
                     e.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x+20, y-50, x+15, y-20);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+20, y-50, x+10, y+50, x+25, y);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+20, y-40, x+20, y, x+80, y-80, x+50, y+20);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+20, y+40, x+60, y+55, x+40, y, x+40, y+55);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+60, y+55, x+80, y+15, x+70, y+55);
+                    pts(textoCoord, root, puntosDeControl, x, y+15, x+20, y-50, x+15, y-20);
+                    pts(textoCoord, root, puntosDeControl, x+20, y-50, x+10, y+50, x+25, y);
+                    pts(textoCoord, root, puntosDeControl, x+20, y-40, x+20, y, x+80, y-80, x+50, y+20);
+                    pts(textoCoord, root, puntosDeControl, x+20, y+40, x+60, y+55, x+40, y, x+40, y+55);
+                    pts(textoCoord, root, puntosDeControl, x+60, y+55, x+80, y+15, x+70, y+55);
 
 
 
@@ -1970,9 +1968,9 @@ public class Dibujo {
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+20, y+35, x, y+15, x-40, y-15, x+40, y-15);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+20, y+35, x+22, y+40, x+45, y+60, x-10, y+60);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+22, y+40, x+40, y+15, x+35, y+30);
+                    pts(textoCoord, root, puntosDeControl, x+20, y+35, x, y+15, x-40, y-15, x+40, y-15);
+                    pts(textoCoord, root, puntosDeControl, x+20, y+35, x+22, y+40, x+45, y+60, x-10, y+60);
+                    pts(textoCoord, root, puntosDeControl, x+22, y+40, x+40, y+15, x+35, y+30);
 
 
                     fun(root, puntosDeControl, x + 20, y + 35, x - 40, y - 15, x + 40, y - 15, x, y + 10 + 5, x + 20, y + 35, x + 45, y + 60, x - 10, y + 60, x + 22, y + 40, x + 22, y + 40, x + 35, y + 30, x + 40, y + 15);
@@ -2022,10 +2020,10 @@ public class Dibujo {
                         d.setStroke(color);
                         d.setStrokeWidth(grosor);
 
-                        pts(caracter, textoCoord, root, puntosDeControl, x-1, y+15, x+10, y+40, x, y-15, x-30, y+20);
-                        pts(caracter, textoCoord, root, puntosDeControl, x+10, y+40, x+25, y, x+65, y+70, x+50, y+10);
-                        pts(caracter, textoCoord, root, puntosDeControl, x+44, y+47, x+70, y+15, x+55, y+45);
-                        pts(caracter, textoCoord, root, puntosDeControl, x+25, y, x+35, y-20, x-30, y-30, x+90, y-80);
+                        pts(textoCoord, root, puntosDeControl, x-1, y+15, x+10, y+40, x, y-15, x-30, y+20);
+                        pts(textoCoord, root, puntosDeControl, x+10, y+40, x+25, y, x+65, y+70, x+50, y+10);
+                        pts(textoCoord, root, puntosDeControl, x+44, y+47, x+70, y+15, x+55, y+45);
+                        pts(textoCoord, root, puntosDeControl, x+25, y, x+35, y-20, x-30, y-30, x+90, y-80);
 
                         fun(root, puntosDeControl, x - 1, y + 15, x, y - 15, x - 30, y + 20, x + 10, y + 40, x + 10, y + 40, x + 65, y + 70, x + 50, y + 10, x + 25, y, x + 44, y + 47, x + 55, y + 45, x + 70, y + 15, x + 25, y, x - 30, y - 30, x + 90, y - 80, x + 35, y - 20);
 
@@ -2058,8 +2056,8 @@ public class Dibujo {
             if (caracter == 't') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+10, y-40, x+30, y+15, x-15, y, x+15, y+100);
-                pts(caracter, textoCoord, root, puntosDeControl, x-10, y-25, x+15, y-25, x-5, y-30, x+10, y-20);
+                pts(textoCoord, root, puntosDeControl, x+10, y-40, x+30, y+15, x-15, y, x+15, y+100);
+                pts(textoCoord, root, puntosDeControl, x-10, y-25, x+15, y-25, x-5, y-30, x+10, y-20);
 
                 fun(root, puntosDeControl, x + 10, y - 40, x - 15, y, x + 15, y + 100, x + 30, y + 15, x - 10, y - 25, x - 5, y - 30, x + 10, y - 20, x + 15, y - 25);
 
@@ -2095,8 +2093,8 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+10, y-50, x+30, y+15, x-20, y, x+15, y+100);
-                pts(caracter, textoCoord, root, puntosDeControl, x-30, y-40, x+45, y-55, x-20, y-55, x+40, y-40);
+                pts(textoCoord, root, puntosDeControl, x+10, y-50, x+30, y+15, x-20, y, x+15, y+100);
+                pts(textoCoord, root, puntosDeControl, x-30, y-40, x+45, y-55, x-20, y-55, x+40, y-40);
 
 
                 fun(root, puntosDeControl, x + 10, y - 50, x - 20, y, x + 15, y + 100, x + 30, y + 15, x - 30, y - 40, x - 20, y - 55, x + 40, y - 40, x + 45, y - 55);
@@ -2149,8 +2147,8 @@ public class Dibujo {
 
                     fun(root, puntosDeControl, x + 2, y, x - 6, y + 30, x + 9, y + 80, x + 24, y + 15, x + 28, y, x + 18, y + 30, x + 33, y + 100, x + 48, y + 15);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+2, y, x+24, y+15, x-6, y+30, x+9, y+80);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+28, y, x+48, y+15, x+18, y+30, x+33, y+100);
+                    pts(textoCoord, root, puntosDeControl, x+2, y, x+24, y+15, x-6, y+30, x+9, y+80);
+                    pts(textoCoord, root, puntosDeControl, x+28, y, x+48, y+15, x+18, y+30, x+33, y+100);
 
 
                     //roots
@@ -2240,9 +2238,9 @@ public class Dibujo {
 
                     fun(root, puntosDeControl, x + 2, y - 35, x - 6, y + 30, x + 9, y + 80, x + 24 + 5, y + 15, x + 28 + 5, y - 35, x + 18 + 5, y + 30, x + 33 + 5, y + 100, x + 48 + 5, y + 15, x + 2, y - 35, x + 10, y - 60, x - 20, y - 50, x - 20, y - 20);
 
-                    pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x+29, y+15, x-6, y+30, x+9, y+80);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+33, y-35, x+53, y+15, x+22, y+30, x+38, y+100);
-                    pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x+20, y-20, x+10, y-60, x-20, y-50);
+                    pts(textoCoord, root, puntosDeControl, x+2, y-35, x+29, y+15, x-6, y+30, x+9, y+80);
+                    pts(textoCoord, root, puntosDeControl, x+33, y-35, x+53, y+15, x+22, y+30, x+38, y+100);
+                    pts(textoCoord, root, puntosDeControl, x+2, y-35, x+20, y-20, x+10, y-60, x-20, y-50);
 
 
                     //roots
@@ -2308,13 +2306,11 @@ public class Dibujo {
             if (caracter == 'v') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x-3, y, x+63, y, x+10, y+63, x+25, y+63);
-                pts(caracter, textoCoord, root, puntosDeControl, x+35, y, x+30, y+25, x+35, y-20, x+10, y+12);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y+25, x+50, y+15, x+35, y+25, x+45, y+20);
-
+                pts(textoCoord, root, puntosDeControl, x-3, y, x+63, y, x+10, y+63, x+25, y+63);
+                pts(textoCoord, root, puntosDeControl, x+35, y, x+30, y+25, x+35, y-20, x+10, y+12);
+                pts(textoCoord, root, puntosDeControl, x+30, y+25, x+50, y+15, x+35, y+25, x+45, y+20);
 
                 fun(root, puntosDeControl, x - 3, y, x + 10, y + 63, x + 25, y + 63, x + 35, y, x + 35, y, x + 35, y - 20, x + 10, y + 12, x + 30, y + 25, x + 30, y + 25, x + 35, y + 25, x + 45, y + 20, x + 50, y + 15);
-
 
                 while(cont < auxBold) {//curvaA
                     CubicCurve a = new CubicCurve(x - 3, y, x + 10, y + 63, x + 25, y + 63, x + 35, y);
@@ -2343,7 +2339,6 @@ public class Dibujo {
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 //espaciocaracter v
@@ -2354,10 +2349,10 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x-20, y-20, x+10, y-60, x-20, y-50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x+35, y-15, x-6, y+30, x+9, y+100);
-                pts(caracter, textoCoord, root, puntosDeControl, x+35, y-15, x+30, y+10, x+35, y-35, x+10, y-3);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y+10, x+50, y, x+35, y+10, x+45, y+5);
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x-20, y-20, x+10, y-60, x-20, y-50);
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x+35, y-15, x-6, y+30, x+9, y+100);
+                pts(textoCoord, root, puntosDeControl, x+35, y-15, x+30, y+10, x+35, y-35, x+10, y-3);
+                pts(textoCoord, root, puntosDeControl, x+30, y+10, x+50, y, x+35, y+10, x+45, y+5);
 
                 fun(root, puntosDeControl, x + 2, y - 35, x + 10, y - 60, x - 20, y - 50, x - 20, y - 20, x + 2, y - 35, x - 6, y + 30, x + 9, y + 100, x + 35, y - 15, x + 35, y - 15, x + 35, y - 20 - 15, x + 10, y + 12 - 15, x + 30, y + 25 - 15, x + 30, y + 25 - 15, x + 35, y + 25 - 15, x + 45, y + 20 - 15, x + 50, y);
 
@@ -2392,13 +2387,17 @@ public class Dibujo {
                     root.getChildren().add(b);
                     root.getChildren().add(c);
                     root.getChildren().add(d);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
                 }
 
                 if(auxBold > 1){
                     x++;
                 }
-
-                cont++;
                 //espaciocaracter v
                 x = x + 50;
                 if (auxSub) {
@@ -2411,10 +2410,10 @@ public class Dibujo {
             if (caracter == 'w') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+4, y, x+24, y+15, x-6, y+30, x+9, y+80);
-                pts(caracter, textoCoord, root, puntosDeControl, x+24, y+15, x+50, y, x+20, y+73, x+40, y+83);
-                pts(caracter, textoCoord, root, puntosDeControl, x+50, y, x+45, y+25, x+50, y-20, x+25, y+12);
-                pts(caracter, textoCoord, root, puntosDeControl, x+45, y+25, x+65, y+15, x+50, y+25, x+60, y+20);
+                pts(textoCoord, root, puntosDeControl, x+4, y, x+24, y+15, x-6, y+30, x+9, y+80);
+                pts(textoCoord, root, puntosDeControl, x+24, y+15, x+50, y, x+20, y+73, x+40, y+83);
+                pts(textoCoord, root, puntosDeControl, x+50, y, x+45, y+25, x+50, y-20, x+25, y+12);
+                pts(textoCoord, root, puntosDeControl, x+45, y+25, x+65, y+15, x+50, y+25, x+60, y+20);
 
                 fun(root, puntosDeControl, x + 4, y, x - 6, y + 30, x + 9, y + 80, x + 24, y + 15, x + 24, y + 15, x + 20, y + 73, x + 40, y + 83, x + 50, y, x + 50, y, x + 50, y - 20, x + 25, y + 12, x + 45, y + 25, x + 45, y + 25, x + 50, y + 25, x + 60, y + 20, x + 65, y + 15);
 
@@ -2549,8 +2548,8 @@ public class Dibujo {
             if (caracter == 'x') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x-3, y+10, x+60, y+15, x+45, y+100, x+50, y+50);
-                pts(caracter, textoCoord, root, puntosDeControl, x+5, y+50, x+45, y, x+30, y+10);
+                pts(textoCoord, root, puntosDeControl, x-3, y+10, x+60, y+15, x+45, y+100, x+50, y+50);
+                pts(textoCoord, root, puntosDeControl, x+5, y+50, x+45, y, x+30, y+10);
 
 
                 fun(root, puntosDeControl, x - 3, y + 10, x + 45, y + 100, x + 50, y + 50, x + 60, y + 15, x + 5, y + 50, x + 30, y + 10, x + 45, y);
@@ -2587,9 +2586,9 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x+80, y+15, x+45, y+100, x+50, y+50);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+50, x+45, y-50, x-10, y);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x-20, y-20, x-5, y-60, x-20, y-50);
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x+80, y+15, x+45, y+100, x+50, y+50);
+                pts(textoCoord, root, puntosDeControl, x, y+50, x+45, y-50, x-10, y);
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x-20, y-20, x-5, y-60, x-20, y-50);
 
 
                 fun(root, puntosDeControl, x + 2, y - 35, x + 45, y + 100, x + 50, y + 50, x + 80, y + 15, x, y + 50, x - 10, y, x + 45, y - 50, x + 2, y - 35, x - 5, y - 60, x - 20, y - 50, x - 20, y - 20);
@@ -2636,9 +2635,9 @@ public class Dibujo {
             if (caracter == 'y') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y, x+24, y+15, x-6, y+30, x+9, y+80);
-                pts(caracter, textoCoord, root, puntosDeControl, x+24, y, x+24, y+50, x+35, y+113, x-40, y+98);
-                pts(caracter, textoCoord, root, puntosDeControl, x+23, y+51, x+45, y+15, x+35, y+50);
+                pts(textoCoord, root, puntosDeControl, x+2, y, x+24, y+15, x-6, y+30, x+9, y+80);
+                pts(textoCoord, root, puntosDeControl, x+24, y, x+24, y+50, x+35, y+113, x-40, y+98);
+                pts(textoCoord, root, puntosDeControl, x+23, y+51, x+45, y+15, x+35, y+50);
 
 
                 fun(root, puntosDeControl, x + 2, y, x - 6, y + 30, x + 9, y + 80, x + 24, y + 15, x + 24, y, x + 35, y + 113, x - 40, y + 98, x + 24, y + 50, x + 23, y + 51, x + 35, y + 50, x + 45, y + 15);
@@ -2680,10 +2679,10 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x+30, y-35, x-6, y-20, x+9, y+30);
-                pts(caracter, textoCoord, root, puntosDeControl, x+30, y-50, x+25, y+10, x+30, y+90, x-35, y+55);
-                pts(caracter, textoCoord, root, puntosDeControl, x+28, y+10, x+50, y, x+40, y+10);
-                pts(caracter, textoCoord, root, puntosDeControl, x+2, y-35, x-20, y-20, x+10, y-60, x-20, y-50);
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x+30, y-35, x-6, y-20, x+9, y+30);
+                pts(textoCoord, root, puntosDeControl, x+30, y-50, x+25, y+10, x+30, y+90, x-35, y+55);
+                pts(textoCoord, root, puntosDeControl, x+28, y+10, x+50, y, x+40, y+10);
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x-20, y-20, x+10, y-60, x-20, y-50);
 
 
                 fun(root, puntosDeControl, x + 2, y - 35, x - 6, y + 30 - 50, x + 9, y + 80 - 50, x + 30, y + 15 - 50, x + 30, y - 50, x + 30, y + 140 - 50, x - 40 + 5, y + 105 - 50, x + 25, y + 10, x + 23 + 5, y + 10, x + 40, y + 10, x + 50, y, x + 2, y - 35, x + 10, y - 60, x - 20, y - 50, x - 20, y - 20);
@@ -2737,11 +2736,11 @@ public class Dibujo {
             if (caracter == 'z') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x-1, y+10, x+40, y, x, y-21, x-32, y+40);
-                pts(caracter, textoCoord, root, puntosDeControl, x+40, y, x+7, y+47);
-                pts(caracter, textoCoord, root, puntosDeControl, x+7, y+47, x+35, y+90, x+50, y+10, x+45, y+80);
-                pts(caracter, textoCoord, root, puntosDeControl, x+35, y+90, x+40, y+50, x+15, y+120, x-15, y+45);
-                pts(caracter, textoCoord, root, puntosDeControl, x+40, y+50, x+60, y+15, x+55, y+50, x+60, y+15);
+                pts(textoCoord, root, puntosDeControl, x-1, y+10, x+40, y, x, y-21, x-32, y+40);
+                pts(textoCoord, root, puntosDeControl, x+40, y, x+7, y+47);
+                pts(textoCoord, root, puntosDeControl, x+7, y+47, x+35, y+90, x+50, y+10, x+45, y+80);
+                pts(textoCoord, root, puntosDeControl, x+35, y+90, x+40, y+50, x+15, y+120, x-15, y+45);
+                pts(textoCoord, root, puntosDeControl, x+40, y+50, x+60, y+15, x+55, y+50, x+60, y+15);
 
 
                 fun(root, puntosDeControl, x - 1, y + 10, x, y - 21, x - 32, y + 40, x + 40, y, x + 40, y, x + 7, y + 47, x + 7, y + 47, x + 50, y + 10, x + 45, y + 80, x + 35, y + 90, x + 35, y + 90, x + 15, y + 120, x - 15, y + 45, x + 40, y + 50, x + 40, y + 50, x + 55, y + 50, x + 60, y + 15);
@@ -2800,10 +2799,10 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y-50, x+65, y-50, x+25, y-45);
-                pts(caracter, textoCoord, root, puntosDeControl, x+65, y-50, x, y+50, x+25, y-45);
-                pts(caracter, textoCoord, root, puntosDeControl, x+50, y+10, x+65, y+15, x+10, y+20, x+50, y+100);
-                pts(caracter, textoCoord, root, puntosDeControl, x, y+15, x+40, y+15, x+10, y-15, x+20, y+40);
+                pts(textoCoord, root, puntosDeControl, x, y-50, x+65, y-50, x+25, y-45);
+                pts(textoCoord, root, puntosDeControl, x+65, y-50, x, y+50, x+25, y-45);
+                pts(textoCoord, root, puntosDeControl, x+50, y+10, x+65, y+15, x+10, y+20, x+50, y+100);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x+40, y+15, x+10, y-15, x+20, y+40);
 
 
                 fun(root, puntosDeControl, x, y - 50, x + 25, y - 45, x + 65, y - 50, x + 65, y - 50, x + 25, y - 45, x, y + 50, x, y + 50, x + 10, y + 20, x + 50, y + 100, x + 65, y + 15, x, y + 50 - 35, x + 10, y + 20 - 35, x + 20, y + 40, x + 40, y + 15);
@@ -2836,6 +2835,12 @@ public class Dibujo {
                     root.getChildren().add(b);
                     root.getChildren().add(c);
                     root.getChildren().add(d);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
                 }
 
                 x = x + 65;
@@ -3418,7 +3423,7 @@ public class Dibujo {
     }
 
 
-    public void pts(char caracter, TextFlow textoCoord, AnchorPane root, ToggleButton puntosdeControl, int... lista){
+    public void pts(TextFlow textoCoord, AnchorPane root, ToggleButton puntosdeControl, int... lista){
 
 
         if(lista.length == 8) {
@@ -3439,6 +3444,10 @@ public class Dibujo {
             textoCoord.getChildren().add(t2);
         }else if(lista.length == 4){
             Text t1 = new Text(String.format("\n%s%-4s %s%-6s %s%-4s %s%s\n", "X1:", lista[0], "Y1:" , lista[1], "X2:", lista[2], "Y2:", lista[3]));
+            t1.setFont(Font.font("Menlo", 14));
+            textoCoord.getChildren().add(t1);
+        }else if(lista.length == 2){
+            Text t1 = new Text(String.format("\n%s%-4s %s%-6s\n", "X1:", lista[0], "Y1:" , lista[1]));
             t1.setFont(Font.font("Menlo", 14));
             textoCoord.getChildren().add(t1);
         }
