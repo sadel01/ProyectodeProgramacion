@@ -1,21 +1,23 @@
 package codigo.proyecto;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Ventana extends Application {
+public class Ventana extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Ventana.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1600, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
         stage.setTitle("Transformador a Script");
         stage.setScene(scene);
-        stage.setMinWidth(1600);
-        stage.setMinHeight(940);
+        stage.setMinWidth(1500);
+        stage.setMinHeight(840);
         stage.show();
     }
 
