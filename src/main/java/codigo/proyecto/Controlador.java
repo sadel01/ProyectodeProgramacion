@@ -54,6 +54,8 @@ public class Controlador extends Dibujo implements Initializable{
         root.getChildren().clear();
         textoCoord.getChildren().clear();
 
+        // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
+
         if (palabra.matches("(.*)\\^[NKS],(.*)")) {
 
             String[] pars = palabra.split("\\^[NKS]");
@@ -73,6 +75,8 @@ public class Controlador extends Dibujo implements Initializable{
                 }
 
             }
+
+        ////////////////////////////////////////////////////////////////
         } else {
             for (int i = 0; i < palabra.length(); i++) {
                 if (i == 0) {
