@@ -53,25 +53,49 @@ public class Controlador extends Dibujo implements Initializable{
         String palabra = " " + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
-        for(int i=0;i<palabra.length();i++){
 
-            if(i==0){
-                Letras(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1, scrollPane);
+        // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
+
+        if (palabra.matches("(.*)\\^[NKS],(.*)")) {
+
+            String[] pars = palabra.split("\\^[NKS]");
+
+            String p1 = pars[0];
+            String p2 = pars[1];
+
+            for (int i = 0; i < p1.length(); i++) {
+                if (i == 0) {
+                    Letras(p2, p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                } else {
+                    Letras(p2, p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                }
+
+                if (puntosDeControl.isSelected()) {
+                    BotonAct(puntosDeControl);
+                }
+
             }
-            else{
-                Letras(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0, scrollPane);
+
+        ////////////////////////////////////////////////////////////////
+        } else {
+            for (int i = 0; i < palabra.length(); i++) {
+                if (i == 0) {
+                    Letras(palabra, palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                } else {
+                    Letras(palabra, palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                }
+
+                if (puntosDeControl.isSelected()) {
+                    BotonAct(puntosDeControl);
+                }
             }
 
-            if (puntosDeControl.isSelected()){
-                BotonAct(puntosDeControl);
+
+            if (palabra.length() < 2) {
+                puntosDeControl.setDisable(true);
+            } else {
+                puntosDeControl.setDisable(false);
             }
-
-        }
-
-        if (palabra.length() < 2){
-            puntosDeControl.setDisable(true);
-        }else{
-            puntosDeControl.setDisable(false);
         }
     }
 
