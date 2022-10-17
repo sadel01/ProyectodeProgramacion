@@ -94,7 +94,7 @@ public class Dibujo {
     }
 
 
-    public void Letras(String pars, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane) {
+    public void Letras(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane) {
 
         if (borrar == 1) {
             x = 30;
@@ -2814,7 +2814,7 @@ public class Dibujo {
     }
 
 
-    public void Simbolos(String pars, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane){
+    public void Simbolos(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane){
         if (borrar == 1) {
             x = 30;
             y = 100;
