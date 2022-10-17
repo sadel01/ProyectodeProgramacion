@@ -2820,7 +2820,7 @@ public class Dibujo {
     }
 
 
-    public void Simbolos(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar){
+    public void Simbolos(String pars, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane){
         if(caracter == '(' || caracter == ')'){
             if (caracter == '('){
                 QuadCurve qv1 = new QuadCurve(x+20, y-50, x, y, x+20, y + 50);
