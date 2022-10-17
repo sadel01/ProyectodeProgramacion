@@ -47,7 +47,7 @@
             </Pane>
             <ToggleButton fx:id="puntosDeControl" alignment="TOP_RIGHT" mnemonicParsing="false" prefHeight="27.0" prefWidth="206.0" text="Mostrar puntos de control">
                <HBox.margin>
-                  <Insets left="10.0" right="30.0" top="10.0" />
+                  <Insets left="10.0" right="40.0" top="10.0" />
                </HBox.margin>
                <font>
                   <Font name="Arial Bold" size="15.0" />
@@ -57,14 +57,14 @@
       </HBox>
    </top>
    <right>
-      <ScrollPane prefHeight="613.0" prefWidth="268.0" style="-fx-background-color: #5F9EA0;" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" prefHeight="613.0" prefWidth="300.0" style="-fx-background-color: #5F9EA0;" BorderPane.alignment="CENTER">
          <content>
-            <TextFlow fx:id="textoCoord" prefHeight="598.0" prefWidth="265.0" />
+            <TextFlow fx:id="textoCoord" prefHeight="598.0" prefWidth="331.0" />
          </content>
       </ScrollPane>
    </right>
    <center>
-      <ScrollPane fitToHeight="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
             <VBox prefHeight="610.0" prefWidth="1008.0">
                <children>

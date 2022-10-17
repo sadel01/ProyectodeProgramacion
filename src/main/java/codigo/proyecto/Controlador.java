@@ -22,7 +22,7 @@ import java.net.URL;
 import java.nio.channels.Selector;
 import java.util.ResourceBundle;
 
-public class Controlador extends Dibujo implements Initializable, EventHandler<KeyEvent> {
+public class Controlador extends Dibujo implements Initializable{
 
     @FXML
     private AnchorPane root;
@@ -42,6 +42,9 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
     @FXML
     private ToggleButton puntosDeControl;
 
+    @FXML
+    private ScrollPane scrollPane;
+
 
     @FXML
     private void obtenerLetra(KeyEvent event) {
@@ -50,25 +53,64 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
         String palabra = " " + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
-        for(int i=0;i<palabra.length();i++){
 
-            if(i==0){
-                Selector(palabra.charAt(i),palabra.charAt(i),root, textoCoord, puntosDeControl,1);
+        // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
+
+        if (palabra.matches("(.*)\\^[NKS],(.*)")) {
+
+            String[] pars = palabra.split("\\^[NKS]");
+
+            String p1 = pars[0];
+            String p2 = pars[1];
+
+            for (int i = 0; i < p1.length(); i++) {
+                if (i == 0) {
+                    Letras(p2, p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+
+                } else {
+                    Letras(p2, p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+
+
+                }
+
+                if (puntosDeControl.isSelected()) {
+                    BotonAct(puntosDeControl);
+                }
+
             }
-            else{
-                Selector(palabra.charAt(i), palabra.charAt(i-1),root, textoCoord, puntosDeControl,0);
+
+        ////////////////////////////////////////////////////////////////
+        } else {
+            for (int i = 0; i < palabra.length(); i++) {
+                if (i == 0) {
+                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜü]")) {
+                        Letras(palabra, palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    }
+                    else{
+                        Simbolos(palabra, palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    }
+
+                } else {
+                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜü]")) {
+                        Letras(palabra, palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    }
+                    else{
+                        Simbolos(palabra, palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    }
+
+                }
+
+                if (puntosDeControl.isSelected()) {
+                    BotonAct(puntosDeControl);
+                }
             }
 
-            if (puntosDeControl.isSelected()){
-                BotonAct(puntosDeControl);
+
+            if (palabra.length() < 2) {
+                puntosDeControl.setDisable(true);
+            } else {
+                puntosDeControl.setDisable(false);
             }
-
-        }
-
-        if (palabra.length() < 2){
-            puntosDeControl.setDisable(true);
-        }else{
-            puntosDeControl.setDisable(false);
         }
     }
 
@@ -123,15 +165,4 @@ public class Controlador extends Dibujo implements Initializable, EventHandler<K
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
     }
 
-
-    @Override
-    public void handle(KeyEvent keyEvent) {
-        CuadroTexto.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                System.out.println("Hola");
-                System.out.println(keyEvent.getCode());
-            }
-        });
-    }
 }
