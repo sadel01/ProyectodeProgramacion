@@ -83,7 +83,7 @@ public class Controlador extends Dibujo implements Initializable{
         } else {
             for (int i = 0; i < palabra.length(); i++) {
                 if (i == 0) {
-                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]")) {
+                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜü]")) {
                         Letras(palabra, palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
                     }
                     else{
@@ -91,7 +91,7 @@ public class Controlador extends Dibujo implements Initializable{
                     }
 
                 } else {
-                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]")) {
+                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜü]")) {
                         Letras(palabra, palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                     }
                     else{

@@ -2821,6 +2821,17 @@ public class Dibujo {
 
 
     public void Simbolos(String pars, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane){
+        if (borrar == 1) {
+            x = 30;
+            y = 100;
+        }
+        if (caracter == ' ') {
+            if (x != 30) {
+                x = x + 50;
+            }
+            auxSub = false;
+            auxBold = 1;
+        }
         if(caracter == '(' || caracter == ')'){
             if (caracter == '('){
                 QuadCurve qv1 = new QuadCurve(x+20, y-50, x, y, x+20, y + 50);
@@ -2837,6 +2848,7 @@ public class Dibujo {
 
                 x = x + 30;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
             else{
@@ -2854,6 +2866,7 @@ public class Dibujo {
 
                 x = x + 25;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
         }
@@ -2892,6 +2905,7 @@ public class Dibujo {
 
                 x = x + 30;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
             else{
@@ -2928,6 +2942,7 @@ public class Dibujo {
 
                 x = x + 35;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
         }
@@ -2947,7 +2962,7 @@ public class Dibujo {
 
                 x = x + 55;
                 if(auxSub){
-
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
             else{
@@ -2965,6 +2980,7 @@ public class Dibujo {
 
                 x = x + 70;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
         }
@@ -2994,6 +3010,7 @@ public class Dibujo {
 
                 x = x + 65;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
             else{
@@ -3021,6 +3038,7 @@ public class Dibujo {
 
                 x = x + 65;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
         }
@@ -3061,6 +3079,7 @@ public class Dibujo {
             root.getChildren().add(cd1);
             x = x + 20;
             if(auxSub){
+                Subrayar(xInicialSu, yInicialSu, x, y, root);
             }
         }
         if(caracter == ':' || caracter == ';'){
@@ -3109,6 +3128,7 @@ public class Dibujo {
             root.getChildren().add(cd2);
             x = x + 30;
             if(auxSub){
+                Subrayar(xInicialSu, yInicialSu, x, y, root);
             }
         }
         if(caracter == '{' || caracter == '}'){
@@ -3137,6 +3157,7 @@ public class Dibujo {
 
                 x = x + 40;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
             else{
@@ -3165,6 +3186,7 @@ public class Dibujo {
 
                 x = x + 40;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
         }
@@ -3201,7 +3223,7 @@ public class Dibujo {
                     fun(root,puntosDeControl,x + 5, y - 20, x, y - 35, x + 5, y - 50,x+5,y-20,x+25,y+15,x+35,y-20,x+7,y-20);
                     x = x + 25;
                     if(auxSub){
-
+                        Subrayar(xInicialSu, yInicialSu, x, y, root);
                     }
                 } else {
                     QuadCurve a = new QuadCurve(x + 5, y - 20, x + 10, y - 35, x + 5, y - 50);
@@ -3227,12 +3249,13 @@ public class Dibujo {
                     fun(root,puntosDeControl,x + 5, y - 20, x + 10, y - 35, x + 5, y - 50,x+5,y-50,x-25,y-90,x-25,y-40,x+3,y-50);
                     x = x + 25;
                     if(auxSub){
+                        Subrayar(xInicialSu, yInicialSu, x, y, root);
                     }
                 }
             }
             x=x+20;
             if(auxSub){
-
+                Subrayar(xInicialSu, yInicialSu, x, y, root);
             }
             if(aux == 0){
                 aux = 1;
@@ -3276,6 +3299,7 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+10, y,x+10,y+10,x+5,y+80,x+10,y+80,x+10,y+10,x+15,y+80,x+10,y+80);
                 x = x +25;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
             else{
@@ -3311,6 +3335,7 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+10, y+80,x+10,y+70,x+5,y,x+10,y,x+10,y+70,x+15,y,x+10,y);
                 x = x +25;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
 
             }
@@ -3349,7 +3374,7 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+10, y, x+7,y+30,x,y,x+25,y,x,y+50,x,y+50,x-15,y+90,x+30,y+90,x+25,y+60);
                 x=x+45;
                 if(auxSub){
-
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
             else{
@@ -3385,6 +3410,7 @@ public class Dibujo {
                 fun(root,puntosDeControl,x+30, y+80,x+27,y+50,x+20,y+75,x+35,y+80,x+30,y+47,x+27,y+50,x+65,y-15,x+5,y-20,x+10,y+20);
                 x=x+45;
                 if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
             }
         }
