@@ -69,8 +69,6 @@ public class Controlador extends Dibujo implements Initializable{
 
                 } else {
                     Letras(p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-
-
                 }
 
                 if (puntosDeControl.isSelected()) {
