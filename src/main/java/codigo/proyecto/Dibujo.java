@@ -111,6 +111,7 @@ public class Dibujo {
                 root.getChildren().add(l1);
             }
             x = 30;
+            xi = 30;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55;
@@ -118,10 +119,15 @@ public class Dibujo {
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
+                xi = xi + 50;
             }
             auxSub = false;
             auxBold = 1;
         }
+
+        System.out.println("VUELTA");
+        System.out.println("x: " + x);
+        System.out.println("xi: " + xi + "\n");
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
@@ -136,7 +142,7 @@ public class Dibujo {
                 fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
 
                 while(cont < auxBold){
-                    CubicCurve c = new CubicCurve(xi + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30);
+                    CubicCurve c = new CubicCurve(x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30);
                     c.setFill(Color.TRANSPARENT);
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
@@ -170,8 +176,6 @@ public class Dibujo {
                 }
 
                 x = x + 60;
-                xi = xi + 60;
-                System.out.println(xi);
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
@@ -1100,17 +1104,17 @@ public class Dibujo {
                 fun(root, puntosDeControl, x + 2, y, x + 37, y, x - 3, y - 150, x + 7, y - 10, x + 42, y + 20, x + 37, y + 72, x + 47, y + 50, x - 1, y + 50, x, y + 18, x + 17, y + 30, x + 17, y + 30, x + 55, y + 15);
 
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x + 2, y, x + 37, y, x - 3, y - 150, x - 1, y + 50); //"l" superior
+                    CubicCurve cb1 = new CubicCurve(xi + 2, y, x + 37, y, x - 3, y - 150, xi - 1, y + 50); //"l" superior
                     cb1.setFill(Color.TRANSPARENT);
                     cb1.setStroke(color);
                     cb1.setStrokeWidth(grosor);
 
-                    CubicCurve cb2 = new CubicCurve(x, y + 18, x + 7, y - 10, x + 42, y + 20, x + 17, y + 30); //Semi ovalo
+                    CubicCurve cb2 = new CubicCurve(xi, y + 18, x + 7, y - 10, x + 42, y + 20, xi + 17, y + 30); //Semi ovalo
                     cb2.setFill(Color.TRANSPARENT);
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    CubicCurve cb3 = new CubicCurve(x + 17, y + 30, x + 37, y + 72, x + 47, y + 50, x + 55, y + 15);  //Curva derecha (conector)
+                    CubicCurve cb3 = new CubicCurve(xi + 17, y + 30, x + 37, y + 72, x + 35, y + 50, xi + 55, y + 15);  //Curva derecha (conector)
                     cb3.setFill(Color.TRANSPARENT);
                     cb3.setStroke(color);
                     cb3.setStrokeWidth(grosor);
@@ -1126,6 +1130,7 @@ public class Dibujo {
                     cont++;
                 }
                 x = x + 55;
+                xi = xi + 55;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
@@ -1171,7 +1176,7 @@ public class Dibujo {
 
                     }
                 }else{
-                    x = x + 10;
+                    x = x + 25;
                 }
             }
         }
@@ -2832,17 +2837,20 @@ public class Dibujo {
                 root.getChildren().add(l1);
             }
             x = 30;
+            xi = 30;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55;
         }
         if (borrar == 1) {
             x = 30;
+            xi = 30;
             y = 100;
         }
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
+                xi = xi + 50;
             }
             auxSub = false;
             auxBold = 1;
