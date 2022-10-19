@@ -119,7 +119,7 @@ public class Dibujo {
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
-                xi = xi + 50;
+                xi = xi + 30;
             }
             auxSub = false;
             auxBold = 1;
@@ -2850,7 +2850,7 @@ public class Dibujo {
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
-                xi = xi + 50;
+                xi = xi + 70;
             }
             auxSub = false;
             auxBold = 1;
