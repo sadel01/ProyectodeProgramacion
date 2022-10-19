@@ -1176,6 +1176,7 @@ public class Dibujo {
 
                     }
                 }else{
+                    xi = x;
                     x = x + 25;
                 }
             }
