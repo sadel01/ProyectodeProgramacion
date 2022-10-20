@@ -109,7 +109,6 @@ public class Dibujo {
                 root.getChildren().add(l1);
             }
             x = 30;
-            xi = 30;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55;
@@ -117,15 +116,10 @@ public class Dibujo {
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
-                xi = xi + 30;
             }
             auxSub = false;
             auxBold = 1;
         }
-
-        System.out.println("VUELTA");
-        System.out.println("x: " + x);
-        System.out.println("xi: " + xi + "\n");
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
@@ -1102,17 +1096,17 @@ public class Dibujo {
                 fun(root, puntosDeControl, x + 2, y, x + 37, y, x - 3, y - 150, x + 7, y - 10, x + 42, y + 20, x + 37, y + 72, x + 47, y + 50, x - 1, y + 50, x, y + 18, x + 17, y + 30, x + 17, y + 30, x + 55, y + 15);
 
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(xi + 2, y, x + 37, y, x - 3, y - 150, xi - 1, y + 50); //"l" superior
+                    CubicCurve cb1 = new CubicCurve(x + 2, y, x + 37, y, x - 3, y - 150, x - 1, y + 50); //"l" superior
                     cb1.setFill(Color.TRANSPARENT);
                     cb1.setStroke(color);
                     cb1.setStrokeWidth(grosor);
 
-                    CubicCurve cb2 = new CubicCurve(xi, y + 18, x + 7, y - 10, x + 42, y + 20, xi + 17, y + 30); //Semi ovalo
+                    CubicCurve cb2 = new CubicCurve(x, y + 18, x + 7, y - 10, x + 42, y + 20, x + 17, y + 30); //Semi ovalo
                     cb2.setFill(Color.TRANSPARENT);
                     cb2.setStroke(color);
                     cb2.setStrokeWidth(grosor);
 
-                    CubicCurve cb3 = new CubicCurve(xi + 17, y + 30, x + 37, y + 72, x + 35, y + 50, xi + 55, y + 15);  //Curva derecha (conector)
+                    CubicCurve cb3 = new CubicCurve(x + 17, y + 30, x + 37, y + 72, x + 35, y + 50, x + 55, y + 15);  //Curva derecha (conector)
                     cb3.setFill(Color.TRANSPARENT);
                     cb3.setStroke(color);
                     cb3.setStrokeWidth(grosor);
@@ -1128,7 +1122,6 @@ public class Dibujo {
                     cont++;
                 }
                 x = x + 55;
-                xi = xi + 55;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
@@ -1174,7 +1167,6 @@ public class Dibujo {
 
                     }
                 }else{
-                    xi = x;
                     x = x + 25;
                 }
             }
@@ -2836,20 +2828,17 @@ public class Dibujo {
                 root.getChildren().add(l1);
             }
             x = 30;
-            xi = 30;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55;
         }
         if (borrar == 1) {
             x = 30;
-            xi = 30;
             y = 100;
         }
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
-                xi = xi + 70;
             }
             auxSub = false;
             auxBold = 1;
