@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class Dibujo {
 
     int x = 30;
-    int xi = 30;
     int y = 100;
     //int yi = 100;
     int aux = 0;
@@ -99,7 +98,6 @@ public class Dibujo {
 
         if (borrar == 1) {
             x = 30;
-            xi = 30;
             y = 100;
         }
         if (x >= scrollPane.getWidth() - 120) {
@@ -136,7 +134,7 @@ public class Dibujo {
                 fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
 
                 while(cont < auxBold){
-                    CubicCurve c = new CubicCurve(xi + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30);
+                    CubicCurve c = new CubicCurve(x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30);
                     c.setFill(Color.TRANSPARENT);
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
@@ -170,8 +168,6 @@ public class Dibujo {
                 }
 
                 x = x + 60;
-                xi = xi + 60;
-                System.out.println(xi);
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
