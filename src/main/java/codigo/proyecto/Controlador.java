@@ -82,7 +82,8 @@ public class Controlador extends Dibujo implements Initializable{
             for (int i = 0; i < palabra.length(); i++) {
                 if (i == 0) {
                     if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                        Letras(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        //Letras(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        Cursivas(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
                     }
                     else{
                         Simbolos(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
@@ -90,10 +91,12 @@ public class Controlador extends Dibujo implements Initializable{
 
                 } else {
                     if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                        Letras(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        //Letras(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        Cursivas(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                     }
                     else{
-                        Simbolos(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        //Simbolos(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        Cursivas(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                     }
 
                 }

@@ -1167,7 +1167,7 @@ public class Dibujo {
 
                     }
                 }else{
-                    x = x + 25;
+                    Cursivas(caracter, caracterAnt, root, textoCoord, puntosDeControl, borrar, scrollPane);
                 }
             }
         }
@@ -3566,7 +3566,6 @@ public class Dibujo {
         }
     }
 
-
     public void pts(TextFlow textoCoord, AnchorPane root, ToggleButton puntosdeControl, int... lista){
 
 
@@ -3594,6 +3593,1056 @@ public class Dibujo {
             Text t1 = new Text(String.format("\n%s%-4s %s%-6s\n", "X1:", lista[0], "Y1:" , lista[1]));
             t1.setFont(Font.font("Menlo", 14));
             textoCoord.getChildren().add(t1);
+        }
+    }
+
+    public void Cursivas(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane){
+
+        int cont = 0;
+
+        if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
+
+            if (caracter == 'a' || caracter == 'á') {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
+                pts(textoCoord, root, puntosDeControl, x+35, y, x+60, y+15, x+10, y+60, x+50, y+65);
+
+                fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
+
+                while(cont < auxBold){
+                    CubicCurve c = new CubicCurve(x + 42, y + 10, x + 20, y - 30, x - 10, y + 85, x + 35, y + 30);
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 50, y, x + 15, y + 60, x + 50, y + 65, x + 60, y + 15);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+
+                    if (caracter == 'á') {
+                        Line tilde = new Line(x + 30, y - 10, x + 45, y - 30);
+                        tilde.setFill(Color.TRANSPARENT);
+                        tilde.setStroke(color);
+                        tilde.setStrokeWidth(grosor);
+
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x+15, y-10, x+30, y-30);
+                            fun(root, puntosDeControl, x + 15, y - 10, x + 30, y - 30);
+                        }
+
+                        root.getChildren().add(tilde);
+                    }
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+
+                x = x + 45;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+
+
+            } else {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+
+                pts(textoCoord, root, puntosDeControl, x, y+50, x+30, y-50, x+20, y+60, x+20, y-50);
+                pts(textoCoord, root, puntosDeControl, x+30, y-50, x+65, y+15, x+50, y-60, x+40, y+120);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x+44, y, x+10, y-10, x+30, y+30);
+
+                fun(root, puntosDeControl, x, y + 50, x + 20, y + 60, x + 20, y - 50, x + 30, y - 50, x + 30, y - 50, x + 50, y - 60, x + 40, y + 120, x + 65, y + 15, x, y + 15, x + 10, y - 10, x + 30, y + 30, x + 44, y);
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x, y + 50, x + 20, y + 60, x + 30, y - 50, x + 50, y - 50); // IZQ
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 50, y - 50, x + 30, y - 60, x + 20, y + 120, x + 65, y + 15); // DER
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x+5, y + 15, x + 15, y - 10, x + 35, y + 30, x + 49, y); // MED
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if (caracter == 'Á') {
+                        Line tilde = new Line(x + 30, y - 60, x + 45, y - 80);
+                        tilde.setFill(Color.TRANSPARENT);
+                        tilde.setStroke(color);
+                        tilde.setStrokeWidth(grosor);
+
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
+                            fun(root, puntosDeControl, x + 30, y - 60, x + 45, y - 80);
+                        }
+
+                        root.getChildren().add(tilde);
+                    }
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+
+                x = x + 65;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'b' || caracter == 'B') {
+
+            if (caracter == 'b') {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+
+                fun(root, puntosDeControl, x, y + 15, x + 70, y - 80, x - 10, y - 80, x, y + 50, x, y + 30, x + 50, y - 50, x + 35, y + 100, x + 5, y + 50, x + 5, y + 50, x, y + 30, x + 60, y + 50, x + 60, y + 20);
+
+                pts(textoCoord, root, puntosDeControl, x, y+15, x, y+50, x+70, y-80, x-10, y-80);
+                pts(textoCoord, root, puntosDeControl, x, y+30, x+5, y+50, x+50, y-50, x+35, y+100);
+                pts(textoCoord, root, puntosDeControl, x+5, y+50, x+60, y+20, x, y+30, x+60, y+50);
+
+
+                while(cont < auxBold) {
+                    CubicCurve cb1 = new CubicCurve(x, y + 15, x + 130, y - 80, x , y - 80, x, y + 50); //"l" superior
+                    cb1.setFill(Color.TRANSPARENT);
+                    cb1.setStroke(color);
+                    cb1.setStrokeWidth(grosor);
+
+                    CubicCurve cb2 = new CubicCurve(x, y + 30, x + 70, y - 50, x + 50, y + 100, x + 10, y + 50);
+                    cb2.setFill(Color.TRANSPARENT);
+                    cb2.setStroke(color);
+                    cb2.setStrokeWidth(grosor);
+
+                    CubicCurve cb3 = new CubicCurve(x + 10, y + 50, x+10, y + 30, x + 60, y + 50, x + 60, y + 20);
+                    cb3.setFill(Color.TRANSPARENT);
+                    cb3.setStroke(color);
+                    cb3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(cb1);
+                    root.getChildren().add(cb2);
+                    root.getChildren().add(cb3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+                x = x + 60;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+
+                pts(textoCoord, root, puntosDeControl, x+30, y-20, x+40, y+50, x+30, y+50);
+                pts(textoCoord, root, puntosDeControl, x+40, y+50, x+30, y+20, x+60, y+60, x+80, y-10);
+                pts(textoCoord, root, puntosDeControl, x+20, y+10, x+30, y-50, x-10, y+10, x, y-50);
+                pts(textoCoord, root, puntosDeControl, x+30, y-50, x+30, y+20, x+70, y-50, x+70, y);
+                pts(textoCoord, root, puntosDeControl, x+58, y+40, x+80, y+15, x+70, y+60);
+
+
+                fun(root, puntosDeControl, x + 30, y - 20, x + 30, y + 50, x + 40, y + 50, x + 40, y + 50, x + 60, y + 60, x + 80, y - 10, x + 30, y + 20, x + 20, y + 10, x - 10,
+                        y + 10, x, y - 50, x + 30, y - 50, x + 30, y - 50, x + 70, y - 50, x + 70, y, x + 30, y + 20, x + 58, y + 40, x + 70, y + 60, x + 80, y + 15);
+
+                while(cont < auxBold) {
+                    QuadCurve c = new QuadCurve(x + 50, y - 20, x + 30, y + 50, x + 40, y + 50); // inferior b
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 40, y + 50, x + 60, y + 60, x + 80, y - 10, x + 30, y + 20); // guata b
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 20, y + 10, x, y + 10, x+7, y - 50, x + 50, y - 50); // izq sombrero
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    CubicCurve c4 = new CubicCurve(x + 50, y - 50, x + 90, y - 50, x + 90, y, x + 30, y + 20); // der sombrero
+                    c4.setFill(Color.TRANSPARENT);
+                    c4.setStroke(color);
+                    c4.setStrokeWidth(grosor);
+
+                    QuadCurve c5 = new QuadCurve(x + 58, y + 40, x + 70, y + 60, x + 80, y + 15);
+                    c5.setFill(Color.TRANSPARENT);
+                    c5.setStroke(color);
+                    c5.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+                    root.getChildren().add(c4);
+                    root.getChildren().add(c5);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+
+                x = x + 80;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'c' || caracter == 'C') {
+
+            if (caracter == 'c') {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y+25, x+25, y+15, x, y-20, x+40, y-5);
+                pts(textoCoord, root, puntosDeControl, x, y+25, x+60, y+15, x, y+45, x+30, y+80);
+
+                fun(root, puntosDeControl, x, y + 25, x, y - 20, x + 40, y - 5, x + 25, y + 15, x, y + 25, x, y + 45, x + 30, y + 80, x + 60, y + 15);
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x, y + 25, x+10, y - 20, x + 60, y - 5, x + 40, y + 15);
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c1 = new CubicCurve(x, y + 25, x-5, y + 45, x + 30, y + 80, x + 60, y + 15);
+                    c1.setFill(Color.TRANSPARENT);
+                    c1.setStroke(color);
+                    c1.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c1);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+                x = x + 60;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+20, y-40, x+60, y+15, x-25, y-10, x+10, y+110);
+                pts(textoCoord, root, puntosDeControl, x+20, y-40, x+10, y, x+45, y-60, x+75, y-35);
+                pts(textoCoord, root, puntosDeControl, x+10, y, x, y-40, x-20, y+10, x-20, y-30);
+
+                fun(root, puntosDeControl, x + 20, y - 40, x - 25, y - 10, x + 10, y + 110, x + 60, y + 15, x + 20, y - 40, x + 45, y - 60, x + 75, y - 35, x + 10, y, x + 10, y, x - 20, y + 10, x - 20, y - 30, x, y - 40);
+
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x + 40, y - 40, x - 10, y - 20, x + 10, y + 110, x + 60, y + 15); // C
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 40, y - 40, x + 60, y - 45, x + 75, y - 35, x + 10, y);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 10, y, x - 15 , y + 10, x - 20, y - 30, x, y - 40);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+                x = x + 60;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+
+        }
+        if (caracter == 'd' || caracter == 'D') {
+
+            if (caracter == 'd') {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+25, y+15, x+25, y+25, x-15, y-30, x, y+90);
+                pts(textoCoord, root, puntosDeControl, x+25, y+5, x+25, y+25, x+80, y-50, x+20, y-80);
+                pts(textoCoord, root, puntosDeControl, x+25, y+25, x+60, y+15, x+30, y+50, x+50, y+50);
+
+                fun(root, puntosDeControl, x + 25, y + 15, x - 15, y - 30, x, y + 90, x + 25, y + 25, x + 25, y + 5, x + 80, y - 50, x + 20, y - 80, x + 25, y + 25, x + 25, y + 25, x + 30, y + 50, x + 50, y + 50, x + 60, y + 15);
+
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x + 25, y + 15, x - 15, y - 30, x, y + 90, x + 25, y + 25);
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 25, y + 5, x + 80, y - 50, x + 20, y - 80, x + 25, y + 25);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 25, y + 25, x + 30, y + 50, x + 50, y + 50, x + 60, y + 15);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+                x = x + 60;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+20, y+10, x+30, y-50, x-10, y+10, x, y-50);
+                pts(textoCoord, root, puntosDeControl, x+30, y-50, x+50, y+50, x+80, y-50, x+80, y+50);
+                pts(textoCoord, root, puntosDeControl, x+50, y+50, x+30, y-30, x+30, y+50, x+30, y+50);
+
+                fun(root, puntosDeControl, x + 20, y + 10, x - 10, y + 10, x, y - 50, x + 30, y - 50, x + 30, y - 50, x + 80, y - 50, x + 80, y + 50, x + 50, y + 50, x + 50, y + 50, x + 30, y + 50, x + 30, y + 50, x + 30, y - 30);
+
+                while(cont < auxBold) {
+                    CubicCurve c1 = new CubicCurve(x + 20, y + 10, x - 10, y + 10, x, y - 50, x + 30, y - 50); // izq sombrero
+                    c1.setFill(Color.TRANSPARENT);
+                    c1.setStroke(color);
+                    c1.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 30, y - 50, x + 100, y - 50, x + 114, y + 50, x + 50, y + 50); // izq sombrero
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 50, y + 50, x + 30, y + 50, x + 30, y + 50, x + 50, y - 30); // izq sombrero
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+
+                    root.getChildren().add(c1);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+                    cont++;
+                }
+                x = x + 90;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'e' || caracter == 'E' || caracter == 'é' || caracter == 'É') {
+
+            if (caracter == 'e' || caracter == 'é') {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y+25, x+2, y+30, x-5, y-20, x+53, y);
+                pts(textoCoord, root, puntosDeControl, x, y+25, x+50, y+15, x, y+50, x+40, y+70);
+
+                fun(root, puntosDeControl, x, y + 25, x - 5, y - 20, x + 53, y, x + 2, y + 30, x, y + 25, x, y + 50, x + 40, y + 70, x + 50, y + 15);
+                while(cont < auxBold) {
+                    CubicCurve b = new CubicCurve(x, y + 25, x + 10, y - 20, x + 73, y, x + 2, y + 30);
+                    b.setFill(Color.TRANSPARENT);
+                    b.setStroke(color);
+                    b.setStrokeWidth(grosor);
+
+                    CubicCurve c = new CubicCurve(x, y + 25, x, y + 50, x + 40, y + 70, x + 50, y + 15);
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    root.getChildren().add(b);
+                    root.getChildren().add(c);
+
+                    if (caracter == 'é') {
+                        Line tilde = new Line(x + 20, y - 10, x + 35, y - 30);
+                        tilde.setFill(Color.TRANSPARENT);
+                        tilde.setStroke(color);
+                        tilde.setStrokeWidth(grosor);
+
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x+20, y-10, x+35, y-30);
+                            fun(root, puntosDeControl, x + 20, y - 10, x + 35, y - 30);
+                        }
+
+                        root.getChildren().add(tilde);
+                    }
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 50;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+25, y-10, x+60, y+15, x-20, y-10, x, y+120);
+                pts(textoCoord, root, puntosDeControl, x+25, y-10, x+20, y-50, x-20, y-10, x+10, y-50);
+
+                fun(root, puntosDeControl, x + 25, y - 10, x - 20, y - 10, x, y + 120, x + 60, y + 15, x + 25, y - 10, x - 20, y - 10, x + 10, y - 50, x + 20, y - 50, x + 20, y - 50, x + 40, y - 50, x + 30, y - 10, x, y - 50);
+                while(cont < auxBold) {
+                    CubicCurve c2 = new CubicCurve(x + 35, y - 10, x - 10, y - 10, x, y + 120, x + 60, y + 15);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 35, y - 10, x - 10, y - 10, x, y - 50, x + 45, y - 50);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    CubicCurve c4 = new CubicCurve(x + 45, y - 50, x + 80, y - 50, x + 40, y - 10, x, y - 50);
+                    c4.setFill(Color.TRANSPARENT);
+                    c4.setStroke(color);
+                    c4.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+                    root.getChildren().add(c4);
+
+                    if (caracter == 'É') {
+                        Line tilde = new Line(x + 30, y - 60, x + 45, y - 80);
+                        tilde.setFill(Color.TRANSPARENT);
+                        tilde.setStroke(color);
+                        tilde.setStrokeWidth(grosor);
+
+
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
+                            fun(root, puntosDeControl, x + 30, y - 60, x + 45, y - 80);
+                        }
+
+                        root.getChildren().add(tilde);
+                    }
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 60;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+
+            //tamaÃ±o caracter
+        }
+        if (caracter == 'f' || caracter == 'F') {
+
+            if (caracter == 'f') {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y+10, x, y+10, x, y-60, x+60, y-60);
+                pts(textoCoord, root, puntosDeControl, x, y, x+2, y+15, x, y+110, x+50, y+60);
+                pts(textoCoord, root, puntosDeControl, x+2, y+25, x+50, y+15, x+35, y+60);
+
+                fun(root, puntosDeControl, x, y + 10, x, y - 60, x + 60, y - 60, x, y + 10, x, y, x, y + 110, x + 50, y + 60, x + 2, y + 15, x + 2, y + 25, x + 35, y + 60, x + 50, y + 15);
+
+
+                while(cont < auxBold) {
+                    CubicCurve c1 = new CubicCurve(x, y + 10, x+20, y - 60, x + 90, y - 60, x, y + 10); // Curva Superior
+                    c1.setFill(Color.TRANSPARENT);
+                    c1.setStroke(color);
+                    c1.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x, y+5, x-30, y + 110, x + 30, y + 60, x + 2, y + 15); // Curva inferior
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    QuadCurve c3 = new QuadCurve(x, y + 14, x + 35, y + 60, x + 50, y + 15); // Conexion
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+
+                    root.getChildren().add(c1);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 50;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y-40, x+60, y-50, x+10, y-70, x+50, y-10);
+                pts(textoCoord, root, puntosDeControl, x+30, y-37, x+10, y+40, x+20, y+70);
+                pts(textoCoord, root, puntosDeControl, x+10, y, x+40, y);
+                pts(textoCoord, root, puntosDeControl, x+10, y+10, x+50, y+15, x+20, y, x+30, y+20);
+
+
+                fun(root, puntosDeControl, x, y - 40, x + 10, y - 70, x + 50, y - 10, x + 60, y - 50, x + 30, y - 37, x + 20, y + 70, x + 10, y + 40, x + 10, y, x + 40, y, x + 10, y + 10, x + 20, y, x + 30, y + 20, x + 50, y + 15);
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x+10, y - 40, x + 20, y - 70, x + 50, y - 25, x + 60, y - 45);
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    QuadCurve c2 = new QuadCurve(x + 40, y - 37, x + 20, y + 100, x + 10, y + 26);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 10, y, x + 20, y-10, x + 30, y + 10, x + 50, y + 5);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+
+                x = x + 50;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'g' || caracter == 'G') {
+
+            if (caracter == 'g') {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+25, y+10, x+25, y+40, x-10, y-20, x-10, y+70);
+                pts(textoCoord, root, puntosDeControl, x+25, y, x+10, y+80, x+35, y+90, x+10, y+90);
+                pts(textoCoord, root, puntosDeControl, x+10, y+80, x+60, y+15, x+10, y+30, x+60, y+60);
+
+
+                fun(root, puntosDeControl, x + 25, y + 10, x - 10, y - 20, x - 10, y + 70, x + 25, y + 40, x + 25, y, x + 35, y + 90, x + 10, y + 90, x + 10, y + 80, x + 10, y + 80, x + 10, y + 30, x + 60, y + 60, x + 60, y + 15);
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x + 47, y + 10, x + 5, y - 20, x + 5, y + 70, x + 48, y + 40); // Circulo
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 50, y, x + 35, y + 90, x + 10, y + 90, x + 10, y + 80);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 10, y + 80, x + 10, y + 30, x + 60, y + 60, x + 60, y + 15);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 60;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y+20, x+40, y-50, x+70, y+10, x+60, y-50);
+                pts(textoCoord, root, puntosDeControl, x+40, y-50, x+59, y+20, x, y-50, x+10, y+110);
+                pts(textoCoord, root, puntosDeControl, x+60, y+10, x+30, y+80, x+60, y+100, x+20, y+100);
+                pts(textoCoord, root, puntosDeControl, x+30, y+80, x+80, y+15, x+40, y+60, x+60, y+60);
+
+
+                fun(root, puntosDeControl, x, y + 20, x + 70, y + 10, x + 60, y - 50, x + 40, y - 50, x + 40, y - 50, x, y - 50, x + 10, y + 110, x + 59, y + 20, x + 60, y + 10, x + 60, y + 100, x + 20, y + 100, x + 30, y + 80, x + 30, y + 80, x + 40, y + 60, x + 60, y + 60, x + 80, y + 15);
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x, y + 20, x + 110, y + 10, x + 80, y - 50, x + 50, y - 50); // mitad e
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 50, y - 50, x+30, y - 50, x + 20, y + 90, x + 69, y + 20); // otra mitad
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 70, y + 10, x + 60, y + 100, x + 20, y + 100, x + 15, y + 80); // mitad j
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    CubicCurve c4 = new CubicCurve(x + 15, y + 80, x + 40, y + 35, x + 60, y + 60, x + 80, y + 15); // otra mitad j
+                    c4.setFill(Color.TRANSPARENT);
+                    c4.setStroke(color);
+                    c4.setStrokeWidth(grosor);
+
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+                    root.getChildren().add(c4);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+
+                x = x + 80;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'h' || caracter == 'H') {
+
+            if (caracter == 'h') {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x, y+50, x+50, y-50, x-10, y-90);
+                pts(textoCoord, root, puntosDeControl, x, y+40, x+25, y+35, x+10, y, x+25, y+5);
+                pts(textoCoord, root, puntosDeControl, x+25, y+35, x+50, y+15, x+25, y+60, x+40, y+60);
+
+
+                fun(root, puntosDeControl, x, y + 15, x + 50, y - 50, x - 10, y - 90, x, y + 50, x, y + 40, x + 10, y, x + 25, y + 5, x + 25, y + 35, x + 25, y + 35, x + 25, y + 60, x + 40, y + 60, x + 50, y + 15);
+
+
+                while(cont < auxBold) {
+                    CubicCurve c2 = new CubicCurve(x, y + 15, x + 100, y - 50, x+40, y - 90, x, y + 50); // l
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c = new CubicCurve(x+3, y + 40, x + 10, y, x + 35, y + 5, x + 30, y + 35); // guata
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 30, y + 35, x + 25, y + 60, x + 40, y + 60, x + 50, y + 15);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 50;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y-40, x+20, y+40, x+10, y-60, x+30, y-30);
+                pts(textoCoord, root, puntosDeControl, x+20, y+40, x+40, y, x+10, y+80, x-10, y+30);
+                pts(textoCoord, root, puntosDeControl, x+40, y, x+50, y-50, x+60, y-10, x+60, x-50);
+                pts(textoCoord, root, puntosDeControl, x+50, y-50, x+70, y+15, x+40, y-50, x+40, y+120);
+
+
+                fun(root, puntosDeControl, x, y - 40, x + 10, y - 60, x + 30, y - 30, x + 20, y + 40, x + 20, y + 40, x + 10, y + 80, x - 10, y + 30, x + 40, y, x + 40, y, x + 60, y - 10, x + 60, y - 50, x + 50, y - 50, x + 50, y - 50, x + 40, y - 50, x + 40, y + 120, x + 70, y + 15);
+
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x, y - 40, x + 10, y - 60, x + 30, y - 30, x + 20, y + 40); // primera curva hacia abajo
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 20, y + 40, x + 10, y + 80, x - 10, y + 30, x + 40, y); // segunda curva
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 40, y, x + 60, y - 10, x + 60, y - 50, x + 50, y - 50);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    CubicCurve c4 = new CubicCurve(x + 50, y - 50, x + 40, y - 50, x + 40, y + 120, x + 70, y + 15);
+                    c4.setFill(Color.TRANSPARENT);
+                    c4.setStroke(color);
+                    c4.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+                    root.getChildren().add(c4);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 70;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'i' || caracter == 'I' || caracter == 'í' || caracter == 'Í') {
+
+            if (caracter == 'i' || caracter == 'í') {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
+
+                fun(root, puntosDeControl, x + 2, y, x - 10, y + 80, x + 30, y + 40, x + 40, y + 15);
+                while(cont < auxBold) {
+                    CubicCurve c = new CubicCurve(x + 30, y, x - 10, y + 80, x + 30, y + 40, x + 40, y + 15);
+                    c.setFill(Color.TRANSPARENT);
+                    c.setStroke(color);
+                    c.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c);
+
+                    if (caracter == 'í') {
+                        Line tilde = new Line(x + 35, y - 10, x + 45, y - 30);
+                        tilde.setFill(Color.TRANSPARENT);
+                        tilde.setStroke(color);
+                        tilde.setStrokeWidth(grosor);
+
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x, y-10, x+15, y-30);
+                            fun(root, puntosDeControl, x, y - 10, x + 15, y - 30);
+                        }
+
+                        root.getChildren().add(tilde);
+                    } else {
+                        Circle p = new Circle(x + 35, y - 10, 1);
+                        p.setFill(Color.TRANSPARENT);
+                        p.setStroke(color);
+                        p.setStrokeWidth(grosor);
+
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x+3, y-10);
+                            fun(root, puntosDeControl, x + 3, y - 10);
+                        }
+
+                        root.getChildren().add(p);
+                    }
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+
+                x = x + 40;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y-50, x+50, y-40, x+20, y-60, x+30, y-40);
+                pts(textoCoord, root, puntosDeControl, x+50, y-40, x+40, y+20, x+70, x-40, x+50, y-120);
+                pts(textoCoord, root, puntosDeControl, x+40, y+20, x, y+30, x+35, y+70, x, y+40);
+
+
+                fun(root, puntosDeControl, x, y - 50, x + 20, y - 60, x + 30, y - 40, x + 50, y - 40, x + 50, y - 40, x + 70, y - 40, x + 50, y - 120, x + 40, y + 20, x + 40, y + 20, x + 35, y + 70, x, y + 40, x, y + 30);
+                while(cont < auxBold) {
+                    CubicCurve c1 = new CubicCurve(x, y - 60, x + 20, y - 60, x + 30, y - 40, x + 50, y - 40);
+                    c1.setFill(Color.TRANSPARENT);
+                    c1.setStroke(color);
+                    c1.setStrokeWidth(grosor);
+
+                    CubicCurve c2 = new CubicCurve(x + 50, y - 40, x + 70, y - 40, x + 50, y - 120, x + 30, y + 20);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
+                    CubicCurve c3 = new CubicCurve(x + 30, y + 20, x + 25, y + 70, x, y + 40, x, y + 30);
+                    c3.setFill(Color.TRANSPARENT);
+                    c3.setStroke(color);
+                    c3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(c1);
+                    root.getChildren().add(c2);
+                    root.getChildren().add(c3);
+
+                    if (caracter == 'Í') {
+                        Line tilde = new Line(x + 30, y - 60, x + 45, y - 80);
+                        tilde.setFill(Color.TRANSPARENT);
+                        tilde.setStroke(color);
+                        tilde.setStrokeWidth(grosor);
+
+                        if(cont < 1){
+                            pts(textoCoord, root, puntosDeControl, x+30, y-60, x+45, y-80);
+                            fun(root, puntosDeControl, x + 30, y - 60, x + 45, y - 80);
+                        }
+
+                        root.getChildren().add(tilde);
+                    }
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 55;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'j' || caracter == 'J') {
+
+            if (caracter == 'j') {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x-15, y+65, x+30, y+15, x-15, y+50, x+30, y+35);
+                pts(textoCoord, root, puntosDeControl, x, y+70, x-15, y+65, x-5, y+95, x-20, y+85);
+                pts(textoCoord, root, puntosDeControl, x, y, x, y+70, x-1, y+20, x+5, y+60);
+                pts(textoCoord, root, puntosDeControl, x, y-10);
+
+                fun(root, puntosDeControl, x - 15, y + 65, x - 15, y + 50, x + 30, y + 35, x + 30, y + 15, x, y + 70, x - 5, y + 95, x - 20, y + 85, x - 15, y + 65, x, y, x - 1, y + 20, x + 5, y + 60, x, y + 70);
+
+                while(cont < auxBold) {
+                    CubicCurve cb1 = new CubicCurve(x - 15, y + 65, x - 15, y + 50, x + 30, y + 35, x + 30, y + 15); //"l" superior
+                    cb1.setFill(Color.TRANSPARENT);
+                    cb1.setStroke(color);
+                    cb1.setStrokeWidth(grosor);
+
+                    root.getChildren().add(cb1);
+
+                    CubicCurve cb2 = new CubicCurve(x, y + 70, x - 15, y + 95, x - 20, y + 85, x - 15, y + 65); //Semi ovalo
+                    cb2.setFill(Color.TRANSPARENT);
+                    cb2.setStroke(color);
+                    cb2.setStrokeWidth(grosor);
+
+                    root.getChildren().add(cb2);
+
+                    CubicCurve cb3 = new CubicCurve(x+20, y, x +20, y + 20, x + 5, y + 60, x, y + 70); //"l" superior
+                    cb3.setFill(Color.TRANSPARENT);
+                    cb3.setStroke(color);
+                    cb3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(cb3);
+
+                    Circle cd1 = new Circle(x+20, y - 10, 1);
+                    cd1.setStrokeWidth(grosor);
+                    cd1.setFill(Color.TRANSPARENT);
+                    cd1.setStroke(color);
+
+                    root.getChildren().add(cd1);
+
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+
+                x = x + 30;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x, y-40, x+50, y-40, x+20, y-50);
+                pts(textoCoord, root, puntosDeControl, x+50, y-40, x+40, y+30, x+70, y-40, x+50, y-120);
+                pts(textoCoord, root, puntosDeControl, x+40, y+30, x+5, y+40, x+40, y+55, x+10, y+60);
+                pts(textoCoord, root, puntosDeControl, x+5, y+40, x+50, y-15, x, y+20, x+15, y);
+                fun(root, puntosDeControl, x, y - 40, x + 50, y - 40, x + 20, y - 50, x + 70, y - 40, x + 50, y - 120, x + 40, y + 55, x + 10, y + 60, x + 50, y - 40, x + 40, y + 30, x + 40, y + 30, x + 5, y + 40, x + 5, y + 40, x + 50, y - 15);
+
+                while(cont < auxBold) {
+                    QuadCurve qv1 = new QuadCurve(x, y - 50, x + 20, y - 50, x + 50, y - 40);
+                    qv1.setFill(Color.TRANSPARENT);
+                    qv1.setStroke(color);
+                    qv1.setStrokeWidth(grosor);
+
+                    CubicCurve cb1 = new CubicCurve(x + 50, y - 40, x + 70, y - 40, x + 50, y - 120, x + 20, y + 30); //"l" superior
+                    cb1.setFill(Color.TRANSPARENT);
+                    cb1.setStroke(color);
+                    cb1.setStrokeWidth(grosor);
+
+                    CubicCurve cb2 = new CubicCurve(x + 20, y + 30, x + 20, y + 55, x, y + 60, x, y + 40); //Semi ovalo
+                    cb2.setFill(Color.TRANSPARENT);
+                    cb2.setStroke(color);
+                    cb2.setStrokeWidth(grosor);
+
+                    CubicCurve cb4 = new CubicCurve(x, y + 40, x, y + 20, x + 15, y, x + 50, y - 15);
+                    cb4.setFill(Color.TRANSPARENT);
+                    cb4.setStroke(color);
+                    cb4.setStrokeWidth(grosor);
+
+                    root.getChildren().add(qv1);
+                    root.getChildren().add(cb1);
+                    root.getChildren().add(cb2);
+                    root.getChildren().add(cb4);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 50;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }
+        }
+        if (caracter == 'k' || caracter == 'K') {
+
+            if (caracter == 'k') {
+                Text t = new Text("\n"+caracter+":");
+                textoCoord.getChildren().add(t);
+                pts(textoCoord, root, puntosDeControl, x+2, y, x-1, y+50, x+37, y, x-3, y-150);
+                pts(textoCoord, root, puntosDeControl, x, y+18, x+17, y+30, x+7, y-10, x+42, y+20);
+                pts(textoCoord, root, puntosDeControl, x+17, y+30, x+55, y+15, x+37, y+72, x+47, y+50);
+                fun(root, puntosDeControl, x + 2, y, x + 37, y, x - 3, y - 150, x + 7, y - 10, x + 42, y + 20, x + 37, y + 72, x + 47, y + 50, x - 1, y + 50, x, y + 18, x + 17, y + 30, x + 17, y + 30, x + 55, y + 15);
+
+                while(cont < auxBold) {
+                    CubicCurve cb1 = new CubicCurve(x + 2, y, x + 37, y, x - 3, y - 150, x - 1, y + 50); //"l" superior
+                    cb1.setFill(Color.TRANSPARENT);
+                    cb1.setStroke(color);
+                    cb1.setStrokeWidth(grosor);
+
+                    CubicCurve cb2 = new CubicCurve(x, y + 18, x + 7, y - 10, x + 42, y + 20, x + 17, y + 30); //Semi ovalo
+                    cb2.setFill(Color.TRANSPARENT);
+                    cb2.setStroke(color);
+                    cb2.setStrokeWidth(grosor);
+
+                    CubicCurve cb3 = new CubicCurve(x + 17, y + 30, x + 37, y + 72, x + 35, y + 50, x + 55, y + 15);  //Curva derecha (conector)
+                    cb3.setFill(Color.TRANSPARENT);
+                    cb3.setStroke(color);
+                    cb3.setStrokeWidth(grosor);
+
+                    root.getChildren().add(cb1);
+                    root.getChildren().add(cb2);
+                    root.getChildren().add(cb3);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+                x = x + 55;
+                if (auxSub) {
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            } else {
+                if(caracterAnt != '^'){
+                    Text t = new Text("\n" + caracter + ":");
+                    textoCoord.getChildren().add(t);
+                    pts(textoCoord, root, puntosDeControl, x, y - 20, x + 10, y + 40, x + 40, y - 120, x + 40, y + 80);
+                    pts(textoCoord, root, puntosDeControl, x + 10, y + 40, x + 60, y - 50, x - 20, y, x + 60, y);
+                    pts(textoCoord, root, puntosDeControl, x + 33, y - 5, x + 80, y + 15, x + 60, y - 10, x + 60, y + 115);
+                    fun(root, puntosDeControl, x, y - 20, x + 40, y - 120, x + 40, y + 80, x - 20, y, x + 60, y, x + 60, y - 10, x + 60, y + 115, x + 10, y + 40, x + 10, y + 40, x + 60, y - 50, x + 33, y - 5, x + 80, y + 15);
+
+                    while (cont < auxBold) {
+                        CubicCurve cb1 = new CubicCurve(x, y - 20, x + 40, y - 120, x + 40, y + 80, x + 10, y + 40); // primera curva hacia
+                        // abajo
+                        cb1.setFill(Color.TRANSPARENT);
+                        cb1.setStroke(color);
+                        cb1.setStrokeWidth(grosor);
+
+                        CubicCurve cb2 = new CubicCurve(x + 10, y + 40, x - 20, y, x + 60, y, x + 60, y - 50); //Semi ovalo
+                        cb2.setFill(Color.TRANSPARENT);
+                        cb2.setStroke(color);
+                        cb2.setStrokeWidth(grosor);
+
+                        CubicCurve cb3 = new CubicCurve(x + 33, y - 5, x + 60, y - 10, x + 60, y + 115, x + 80, y + 15);  //Curva derecha (conector)
+                        cb3.setFill(Color.TRANSPARENT);
+                        cb3.setStroke(color);
+                        cb3.setStrokeWidth(grosor);
+
+                        root.getChildren().add(cb1);
+                        root.getChildren().add(cb2);
+                        root.getChildren().add(cb3);
+
+                        if (auxBold > 1) {
+                            x++;
+                        }
+
+                        cont++;
+                    }
+                    x = x + 80;
+                    if (auxSub) {
+                        Subrayar(xInicialSu, yInicialSu, x, y, root);
+
+                    }
+                }else{
+                    Cursivas(caracter, caracterAnt, root, textoCoord, puntosDeControl, borrar, scrollPane);
+                }
+            }
         }
     }
 }
