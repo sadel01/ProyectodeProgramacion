@@ -3593,15 +3593,18 @@ public class Dibujo {
 
     public void Cursivas(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane){
 
-        System.out.println(caracter + " y " + caracterAnt);
-
-        if (caracter == ' ') {
-            if (x != 30) {
-                x = x + 50;
+        if (x >= scrollPane.getWidth() - 120) {
+            if (caracter != ' ' && caracterAnt != ' ') {
+                Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
+                l1.setFill(Color.TRANSPARENT);
+                l1.setStroke(color);
+                l1.setStrokeWidth(grosor);
+                root.getChildren().add(l1);
             }
-            auxSub = false;
-            auxBold = 1;
-            //Letras(caracter, caracterAnt, root, textoCoord, puntosDeControl, borrar, scrollPane);
+            x = 30;
+            y = y + 150;
+            xInicialSu = x;
+            yInicialSu = y + 55;
         }
 
         int cont = 0;
