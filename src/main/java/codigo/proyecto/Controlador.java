@@ -65,10 +65,10 @@ public class Controlador extends Dibujo implements Initializable{
 
             for (int i = 0; i < p1.length(); i++) {
                 if (i == 0) {
-                    Letras(p2, p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    Letras(p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                 } else {
-                    Letras(p2, p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    Letras(p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
 
 
                 }
@@ -83,19 +83,19 @@ public class Controlador extends Dibujo implements Initializable{
         } else {
             for (int i = 0; i < palabra.length(); i++) {
                 if (i == 0) {
-                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜü]")) {
-                        Letras(palabra, palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                        Letras(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
                     }
                     else{
-                        Simbolos(palabra, palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        Simbolos(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
                     }
 
                 } else {
-                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜü]")) {
-                        Letras(palabra, palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                        Letras(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                     }
                     else{
-                        Simbolos(palabra, palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        Simbolos(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                     }
 
                 }
