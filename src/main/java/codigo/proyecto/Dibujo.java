@@ -3604,6 +3604,8 @@ public class Dibujo {
 
             if (caracter == 'a' || caracter == 'á') {
 
+                x = x - 15;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
@@ -3645,7 +3647,7 @@ public class Dibujo {
                     cont++;
                 }
 
-                x = x + 45;
+                x = x + 58;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
@@ -3892,6 +3894,8 @@ public class Dibujo {
         if (caracter == 'd' || caracter == 'D') {
 
             if (caracter == 'd') {
+
+                x = x - 10;
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
@@ -4168,6 +4172,9 @@ public class Dibujo {
         if (caracter == 'g' || caracter == 'G') {
 
             if (caracter == 'g') {
+
+                x = x - 18;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+25, y+10, x+25, y+40, x-10, y-20, x-10, y+70);
@@ -4353,6 +4360,9 @@ public class Dibujo {
         if (caracter == 'i' || caracter == 'I' || caracter == 'í' || caracter == 'Í') {
 
             if (caracter == 'i' || caracter == 'í') {
+
+                x = x - 20;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
@@ -4461,6 +4471,9 @@ public class Dibujo {
         if (caracter == 'j' || caracter == 'J') {
 
             if (caracter == 'j') {
+
+                x = x - 15;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x-15, y+65, x+30, y+15, x-15, y+50, x+30, y+35);
@@ -4720,6 +4733,9 @@ public class Dibujo {
         }
         if (caracter == 'm' || caracter == 'M') {
             if (caracter == 'm') {
+
+                x = x + 5;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x-1, y+50);
@@ -4760,7 +4776,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 70;
+                x = x + 71;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
@@ -4807,6 +4823,9 @@ public class Dibujo {
         }
         if (caracter == 'n' || caracter == 'N') {
             if (caracter == 'n') {
+
+                x = x + 5;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
@@ -4885,6 +4904,9 @@ public class Dibujo {
         }
         if (caracter == 'ñ' || caracter == 'Ñ') {
             if (caracter == 'ñ') {
+
+                x = x + 5;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
@@ -5276,7 +5298,7 @@ public class Dibujo {
                         }
                     }
                     //CurvA
-                    CubicCurve a = new CubicCurve(x + 9 - 10, y + 10, x + 10 - 10, y - 21, x - 22 - 10, y + 40, x + 50, y);
+                    CubicCurve a = new CubicCurve(x + 20, y + 10, x + 10 - 10, y - 21, x - 22 - 10, y + 40, x + 50, y);
                     a.setFill(Color.TRANSPARENT);
                     a.setStroke(color);
                     a.setStrokeWidth(grosor);
@@ -5492,6 +5514,9 @@ public class Dibujo {
         }
         if (caracter == 't' || caracter == 'T') {
             if (caracter == 't') {
+
+                x = x - 5;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+10, y-40, x+30, y+15, x-15, y, x+15, y+100);
@@ -5567,6 +5592,9 @@ public class Dibujo {
         }
         if (caracter == 'u' || caracter == 'U' || caracter == 'ü' || caracter == 'Ü' || caracter == 'ú' || caracter == 'Ú') {
             if (caracter == 'u' || caracter == 'ü' || caracter == 'ú') {
+
+                x = x - 4;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
 
@@ -5648,7 +5676,7 @@ public class Dibujo {
                     cont++;
                 }
                 //largo de caracter i
-                x = x + 50;
+                x = x + 45;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
@@ -5743,6 +5771,9 @@ public class Dibujo {
         }
         if (caracter == 'v' || caracter == 'V') {
             if (caracter == 'v') {
+
+                x = x + 11;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x-3, y, x+63, y, x+10, y+63, x+25, y+63);
@@ -5847,6 +5878,9 @@ public class Dibujo {
         }
         if (caracter == 'w' || caracter == 'W') {
             if (caracter == 'w') {
+
+                x = x + 12;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+4, y, x+24, y+15, x-6, y+30, x+9, y+80);
@@ -5985,6 +6019,9 @@ public class Dibujo {
         }
         if (caracter == 'x' || caracter == 'X') {
             if (caracter == 'x') {
+
+                x = x - 10;
+
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x-3, y+10, x+60, y+15, x+45, y+100, x+50, y+50);
