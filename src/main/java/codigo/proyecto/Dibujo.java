@@ -139,6 +139,7 @@ public class Dibujo {
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
 
+
                     CubicCurve c2 = new CubicCurve(x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
                     c2.setFill(Color.TRANSPARENT);
                     c2.setStroke(color);
@@ -2425,39 +2426,15 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                Text t1 = new Text("\n" + caracter + "\n" + "X1: " + (x + 2) + " Y1: " + (y - 35) + "\tX2: " + (x + 29) + " Y2: " + (y + 15));
-                Text t2 = new Text("\nX3: " + (x - 6) + " Y3: " + (y + 30) + "\tX4: " + (x + 9) + " Y4: " + (y + 80) + "\n");
 
-                Text t3 = new Text("\nX1: " + (x + 30) + " Y1: " + (y + 25) + "\tX2: " + (x + 60) + " Y2: " + (y - 13));
-                Text t4 = new Text("\nX3: " + (x + 25) + " Y3: " + (y + 73) + "\tX4: " + (x + 45) + " Y4: " + (y + 83) + "\n");
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x+29, y+15, x-6, y+30, x+9, y+80);
+                pts(textoCoord, root, puntosDeControl, x+30, y+25, x+60, y-13, x+25, y+73, x+45, y+83);
+                pts(textoCoord, root, puntosDeControl, x+2, y-35, x-20, y-20, x+10, y-60, x-20, y-50);
+                pts(textoCoord, root, puntosDeControl, x+55, y-15, x+55, y+10, x+60, y-35, x+35, y-3);
+                pts(textoCoord, root, puntosDeControl, x+55, y+10, x+75, y, x+60, y+10, x+70, y+5);
 
-                Text t5 = new Text("\nX1: " + (x + 2) + " Y1: " + (y - 35) + "\tX2: " + (x - 20) + " Y2: " + (y - 20));
-                Text t6 = new Text("\nX3: " + (x + 10) + " Y3: " + (y - 60) + "\tX4: " + (x - 20) + " Y4: " + (y - 50) + "\n");
-
-                Text t7 = new Text("\nX1: " + (x + 55) + " Y1: " + (y - 15) + "\tX2: " + (x + 55) + " Y2: " + (y + 10));
-                Text t8 = new Text("\nX3: " + (x + 60) + " Y3: " + (y - 35) + "\tX4: " + (x + 35) + " Y4: " + (y - 3) + "\n");
-
-                Text t9 = new Text("\nX1: " + (x + 55) + " Y1: " + (y + 10) + "\tX2: " + (x + 75) + " Y2: " + (y));
-                Text t10 = new Text("\nX3: " + (x + 60) + " Y3: " + (y + 10) + "\tX4: " + (x + 70) + " Y4: " + (y + 5) + "\n");
 
                 fun(root, puntosDeControl, x + 2, y - 35, x - 6, y + 30, x + 9, y + 80, x + 24 + 5, y + 15, x + 30, y, x + 25, y + 73, x + 45, y + 83, x + 60, y - 13, x + 2, y - 35, x + 10, y - 60, x - 20, y - 50, x - 20, y - 20, x + 35 + 25, y - 15, x + 35 + 25, y - 20 - 15, x + 10 + 25, y + 12 - 15, x + 30 + 25, y + 25 - 15, x + 30 + 25, y + 25 - 15, x + 35 + 25, y + 25 - 15, x + 45 + 25, y + 20 - 15, x + 50 + 25, y);
-
-                t2.setFill(Color.RED);
-                t4.setFill(Color.RED);
-                t6.setFill(Color.RED);
-                t8.setFill(Color.RED);
-                t10.setFill(Color.RED);
-
-                textoCoord.getChildren().add(t1);
-                textoCoord.getChildren().add(t2);
-                textoCoord.getChildren().add(t3);
-                textoCoord.getChildren().add(t4);
-                textoCoord.getChildren().add(t5);
-                textoCoord.getChildren().add(t6);
-                textoCoord.getChildren().add(t7);
-                textoCoord.getChildren().add(t8);
-                textoCoord.getChildren().add(t9);
-                textoCoord.getChildren().add(t10);
 
                 while(cont < auxBold) {//CurvaA
                     CubicCurve a = new CubicCurve(x + 2, y - 35, x - 6, y + 30, x + 9, y + 80, x + 24 + 5, y + 15);
@@ -2996,7 +2973,7 @@ public class Dibujo {
                     root.getChildren().add(l1);
 
                     if(auxBold > 1){
-                        x++;
+                        y++;
                     }
 
                     cont++;
@@ -3020,7 +2997,7 @@ public class Dibujo {
                     root.getChildren().add(l1);
 
                     if(auxBold > 1){
-                        x++;
+                        y++;
                     }
 
                     cont++;
