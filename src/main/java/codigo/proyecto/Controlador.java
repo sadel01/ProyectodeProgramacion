@@ -23,7 +23,8 @@ import java.nio.channels.Selector;
 import java.util.ResourceBundle;
 
 public class Controlador extends Dibujo implements Initializable{
-
+    String tamanio="0";
+    int a=0;
     @FXML
     private AnchorPane root;
 
@@ -88,6 +89,15 @@ public class Controlador extends Dibujo implements Initializable{
 
         ////////////////////////////////////////////////////////////////
         } else {
+            for(int i=0;i<frase.length();i++){
+                if(i>=3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i-1)=='T' && frase.charAt(i-2)=='^'){
+                   a=1;
+                   tamanio=tamanio+frase.charAt(i);
+                } else if (a==1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                    tamanio=tamanio+frase.charAt(i);
+                }
+            }
+
             for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
                     if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
@@ -139,6 +149,8 @@ public class Controlador extends Dibujo implements Initializable{
                 puntosDeControl.setDisable(false);
             }
         }
+
+        tamanio="0";
     }
 
 
