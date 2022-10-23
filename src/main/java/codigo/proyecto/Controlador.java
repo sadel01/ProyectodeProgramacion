@@ -50,26 +50,34 @@ public class Controlador extends Dibujo implements Initializable{
     private void obtenerLetra(KeyEvent event) {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-        String palabra = " " + CuadroTexto.getText();
+        String frase = " " + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
+        String[] palabra = frase.split(" ");
+
+
         // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
 
-        if (palabra.matches("(.*)\\^[NKS],(.*)")) {
+        if (frase.matches("(.*)\\^[NKS],(.*)")) {
 
-            String[] pars = palabra.split("\\^[NKS]");
+            String[] pars = frase.split("\\^");
+
+            String[] estilo = pars[1].split(", ");
+
+            for (int i = 0; i < estilo.length && !estilo[i].contains(","); i++) {
+                System.out.println(estilo[i]);
+            }
 
             String p1 = pars[0];
-            String p2 = pars[1];
 
             for (int i = 0; i < p1.length(); i++) {
                 if (i == 0) {
-                    //Letras(p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    Letras(p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                 } else {
-                    //Letras(p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    Letras(p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                 }
 
                 if (puntosDeControl.isSelected()) {
@@ -80,41 +88,46 @@ public class Controlador extends Dibujo implements Initializable{
 
         ////////////////////////////////////////////////////////////////
         } else {
-            for (int i = 0; i < palabra.length(); i++) {
+            for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
-                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                        Letras(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                        Letras(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                     }
                     else{
-                        Simbolos(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        Simbolos(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
                     }
 
                 } else {
 
-                    if (palabra.charAt(i) == 'K') {
-                        if (palabra.charAt(i-1) == '^') {
+                    if (frase.charAt(i) == 'K') {
+                        if (frase.charAt(i-1) == '^') {
                             cursiva = true;
                         }
                     }
 
-                    if (palabra.charAt(i) == ' ') {
+                    if (frase.charAt(i) == ' ') {
                         cursiva = false;
                     }
 
-                    if(String.valueOf(palabra.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                    if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                         if (cursiva) {
-                            Cursivas(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                         else {
-                            Letras(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                            //Cursivas(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            Letras(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                     }
                     else{
-                        Simbolos(palabra.charAt(i), palabra.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                        //Cursivas(palabra.charAt(i), palabra.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        if (cursiva) {
+                            SimbolosCursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        }
+                        else {
+                            Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        }
                     }
 
                 }
@@ -125,7 +138,7 @@ public class Controlador extends Dibujo implements Initializable{
             }
 
 
-            if (palabra.length() < 2) {
+            if (frase.length() < 2) {
                 puntosDeControl.setDisable(true);
             } else {
                 puntosDeControl.setDisable(false);

@@ -25,6 +25,9 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <font>
+                  <Font size="32.0" />
+               </font>
                 </TextField>
             </children>
         </HBox>
