@@ -65,19 +65,15 @@ public class Controlador extends Dibujo implements Initializable{
 
             String[] estilo = pars[1].split(", ");
 
-            for (int i = 0; i < estilo.length && !estilo[i].contains(","); i++) {
-                System.out.println(estilo[i]);
-            }
-
             String p1 = pars[0];
 
-            for (int i = 0; i < p1.length(); i++) {
+            for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
 
-                    Letras(estilo[0], p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    Letras(estilo[0], frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                 } else {
-                    Letras(estilo[0], p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    Letras(estilo[0], frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                 }
 
                 if (puntosDeControl.isSelected()) {

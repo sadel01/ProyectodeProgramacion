@@ -127,6 +127,8 @@ public class Dibujo {
 
             }else if(estilo.equals("S")){
                 auxSub = true;
+                xInicialSu = x;
+                yInicialSu = y + 55;
             }
         }
 
