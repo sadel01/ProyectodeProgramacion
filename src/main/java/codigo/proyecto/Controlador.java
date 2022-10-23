@@ -117,7 +117,6 @@ public class Controlador extends Dibujo implements Initializable{
                         }
                         else {
                             Letras(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                            //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                     }
                     else{
@@ -126,7 +125,6 @@ public class Controlador extends Dibujo implements Initializable{
                         }
                         else {
                             Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                            //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                     }
 
