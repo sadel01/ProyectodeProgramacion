@@ -50,13 +50,12 @@ public class Controlador extends Dibujo implements Initializable{
     private void obtenerLetra(KeyEvent event) {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-        String frase = "" + CuadroTexto.getText();
+        String frase = " " + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
         String[] palabra = frase.split(" ");
-
         // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
 
         if (frase.matches("(.*)\\^[NKS],(.*)")) {
