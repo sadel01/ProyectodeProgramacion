@@ -94,7 +94,7 @@ public class Dibujo {
         root.getChildren().add(subrayado);
     }
 
-    public void Letras(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane) {
+    public void Letras(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane) {
 
         if (borrar == 1) {
             x = 30;
@@ -119,6 +119,15 @@ public class Dibujo {
             }
             auxSub = false;
             auxBold = 1;
+        }
+
+        if (estilo.equals("N") || estilo.equals("K") || estilo.equals("S")){
+            if (estilo.equals("N")){
+                auxBold = 4;
+
+            }else if(estilo.equals("S")){
+                auxSub = true;
+            }
         }
 
         int cont = 0;

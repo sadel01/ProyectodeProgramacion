@@ -50,13 +50,12 @@ public class Controlador extends Dibujo implements Initializable{
     private void obtenerLetra(KeyEvent event) {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-        String frase = " " + CuadroTexto.getText();
+        String frase = "" + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
         String[] palabra = frase.split(" ");
-
 
         // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
 
@@ -74,10 +73,11 @@ public class Controlador extends Dibujo implements Initializable{
 
             for (int i = 0; i < p1.length(); i++) {
                 if (i == 0) {
-                    Letras(p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+
+                    Letras(estilo[0], p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                 } else {
-                    Letras(p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    Letras(estilo[0], p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                 }
 
                 if (puntosDeControl.isSelected()) {
@@ -91,7 +91,7 @@ public class Controlador extends Dibujo implements Initializable{
             for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
                     if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                        Letras(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        Letras(" ", frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                     }
                     else{
@@ -116,7 +116,7 @@ public class Controlador extends Dibujo implements Initializable{
                             Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                         else {
-                            Letras(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                             //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                     }
