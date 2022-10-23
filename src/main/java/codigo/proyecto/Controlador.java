@@ -57,8 +57,6 @@ public class Controlador extends Dibujo implements Initializable{
         boolean cursiva = false;
 
         String[] palabra = frase.split(" ");
-
-
         // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
 
         if (frase.matches("(.*)\\^[NKS],(.*)")) {
@@ -67,18 +65,15 @@ public class Controlador extends Dibujo implements Initializable{
 
             String[] estilo = pars[1].split(", ");
 
-            for (int i = 0; i < estilo.length && !estilo[i].contains(","); i++) {
-                System.out.println(estilo[i]);
-            }
-
             String p1 = pars[0];
 
-            for (int i = 0; i < p1.length(); i++) {
+            for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
-                    Letras(p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+
+                    Letras(estilo[0], frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                 } else {
-                    Letras(p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    Letras(estilo[0], frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                 }
 
                 if (puntosDeControl.isSelected()) {
@@ -101,7 +96,7 @@ public class Controlador extends Dibujo implements Initializable{
             for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
                     if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                        Letras(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        Letras(" ", frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                     }
                     else{
@@ -126,13 +121,16 @@ public class Controlador extends Dibujo implements Initializable{
                             Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                         else {
-                            Letras(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                            //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                     }
                     else{
-                        Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                        //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        if (cursiva) {
+                            SimbolosCursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        }
+                        else {
+                            Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                        }
                     }
 
                 }
