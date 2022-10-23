@@ -6391,7 +6391,7 @@ public class Dibujo {
 
 
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x + 20, y - 50, x-20, y, x + 20, y + 50);
+                    QuadCurve qv1 = new QuadCurve(x + 30, y - 50, x-20, y, x + 20, y + 50);
                     qv1.setFill(Color.TRANSPARENT);
                     qv1.setStroke(color);
                     qv1.setStrokeWidth(grosor);
@@ -6410,12 +6410,11 @@ public class Dibujo {
                 }
             }
             else{
-
                 pts(textoCoord, root, puntosDeControl, x+5, y-50, x+5, y+50);
                 fun(root, puntosDeControl, x + 5, y - 50, x + 25, y, x + 5, y + 50);
 
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x + 5, y - 50, x + 45, y, x + 5, y + 50);
+                    QuadCurve qv1 = new QuadCurve(x + 20, y - 50, x + 58, y, x + 5, y + 50);
                     qv1.setFill(Color.TRANSPARENT);
                     qv1.setStroke(color);
                     qv1.setStrokeWidth(grosor);
@@ -6428,7 +6427,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 25;
+                x = x + 38;
                 if(auxSub){
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
