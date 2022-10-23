@@ -126,6 +126,8 @@ public class Dibujo {
 
             }else if(estilo.equals("S")){
                 auxSub = true;
+                xInicialSu = x;
+                yInicialSu = y + 55;
             }
         }
 
@@ -5434,12 +5436,12 @@ public class Dibujo {
                 pts(textoCoord, root, puntosDeControl, x+20, y+35, x, y+15, x-40, y-15, x+40, y-15);
                 pts(textoCoord, root, puntosDeControl, x+20, y+35, x+22, y+40, x+45, y+60, x-10, y+60);
                 pts(textoCoord, root, puntosDeControl, x+22, y+40, x+40, y+15, x+35, y+30);
-
+                x = x-1;
 
                 fun(root, puntosDeControl, x + 20, y + 35, x - 40, y - 15, x + 40, y - 15, x, y + 10 + 5, x + 20, y + 35, x + 45, y + 60, x - 10, y + 60, x + 22, y + 40, x + 22, y + 40, x + 35, y + 30, x + 40, y + 15);
                 while(cont < auxBold) {
 
-                    x = x-1;
+
 
                     if (caracterAnt == 'K') {
                         CubicCurve a = new CubicCurve(x + 20, y + 40, x, y + 60, x + 20, y + 65, x + 60, y + 15);
@@ -6404,7 +6406,7 @@ public class Dibujo {
 
 
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x + 20, y - 50, x-20, y, x + 20, y + 50);
+                    QuadCurve qv1 = new QuadCurve(x + 30, y - 50, x-20, y, x + 20, y + 50);
                     qv1.setFill(Color.TRANSPARENT);
                     qv1.setStroke(color);
                     qv1.setStrokeWidth(grosor);
@@ -6423,12 +6425,11 @@ public class Dibujo {
                 }
             }
             else{
-
                 pts(textoCoord, root, puntosDeControl, x+5, y-50, x+5, y+50);
                 fun(root, puntosDeControl, x + 5, y - 50, x + 25, y, x + 5, y + 50);
 
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x + 5, y - 50, x + 45, y, x + 5, y + 50);
+                    QuadCurve qv1 = new QuadCurve(x + 20, y - 50, x + 58, y, x + 5, y + 50);
                     qv1.setFill(Color.TRANSPARENT);
                     qv1.setStroke(color);
                     qv1.setStrokeWidth(grosor);
@@ -6441,7 +6442,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 25;
+                x = x + 38;
                 if(auxSub){
                     Subrayar(xInicialSu, yInicialSu, x, y, root);
                 }
@@ -6682,82 +6683,144 @@ public class Dibujo {
                 }
             }
         }
-        if(caracter == ','){
+        if(caracter == ',' || caracter == '.'){
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
 
-            pts(textoCoord, root, puntosDeControl, x+15, y+50);
-            pts(textoCoord, root, puntosDeControl, x+15, y+50, x+10, y+65);
-            fun(root, puntosDeControl, x + 15, y + 50, x + 15, y + 50, x + 14, y + 60, x + 10, y + 65);
+            if (caracter == '.'){
 
-            while(cont < auxBold) {
-                Circle cd1 = new Circle(x + 15, y + 50, grosor - 1);
-                cd1.setFill(color);
-                cd1.setStroke(color);
+                pts(textoCoord, root, puntosDeControl, x+10, y+50);
+                fun(root, puntosDeControl, x + 10, y + 50);
 
-                QuadCurve qv1 = new QuadCurve(x + 15, y + 50, x + 14, y + 60, x + 6, y + 65);
-                qv1.setFill(Color.TRANSPARENT);
-                qv1.setStroke(color);
-                qv1.setStrokeWidth(grosor);
+                while(cont < auxBold) {
+                    Circle cd1 = new Circle(x + 10, y + 50, grosor - 1);
+                    cd1.setFill(color);
+                    cd1.setStroke(color);
 
-                root.getChildren().add(qv1);
-                root.getChildren().add(cd1);
+                    root.getChildren().add(cd1);
 
+                    if(auxBold > 1){
+                        x++;
+                    }
 
-                if(auxBold > 1){
-                    x++;
+                    cont++;
                 }
 
-                cont++;
+                x = x + 20;
+                if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
             }
 
+            else{
+                pts(textoCoord, root, puntosDeControl, x+15, y+50);
+                pts(textoCoord, root, puntosDeControl, x+15, y+50, x+10, y+65);
+                fun(root, puntosDeControl, x + 15, y + 50, x + 15, y + 50, x + 14, y + 60, x + 10, y + 65);
 
-            x = x + 20;
-            if(auxSub){
-                Subrayar(xInicialSu, yInicialSu, x, y, root);
+                while(cont < auxBold) {
+                    Circle cd1 = new Circle(x + 15, y + 50, grosor - 1);
+                    cd1.setFill(color);
+                    cd1.setStroke(color);
+
+                    QuadCurve qv1 = new QuadCurve(x + 15, y + 50, x + 14, y + 60, x + 6, y + 65);
+                    qv1.setFill(Color.TRANSPARENT);
+                    qv1.setStroke(color);
+                    qv1.setStrokeWidth(grosor);
+
+                    root.getChildren().add(qv1);
+                    root.getChildren().add(cd1);
+
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+
+                x = x + 20;
+                if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
             }
         }
-        if(caracter == ';'){
+        if(caracter == ';' || caracter == ':'){
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
 
-            pts(textoCoord, root, puntosDeControl, x+20, y+10);
-            pts(textoCoord, root, puntosDeControl, x+20, y+50);
-            pts(textoCoord, root, puntosDeControl, x+20, y+50, x+15, y+65);
-            fun(root, puntosDeControl, x + 20, y + 10, x + 20, y + 50, x + 20, y + 50, x + 19, y + 60, x + 15, y + 65);
+            if (caracter == ';'){
+                pts(textoCoord, root, puntosDeControl, x+20, y+10);
+                pts(textoCoord, root, puntosDeControl, x+20, y+50);
+                pts(textoCoord, root, puntosDeControl, x+20, y+50, x+15, y+65);
+                fun(root, puntosDeControl, x + 20, y + 10, x + 20, y + 50, x + 20, y + 50, x + 19, y + 60, x + 15, y + 65);
 
-            while(cont < auxBold) {
+                while(cont < auxBold) {
 
-                Circle cd1 = new Circle(x + 20, y+10, grosor - 1);
-                cd1.setFill(color);
-                cd1.setStroke(color);
+                    Circle cd1 = new Circle(x + 20, y+10, grosor - 1);
+                    cd1.setFill(color);
+                    cd1.setStroke(color);
 
-                Circle cd2 = new Circle(x + 20, y+50, grosor - 1);
-                cd2.setFill(color);
-                cd2.setStroke(color);
+                    Circle cd2 = new Circle(x + 20, y+50, grosor - 1);
+                    cd2.setFill(color);
+                    cd2.setStroke(color);
 
-                QuadCurve qv1 = new QuadCurve(x + 20, y + 50, x + 19, y + 60, x + 11, y + 65);
-                qv1.setFill(Color.TRANSPARENT);
-                qv1.setStroke(color);
-                qv1.setStrokeWidth(grosor);
-
-
-                root.getChildren().add(cd1);
-                root.getChildren().add(cd2);
-                root.getChildren().add(qv1);
+                    QuadCurve qv1 = new QuadCurve(x + 20, y + 50, x + 19, y + 60, x + 11, y + 65);
+                    qv1.setFill(Color.TRANSPARENT);
+                    qv1.setStroke(color);
+                    qv1.setStrokeWidth(grosor);
 
 
-                if(auxBold > 1){
-                    x++;
+                    root.getChildren().add(cd1);
+                    root.getChildren().add(cd2);
+                    root.getChildren().add(qv1);
+
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
                 }
 
-                cont++;
+                x = x + 30;
+                if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
+            }else{
+
+                pts(textoCoord, root, puntosDeControl, x+20, y+10);
+                pts(textoCoord, root, puntosDeControl, x+20, y+50);
+                fun(root, puntosDeControl, x + 20, y + 10, x + 20, y + 50);
+
+                while(cont < auxBold) {
+
+                    Circle cd1 = new Circle(x + 20, y+10, grosor - 1);
+                    cd1.setFill(color);
+                    cd1.setStroke(color);
+
+                    Circle cd2 = new Circle(x + 20, y+50, grosor - 1);
+                    cd2.setFill(color);
+                    cd2.setStroke(color);
+
+                    root.getChildren().add(cd1);
+                    root.getChildren().add(cd2);
+
+                    if(auxBold > 1){
+                        x++;
+                    }
+
+                    cont++;
+                }
+
+                x = x + 30;
+
+                if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu, x, y, root);
+                }
             }
 
-            x = x + 30;
-            if(auxSub){
-                Subrayar(xInicialSu, yInicialSu, x, y, root);
-            }
+
+
         }
         if(caracter == '{' || caracter == '}'){
             Text t = new Text("\n"+caracter+":");
@@ -7096,4 +7159,5 @@ public class Dibujo {
             }
         }
     }
+    
 }

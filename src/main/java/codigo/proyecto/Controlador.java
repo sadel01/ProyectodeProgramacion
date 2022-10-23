@@ -51,13 +51,12 @@ public class Controlador extends Dibujo implements Initializable{
     private void obtenerLetra(KeyEvent event) {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-        String frase = "" + CuadroTexto.getText();
+        String frase = " " + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
         String[] palabra = frase.split(" ");
-
         // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
 
         if (frase.matches("(.*)\\^[NKS],(.*)")) {
@@ -66,19 +65,15 @@ public class Controlador extends Dibujo implements Initializable{
 
             String[] estilo = pars[1].split(", ");
 
-            for (int i = 0; i < estilo.length && !estilo[i].contains(","); i++) {
-                System.out.println(estilo[i]);
-            }
-
             String p1 = pars[0];
 
-            for (int i = 0; i < p1.length(); i++) {
+            for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
 
-                    Letras(estilo[0], p1.charAt(i), p1.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    Letras(estilo[0], frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                 } else {
-                    Letras(estilo[0], p1.charAt(i), p1.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    Letras(estilo[0], frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                 }
 
                 if (puntosDeControl.isSelected()) {
@@ -127,7 +122,6 @@ public class Controlador extends Dibujo implements Initializable{
                         }
                         else {
                             Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                            //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                     }
                     else{
@@ -136,7 +130,6 @@ public class Controlador extends Dibujo implements Initializable{
                         }
                         else {
                             Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
-                            //Cursivas(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                     }
 
