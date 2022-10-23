@@ -3008,10 +3008,10 @@ public class Dibujo {
                 }
             }
         }
-        if(caracter == '<' || caracter == '>'){
+        if(caracter == '«' || caracter == '»'){
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
-            if (caracter == '<'){
+            if (caracter == '«'){
 
                 pts(textoCoord, root, puntosDeControl, x+10, y+25, x+50, y);
                 pts(textoCoord, root, puntosDeControl, x+10, y+25, x+50, y+50);
@@ -3028,8 +3028,22 @@ public class Dibujo {
                     l2.setStroke(color);
                     l2.setStrokeWidth(grosor);
 
+                    x = x + 20;
+
+                    Line l3 = new Line(x + 10, y + 25, x + 50, y);
+                    l3.setFill(Color.TRANSPARENT);
+                    l3.setStroke(color);
+                    l3.setStrokeWidth(grosor);
+
+                    Line l4 = new Line(x + 10, y + 25, x + 50, y + 50);
+                    l4.setFill(Color.TRANSPARENT);
+                    l4.setStroke(color);
+                    l4.setStrokeWidth(grosor);
+
                     root.getChildren().add(l1);
                     root.getChildren().add(l2);
+                    root.getChildren().add(l3);
+                    root.getChildren().add(l4);
 
                     if(auxBold > 1){
                         x++;
@@ -3062,6 +3076,21 @@ public class Dibujo {
 
                     root.getChildren().add(l1);
                     root.getChildren().add(l2);
+
+                    x = x + 20;
+
+                    Line l3 = new Line(x + 10, y, x + 50, y + 25);
+                    l3.setFill(Color.TRANSPARENT);
+                    l3.setStroke(color);
+                    l3.setStrokeWidth(grosor);
+
+                    Line l4 = new Line(x + 10, y + 50, x + 50, y + 25);
+                    l4.setFill(Color.TRANSPARENT);
+                    l4.setStroke(color);
+                    l4.setStrokeWidth(grosor);
+
+                    root.getChildren().add(l3);
+                    root.getChildren().add(l4);
 
 
                     if(auxBold > 1){
@@ -3287,12 +3316,14 @@ public class Dibujo {
             }
             for(int j = 0;j<rep;j++) {
                 if (aux == 0) {
-
                     pts(textoCoord, root, puntosDeControl, x+5, y-20, x+5, y-50);
                     pts(textoCoord, root, puntosDeControl, x+5, y-20, x+7, y-20);
                     fun(root, puntosDeControl, x + 5, y - 20, x, y - 35, x + 5, y - 50, x + 5, y - 20, x + 25, y + 15, x + 35, y - 20, x + 7, y - 20);
 
+                    cont = 0;
+
                     while(cont < auxBold) {
+
                         QuadCurve a = new QuadCurve(x + 5, y - 20, x, y - 35, x + 5, y - 50);
                         a.setFill(Color.TRANSPARENT);
                         a.setStroke(color);
@@ -3322,6 +3353,8 @@ public class Dibujo {
                     pts(textoCoord, root, puntosDeControl, x+5, y-20, x+5, y-50);
                     pts(textoCoord, root, puntosDeControl, x+5, y-50, x+3, y-50);
                     fun(root, puntosDeControl, x + 5, y - 20, x + 10, y - 35, x + 5, y - 50, x + 5, y - 50, x - 25, y - 90, x - 25, y - 40, x + 3, y - 50);
+
+                    cont = 0;
 
                     while(cont < auxBold) {
                         QuadCurve a = new QuadCurve(x + 5, y - 20, x + 10, y - 35, x + 5, y - 50);
@@ -3355,6 +3388,7 @@ public class Dibujo {
             if(auxSub){
                 Subrayar(xInicialSu, yInicialSu, x, y, root);
             }
+
             if(aux == 0){
                 aux = 1;
             }
