@@ -110,7 +110,7 @@ public class Controlador extends Dibujo implements Initializable{
 
                     }
                     else{
-                        Simbolos(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        Simbolos(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
                     }
 
                 } else {
@@ -128,7 +128,7 @@ public class Controlador extends Dibujo implements Initializable{
                     if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                         if (cursiva) {
-                            Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                         }
                         else {
                             Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
@@ -136,10 +136,10 @@ public class Controlador extends Dibujo implements Initializable{
                     }
                     else{
                         if (cursiva) {
-                            SimbolosCursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            SimbolosCursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                         }
                         else {
-                            Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                         }
                     }
 
