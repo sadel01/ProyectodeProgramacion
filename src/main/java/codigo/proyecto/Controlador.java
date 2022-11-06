@@ -23,7 +23,8 @@ import java.nio.channels.Selector;
 import java.util.ResourceBundle;
 
 public class Controlador extends Dibujo implements Initializable{
-    String tamanio="0";
+    String tamanio="";
+    int numTam=1;
     int a=0;
     @FXML
     private AnchorPane root;
@@ -70,10 +71,10 @@ public class Controlador extends Dibujo implements Initializable{
             for (int i = 0; i < frase.length(); i++) {
                 if (i == 0) {
 
-                    Letras(estilo[0], frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                    //Letras(estilo[0], frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
 
                 } else {
-                    Letras(estilo[0], frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                    //Letras(estilo[0], frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                 }
 
                 if (puntosDeControl.isSelected()) {
@@ -84,19 +85,28 @@ public class Controlador extends Dibujo implements Initializable{
 
         ////////////////////////////////////////////////////////////////
         } else {
-            for(int i=0;i<frase.length();i++){
+
+            for (int i = 0; i < frase.length(); i++) {
+
                 if(i>=3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i-1)=='T' && frase.charAt(i-2)=='^'){
-                   a=1;
-                   tamanio=tamanio+frase.charAt(i);
+                    a=1;
+                    tamanio=tamanio+frase.charAt(i);
                 } else if (a==1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
                     tamanio=tamanio+frase.charAt(i);
                 }
-            }
+                else if(frase.charAt(i)==' '){
+                    a=0;
+                    tamanio="";
+                    numTam=1;
+                }
 
-            for (int i = 0; i < frase.length(); i++) {
+                if(tamanio.length()!=0) {
+                    numTam = Integer.parseInt(tamanio);
+                }
+                System.out.println(numTam);
                 if (i == 0) {
                     if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                        Letras(" ", frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
+                        Letras(" ", frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
 
                     }
                     else{
@@ -121,7 +131,7 @@ public class Controlador extends Dibujo implements Initializable{
                             Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
                         }
                         else {
-                            Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                            Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                         }
                     }
                     else{
@@ -147,8 +157,6 @@ public class Controlador extends Dibujo implements Initializable{
                 puntosDeControl.setDisable(false);
             }
         }
-
-        tamanio="0";
     }
 
 
