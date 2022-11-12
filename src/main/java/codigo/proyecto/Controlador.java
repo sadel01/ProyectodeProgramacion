@@ -60,12 +60,19 @@ public class Controlador extends Dibujo implements Initializable{
         for (int i = 0; i < frase.length(); i++) {
 
             if(frase.contains("^R")){
-                frase = InvertirOrden(frase);
-                String[] arrFrase = frase.split("[\\^R]");
-                if(arrFrase.length > 0){
-                    frase = " " + arrFrase[0];
+
+                String fraseAux = " ";
+
+                for (int j = 3; j < frase.length(); j++) {
+                    fraseAux = fraseAux + frase.charAt(j);
                 }
+
+                frase = InvertirOrden(fraseAux);
+
+                System.out.println(frase);
             }
+
+
 
             if(i>=3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i-1)=='T' && frase.charAt(i-2)=='^'){
                 a=1;
@@ -146,8 +153,6 @@ public class Controlador extends Dibujo implements Initializable{
             car = palabra.charAt(i);
             palabraInvertida = car + palabraInvertida;
         }
-
-        System.out.println("Palabra invertida: " + palabraInvertida);
 
         return palabraInvertida;
 
