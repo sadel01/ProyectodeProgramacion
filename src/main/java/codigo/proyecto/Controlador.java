@@ -147,12 +147,12 @@ public class Controlador extends Dibujo implements Initializable{
 
         String p[] = palabra.split(" ");
 
-        String palabraInvertida = "";
+        String palabraInvertida = " ";
 
         for (int i = p.length - 1; i >= 0 ; i--) {
             palabraInvertida = palabraInvertida + p[i] + " ";
         }
-        
+
         return palabraInvertida;
 
     }
