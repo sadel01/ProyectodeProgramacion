@@ -131,8 +131,6 @@ public class Dibujo {
             }
         }
 
-        System.out.println(caracterAnt + "  " +caracter);
-
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
             

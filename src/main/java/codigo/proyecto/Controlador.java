@@ -69,7 +69,6 @@ public class Controlador extends Dibujo implements Initializable{
 
                 frase = InvertirOrden(fraseAux);
 
-                System.out.println(frase);
             }
 
 
@@ -145,15 +144,15 @@ public class Controlador extends Dibujo implements Initializable{
     }
 
     private String InvertirOrden(String palabra){
+
+        String p[] = palabra.split(" ");
+
         String palabraInvertida = "";
-        char car;
 
-        for (int i = 0; i < palabra.length(); i++) {
-
-            car = palabra.charAt(i);
-            palabraInvertida = car + palabraInvertida;
+        for (int i = p.length - 1; i >= 0 ; i--) {
+            palabraInvertida = palabraInvertida + p[i] + " ";
         }
-
+        
         return palabraInvertida;
 
     }
