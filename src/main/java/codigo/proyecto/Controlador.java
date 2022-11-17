@@ -22,10 +22,10 @@ import java.net.URL;
 import java.nio.channels.Selector;
 import java.util.ResourceBundle;
 
-public class Controlador extends Dibujo implements Initializable{
-    String tamanio="";
-    int numTam=1;
-    int a=0;
+public class Controlador extends Dibujo implements Initializable {
+    String tamanio = "";
+    int numTam = 1;
+    int a = 0;
     @FXML
     private AnchorPane root;
 
@@ -57,9 +57,11 @@ public class Controlador extends Dibujo implements Initializable{
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
+        String estilos = EstilodePalabras(frase);
+
         for (int i = 0; i < frase.length(); i++) {
 
-            if(frase.contains("^R")){
+            if (frase.contains("^R")) {
 
                 String fraseAux = " ";
 
@@ -72,36 +74,33 @@ public class Controlador extends Dibujo implements Initializable{
             }
 
 
-
-            if(i>=3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i-1)=='T' && frase.charAt(i-2)=='^'){
-                a=1;
-                tamanio=tamanio+frase.charAt(i);
-            } else if (a==1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
-                tamanio=tamanio+frase.charAt(i);
-            }
-            else if(frase.charAt(i)==' '){
-                a=0;
-                tamanio="";
-                numTam=1;
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'T' && frase.charAt(i - 2) == '^') {
+                a = 1;
+                tamanio = tamanio + frase.charAt(i);
+            } else if (a == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                tamanio = tamanio + frase.charAt(i);
+            } else if (frase.charAt(i) == ' ') {
+                a = 0;
+                tamanio = "";
+                numTam = 1;
             }
 
-            if(tamanio.length()!=0) {
+            if (tamanio.length() != 0) {
                 numTam = Integer.parseInt(tamanio);
             }
 
             if (i == 0) {
-                if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                    Letras(" ", frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
 
-                }
-                else{
-                    Simbolos(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                } else {
+                    Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
                 }
 
             } else {
 
                 if (frase.charAt(i) == 'K') {
-                    if (frase.charAt(i-1) == '^') {
+                    if (frase.charAt(i - 1) == '^' || frase.charAt(i - 1) == '+') {
                         cursiva = true;
                     }
                 }
@@ -110,21 +109,18 @@ public class Controlador extends Dibujo implements Initializable{
                     cursiva = false;
                 }
 
-                if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                     if (cursiva) {
-                        Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        Cursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    } else {
+                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                     }
-                    else {
-                        Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                    }
-                }
-                else{
+                } else {
                     if (cursiva) {
-                        SimbolosCursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                    }
-                    else {
-                        Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    } else {
+                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                     }
                 }
 
@@ -143,13 +139,13 @@ public class Controlador extends Dibujo implements Initializable{
         }
     }
 
-    private String InvertirOrden(String palabra){
+    private String InvertirOrden(String palabra) {
 
         String p[] = palabra.split(" ");
 
         String palabraInvertida = " ";
 
-        for (int i = p.length - 1; i >= 0 ; i--) {
+        for (int i = p.length - 1; i >= 0; i--) {
             palabraInvertida = palabraInvertida + p[i] + " ";
         }
 
@@ -190,6 +186,34 @@ public class Controlador extends Dibujo implements Initializable{
             rectColor.setFill(Color.PINK);
             rectColor.setStroke(Color.PINK);
         }
+    }
+
+    public String EstilodePalabras(String frase) {
+        String p[] = frase.split(" ");
+
+        for (int i = 0; i < p.length; i++) {
+            System.out.println(p[i]);
+
+            String estilos = "";
+
+            if (p[i].contains("^N") || p[i].contains("^S") || p[i].contains("^K")) {
+
+                if (p[i].contains("^S") || p[i].contains("+S")) {
+                    estilos = estilos + "S";
+                }
+
+                if (p[i].contains("^N") || p[i].contains("+N")) {
+                    estilos = estilos + "N";
+                }
+
+                if (p[i].contains("^K") || p[i].contains("+K")) {
+                    estilos = estilos + "K";
+                }
+
+                return estilos;
+            }
+        }
+        return "";
     }
 
 
