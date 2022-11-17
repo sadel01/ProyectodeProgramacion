@@ -896,15 +896,22 @@ public class Dibujo {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
+                int aux = ((y+15)*(tamanio)*2)-35, dif1 = 15, dif2 = -65, dif3 = -25, difPunto = 25;
 
                 fun(root, puntosDeControl, x + 2, y, x - 10, y + 80, x + 30, y + 40, x + 40, y + 15);
                 while(cont < auxBold) {
-                    CubicCurve c = new CubicCurve((x + 2)*tamanio, y*tamanio, (x - 10)*tamanio, (y + 80)*tamanio, (x + 30)*tamanio, (y + 40)*tamanio, (x + 40)*tamanio, (y + 15)*tamanio);
+                    CubicCurve c = new CubicCurve((x + 2)*tamanio, aux+dif1, (x - 10)*tamanio, aux+dif2, (x + 30)*tamanio, aux+dif3, (x + 40)*tamanio, aux);
                     c.setFill(Color.TRANSPARENT);
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
 
+                    CubicCurve c2 = new CubicCurve((x + 2)*tamanio, y*tamanio, (x - 10)*tamanio, (y + 80)*tamanio, (x + 30)*tamanio, (y + 40)*tamanio, (x + 40)*tamanio, (y + 15)*tamanio);
+                    c2.setFill(Color.TRANSPARENT);
+                    c2.setStroke(color);
+                    c2.setStrokeWidth(grosor);
+
                     root.getChildren().add(c);
+                    root.getChildren().add(c2);
 
                     if (caracter == 'í') {
                         Line tilde = new Line(x*tamanio, (y - 10)*tamanio, (x + 15)*tamanio, (y - 30)*tamanio);
@@ -919,7 +926,7 @@ public class Dibujo {
 
                         root.getChildren().add(tilde);
                     } else {
-                        Circle p = new Circle((x + 3)*tamanio, (y - 10)*tamanio, 1*tamanio);
+                        Circle p = new Circle((x + 3)*tamanio, aux+difPunto, tamanio);
                         p.setFill(Color.TRANSPARENT);
                         p.setStroke(color);
                         p.setStrokeWidth(grosor);
