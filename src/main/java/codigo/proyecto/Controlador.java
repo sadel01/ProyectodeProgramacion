@@ -83,6 +83,7 @@ public class Controlador extends Dibujo implements Initializable {
                 a = 0;
                 tamanio = "";
                 numTam = 1;
+                estilos = "";
             }
 
             if (tamanio.length() != 0) {
@@ -192,7 +193,6 @@ public class Controlador extends Dibujo implements Initializable {
         String p[] = frase.split(" ");
 
         for (int i = 0; i < p.length; i++) {
-            System.out.println(p[i]);
 
             String estilos = "";
 
