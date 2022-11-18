@@ -897,21 +897,18 @@ public class Dibujo {
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
                 int aux = ((y+15)*(tamanio)*2)-35, dif1 = 15, dif2 = -65, dif3 = -25, difPunto = 25;
+                invertir(root, (x + 2)*tamanio, aux+dif1, (x - 10)*tamanio, aux+dif2, (x + 30)*tamanio, aux+dif3, (x + 40)*tamanio, aux);
+                invertir(root, (x + 3)*tamanio, aux+difPunto, tamanio);
 
                 fun(root, puntosDeControl, x + 2, y, x - 10, y + 80, x + 30, y + 40, x + 40, y + 15);
                 while(cont < auxBold) {
-                    CubicCurve c = new CubicCurve((x + 2)*tamanio, aux+dif1, (x - 10)*tamanio, aux+dif2, (x + 30)*tamanio, aux+dif3, (x + 40)*tamanio, aux);
+
+                    CubicCurve c = new CubicCurve((x + 2)*tamanio, y*tamanio, (x - 10)*tamanio, (y + 80)*tamanio, (x + 30)*tamanio, (y + 40)*tamanio, (x + 40)*tamanio, (y + 15)*tamanio);
                     c.setFill(Color.TRANSPARENT);
                     c.setStroke(color);
                     c.setStrokeWidth(grosor);
 
-                    CubicCurve c2 = new CubicCurve((x + 2)*tamanio, y*tamanio, (x - 10)*tamanio, (y + 80)*tamanio, (x + 30)*tamanio, (y + 40)*tamanio, (x + 40)*tamanio, (y + 15)*tamanio);
-                    c2.setFill(Color.TRANSPARENT);
-                    c2.setStroke(color);
-                    c2.setStrokeWidth(grosor);
-
                     root.getChildren().add(c);
-                    root.getChildren().add(c2);
 
                     if (caracter == 'í') {
                         Line tilde = new Line(x*tamanio, (y - 10)*tamanio, (x + 15)*tamanio, (y - 30)*tamanio);
@@ -926,7 +923,7 @@ public class Dibujo {
 
                         root.getChildren().add(tilde);
                     } else {
-                        Circle p = new Circle((x + 3)*tamanio, aux+difPunto, tamanio);
+                        Circle p = new Circle((x + 3)*tamanio, (y - 10)*tamanio, tamanio);
                         p.setFill(Color.TRANSPARENT);
                         p.setStroke(color);
                         p.setStrokeWidth(grosor);
@@ -3556,7 +3553,6 @@ public class Dibujo {
 
     public void pts(TextFlow textoCoord, AnchorPane root, ToggleButton puntosdeControl, int... lista){
 
-
         if(lista.length == 8) {
             Text t1 = new Text(String.format("\n%s%-4s %s%-6s %s%-4s %s%s", "X1:", lista[0], "Y1:" , lista[1], "X2:", lista[2], "Y2:", lista[3]));
             Text t2 = new Text(String.format("\n%s%-4s %s%-6s %s%-4s %s%s\n", "X3:", lista[4], "Y3:" , lista[5], "X4:", lista[6], "Y4:", lista[7]));
@@ -3581,6 +3577,33 @@ public class Dibujo {
             Text t1 = new Text(String.format("\n%s%-4s %s%-6s\n", "X1:", lista[0], "Y1:" , lista[1]));
             t1.setFont(Font.font("Menlo", 14));
             textoCoord.getChildren().add(t1);
+        }
+    }
+
+    public void invertir(AnchorPane root, int... lista){
+        if(lista.length == 8) {
+            //cubica
+            CubicCurve c1 = new CubicCurve(lista[0], lista[1], lista[2], lista[3], lista[4], lista[5], lista[6], lista[7]);
+            c1.setFill(Color.TRANSPARENT);
+            c1.setStroke(color);
+            c1.setStrokeWidth(grosor);
+
+            root.getChildren().add(c1);
+        }
+        else if(lista.length == 6) {
+            //cuadratica
+        }
+        else if(lista.length == 4) {
+            //linea
+        }
+        else if(lista.length == 3) {
+            //punto
+            Circle p = new Circle(lista[0], lista[1], lista[2]);
+            p.setFill(Color.TRANSPARENT);
+            p.setStroke(color);
+            p.setStrokeWidth(grosor);
+
+            root.getChildren().add(p);
         }
     }
 
