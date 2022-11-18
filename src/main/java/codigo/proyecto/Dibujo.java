@@ -120,16 +120,16 @@ public class Dibujo {
             auxBold = 1;
         }
 
-        if (estilo.equals("N") || estilo.equals("K") || estilo.equals("S")){
-            if (estilo.equals("N")){
-                auxBold = 4;
-
-            }else if(estilo.equals("S")){
-                auxSub = true;
-                xInicialSu = x;
-                yInicialSu = y + 55;
-            }
+        if(estilo.contains("N")){
+            auxBold = 4;
         }
+
+        if(estilo.contains("S")){
+            auxSub = true;
+            xInicialSu = x;
+            yInicialSu = y + 55;
+        }
+
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
@@ -1379,7 +1379,7 @@ public class Dibujo {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
-                if(caracterAnt != '^') {
+                if(caracterAnt != '^' && caracterAnt != '+') {
                     Text t = new Text("\n"+caracter+":");
                     textoCoord.getChildren().add(t);
                     pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
@@ -1923,7 +1923,7 @@ public class Dibujo {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
-                if (caracterAnt != '^') {
+                if (caracterAnt != '^' && caracterAnt != '+') {
                     Text t = new Text("\n"+caracter+":");
                     textoCoord.getChildren().add(t);
 
@@ -1976,7 +1976,8 @@ public class Dibujo {
                     if (auxSub) {
                         Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                     }
-                } else {// Cuando quiere subrayar
+                }
+                else {// Cuando quiere subrayar
                     auxSub = true;
                     xInicialSu = x;
                     yInicialSu = y + 55;
@@ -2763,7 +2764,7 @@ public class Dibujo {
         }
     }
 
-    public void Simbolos(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
+    public void Simbolos(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
         if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
@@ -2787,6 +2788,15 @@ public class Dibujo {
             }
             auxSub = false;
             auxBold = 1;
+        }
+        if(estilo.contains("N")){
+            auxBold = 4;
+        }
+
+        if(estilo.contains("S")){
+            auxSub = true;
+            xInicialSu = x;
+            yInicialSu = y + 55;
         }
 
         int cont = 0;
@@ -3575,7 +3585,7 @@ public class Dibujo {
         }
     }
 
-    public void Cursivas(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio){
+    public void Cursivas(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio){
         int curv=25;
 
         if (x >= scrollPane.getWidth() - 120) {
@@ -3593,6 +3603,16 @@ public class Dibujo {
         }
 
         int cont = 0;
+
+        if(estilo.contains("N")){
+            auxBold = 4;
+        }
+
+        if(estilo.contains("S")){
+            auxSub = true;
+            xInicialSu = x;
+            yInicialSu = y + 55;
+        }
 
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
 
@@ -4608,7 +4628,7 @@ public class Dibujo {
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
-            } else if (caracterAnt != '^') {
+            } else if (caracterAnt != '^' && caracterAnt != '+') {
                 Text t = new Text("\n" + caracter + ":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x, y - 20, x + 10, y + 40, x + 40, y - 120, x + 40, y + 80);
@@ -4859,7 +4879,7 @@ public class Dibujo {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
-                if(caracterAnt != '^') {
+                if(caracterAnt != '^' && caracterAnt != '+') {
                     Text t = new Text("\n"+caracter+":");
                     textoCoord.getChildren().add(t);
                     pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
@@ -5454,7 +5474,7 @@ public class Dibujo {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
-                if (caracterAnt != '^') {
+                if (caracterAnt != '^' && caracterAnt != '+') {
                     Text t = new Text("\n"+caracter+":");
                     textoCoord.getChildren().add(t);
 
@@ -6333,7 +6353,7 @@ public class Dibujo {
         }
     }
 
-    public void SimbolosCursivas(char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio){
+    public void SimbolosCursivas(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio){
 
         int curv=25;
 
@@ -6352,6 +6372,16 @@ public class Dibujo {
         }
 
         int cont = 0;
+
+        if(estilo.contains("N")){
+            auxBold = 4;
+        }
+
+        if(estilo.contains("S")){
+            auxSub = true;
+            xInicialSu = x;
+            yInicialSu = y + 55;
+        }
 
         if(caracter == '(' || caracter == ')'){
             Text t = new Text("\n"+caracter+":");

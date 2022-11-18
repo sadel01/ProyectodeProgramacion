@@ -22,10 +22,10 @@ import java.net.URL;
 import java.nio.channels.Selector;
 import java.util.ResourceBundle;
 
-public class Controlador extends Dibujo implements Initializable{
-    String tamanio="";
-    int numTam=1;
-    int a=0;
+public class Controlador extends Dibujo implements Initializable {
+    String tamanio = "";
+    int numTam = 1;
+    int a = 0;
     @FXML
     private AnchorPane root;
 
@@ -57,108 +57,102 @@ public class Controlador extends Dibujo implements Initializable{
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
-        String[] palabra = frase.split(" ");
-        // IGNORAR ESTO, NO SIRVE DE NA POR AHORA
+        String estilos = EstilodePalabras(frase);
 
-        if (frase.matches("(.*)\\^[NKS],(.*)")) {
+        for (int i = 0; i < frase.length(); i++) {
 
-            String[] pars = frase.split("\\^");
+            if (frase.contains("^R")) {
 
-            String[] estilo = pars[1].split(", ");
+                String fraseAux = " ";
 
-            String p1 = pars[0];
-
-            for (int i = 0; i < frase.length(); i++) {
-                if (i == 0) {
-
-                    //Letras(estilo[0], frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane);
-
-                } else {
-                    //Letras(estilo[0], frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane);
+                for (int j = 3; j < frase.length(); j++) {
+                    fraseAux = fraseAux + frase.charAt(j);
                 }
 
-                if (puntosDeControl.isSelected()) {
-                    BotonAct(puntosDeControl);
-                }
+                frase = InvertirOrden(fraseAux);
 
             }
 
-        ////////////////////////////////////////////////////////////////
-        } else {
 
-            for (int i = 0; i < frase.length(); i++) {
-
-                if(i>=3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i-1)=='T' && frase.charAt(i-2)=='^'){
-                    a=1;
-                    tamanio=tamanio+frase.charAt(i);
-                } else if (a==1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
-                    tamanio=tamanio+frase.charAt(i);
-                }
-                else if(frase.charAt(i)==' '){
-                    a=0;
-                    tamanio="";
-                    numTam=1;
-                }
-
-                if(tamanio.length()!=0) {
-                    numTam = Integer.parseInt(tamanio);
-                }
-                System.out.println(numTam);
-                if (i == 0) {
-                    if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                        Letras(" ", frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
-
-                    }
-                    else{
-                        Simbolos(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
-                    }
-
-                } else {
-
-                    if (frase.charAt(i) == 'K') {
-                        if (frase.charAt(i-1) == '^') {
-                            cursiva = true;
-                        }
-                    }
-
-                    if (frase.charAt(i) == ' ') {
-                        cursiva = false;
-                    }
-
-                    if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-
-                        if (cursiva) {
-                            Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                        }
-                        else {
-                            Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                        }
-                    }
-                    else{
-                        if (cursiva) {
-                            SimbolosCursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                        }
-                        else {
-                            Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                        }
-                    }
-
-                }
-
-                if (puntosDeControl.isSelected()) {
-                    BotonAct(puntosDeControl);
-                }
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'T' && frase.charAt(i - 2) == '^') {
+                a = 1;
+                tamanio = tamanio + frase.charAt(i);
+            } else if (a == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                tamanio = tamanio + frase.charAt(i);
+            } else if (frase.charAt(i) == ' ') {
+                a = 0;
+                tamanio = "";
+                numTam = 1;
+                estilos = "";
             }
 
+            if (tamanio.length() != 0) {
+                numTam = Integer.parseInt(tamanio);
+            }
 
-            if (frase.length() < 2) {
-                puntosDeControl.setDisable(true);
+            if (i == 0) {
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+
+                } else {
+                    Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                }
+
             } else {
-                puntosDeControl.setDisable(false);
+
+                if (frase.charAt(i) == 'K') {
+                    if (frase.charAt(i - 1) == '^' || frase.charAt(i - 1) == '+') {
+                        cursiva = true;
+                    }
+                }
+
+                if (frase.charAt(i) == ' ') {
+                    cursiva = false;
+                }
+
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+
+                    if (cursiva) {
+                        Cursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    } else {
+                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    }
+                } else {
+                    if (cursiva) {
+                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    } else {
+                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    }
+                }
+
             }
+
+            if (puntosDeControl.isSelected()) {
+                BotonAct(puntosDeControl);
+            }
+        }
+
+
+        if (frase.length() < 2) {
+            puntosDeControl.setDisable(true);
+        } else {
+            puntosDeControl.setDisable(false);
         }
     }
 
+    private String InvertirOrden(String palabra) {
+
+        String p[] = palabra.split(" ");
+
+        String palabraInvertida = " ";
+
+        for (int i = p.length - 1; i >= 0; i--) {
+            palabraInvertida = palabraInvertida + p[i] + " ";
+        }
+
+        return palabraInvertida;
+
+    }
 
     private void ColorRectangulo() {
 
@@ -193,6 +187,33 @@ public class Controlador extends Dibujo implements Initializable{
             rectColor.setFill(Color.PINK);
             rectColor.setStroke(Color.PINK);
         }
+    }
+
+    public String EstilodePalabras(String frase) {
+        String p[] = frase.split(" ");
+
+        for (int i = 0; i < p.length; i++) {
+
+            String estilos = "";
+
+            if (p[i].contains("^N") || p[i].contains("^S") || p[i].contains("^K")) {
+
+                if (p[i].contains("^S") || p[i].contains("+S")) {
+                    estilos = estilos + "S";
+                }
+
+                if (p[i].contains("^N") || p[i].contains("+N")) {
+                    estilos = estilos + "N";
+                }
+
+                if (p[i].contains("^K") || p[i].contains("+K")) {
+                    estilos = estilos + "K";
+                }
+
+                return estilos;
+            }
+        }
+        return "";
     }
 
 
