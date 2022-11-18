@@ -1,5 +1,6 @@
 package codigo.proyecto;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ import javafx.scene.text.TextFlow;
 import java.net.URL;
 import java.nio.channels.Selector;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
@@ -45,14 +47,35 @@ public class Controlador extends Dibujo implements Initializable {
     private ToggleButton puntosDeControl;
 
     @FXML
+    private ToggleButton Traslacion;
+
+    @FXML
     private ScrollPane scrollPane;
+
+    @FXML
+    private VBox vbox;
+
+    @FXML
+    void SeleccionPtoTraslacion(ActionEvent event) {
+        Traslacion.setCursor(Cursor.HAND);
+        vbox.setCursor(Cursor.HAND);
+        vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
+        {
+            @Override
+            public void handle(MouseEvent ev) {
+                traslacion((int) ev.getScreenX(), (int)ev.getScreenY());
+                obtenerLetra();
+            }
+        });
+
+    }
 
 
     @FXML
-    private void obtenerLetra(KeyEvent event) {
+    private void obtenerLetra() {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-        String frase = " " + CuadroTexto.getText();
+        String frase = "" + CuadroTexto.getText();
         root.getChildren().clear();
         textoCoord.getChildren().clear();
         boolean cursiva = false;
@@ -217,6 +240,9 @@ public class Controlador extends Dibujo implements Initializable {
     }
 
 
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Colores.getItems().addAll("Azul", "Celeste", "Gris", "Morado", "Naranjo", "Negro", "Rojo", "Rosado", "Verde", "Violeta");
@@ -229,6 +255,7 @@ public class Controlador extends Dibujo implements Initializable {
         puntosDeControl.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
+        CuadroTexto.setOnKeyPressed(actionEvent -> obtenerLetra());
     }
 
 }
