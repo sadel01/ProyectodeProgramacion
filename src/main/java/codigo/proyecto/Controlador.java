@@ -262,7 +262,13 @@ public class Controlador extends Dibujo implements Initializable {
                 if (T.getX() > scrollPane.getWidth() - 110){
                     T.setLayoutX(-105);
                 }else{
-                    T.setLayoutX(5);
+                    T.setLayoutX(0);
+                }
+
+                if (T.getY() > scrollPane.getHeight() - 60){
+                    T.setLayoutY(-100);
+                }else{
+                    T.setLayoutY(15);
                 }
 
             });

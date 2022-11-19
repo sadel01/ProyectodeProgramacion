@@ -144,6 +144,7 @@ public class Dibujo {
             xInicialSu = x;
             yInicialSu = y + 55;
         }
+
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
@@ -3647,13 +3648,13 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            if(!tras) {
-                x = 30;
-                y = y + 150;
-                xInicialSu = x;
-                yInicialSu = y + 55;
-            }
+
+            x = 30;
+            y = y + 150;
+            xInicialSu = x;
+            yInicialSu = y + 55;
         }
+
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
@@ -6420,9 +6421,12 @@ public class Dibujo {
 
         if (borrar == 1) {
 
-            if(!tras){
+            if(tras == false){
                 x = 30;
                 y = 100;
+            }else{
+                x = xTras;
+                y = yTras;
             }
 
         }
@@ -6434,13 +6438,13 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            if(!tras) {
-                x = 30;
-                y = y + 150;
-                xInicialSu = x;
-                yInicialSu = y + 55;
-            }
+
+            x = 30;
+            y = y + 150;
+            xInicialSu = x;
+            yInicialSu = y + 55;
         }
+
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;

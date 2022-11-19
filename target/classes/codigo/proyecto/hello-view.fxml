@@ -81,7 +81,7 @@
       </ScrollPane>
    </right>
    <center>
-      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="581.0" prefWidth="922.0" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="581.0" prefWidth="922.0" BorderPane.alignment="CENTER">
          <content>
             <VBox fx:id="vbox" fillWidth="false" prefHeight="565.0" prefWidth="1042.0">
                <children>
