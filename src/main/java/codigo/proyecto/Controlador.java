@@ -258,6 +258,13 @@ public class Controlador extends Dibujo implements Initializable {
                 T.setText("X:" + (int)e.getX() + "\nY:" + (int)e.getY() + "");
                 T.setX(e.getSceneX());
                 T.setY(e.getSceneY());
+
+                if (T.getX() > scrollPane.getWidth() - 110){
+                    T.setLayoutX(-105);
+                }else{
+                    T.setLayoutX(5);
+                }
+
             });
 
             Traslacion.setText("Desactivar traslación");
@@ -291,7 +298,7 @@ public class Controlador extends Dibujo implements Initializable {
         Traslacion.setOnAction(actionEvent -> SeleccionPtoTraslacion());
         CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
 
-        bord.widthProperty().addListener((observable, oldValue, newValue) ->
+        vbox.widthProperty().addListener((observable, oldValue, newValue) ->
                 {
                     if (newValue != oldValue) {
                         obtenerLetra();
@@ -299,13 +306,15 @@ public class Controlador extends Dibujo implements Initializable {
                 }
         );
 
-        bord.heightProperty().addListener((observable, oldValue, newValue) ->
+        vbox.heightProperty().addListener((observable, oldValue, newValue) ->
                 {
                     if (newValue != oldValue) {
                         obtenerLetra();
                     }
                 }
         );
+
+
 
 
     }
