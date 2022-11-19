@@ -244,8 +244,8 @@ public class Controlador extends Dibujo implements Initializable {
             {
                 @Override
                 public void handle(MouseEvent ev) {
-                    int xNuevo = (int)ev.getSceneX();
-                    int yNuevo = (int)ev.getSceneY();
+                    int xNuevo = (int)ev.getSceneX() - 50;
+                    int yNuevo = (int)ev.getSceneY() - 100;
                     traslacion(xNuevo, yNuevo);
                     obtenerLetra();
                 }

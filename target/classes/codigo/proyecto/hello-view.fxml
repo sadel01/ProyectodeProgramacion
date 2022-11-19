@@ -49,17 +49,18 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Pane>
+            <ToggleButton fx:id="Traslacion" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="158.0" text="Activar traslación" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </ToggleButton>
             <AnchorPane>
                <HBox.margin>
                   <Insets left="4.0" top="10.0" />
                </HBox.margin>
-               <children>
-                  <ToggleButton fx:id="Traslacion" alignment="TOP_RIGHT" layoutX="-38.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="127.0" text="Activar traslación">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </ToggleButton>
-               </children>
             </AnchorPane>
             <ToggleButton fx:id="puntosDeControl" alignment="TOP_RIGHT" mnemonicParsing="false" prefHeight="27.0" prefWidth="180.0" text="Mostrar puntos de control">
                <HBox.margin>
@@ -86,7 +87,7 @@
                <children>
                   <AnchorPane fx:id="root" prefHeight="565.0" prefWidth="715.0" VBox.vgrow="NEVER">
                      <children>
-                        <Text fx:id="T" fill="CADETBLUE" layoutX="5.0" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" y="4.0">
+                        <Text fx:id="T" fill="CADETBLUE" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" y="4.0">
                            <font>
                               <Font name="Arial" size="28.0" />
                            </font>
