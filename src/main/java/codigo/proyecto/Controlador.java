@@ -49,6 +49,9 @@ public class Controlador extends Dibujo implements Initializable {
     private ToggleButton Traslacion;
 
     @FXML
+    private ToggleButton botonEspejo;
+
+    @FXML
     private ScrollPane scrollPane;
 
     @FXML
@@ -149,10 +152,12 @@ public class Controlador extends Dibujo implements Initializable {
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
             Traslacion.setDisable(true);
-
+            Traslacion.setSelected(false);
+            activarTraslacion();
         } else {
             puntosDeControl.setDisable(false);
             Traslacion.setDisable(false);
+            botonEspejo.setDisable(false);
         }
     }
 
@@ -207,6 +212,10 @@ public class Controlador extends Dibujo implements Initializable {
         obtenerLetra();
     }
 
+    private void activarEspejo() {
+        espejo = botonEspejo.isSelected();
+        obtenerLetra();
+    }
     public String EstilodePalabras(String frase) {
 
         String p[] = frase.split(" ");
@@ -236,7 +245,7 @@ public class Controlador extends Dibujo implements Initializable {
     }
 
     @FXML
-    void SeleccionPtoTraslacion() {
+    void activarTraslacion() {
 
         if (Traslacion.isSelected()){
 
@@ -258,6 +267,19 @@ public class Controlador extends Dibujo implements Initializable {
                 T.setText("X:" + (int)e.getX() + "\nY:" + (int)e.getY() + "");
                 T.setX(e.getSceneX());
                 T.setY(e.getSceneY());
+
+                if (T.getX() > scrollPane.getWidth() - 110){
+                    T.setLayoutX(-105);
+                }else{
+                    T.setLayoutX(0);
+                }
+
+                if (T.getY() > scrollPane.getHeight() - 60){
+                    T.setLayoutY(-100);
+                }else{
+                    T.setLayoutY(15);
+                }
+
             });
 
             Traslacion.setText("Desactivar traslación");
@@ -279,19 +301,17 @@ public class Controlador extends Dibujo implements Initializable {
         Colores.getItems().addAll("Azul", "Celeste", "Gris", "Morado", "Naranjo", "Negro", "Rojo", "Rosado", "Verde", "Violeta");
         Colores.setStyle("-fx-font-size: 15px; -fx-font-weight: bold; -fx-font-family: Arial");
         Colores.setValue("Negro");
-        Colores.setOnAction(actionEvent -> {
-            SelectorColor(Colores.getValue());
-            ColorRectangulo();
-        });
+        Colores.setOnAction(actionEvent -> { SelectorColor(Colores.getValue()); ColorRectangulo();});
         puntosDeControl.setDisable(true);
-        Traslacion.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
-        Traslacion.setCursor(Cursor.HAND);
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
-        Traslacion.setOnAction(actionEvent -> SeleccionPtoTraslacion());
+        Traslacion.setDisable(true);
+        Traslacion.setCursor(Cursor.HAND);
+        Traslacion.setOnAction(actionEvent -> activarTraslacion());
         CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
+        botonEspejo.setOnAction(actionEvent -> activarEspejo());
 
-        bord.widthProperty().addListener((observable, oldValue, newValue) ->
+        vbox.widthProperty().addListener((observable, oldValue, newValue) ->
                 {
                     if (newValue != oldValue) {
                         obtenerLetra();
@@ -299,15 +319,13 @@ public class Controlador extends Dibujo implements Initializable {
                 }
         );
 
-        bord.heightProperty().addListener((observable, oldValue, newValue) ->
+        vbox.heightProperty().addListener((observable, oldValue, newValue) ->
                 {
                     if (newValue != oldValue) {
                         obtenerLetra();
                     }
                 }
         );
-
-
     }
 
 }
