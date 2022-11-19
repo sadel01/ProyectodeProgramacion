@@ -26,7 +26,7 @@
                   <Insets />
                </opaqueInsets>
                <font>
-                  <Font size="36.0" />
+                  <Font size="32.0" />
                </font>
                 </TextField>
             </children>
@@ -47,6 +47,13 @@
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <children>
+                  <ToggleButton fx:id="botonEspejo" alignment="TOP_RIGHT" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" text="Espejo" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </ToggleButton>
+               </children>
             </Pane>
             <ToggleButton fx:id="puntosDeControl" alignment="TOP_RIGHT" mnemonicParsing="false" prefHeight="27.0" prefWidth="206.0" text="Mostrar puntos de control">
                <HBox.margin>
