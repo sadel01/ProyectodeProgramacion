@@ -71,7 +71,7 @@ public class Dibujo {
         }
     }
 
-    public void BotonAct(ToggleButton puntosdeControl, ToggleButton botonEspejo) {
+    public void BotonAct(ToggleButton puntosdeControl) {
 
         if (!puntosdeControl.isSelected()) {
             for (int i = 0; i < circulos.size(); i++) {
@@ -84,7 +84,6 @@ public class Dibujo {
                 puntosdeControl.setText("Ocultar puntos de control");
             }
         }
-
 
     }
 
@@ -143,38 +142,35 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
-                pts(textoCoord, root, puntosDeControl, x+35, y, x+60, y+15, x+10, y+60, x+50, y+65);
-
-                fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
 
                 while(cont < auxBold){
-                    CubicCurve c = new CubicCurve((x + 30)*tamanio, (y + 10)*tamanio, (x - 5)*tamanio, (y - 30)*tamanio, (x- 20)*tamanio, (y + 85)*tamanio, (x + 25)*tamanio, (y + 30)*tamanio);
-                    c.setFill(Color.TRANSPARENT);
-                    c.setStroke(color);
-                    c.setStrokeWidth(grosor);
 
+                    if (espejo) {
+                        pts(textoCoord, root, puntosDeControl, x-30, y+10, x-25, y+30, x+5, y-30, x+20, y+85);
+                        pts(textoCoord, root, puntosDeControl, x-35, y, x-60, y+15, x-10, y+60, x-50, y+65);
 
-                    CubicCurve c2 = new CubicCurve((x+ 35)*tamanio, y*tamanio, (x + 10)*tamanio, (y + 60)*tamanio, (x + 50)*tamanio, (y + 65)*tamanio, (x + 60)*tamanio, (y + 15)*tamanio);
-                    c2.setFill(Color.TRANSPARENT);
-                    c2.setStroke(color);
-                    c2.setStrokeWidth(grosor);
+                        fun(root, puntosDeControl, x - 30, y + 10, x + 5, y - 30, x + 20, y + 85, x - 25, y + 30, x - 35, y, x - 10, y + 60, x - 50, y + 65, x - 60, y + 15);
 
-                    root.getChildren().add(c);
-                    root.getChildren().add(c2);
+                        dibujo(root, (x - 30)*tamanio, (y + 10)*tamanio, (x + 5)*tamanio, (y - 30)*tamanio, (x+ 20)*tamanio, (y + 85)*tamanio, (x - 25)*tamanio, (y + 30)*tamanio);
+                        dibujo(root, (x-35)*tamanio, y*tamanio, (x - 10)*tamanio, (y + 60)*tamanio, (x - 50)*tamanio, (y + 65)*tamanio, (x - 60)*tamanio, (y + 15)*tamanio);
+                    }
+                    else {
+                        pts(textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
+                        pts(textoCoord, root, puntosDeControl, x+35, y, x+60, y+15, x+10, y+60, x+50, y+65);
+
+                        fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
+
+                        dibujo(root, (x + 30)*tamanio, (y + 10)*tamanio, (x - 5)*tamanio, (y - 30)*tamanio, (x- 20)*tamanio, (y + 85)*tamanio, (x + 25)*tamanio, (y + 30)*tamanio);
+                        dibujo(root, (x+ 35)*tamanio, y*tamanio, (x + 10)*tamanio, (y + 60)*tamanio, (x + 50)*tamanio, (y + 65)*tamanio, (x + 60)*tamanio, (y + 15)*tamanio);
+                    }
 
                     if (caracter == 'á') {
-                        Line tilde = new Line((x + 15)*tamanio, (y - 10)*tamanio, (x + 30)*tamanio, (y - 30)*tamanio);
-                        tilde.setFill(Color.TRANSPARENT);
-                        tilde.setStroke(color);
-                        tilde.setStrokeWidth(grosor);
+                        dibujo(root,(x + 15)*tamanio, (y - 10)*tamanio, (x + 30)*tamanio, (y - 30)*tamanio );
 
                         if(cont < 1){
                             pts(textoCoord, root, puntosDeControl, x+15, y-10, x+30, y-30);
                             fun(root, puntosDeControl, x + 15, y - 10, x + 30, y - 30);
                         }
-
-                        root.getChildren().add(tilde);
                     }
 
                     if(auxBold > 1){
@@ -900,8 +896,8 @@ public class Dibujo {
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
                 int aux = ((y+15)*(tamanio)*2)-35, dif1 = 15, dif2 = -65, dif3 = -25, difPunto = 25;
-                invertir(root, (x + 2)*tamanio, aux+dif1, (x - 10)*tamanio, aux+dif2, (x + 30)*tamanio, aux+dif3, (x + 40)*tamanio, aux);
-                invertir(root, (x + 3)*tamanio, aux+difPunto, tamanio);
+                dibujo(root, (x + 2)*tamanio, aux+dif1, (x - 10)*tamanio, aux+dif2, (x + 30)*tamanio, aux+dif3, (x + 40)*tamanio, aux);
+                dibujo(root, (x + 3)*tamanio, aux+difPunto, tamanio);
 
                 fun(root, puntosDeControl, x + 2, y, x - 10, y + 80, x + 30, y + 40, x + 40, y + 15);
                 while(cont < auxBold) {
@@ -3583,7 +3579,7 @@ public class Dibujo {
         }
     }
 
-    public void invertir(AnchorPane root, int... lista){
+    public void dibujo(AnchorPane root, int... lista){
         if(lista.length == 8) {
             //cubica
             CubicCurve c1 = new CubicCurve(lista[0], lista[1], lista[2], lista[3], lista[4], lista[5], lista[6], lista[7]);
@@ -3598,6 +3594,12 @@ public class Dibujo {
         }
         else if(lista.length == 4) {
             //linea
+            Line l = new Line(lista[0], lista[1], lista[2], lista[3]);
+            l.setFill(Color.TRANSPARENT);
+            l.setStroke(color);
+            l.setStrokeWidth(grosor);
+
+            root.getChildren().add(l);
         }
         else if(lista.length == 3) {
             //punto

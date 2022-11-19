@@ -135,15 +135,17 @@ public class Controlador extends Dibujo implements Initializable{
             }
 
             if (puntosDeControl.isSelected()) {
-                BotonAct(puntosDeControl, botonEspejo);
+                BotonAct(puntosDeControl);
             }
         }
 
 
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
+            botonEspejo.setDisable(true);
         } else {
             puntosDeControl.setDisable(false);
+            botonEspejo.setDisable(false);
         }
     }
 
@@ -208,7 +210,7 @@ public class Controlador extends Dibujo implements Initializable{
         });
         puntosDeControl.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
-        puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl, botonEspejo));
+        puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
     }
 
 }
