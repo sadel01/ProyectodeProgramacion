@@ -1,7 +1,5 @@
 package codigo.proyecto;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,8 +8,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -19,9 +15,7 @@ import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import java.net.URL;
-import java.nio.channels.Selector;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
@@ -46,7 +40,7 @@ public class Controlador extends Dibujo implements Initializable {
     private ToggleButton puntosDeControl;
 
     @FXML
-    private ToggleButton Traslacion;
+    private ToggleButton botonTraslacion;
 
     @FXML
     private ToggleButton botonEspejo;
@@ -81,12 +75,11 @@ public class Controlador extends Dibujo implements Initializable {
 
                 String fraseAux = " ";
 
-                for (int j = 2; j < frase.length(); j++) {
+                for (int j = 3; j < frase.length(); j++) {
                     fraseAux = fraseAux + frase.charAt(j);
                 }
 
                 frase = InvertirOrden(fraseAux);
-
             }
 
 
@@ -151,12 +144,9 @@ public class Controlador extends Dibujo implements Initializable {
 
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
-            Traslacion.setDisable(true);
-            Traslacion.setSelected(false);
-            activarTraslacion();
         } else {
             puntosDeControl.setDisable(false);
-            Traslacion.setDisable(false);
+            botonTraslacion.setDisable(false);
             botonEspejo.setDisable(false);
         }
     }
@@ -214,6 +204,13 @@ public class Controlador extends Dibujo implements Initializable {
 
     private void activarEspejo() {
         espejo = botonEspejo.isSelected();
+
+        if (botonEspejo.isSelected()){
+            botonEspejo.setText("Desactivar espejo");
+        }else{
+            botonEspejo.setText("Activar espejo");
+        }
+
         obtenerLetra();
     }
     public String EstilodePalabras(String frase) {
@@ -247,7 +244,7 @@ public class Controlador extends Dibujo implements Initializable {
     @FXML
     void activarTraslacion() {
 
-        if (Traslacion.isSelected()){
+        if (botonTraslacion.isSelected()){
 
             vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
             {
@@ -282,13 +279,13 @@ public class Controlador extends Dibujo implements Initializable {
 
             });
 
-            Traslacion.setText("Desactivar traslación");
+            botonTraslacion.setText("Desactivar traslación");
         }else{
             vbox.setOnMouseClicked(null);
             vbox.setOnMouseMoved(null);
             T.setText("");
             vbox.setCursor(Cursor.DEFAULT);
-            Traslacion.setText("Activar traslación");
+            botonTraslacion.setText("Activar traslación");
         }
 
     }
@@ -305,9 +302,8 @@ public class Controlador extends Dibujo implements Initializable {
         puntosDeControl.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
-        Traslacion.setDisable(true);
-        Traslacion.setCursor(Cursor.HAND);
-        Traslacion.setOnAction(actionEvent -> activarTraslacion());
+        botonTraslacion.setCursor(Cursor.HAND);
+        botonTraslacion.setOnAction(actionEvent -> activarTraslacion());
         CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
         botonEspejo.setOnAction(actionEvent -> activarEspejo());
 
