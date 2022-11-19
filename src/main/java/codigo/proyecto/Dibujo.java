@@ -99,13 +99,10 @@ public class Dibujo {
         root.getChildren().add(subrayado);
     }
 
-    public void traslacion(int x, int y){
+    public void traslacion(int xTras, int yTras){
 
-        System.out.println(x);
-        System.out.println(y);
-
-        this.xTras = (int) x;
-        this.yTras = (int) y;
+        this.xTras = xTras;
+        this.yTras = yTras;
         this.tras = true;
         setTraslacion();
     }
@@ -123,13 +120,9 @@ public class Dibujo {
     public void Letras(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio) {
 
         if (borrar == 1) {
-
-            if(tras == false){
+            if(!tras){
                 x = 30;
                 y = 100;
-            }else{
-                x = xTras;
-                y = yTras;
             }
 
         }
@@ -2814,12 +2807,9 @@ public class Dibujo {
             yInicialSu = y + 55;
             }
         if (borrar == 1) {
-            if(tras == false){
+            if(!tras){
                 x = 30;
                 y = 100;
-            }else{
-                x = xTras;
-                y = yTras;
             }
         }
         if (caracter == ' ') {
@@ -3648,16 +3638,11 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            if(tras == false) {
+            if(!tras) {
                 x = 30;
                 y = y + 150;
                 xInicialSu = x;
                 yInicialSu = y + 55;
-            }else{
-                x = xTras + 50;
-                y = yTras + 150;
-                xInicialSu = xTras;
-                yInicialSu = yTras + 55;
             }
         }
         if (caracter == ' ') {
@@ -6426,12 +6411,9 @@ public class Dibujo {
 
         if (borrar == 1) {
 
-            if(tras == false){
+            if(!tras){
                 x = 30;
                 y = 100;
-            }else{
-                x = xTras;
-                y = yTras;
             }
 
         }
@@ -6443,16 +6425,11 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            if(tras == false) {
+            if(!tras) {
                 x = 30;
                 y = y + 150;
                 xInicialSu = x;
                 yInicialSu = y + 55;
-            }else{
-                x = xTras + 50;
-                y = yTras + 150;
-                xInicialSu = xTras;
-                yInicialSu = yTras + 55;
             }
         }
         if (caracter == ' ') {
@@ -7240,4 +7217,11 @@ public class Dibujo {
         }
     }
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 }

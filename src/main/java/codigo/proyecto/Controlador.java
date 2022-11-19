@@ -13,8 +13,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
@@ -56,27 +55,18 @@ public class Controlador extends Dibujo implements Initializable {
     private VBox vbox;
 
     @FXML
-    void SeleccionPtoTraslacion(ActionEvent event) {
-        Traslacion.setCursor(Cursor.HAND);
-        vbox.setCursor(Cursor.HAND);
-        vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
-        {
-            @Override
-            public void handle(MouseEvent ev) {
-                traslacion((int) ev.getScreenX(), (int)ev.getScreenY());
-                obtenerLetra();
-            }
-        });
-
-    }
-
+    private Text T;
 
     @FXML
+    private BorderPane bord;
+
+
     private void obtenerLetra() {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
-        String frase = "" + CuadroTexto.getText();
+        String frase = " " + CuadroTexto.getText();
         root.getChildren().clear();
+        root.getChildren().add(T);
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
@@ -88,7 +78,7 @@ public class Controlador extends Dibujo implements Initializable {
 
                 String fraseAux = " ";
 
-                for (int j = 3; j < frase.length(); j++) {
+                for (int j = 2; j < frase.length(); j++) {
                     fraseAux = fraseAux + frase.charAt(j);
                 }
 
@@ -158,8 +148,11 @@ public class Controlador extends Dibujo implements Initializable {
 
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
+            Traslacion.setDisable(true);
+
         } else {
             puntosDeControl.setDisable(false);
+            Traslacion.setDisable(false);
         }
     }
 
@@ -210,9 +203,12 @@ public class Controlador extends Dibujo implements Initializable {
             rectColor.setFill(Color.PINK);
             rectColor.setStroke(Color.PINK);
         }
+
+        obtenerLetra();
     }
 
     public String EstilodePalabras(String frase) {
+
         String p[] = frase.split(" ");
 
         for (int i = 0; i < p.length; i++) {
@@ -239,6 +235,41 @@ public class Controlador extends Dibujo implements Initializable {
         return "";
     }
 
+    @FXML
+    void SeleccionPtoTraslacion() {
+
+        if (Traslacion.isSelected()){
+
+            vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
+            {
+                @Override
+                public void handle(MouseEvent ev) {
+                    int xNuevo = (int)ev.getSceneX();
+                    int yNuevo = (int)ev.getSceneY();
+                    traslacion(xNuevo, yNuevo);
+                    obtenerLetra();
+                }
+            });
+
+            vbox.setCursor(Cursor.HAND);
+
+            vbox.setOnMouseMoved(e -> {
+
+                T.setText("(X:" + (int)e.getX() + " Y:" + (int)e.getY() + ")");
+                T.setX(e.getSceneX());
+                T.setY(e.getSceneY());
+            });
+
+            Traslacion.setText("Desactivar traslación");
+        }else{
+            vbox.setOnMouseClicked(null);
+            vbox.setOnMouseMoved(null);
+            T.setText("");
+            vbox.setCursor(Cursor.DEFAULT);
+            Traslacion.setText("Activar traslación");
+        }
+
+    }
 
 
 
@@ -253,9 +284,30 @@ public class Controlador extends Dibujo implements Initializable {
             ColorRectangulo();
         });
         puntosDeControl.setDisable(true);
+        Traslacion.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
+        Traslacion.setCursor(Cursor.HAND);
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
-        CuadroTexto.setOnKeyPressed(actionEvent -> obtenerLetra());
+        Traslacion.setOnAction(actionEvent -> SeleccionPtoTraslacion());
+        CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
+
+        bord.widthProperty().addListener((observable, oldValue, newValue) ->
+                {
+                    if (newValue != oldValue) {
+                        obtenerLetra();
+                    }
+                }
+        );
+
+        bord.heightProperty().addListener((observable, oldValue, newValue) ->
+                {
+                    if (newValue != oldValue) {
+                        obtenerLetra();
+                    }
+                }
+        );
+
+
     }
 
 }
