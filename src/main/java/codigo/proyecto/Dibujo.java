@@ -179,7 +179,7 @@ public class Dibujo {
                         pts(textoCoord, root, puntosDeControl, x-30, y+10, x-25, y+30, x+5, y-30, x+20, y+85);
                         pts(textoCoord, root, puntosDeControl, x-35, y, x-60, y+15, x-10, y+60, x-50, y+65);
                         dibujo(root, x - 30*tamanio, y + 10*tamanio, x + 5*tamanio, y - 30*tamanio, x+ 20*tamanio, y + 85*tamanio, x - 25*tamanio, y + 30*tamanio);
-                        dibujo(root, x-35*tamanio, y*tamanio, x - 10*tamanio, y + 60*tamanio, x - 50*tamanio, y + 65*tamanio, x - 60*tamanio, y + 15*tamanio);
+                        dibujo(root, x-35*tamanio, y, x - 10*tamanio, y + 60*tamanio, x - 50*tamanio, y + 65*tamanio, x - 60*tamanio, y + 15*tamanio);
                     }
                     else {
                         pts(textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
