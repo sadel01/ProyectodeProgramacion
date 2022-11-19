@@ -120,9 +120,13 @@ public class Dibujo {
     public void Letras(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio) {
 
         if (borrar == 1) {
-            if(!tras){
+
+            if(tras == false){
                 x = 30;
                 y = 100;
+            }else{
+                x = xTras;
+                y = yTras;
             }
 
         }
@@ -2793,6 +2797,17 @@ public class Dibujo {
     }
 
     public void Simbolos(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
+        if (borrar == 1) {
+
+            if(tras == false){
+                x = 30;
+                y = 100;
+            }else{
+                x = xTras;
+                y = yTras;
+            }
+
+        }
         if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
@@ -2801,16 +2816,11 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
+
             x = 30;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55;
-            }
-        if (borrar == 1) {
-            if(!tras){
-                x = 30;
-                y = 100;
-            }
         }
         if (caracter == ' ') {
             if (x != 30) {
@@ -2818,7 +2828,6 @@ public class Dibujo {
             }
             auxSub = false;
             auxBold = 1;
-
         }
         if(estilo.contains("N")){
             auxBold = 4;

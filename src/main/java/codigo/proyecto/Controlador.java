@@ -255,7 +255,7 @@ public class Controlador extends Dibujo implements Initializable {
 
             vbox.setOnMouseMoved(e -> {
 
-                T.setText("(X:" + (int)e.getX() + " Y:" + (int)e.getY() + ")");
+                T.setText("X:" + (int)e.getX() + "\nY:" + (int)e.getY() + "");
                 T.setX(e.getSceneX());
                 T.setY(e.getSceneY());
             });
