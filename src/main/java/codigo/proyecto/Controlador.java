@@ -198,6 +198,10 @@ public class Controlador extends Dibujo implements Initializable{
         }
     }
 
+    private void activarEspejo() {
+        espejo = botonEspejo.isSelected();
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -211,6 +215,7 @@ public class Controlador extends Dibujo implements Initializable{
         puntosDeControl.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
+        botonEspejo.setOnAction(actionEvent -> activarEspejo());
     }
 
 }
