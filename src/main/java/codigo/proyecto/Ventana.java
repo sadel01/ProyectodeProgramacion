@@ -18,6 +18,8 @@ public class Ventana extends Application{
         stage.setScene(scene);
         stage.show();
         stage.setMaximized(true);
+        stage.setMinHeight(660);
+        stage.setMinWidth(1000);
     }
 
     public static void main(String[] args) {

@@ -13,10 +13,11 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Dibujo {
-    int x = 30;
-    int y = 100;
+    int x;
+    int y;
     //int yi = 100;
     int aux = 0;
     int grosor = 4;
@@ -27,9 +28,14 @@ public class Dibujo {
     //-----------------------
     //variables para negrita
     int auxBold = 1;
+
+    int xTras = 0;
+    int yTras = 0;
     ArrayList<Circle> circulos = new ArrayList<>();
     Color color = Color.BLACK;
     Color color2 = Color.web("#5F9EA0");
+
+    boolean tras = false;
 
     public void SelectorColor(String clr){
         if(clr.equals("Rojo")){
@@ -93,11 +99,36 @@ public class Dibujo {
         root.getChildren().add(subrayado);
     }
 
+    public void traslacion(int xTras, int yTras){
+
+        this.xTras = xTras;
+        this.yTras = yTras;
+        this.tras = true;
+        setTraslacion();
+    }
+
+    public void setTraslacion(){
+        if (tras == true){
+            this.x = xTras;
+            this.y = yTras;
+        }else{
+            this.x = 30;
+            this.y = 100;
+        }
+    }
+
     public void Letras(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio) {
 
         if (borrar == 1) {
-            x = 30;
-            y = 100;
+
+            if(tras == false){
+                x = 30;
+                y = 100;
+            }else{
+                x = xTras;
+                y = yTras;
+            }
+
         }
         if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
@@ -2764,6 +2795,17 @@ public class Dibujo {
     }
 
     public void Simbolos(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
+        if (borrar == 1) {
+
+            if(tras == false){
+                x = 30;
+                y = 100;
+            }else{
+                x = xTras;
+                y = yTras;
+            }
+
+        }
         if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
@@ -2772,14 +2814,11 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
+
             x = 30;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55;
-        }
-        if (borrar == 1) {
-            x = 30;
-            y = 100;
         }
         if (caracter == ' ') {
             if (x != 30) {
@@ -3587,6 +3626,17 @@ public class Dibujo {
     public void Cursivas(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio){
         int curv=25;
 
+        if (borrar == 1) {
+
+            if(tras == false){
+                x = 30;
+                y = 100;
+            }else{
+                x = xTras;
+                y = yTras;
+            }
+
+        }
         if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
@@ -3595,11 +3645,21 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            x = 30;
-            y = y + 150;
-            xInicialSu = x;
-            yInicialSu = y + 55;
+            if(!tras) {
+                x = 30;
+                y = y + 150;
+                xInicialSu = x;
+                yInicialSu = y + 55;
+            }
         }
+        if (caracter == ' ') {
+            if (x != 30) {
+                x = x + 50;
+            }
+            auxSub = false;
+            auxBold = 1;
+        }
+
 
         int cont = 0;
 
@@ -6356,6 +6416,14 @@ public class Dibujo {
 
         int curv=25;
 
+        if (borrar == 1) {
+
+            if(!tras){
+                x = 30;
+                y = 100;
+            }
+
+        }
         if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
@@ -6364,10 +6432,19 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            x = 30;
-            y = y + 150;
-            xInicialSu = x;
-            yInicialSu = y + 55;
+            if(!tras) {
+                x = 30;
+                y = y + 150;
+                xInicialSu = x;
+                yInicialSu = y + 55;
+            }
+        }
+        if (caracter == ' ') {
+            if (x != 30) {
+                x = x + 50;
+            }
+            auxSub = false;
+            auxBold = 1;
         }
 
         int cont = 0;
@@ -7146,5 +7223,12 @@ public class Dibujo {
             }
         }
     }
-    
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 }
