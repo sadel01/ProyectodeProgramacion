@@ -27,6 +27,7 @@ public class Dibujo {
     //-----------------------
     //variables para negrita
     int auxBold = 1;
+    boolean espejo = false;
     ArrayList<Circle> circulos = new ArrayList<>();
     Color color = Color.BLACK;
     Color color2 = Color.web("#5F9EA0");
@@ -70,7 +71,7 @@ public class Dibujo {
         }
     }
 
-    public void BotonAct(ToggleButton puntosdeControl) {
+    public void BotonAct(ToggleButton puntosdeControl, ToggleButton botonEspejo) {
 
         if (!puntosdeControl.isSelected()) {
             for (int i = 0; i < circulos.size(); i++) {
@@ -83,6 +84,8 @@ public class Dibujo {
                 puntosdeControl.setText("Ocultar puntos de control");
             }
         }
+
+
     }
 
     public void Subrayar(int xa,int ya,int xb, AnchorPane root){

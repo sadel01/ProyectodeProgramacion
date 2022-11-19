@@ -45,6 +45,9 @@ public class Controlador extends Dibujo implements Initializable{
     private ToggleButton puntosDeControl;
 
     @FXML
+    private ToggleButton botonEspejo;
+
+    @FXML
     private ScrollPane scrollPane;
 
 
@@ -132,7 +135,7 @@ public class Controlador extends Dibujo implements Initializable{
             }
 
             if (puntosDeControl.isSelected()) {
-                BotonAct(puntosDeControl);
+                BotonAct(puntosDeControl, botonEspejo);
             }
         }
 
@@ -205,7 +208,7 @@ public class Controlador extends Dibujo implements Initializable{
         });
         puntosDeControl.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
-        puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
+        puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl, botonEspejo));
     }
 
 }
