@@ -677,47 +677,20 @@ public class Dibujo {
             if (caracter == 'j') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x-15, y+65, x+30, y+15, x-15, y+50, x+30, y+35);
-                pts(textoCoord, root, puntosDeControl, x, y+70, x-15, y+65, x-5, y+95, x-20, y+85);
-                pts(textoCoord, root, puntosDeControl, x, y, x, y+70, x-1, y+20, x+5, y+60);
+                pts(textoCoord, root, puntosDeControl, x-15*e, y+65, x+30*e, y+15, x-15*e, y+50, x+30*e, y+35);
+                pts(textoCoord, root, puntosDeControl, x, y+70, x-15*e, y+65, x-5*e, y+95, x-20*e, y+85);
+                pts(textoCoord, root, puntosDeControl, x, y, x, y+70, x-1*e, y+20, x+5*e, y+60);
                 pts(textoCoord, root, puntosDeControl, x, y-10);
-
-                fun(root, puntosDeControl, x - 15, y + 65, x - 15, y + 50, x + 30, y + 35, x + 30, y + 15, x, y + 70, x - 5, y + 95, x - 20, y + 85, x - 15, y + 65, x, y, x - 1, y + 20, x + 5, y + 60, x, y + 70);
+                fun(root, puntosDeControl, x - 15*e, y + 65, x - 15*e, y + 50, x + 30*e, y + 35, x + 30*e, y + 15, x, y + 70, x - 5*e, y + 95, x - 20*e, y + 85, x - 15*e, y + 65, x, y, x - 1*e, y + 20, x + 5*e, y + 60, x, y + 70);
 
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x - 15*tamanio, y + 65*tamanio, x - 15*tamanio, y + 50*tamanio, x + 30*tamanio, y + 35*tamanio, x + 30*tamanio, y + 15*tamanio); //"l" superior
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-
-                    CubicCurve cb2 = new CubicCurve(x, y + 70*tamanio, x - 5*tamanio, y + 95*tamanio, x - 20*tamanio, y + 85*tamanio, x - 15*tamanio, y + 65*tamanio); //Semi ovalo
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb2);
-
-                    CubicCurve cb3 = new CubicCurve(x, y, x - 1*tamanio, y + 20*tamanio, x + 5*tamanio, y + 60*tamanio, x, y + 70*tamanio); //"l" superior
-                    cb3.setFill(Color.TRANSPARENT);
-                    cb3.setStroke(color);
-                    cb3.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb3);
-
-                    Circle cd1 = new Circle(x, y - 10*tamanio, tamanio);
-                    cd1.setStrokeWidth(grosor);
-                    cd1.setFill(Color.TRANSPARENT);
-                    cd1.setStroke(color);
-
-                    root.getChildren().add(cd1);
-
-
+                    dibujo(root, x - 15*e*tamanio, y + 65*tamanio, x - 15*e*tamanio, y + 50*tamanio, x + 30*e*tamanio, y + 35*tamanio, x + 30*e*tamanio, y + 15*tamanio);
+                    dibujo(root, x, y + 70*tamanio, x - 5*e*tamanio, y + 95*tamanio, x - 20*e*tamanio, y + 85*tamanio, x - 15*e*tamanio, y + 65*tamanio);
+                    dibujo(root, x, y, x - 1*e*tamanio, y + 20*tamanio, x + 5*e*tamanio, y + 60*tamanio, x, y + 70*tamanio);
+                    dibujo(root, x, y - 10*tamanio, tamanio);
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
 
@@ -728,42 +701,19 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y-40, x+50, y-40, x+20, y-50);
-                pts(textoCoord, root, puntosDeControl, x+50, y-40, x+40, y+30, x+70, y-40, x+50, y-120);
-                pts(textoCoord, root, puntosDeControl, x+40, y+30, x+5, y+40, x+40, y+55, x+10, y+60);
-                pts(textoCoord, root, puntosDeControl, x+5, y+40, x+50, y-15, x, y+20, x+15, y);
-                fun(root, puntosDeControl, x, y - 40, x + 50, y - 40, x + 20, y - 50, x + 70, y - 40, x + 50, y - 120, x + 40, y + 55, x + 10, y + 60, x + 50, y - 40, x + 40, y + 30, x + 40, y + 30, x + 5, y + 40, x + 5, y + 40, x + 50, y - 15);
-
+                pts(textoCoord, root, puntosDeControl, x, y-40, x+50*e, y-40, x+20*e, y-50);
+                pts(textoCoord, root, puntosDeControl, x+50*e, y-40, x+40*e, y+30, x+70*e, y-40, x+50*e, y-120);
+                pts(textoCoord, root, puntosDeControl, x+40*e, y+30, x+5*e, y+40, x+40*e, y+55, x+10*e, y+60);
+                pts(textoCoord, root, puntosDeControl, x+5*e, y+40, x+50*e, y-15, x, y+20, x+15*e, y);
+                fun(root, puntosDeControl, x, y - 40, x + 50*e, y - 40, x + 20*e, y - 50, x + 70*e, y - 40, x + 50*e, y - 120, x + 40*e, y + 55, x + 10*e, y + 60, x + 50*e, y - 40, x + 40*e, y + 30, x + 40*e, y + 30, x + 5*e, y + 40, x + 5*e, y + 40, x + 50*e, y - 15);
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x, y - 40*tamanio, x + 20*tamanio, y - 50*tamanio, x + 50*tamanio, y - 40*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    CubicCurve cb1 = new CubicCurve(x + 50*tamanio, y - 40*tamanio, x + 70*tamanio, y - 40*tamanio, x + 50*tamanio, y - 120*tamanio, x + 40*tamanio, y + 30*tamanio); //"l" superior
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 40*tamanio, y + 30*tamanio, x + 40*tamanio, y + 55*tamanio, x + 10*tamanio, y + 60*tamanio, x + 5*tamanio, y + 40*tamanio); //Semi ovalo
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    CubicCurve cb4 = new CubicCurve(x + 5*tamanio, y + 40*tamanio, x, y + 20*tamanio, x + 15*tamanio, y, x + 50*tamanio, y - 15*tamanio);
-                    cb4.setFill(Color.TRANSPARENT);
-                    cb4.setStroke(color);
-                    cb4.setStrokeWidth(grosor);
-
-                    root.getChildren().add(qv1);
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(cb4);
-
+                    dibujo(root, x, y - 40*tamanio, x + 20*e*tamanio, y - 50*tamanio, x + 50*e*tamanio, y - 40*tamanio);
+                    dibujo(root, x + 50*e*tamanio, y - 40*tamanio, x + 70*e*tamanio, y - 40*tamanio, x + 50*e*tamanio, y - 120*tamanio, x + 40*e*tamanio, y + 30*tamanio);
+                    dibujo(root, x + 40*e*tamanio, y + 30*tamanio, x + 40*e*tamanio, y + 55*tamanio, x + 10*e*tamanio, y + 60*tamanio, x + 5*e*tamanio, y + 40*tamanio);
+                    dibujo(root, x + 5*e*tamanio, y + 40*tamanio, x, y + 20*tamanio, x + 15*e*tamanio, y, x + 50*e*tamanio, y - 15*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 50*tamanio;
@@ -777,35 +727,18 @@ public class Dibujo {
             if (caracter == 'k') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x+2, y, x-1, y+50, x+37, y, x-3, y-150);
-                pts(textoCoord, root, puntosDeControl, x, y+18, x+17, y+30, x+7, y-10, x+42, y+20);
-                pts(textoCoord, root, puntosDeControl, x+17, y+30, x+55, y+15, x+37, y+72, x+47, y+50);
-                fun(root, puntosDeControl, x + 2, y, x + 37, y, x - 3, y - 150, x + 7, y - 10, x + 42, y + 20, x + 37, y + 72, x + 47, y + 50, x - 1, y + 50, x, y + 18, x + 17, y + 30, x + 17, y + 30, x + 55, y + 15);
+                pts(textoCoord, root, puntosDeControl, x+2*e, y, x-1*e, y+50, x+37*e, y, x-3*e, y-150);
+                pts(textoCoord, root, puntosDeControl, x, y+18, x+17*e, y+30, x+7*e, y-10, x+42*e, y+20);
+                pts(textoCoord, root, puntosDeControl, x+17*e, y+30, x+55*e, y+15, x+37*e, y+72, x+47*e, y+50);
+                fun(root, puntosDeControl, x + 2*e, y, x + 37*e, y, x - 3*e, y - 150, x + 7*e, y - 10, x + 42*e, y + 20, x + 37*e, y + 72, x + 47*e, y + 50, x - 1*e, y + 50, x, y + 18, x + 17*e, y + 30, x + 17*e, y + 30, x + 55*e, y + 15);
 
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x + 2*tamanio, y, x + 37*tamanio, y, x - 3*tamanio, y - 150*tamanio, x - tamanio, y + 50*tamanio); //"l" superior
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x, y + 18*tamanio, x + 7*tamanio, y - 10*tamanio, x + 42*tamanio, y + 20*tamanio, x + 17*tamanio, y + 30*tamanio); //Semi ovalo
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    CubicCurve cb3 = new CubicCurve(x + 17*tamanio, y + 30*tamanio, x + 37*tamanio, y + 72*tamanio, x + 35*tamanio, y + 50*tamanio, x + 55*tamanio, y + 15*tamanio);  //Curva derecha (conector)
-                    cb3.setFill(Color.TRANSPARENT);
-                    cb3.setStroke(color);
-                    cb3.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(cb3);
-
+                    dibujo(root, x + 2*e*tamanio, y, x + 37*e*tamanio, y, x - 3*e*tamanio, y - 150*tamanio, x - tamanio, y + 50*tamanio);
+                    dibujo(root, x, y + 18*tamanio, x + 7*e*tamanio, y - 10*tamanio, x + 42*e*tamanio, y + 20*tamanio, x + 17*e*tamanio, y + 30*tamanio);
+                    dibujo(root, x + 17*e*tamanio, y + 30*tamanio, x + 37*e*tamanio, y + 72*tamanio, x + 35*e*tamanio, y + 50*tamanio, x + 55*e*tamanio, y + 15*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 55*tamanio;
@@ -815,31 +748,16 @@ public class Dibujo {
             } else{
                 Text t = new Text("\n" + caracter + ":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y - 20, x + 10, y + 40, x + 40, y - 120, x + 40, y + 80);
-                pts(textoCoord, root, puntosDeControl, x + 10, y + 40, x + 60, y - 50, x - 20, y, x + 60, y);
-                pts(textoCoord, root, puntosDeControl, x + 33, y - 5, x + 80, y + 15, x + 60, y - 10, x + 60, y + 115);
-                fun(root, puntosDeControl, x, y - 20, x + 40, y - 120, x + 40, y + 80, x - 20, y, x + 60, y, x + 60, y - 10, x + 60, y + 115, x + 10, y + 40, x + 10, y + 40, x + 60, y - 50, x + 33, y - 5, x + 80, y + 15);
+                pts(textoCoord, root, puntosDeControl, x, y - 20, x + 10*e, y + 40, x + 40*e, y - 120, x + 40*e, y + 80);
+                pts(textoCoord, root, puntosDeControl, x + 10*e, y + 40, x + 60*e, y - 50, x - 20*e, y, x + 60*e, y);
+                pts(textoCoord, root, puntosDeControl, x + 33*e, y - 5, x + 80*e, y + 15, x + 60*e, y - 10, x + 60*e, y + 115);
+                fun(root, puntosDeControl, x, y - 20, x + 40*e, y - 120, x + 40*e, y + 80, x - 20*e, y, x + 60*e, y, x + 60*e, y - 10, x + 60*e, y + 115, x + 10*e, y + 40, x + 10*e, y + 40, x + 60*e, y - 50, x + 33*e, y - 5, x + 80*e, y + 15);
 
                 while (cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x, y - 20*tamanio, x + 40*tamanio, y - 120*tamanio, x + 40*tamanio, y + 80*tamanio, x + 10*tamanio, y + 40*tamanio); // primera curva hacia
+                    dibujo(root, x, y - 20*tamanio, x + 40*e*tamanio, y - 120*tamanio, x + 40*e*tamanio, y + 80*tamanio, x + 10*e*tamanio, y + 40*tamanio); // primera curva hacia
                     // abajo
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 10*tamanio, y + 40*tamanio, x - 20*tamanio, y, x + 60*tamanio, y, x + 60*tamanio, y - 50*tamanio); //Semi ovalo
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    CubicCurve cb3 = new CubicCurve(x + 33*tamanio, y - 5*tamanio, x + 60*tamanio, y - 10*tamanio, x + 60*tamanio, y + 115*tamanio, x + 80*tamanio, y + 15*tamanio);  //Curva derecha (conector)
-                    cb3.setFill(Color.TRANSPARENT);
-                    cb3.setStroke(color);
-                    cb3.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(cb3);
+                    dibujo(root, x + 10*e*tamanio, y + 40*tamanio, x - 20*e*tamanio, y, x + 60*e*tamanio, y, x + 60*e*tamanio, y - 50*tamanio);
+                    dibujo(root, x + 33*e*tamanio, y - 5*tamanio, x + 60*e*tamanio, y - 10*tamanio, x + 60*e*tamanio, y + 115*tamanio, x + 80*e*tamanio, y + 15*tamanio);
 
                     if (auxBold > 1) {
                         x++;
@@ -858,28 +776,16 @@ public class Dibujo {
             if (caracter == 'l') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y+15, x-1, y+40, x+37, y-40, x-3, y-120);
-                pts(textoCoord, root, puntosDeControl, x-1, y+40, x+30, y+15, x, y+60, x+20, y+60);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x-1*e, y+40, x+37*e, y-40, x-3*e, y-120);
+                pts(textoCoord, root, puntosDeControl, x-1*e, y+40, x+30*e, y+15, x, y+60, x+20*e, y+60);
 
-                fun(root, puntosDeControl, x, y + 15, x + 37, y - 40, x - 3, y - 120, x, y + 60, x + 20, y + 60, x - 1, y + 40, x - 1, y + 40, x + 30, y + 15);
+                fun(root, puntosDeControl, x, y + 15, x + 37*e, y - 40, x - 3*e, y - 120, x, y + 60, x + 20*e, y + 60, x - 1*e, y + 40, x - 1*e, y + 40, x + 30*e, y + 15);
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x, y + 15*tamanio, x + 37*tamanio, y - 40*tamanio, x - 3*tamanio, y - 120*tamanio, x - tamanio, y + 40*tamanio); //Curva principal
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x - tamanio, y + 40*tamanio, x, y + 60*tamanio, x + 20*tamanio, y + 60*tamanio, x + 30*tamanio, y + 15*tamanio);  //Curva derecha (conector)
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-
+                    dibujo(root, x, y + 15*tamanio, x + 37*e*tamanio, y - 40*tamanio, x - 3*e*tamanio, y - 120*tamanio, x - tamanio, y + 40*tamanio); //Curva principal
+                    dibujo(root, x - tamanio, y + 40*tamanio, x, y + 60*tamanio, x + 20*e*tamanio, y + 60*tamanio, x + 30*e*tamanio, y + 15*tamanio);  //Curva derecha (conector)
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 30*tamanio;
@@ -890,35 +796,18 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y+15, x+15, y-5, x+80, y-80, x+5, y-60);
-                pts(textoCoord, root, puntosDeControl, x+15, y-5, x+20, y+50, x+15, y+100, x-30, y+10);
-                pts(textoCoord, root, puntosDeControl, x+20, y+50, x+50, y+15, x+45, y+60);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x+15*e, y-5, x+80*e, y-80, x+5*e, y-60);
+                pts(textoCoord, root, puntosDeControl, x+15*e, y-5, x+20*e, y+50, x+15*e, y+100, x-30*e, y+10);
+                pts(textoCoord, root, puntosDeControl, x+20*e, y+50, x+50*e, y+15, x+45*e, y+60);
 
-                fun(root, puntosDeControl, x, y + 15, x + 15, y + 100, x - 30, y + 10, x + 45, y + 60, x + 15, y - 5, x + 15, y - 5, x + 20, y + 50, x + 20, y + 50, x + 50, y + 15);
+                fun(root, puntosDeControl, x, y + 15, x + 15*e, y + 100, x - 30*e, y + 10, x + 45*e, y + 60, x + 15*e, y - 5, x + 15*e, y - 5, x + 20*e, y + 50, x + 20*e, y + 50, x + 50*e, y + 15);
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x, y + 15*tamanio, x + 80*tamanio, y - 80*tamanio, x + 5*tamanio, y - 60*tamanio, x + 15*tamanio, y - 5*tamanio); //Curva principal
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 15*tamanio, y - 5*tamanio, x + 15*tamanio, y + 100*tamanio, x - 30*tamanio, y + 10*tamanio, x + 20*tamanio, y + 50*tamanio); //Semi ovalo
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    QuadCurve qv1 = new QuadCurve(x + 20*tamanio, y + 50*tamanio, x + 45*tamanio, y + 60*tamanio, x + 50*tamanio, y + 15*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(qv1);
-
+                    dibujo(root, x, y + 15*tamanio, x + 80*e*tamanio, y - 80*tamanio, x + 5*e*tamanio, y - 60*tamanio, x + 15*e*tamanio, y - 5*tamanio); //Curva principal
+                    dibujo(root, x + 15*e*tamanio, y - 5*tamanio, x + 15*e*tamanio, y + 100*tamanio, x - 30*e*tamanio, y + 10*tamanio, x + 20*e*tamanio, y + 50*tamanio); //Semi ovalo
+                    dibujo(root, x + 20*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 60*tamanio, x + 50*e*tamanio, y + 15*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 50*tamanio;
@@ -932,42 +821,19 @@ public class Dibujo {
             if (caracter == 'm') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x-1, y+50);
-                pts(textoCoord, root, puntosDeControl, x+8, y+50, x+28, y+48, x+15, y-50);
-                pts(textoCoord, root, puntosDeControl, x+28, y+48, x+48, y+48, x+40, y-50);
-                pts(textoCoord, root, puntosDeControl, x+48, y+48, x+70, x+15, x+50, y+60, x+68, y+65);
-
-                fun(root, puntosDeControl, x, y, x - 1, y + 50, x + 15, y - 50, x + 40, y - 50, x + 50, y + 60, x + 68, y + 65, x + 8, y + 50, x + 8, y + 50, x + 28, y + 48, x + 28, y + 48, x + 48, y + 48, x + 48, y + 48, x + 70, y + 15);
+                pts(textoCoord, root, puntosDeControl, x, y, x+8*e, y+50, x-1*e, y+50);
+                pts(textoCoord, root, puntosDeControl, x+8*e, y+50, x+28*e, y+48, x+15*e, y-50);
+                pts(textoCoord, root, puntosDeControl, x+28*e, y+48, x+48*e, y+48, x+40*e, y-50);
+                pts(textoCoord, root, puntosDeControl, x+48*e, y+48, x+70*e, x+15, x+50*e, y+60, x+68*e, y+65);
+                fun(root, puntosDeControl, x, y, x - 1*e, y + 50, x + 15*e, y - 50, x + 40*e, y - 50, x + 50*e, y + 60, x + 68*e, y + 65, x + 8*e, y + 50, x + 8*e, y + 50, x + 28*e, y + 48, x + 28*e, y + 48, x + 48*e, y + 48, x + 48*e, y + 48, x + 70*e, y + 15);
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x, y, x - tamanio, y + 50*tamanio, x + 8*tamanio, y + 50*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    QuadCurve qv2 = new QuadCurve(x + 8*tamanio, y + 50*tamanio, x + 15*tamanio, y - 50*tamanio, x + 28*tamanio, y + 48*tamanio);
-                    qv2.setFill(Color.TRANSPARENT);
-                    qv2.setStroke(color);
-                    qv2.setStrokeWidth(grosor);
-
-                    QuadCurve qv3 = new QuadCurve(x + 28*tamanio, y + 48*tamanio, x + 40*tamanio, y - 50*tamanio, x + 48*tamanio, y + 48*tamanio);
-                    qv3.setFill(Color.TRANSPARENT);
-                    qv3.setStroke(color);
-                    qv3.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 48*tamanio, y + 48*tamanio, x + 50*tamanio, y + 60*tamanio, x + 68*tamanio, y + 65*tamanio, x + 70*tamanio, y + 15*tamanio); //Curva principal
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(qv1);
-                    root.getChildren().add(qv2);
-                    root.getChildren().add(qv3);
-                    root.getChildren().add(cb2);
-
+                    dibujo(root, x, y, x - tamanio, y + 50*tamanio, x + 8*e*tamanio, y + 50*tamanio);
+                    dibujo(root, x + 8*e*tamanio, y + 50*tamanio, x + 15*e*tamanio, y - 50*tamanio, x + 28*e*tamanio, y + 48*tamanio);
+                    dibujo(root, x + 28*e*tamanio, y + 48*tamanio, x + 40*e*tamanio, y - 50*tamanio, x + 48*e*tamanio, y + 48*tamanio);
+                    dibujo(root, x + 48*e*tamanio, y + 48*tamanio, x + 50*e*tamanio, y + 60*tamanio, x + 68*e*tamanio, y + 65*tamanio, x + 70*e*tamanio, y + 15*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 70*tamanio;
@@ -977,36 +843,19 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
-                pts(textoCoord, root, puntosDeControl, x+15, y+50, x+40, y+40, x+35, y-90);
-                pts(textoCoord, root, puntosDeControl, x+40, y+40, x+65, y+50, x+60, y-83);
+                pts(textoCoord, root, puntosDeControl, x+5*e, y+15, x+15*e, y+50, x-15*e, y-70, x+29*e, y-85);
+                pts(textoCoord, root, puntosDeControl, x+15*e, y+50, x+40*e, y+40, x+35*e, y-90);
+                pts(textoCoord, root, puntosDeControl, x+40*e, y+40, x+65*e, y+50, x+60*e, y-83);
 
-                fun(root, puntosDeControl, x + 5, y + 15, x - 15, y - 70, x + 29, y - 85, x + 35, y - 90, x + 60, y - 83, x + 15, y + 50, x + 15, y + 50, x + 40, y + 40, x + 40, y + 40, x + 65, y + 50);
+                fun(root, puntosDeControl, x + 5*e, y + 15, x - 15*e, y - 70, x + 29*e, y - 85, x + 35*e, y - 90, x + 60*e, y - 83, x + 15*e, y + 50, x + 15*e, y + 50, x + 40*e, y + 40, x + 40*e, y + 40, x + 65*e, y + 50);
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x + 5*tamanio, y + 15*tamanio, x - 15*tamanio, y - 70*tamanio, x + 29*tamanio, y - 85*tamanio, x + 15*tamanio, y + 50*tamanio); // primera curva hacia
+                    dibujo(root, x + 5*e*tamanio, y + 15*tamanio, x - 15*e*tamanio, y - 70*tamanio, x + 29*e*tamanio, y - 85*tamanio, x + 15*e*tamanio, y + 50*tamanio); // primera curva hacia
                     // abajo
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    QuadCurve qv1 = new QuadCurve(x + 15*tamanio, y + 50*tamanio, x + 35*tamanio, y - 90*tamanio, x + 40*tamanio, y + 40*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    QuadCurve qv2 = new QuadCurve(x + 40*tamanio, y + 40*tamanio, x + 60*tamanio, y - 83*tamanio, x + 65*tamanio, y + 50*tamanio);
-                    qv2.setFill(Color.TRANSPARENT);
-                    qv2.setStroke(color);
-                    qv2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(qv1);
-                    root.getChildren().add(qv2);
-
+                    dibujo(root, x + 15*e*tamanio, y + 50*tamanio, x + 35*e*tamanio, y - 90*tamanio, x + 40*e*tamanio, y + 40*tamanio);
+                    dibujo(root, x + 40*e*tamanio, y + 40*tamanio, x + 60*e*tamanio, y - 83*tamanio, x + 65*e*tamanio, y + 50*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 78*tamanio;
@@ -1019,35 +868,18 @@ public class Dibujo {
             if (caracter == 'n') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
-                pts(textoCoord, root, puntosDeControl, x+8, y+50, x+30, y+48, x+30, y-50);
-                pts(textoCoord, root, puntosDeControl, x+30, y+48, x+50, y+15, x+30, y+60, x+45, y+65);
+                pts(textoCoord, root, puntosDeControl, x, y, x+8*e, y+50, x+50*e, y+50);
+                pts(textoCoord, root, puntosDeControl, x+8*e, y+50, x+30*e, y+48, x+30*e, y-50);
+                pts(textoCoord, root, puntosDeControl, x+30*e, y+48, x+50*e, y+15, x+30*e, y+60, x+45*e, y+65);
 
-                fun(root, puntosDeControl, x, y, x + 50, y + 50, x + 30, y - 50, x + 30, y + 60, x + 45, y + 65, x + 8, y + 50, x + 8, y + 50, x + 30, y + 48, x + 30, y + 48, x + 50, y + 15);
+                fun(root, puntosDeControl, x, y, x + 50*e, y + 50, x + 30*e, y - 50, x + 30*e, y + 60, x + 45*e, y + 65, x + 8*e, y + 50, x + 8*e, y + 50, x + 30*e, y + 48, x + 30*e, y + 48, x + 50*e, y + 15);
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x, y, x - tamanio, y + 50*tamanio, x + 8*tamanio, y + 50*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    QuadCurve qv2 = new QuadCurve(x + 8*tamanio, y + 50*tamanio, x + 30*tamanio, y -50*tamanio, x + 30*tamanio, y + 48*tamanio);
-                    qv2.setFill(Color.TRANSPARENT);
-                    qv2.setStroke(color);
-                    qv2.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 30*tamanio, y + 48*tamanio, x + 30*tamanio, y + 60*tamanio, x + 45*tamanio, y + 65*tamanio, x + 50*tamanio, y + 15*tamanio); //Curva principal
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(qv1);
-                    root.getChildren().add(qv2);
-                    root.getChildren().add(cb2);
-
+                    dibujo(root, x, y, x - tamanio, y + 50*tamanio, x + 8*e*tamanio, y + 50*tamanio);
+                    dibujo(root, x + 8*e*tamanio, y + 50*tamanio, x + 30*e*tamanio, y -50*tamanio, x + 30*e*tamanio, y + 48*tamanio);
+                    dibujo(root, x + 30*e*tamanio, y + 48*tamanio, x + 30*e*tamanio, y + 60*tamanio, x + 45*e*tamanio, y + 65*tamanio, x + 50*e*tamanio, y + 15*tamanio); //Curva principal
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 50*tamanio;
@@ -1058,29 +890,15 @@ public class Dibujo {
                 if(caracterAnt != '^' && caracterAnt != '+') {
                     Text t = new Text("\n"+caracter+":");
                     textoCoord.getChildren().add(t);
-                    pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
-                    pts(textoCoord, root, puntosDeControl, x+15, y+50, x+45, y+60, x+40, y-93);
-
-                    fun(root, puntosDeControl, x + 5, y + 15, x - 15, y - 70, x + 29, y - 85, x + 40, y - 93, x + 15, y + 50, x + 15, y + 50, x + 45, y + 60);
+                    pts(textoCoord, root, puntosDeControl, x+5*e, y+15, x+15*e, y+50, x-15*e, y-70, x+29*e, y-85);
+                    pts(textoCoord, root, puntosDeControl, x+15*e, y+50, x+45*e, y+60, x+40*e, y-93);
+                    fun(root, puntosDeControl, x + 5*e, y + 15, x - 15*e, y - 70, x + 29*e, y - 85, x + 40*e, y - 93, x + 15*e, y + 50, x + 15*e, y + 50, x + 45*e, y + 60);
                     while(cont < auxBold) {
-                        CubicCurve cb1 = new CubicCurve(x + 5*tamanio, y + 15*tamanio, x - 15*tamanio, y - 70*tamanio, x + 29*tamanio, y - 85*tamanio, x + 15*tamanio, y + 50*tamanio); // primera curva hacia
-                        // abajo
-                        cb1.setFill(Color.TRANSPARENT);
-                        cb1.setStroke(color);
-                        cb1.setStrokeWidth(grosor);
-
-                        QuadCurve qv1 = new QuadCurve(x + 15*tamanio, y + 50*tamanio, x + 40*tamanio, y - 93*tamanio, x + 45*tamanio, y + 60*tamanio);
-                        qv1.setFill(Color.TRANSPARENT);
-                        qv1.setStroke(color);
-                        qv1.setStrokeWidth(grosor);
-
-                        root.getChildren().add(cb1);
-                        root.getChildren().add(qv1);
-
+                        dibujo(root, x + 5*e*tamanio, y + 15*tamanio, x - 15*e*tamanio, y - 70*tamanio, x + 29*e*tamanio, y - 85*tamanio, x + 15*e*tamanio, y + 50*tamanio); //1era curva hacia abajo
+                        dibujo(root, x + 15*e*tamanio, y + 50*tamanio, x + 40*e*tamanio, y - 93*tamanio, x + 45*e*tamanio, y + 60*tamanio);
                         if(auxBold > 1){
                             x++;
                         }
-
                         cont++;
                     }
                     x = x + 55*tamanio;
@@ -1097,36 +915,15 @@ public class Dibujo {
             if (caracter == 'ñ') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y, x+8, y+50, x+50, y+50);
-                pts(textoCoord, root, puntosDeControl, x+8, y+50, x+30, y+48, x+30, y-50);
-                pts(textoCoord, root, puntosDeControl, x+30, y+48, x+50, y+15, x+30, y+60, x+45, y+65);
-
-                fun(root, puntosDeControl, x, y, x + 50, y + 50, x + 30, y - 50, x + 30, y + 60, x + 45, y + 65, x + 8, y + 50, x + 8, y + 50, x + 30, y + 48, x + 30, y + 48, x + 50, y + 15);
+                pts(textoCoord, root, puntosDeControl, x, y, x+8*e, y+50, x+50*e, y+50);
+                pts(textoCoord, root, puntosDeControl, x+8*e, y+50, x+30*e, y+48, x+30*e, y-50);
+                pts(textoCoord, root, puntosDeControl, x+30*e, y+48, x+50*e, y+15, x+30*e, y+60, x+45*e, y+65);
+                fun(root, puntosDeControl, x, y, x + 50*e, y + 50, x + 30*e, y - 50, x + 30*e, y + 60, x + 45*e, y + 65, x + 8*e, y + 50, x + 8*e, y + 50, x + 30*e, y + 48, x + 30*e, y + 48, x + 50*e, y + 15);
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x, y, x - tamanio, y + 50*tamanio, x + 8*tamanio, y + 50*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    QuadCurve qv2 = new QuadCurve(x + 8*tamanio, y + 50*tamanio, x + 30*tamanio, y - 50*tamanio, x + 30*tamanio, y + 48*tamanio);
-                    qv2.setFill(Color.TRANSPARENT);
-                    qv2.setStroke(color);
-                    qv2.setStrokeWidth(grosor);
-
-                    CubicCurve cb1 = new CubicCurve(x + 30*tamanio, y + 48*tamanio, x + 30*tamanio, y + 60*tamanio, x + 45*tamanio, y + 65*tamanio, x + 50*tamanio, y + 15*tamanio); //Curva principal
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 15*tamanio, y - 15*tamanio, x + 20*tamanio, y - 25*tamanio, x + 25*tamanio, y - 5*tamanio, x + 30*tamanio, y - 15*tamanio);
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(qv1);
-                    root.getChildren().add(qv2);
+                    dibujo(root, x, y, x - tamanio, y + 50*tamanio, x + 8*e*tamanio, y + 50*tamanio);
+                    dibujo(root, x + 8*e*tamanio, y + 50*tamanio, x + 30*e*tamanio, y -50*tamanio, x + 30*e*tamanio, y + 48*tamanio);
+                    dibujo(root, x + 30*e*tamanio, y + 48*tamanio, x + 30*e*tamanio, y + 60*tamanio, x + 45*e*tamanio, y + 65*tamanio, x + 50*e*tamanio, y + 15*tamanio); //Curva principal
+                    dibujo(root, x + 15*e*tamanio, y - 15*tamanio, x + 20*e*tamanio, y - 25*tamanio, x + 25*e*tamanio, y - 5*tamanio, x + 30*e*tamanio, y - 15*tamanio);
 
                     if(auxBold > 1){
                         x++;
@@ -1141,32 +938,15 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x+5, y+15, x+15, y+50, x-15, y-70, x+29, y-85);
-                pts(textoCoord, root, puntosDeControl, x+15, y+50, x+45, y+60, x+40, y-93);
-                pts(textoCoord, root, puntosDeControl, x+25, y-40, x+45, y-40, x+30, y-50, x+40, y-30);
+                pts(textoCoord, root, puntosDeControl, x+5*e, y+15, x+15*e, y+50, x-15*e, y-70, x+29*e, y-85);
+                pts(textoCoord, root, puntosDeControl, x+15*e, y+50, x+45*e, y+60, x+40*e, y-93);
+                pts(textoCoord, root, puntosDeControl, x+25*e, y-40, x+45*e, y-40, x+30*e, y-50, x+40*e, y-30);
 
-                fun(root, puntosDeControl, x + 5, y + 15, x + 30, y - 50, x + 40, y - 30, x - 15, y - 70, x + 29, y - 85, x + 40, y - 93, x + 15, y + 50, x + 15, y + 50, x + 45, y + 60);
+                fun(root, puntosDeControl, x + 5*e, y + 15, x - 15*e, y - 70, x + 29*e, y - 85, x + 40*e, y - 93, x + 15*e, y + 50, x + 15*e, y + 50, x + 45*e, y + 60);
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x + 5*tamanio, y + 15*tamanio, x - 15*tamanio, y - 70*tamanio, x + 29*tamanio, y - 85*tamanio, x + 15*tamanio, y + 50*tamanio); // primera curva hacia
-                    // abajo
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    QuadCurve qv1 = new QuadCurve(x + 15*tamanio, y + 50*tamanio, x + 40*tamanio, y - 93*tamanio, x + 45*tamanio, y + 60*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 25*tamanio, y - 40*tamanio, x + 30*tamanio, y - 50*tamanio, x + 40*tamanio, y - 30*tamanio, x + 45*tamanio, y - 40*tamanio);
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(qv1);
-
+                    dibujo(root, x + 5*e*tamanio, y + 15*tamanio, x - 15*e*tamanio, y - 70*tamanio, x + 29*e*tamanio, y - 85*tamanio, x + 15*e*tamanio, y + 50*tamanio); //1era curva hacia abajo
+                    dibujo(root, x + 15*e*tamanio, y + 50*tamanio, x + 40*e*tamanio, y - 93*tamanio, x + 45*e*tamanio, y + 60*tamanio);
+                    dibujo(root, x + 25*e*tamanio, y - 40*tamanio, x + 30*e*tamanio, y - 50*tamanio, x + 40*e*tamanio, y - 30*tamanio, x + 45*e*tamanio, y - 40*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
@@ -1183,50 +963,23 @@ public class Dibujo {
             if (caracter == 'o' || caracter == 'ó') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y+20, x+30, y+20, x, y+60, x+30, y+60);
-                pts(textoCoord, root, puntosDeControl, x+30, y+20, x, y+20, x+30, y-5, x, y-5);
-                pts(textoCoord, root, puntosDeControl, x+5, y+6, x+50, y+15, x+30, y+50);
-
-                fun(root, puntosDeControl, x, y + 20, x, y + 60, x + 30, y + 60, x + 30, y + 20, x + 30, y + 20, x + 30, y - 5, x, y - 5, x, y + 20, x + 5, y + 6, x + 30, y + 50, x + 50, y + 15);
+                pts(textoCoord, root, puntosDeControl, x, y+20, x+30*e, y+20, x, y+60, x+30*e, y+60);
+                pts(textoCoord, root, puntosDeControl, x+30*e, y+20, x, y+20, x+30*e, y-5, x, y-5);
+                pts(textoCoord, root, puntosDeControl, x+5*e, y+6, x+50*e, y+15, x+30*e, y+50);
+                fun(root, puntosDeControl, x, y + 20, x, y + 60, x + 30*e, y + 60, x + 30*e, y + 20, x + 30*e, y + 20, x + 30*e, y - 5, x, y - 5, x, y + 20, x + 5*e, y + 6, x + 30*e, y + 50, x + 50*e, y + 15);
                 while(cont < auxBold) {
-
-                    CubicCurve cb1 = new CubicCurve(x, y + 20*tamanio, x, y + 60*tamanio, x + 30*tamanio, y + 60*tamanio, x + 30*tamanio, y + 20*tamanio); //Curva principal
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 30*tamanio, y + 20*tamanio, x + 30*tamanio, y - 5*tamanio, x, y - 5*tamanio, x, y + 20*tamanio);
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    QuadCurve qv1 = new QuadCurve(x + 5*tamanio, y + 6*tamanio, x + 30*tamanio, y + 50*tamanio, x + 50*tamanio, y + 15*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-
+                    dibujo(root, x, y + 20*tamanio, x, y + 60*tamanio, x + 30*e*tamanio, y + 60*tamanio, x + 30*e*tamanio, y + 20*tamanio); //Curva principal
+                    dibujo(root, x + 30*e*tamanio, y + 20*tamanio, x + 30*e*tamanio, y - 5*tamanio, x, y - 5*tamanio, x, y + 20*tamanio);
+                    dibujo(root, x + 5*e*tamanio, y + 6*tamanio, x + 30*e*tamanio, y + 50*tamanio, x + 50*e*tamanio, y + 15*tamanio);
                     if (caracter == 'ó') {
-                        Line tilde = new Line(x + 20*tamanio, y - 10*tamanio, x + 35*tamanio, y - 30*tamanio);
-                        tilde.setFill(Color.TRANSPARENT);
-                        tilde.setStroke(color);
-                        tilde.setStrokeWidth(grosor);
-
+                        dibujo(root, x + 20*e*tamanio, y - 10*tamanio, x + 35*e*tamanio, y - 30*tamanio);
                         if(cont < 1){
                             pts(textoCoord, root, puntosDeControl, x+20, y-10, x+35, y-30);
                             fun(root, puntosDeControl, x + 20, y - 10, x + 35, y - 30);
                         }
-
-
-                        root.getChildren().add(tilde);
-
                     }
                     Text t8 = new Text("\n");
                     textoCoord.getChildren().add(t8);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(qv1);
 
                     if(auxBold > 1){
                         x++;
@@ -1241,43 +994,24 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x+13, y-10, x+57, y-10, x, y+70, x+57, y+70);
-                pts(textoCoord, root, puntosDeControl, x+57, y-10, x+45, y+10, x+40, y-125, x-55, y+50);
-
-                fun(root, puntosDeControl, x + 13, y - 10, x, y + 70, x + 57, y + 70, x + 57, y - 10, x + 57, y - 10, x + 40, y - 125, x - 55, y + 50, x + 45, y + 10);
+                pts(textoCoord, root, puntosDeControl, x+13*e, y-10, x+57*e, y-10, x, y+70, x+57*e, y+70);
+                pts(textoCoord, root, puntosDeControl, x+57*e, y-10, x+45*e, y+10, x+40*e, y-125, x-55*e, y+50);
+                fun(root, puntosDeControl, x + 13*e, y - 10, x, y + 70, x + 57*e, y + 70, x + 57*e, y - 10, x + 57*e, y - 10, x + 40*e, y - 125, x - 55*e, y + 50, x + 45*e, y + 10);
                 while(cont < auxBold) {
-
-                    CubicCurve cb1 = new CubicCurve(x + 13*tamanio, y - 10*tamanio, x, y + 70*tamanio, x + 57*tamanio, y + 70*tamanio, x + 57*tamanio, y - 10*tamanio); //Curva principal
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 57*tamanio, y - 10*tamanio, x + 40*tamanio, y - 125*tamanio, x - 55*tamanio, y + 50*tamanio, x + 45*tamanio, y + 10*tamanio); //Semi ovalo
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
+                    dibujo(root, x + 13*e*tamanio, y - 10*tamanio, x, y + 70*tamanio, x + 57*e*tamanio, y + 70*tamanio, x + 57*e*tamanio, y - 10*tamanio);
+                    dibujo(root, x + 57*e*tamanio, y - 10*tamanio, x + 40*e*tamanio, y - 125*tamanio, x - 55*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 10*tamanio);
                     if (caracter == 'Ó') {
-                        Line tilde = new Line(x + 20*tamanio, y - 60*tamanio, x + 35*tamanio, y - 80*tamanio);
-                        tilde.setFill(Color.TRANSPARENT);
-                        tilde.setStroke(color);
-                        tilde.setStrokeWidth(grosor);
-
+                        dibujo(root, x + 20*e*tamanio, y - 60*tamanio, x + 35*e*tamanio, y - 80*tamanio);
                         if(cont < 1) {
                             pts(textoCoord, root, puntosDeControl, x + 20, y - 60, x + 35, y - 80);
                             fun(root, puntosDeControl, x + 20, y - 60, x + 35, y - 80);
                         }
-                        root.getChildren().add(tilde);
                     }
                     Text t6 = new Text("\n");
                     textoCoord.getChildren().add(t6);
-
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 65*tamanio;
@@ -1290,42 +1024,19 @@ public class Dibujo {
             if (caracter == 'p') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y, x, y+85, x-2, y+15);
-                pts(textoCoord, root, puntosDeControl, x+1, y+15, x+25, y+50, x+40, y-15, x+35, y+50);
-                pts(textoCoord, root, puntosDeControl, x+25, y+50, x+30, y+35, x, y+60, x, y+30);
-                pts(textoCoord, root, puntosDeControl, x+30, y+35, x+55, y+15, x+40, y+30);
-
-                fun(root, puntosDeControl, x, y, x, y + 85, x - 2, y + 15, x + 1, y + 15, x + 25, y + 50, x + 40, y - 15, x + 35, y + 50, x + 25, y + 50, x + 30, y + 35, x, y + 60, x, y + 30, x + 30, y + 35, x + 55, y + 15, x + 40, y + 30);
+                pts(textoCoord, root, puntosDeControl, x, y, x, y+85, x-2*e, y+15);
+                pts(textoCoord, root, puntosDeControl, x+1*e, y+15, x+25*e, y+50, x+40*e, y-15, x+35*e, y+50);
+                pts(textoCoord, root, puntosDeControl, x+25*e, y+50, x+30*e, y+35, x, y+60, x, y+30);
+                pts(textoCoord, root, puntosDeControl, x+30*e, y+35, x+55*e, y+15, x+40*e, y+30);
+                fun(root, puntosDeControl, x, y, x, y + 85, x - 2*e, y + 15, x + 1*e, y + 15, x + 25*e, y + 50, x + 40*e, y - 15, x + 35*e, y + 50, x + 25*e, y + 50, x + 30*e, y + 35, x, y + 60, x, y + 30, x + 30*e, y + 35, x + 55*e, y + 15, x + 40*e, y + 30);
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x, y, x - 2*tamanio, y + 15*tamanio, x, y + 85*tamanio);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    CubicCurve cb1 = new CubicCurve(x + tamanio, y + 15*tamanio, x + 40*tamanio, y - 15*tamanio, x + 35*tamanio, y + 50*tamanio, x + 25*tamanio, y + 50*tamanio); //Curva principal
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 25*tamanio, y + 50*tamanio, x, y + 60*tamanio, x, y + 30*tamanio, x + 30*tamanio, y + 35*tamanio); //Curva principal
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-                    QuadCurve d = new QuadCurve(x + 30*tamanio, y + 35*tamanio, x + 40*tamanio, y + 30*tamanio, x + 55*tamanio, y + 15*tamanio);
-                    d.setFill(Color.TRANSPARENT);
-                    d.setStroke(color);
-                    d.setStrokeWidth(grosor);
-
-                    root.getChildren().add(qv1);
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(d);
-
+                    dibujo(root, x, y, x - 2*e*tamanio, y + 15*tamanio, x, y + 85*tamanio);
+                    dibujo(root, x + tamanio, y + 15*tamanio, x + 40*e*tamanio, y - 15*tamanio, x + 35*e*tamanio, y + 50*tamanio, x + 25*e*tamanio, y + 50*tamanio);
+                    dibujo(root, x + 25*e*tamanio, y + 50*tamanio, x, y + 60*tamanio, x, y + 30*tamanio, x + 30*e*tamanio, y + 35*tamanio);
+                    dibujo(root, x + 30*e*tamanio, y + 35*tamanio, x + 40*e*tamanio, y + 30*tamanio, x + 55*e*tamanio, y + 15*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 55*tamanio;
@@ -1335,30 +1046,16 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y+15, x+25, y+85, x, y-70, x+30, y-90);
-                pts(textoCoord, root, puntosDeControl, x+24, y-20, x+26, y+30, x+60, y-110, x+70, y+60);
-
-                fun(root, puntosDeControl, x, y + 15, x, y - 70, x + 30, y - 90, x + 60, y - 110, x + 70, y + 60, x + 25, y + 85, x + 24, y - 20, x + 26, y + 30);
+                pts(textoCoord, root, puntosDeControl, x, y+15, x+25*e, y+85, x, y-70, x+30*e, y-90);
+                pts(textoCoord, root, puntosDeControl, x+24*e, y-20, x+26*e, y+30, x+60*e, y-110, x+70*e, y+60);
+                fun(root, puntosDeControl, x, y + 15, x, y - 70, x + 30*e, y - 90, x + 60*e, y - 110, x + 70*e, y + 60, x + 25*e, y + 85, x + 24*e, y - 20, x + 26*e, y + 30);
                 while(cont < auxBold) {
-                    CubicCurve cb1 = new CubicCurve(x, y + 15*tamanio, x, y - 70*tamanio, x + 30*tamanio, y - 90*tamanio, x + 25*tamanio, y + 85*tamanio); // primera curva hacia
+                    dibujo(root, x, y + 15*tamanio, x, y - 70*tamanio, x + 30*e*tamanio, y - 90*tamanio, x + 25*e*tamanio, y + 85*tamanio); // primera curva hacia
                     // abajo
-                    cb1.setFill(Color.TRANSPARENT);
-                    cb1.setStroke(color);
-                    cb1.setStrokeWidth(grosor);
-
-                    CubicCurve cb2 = new CubicCurve(x + 24*tamanio, y - 20*tamanio, x + 60*tamanio, y - 110*tamanio, x + 70*tamanio, y + 60*tamanio, x + 26*tamanio, y + 30*tamanio); //Curva principal
-                    cb2.setFill(Color.TRANSPARENT);
-                    cb2.setStroke(color);
-                    cb2.setStrokeWidth(grosor);
-
-
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-
+                    dibujo(root, x + 24*e*tamanio, y - 20*tamanio, x + 60*e*tamanio, y - 110*tamanio, x + 70*e*tamanio, y + 60*tamanio, x + 26*e*tamanio, y + 30*tamanio); //Curva principal
                     if(auxBold > 1){
                         x++;
                     }
-
                     cont++;
                 }
                 x = x + 58*tamanio;
