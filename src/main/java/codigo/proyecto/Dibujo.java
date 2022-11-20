@@ -1,13 +1,11 @@
 package codigo.proyecto;
 
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.CubicCurve;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.QuadCurve;
+import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -18,6 +16,7 @@ import java.util.Scanner;
 public class Dibujo {
     int x;
     int y;
+    int xinicial, yinicial;
     //int yi = 100;
     int aux = 0;
     int grosor = 4;
@@ -28,6 +27,7 @@ public class Dibujo {
     //-----------------------
     //variables para negrita
     int auxBold = 1;
+    boolean espejo = false;
 
     int xTras = 0;
     int yTras = 0;
@@ -89,6 +89,7 @@ public class Dibujo {
                 puntosdeControl.setText("Ocultar puntos de control");
             }
         }
+
     }
 
     public void Subrayar(int xa,int ya,int xb, AnchorPane root){
@@ -124,6 +125,8 @@ public class Dibujo {
             if(tras == false){
                 x = 30;
                 y = 100;
+                xinicial=200;
+                yinicial=400;
             }else{
                 x = xTras;
                 y = yTras;
@@ -143,13 +146,6 @@ public class Dibujo {
             xInicialSu = x;
             yInicialSu = y + 55*tamanio;
         }
-        if (caracter == ' ') {
-            if (x != 30) {
-                x = x + 50;
-            }
-            auxSub = false;
-            auxBold = 1;
-        }
 
         if(estilo.contains("N")){
             auxBold = 4;
@@ -160,7 +156,7 @@ public class Dibujo {
             xInicialSu = x;
             yInicialSu = y + 55;
         }
-
+        ArrayList<Shape> objetos = new ArrayList<Shape>();
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
@@ -169,45 +165,37 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x+30, y+10, x+25, y+30, x-5, y-30, x-20, y+85);
-                pts(textoCoord, root, puntosDeControl, x+35, y, x+60, y+15, x+10, y+60, x+50, y+65);
-
-                fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
 
                 while(cont < auxBold){
-                    CubicCurve c = new CubicCurve(x + 30*tamanio, y + 10*tamanio, x - 5*tamanio, y - 30*tamanio, x- 20*tamanio, y + 85*tamanio, x + 25*tamanio, y + 30*tamanio);
-                    c.setFill(Color.TRANSPARENT);
-                    c.setStroke(color);
-                    c.setStrokeWidth(grosor);
+                    if (espejo) {
+                        pts(textoCoord, root, puntosDeControl, x - 30, y + 10, x - 25, y + 30, x + 5, y - 30, x + 20, y + 85);
+                        pts(textoCoord, root, puntosDeControl, x - 35, y, x - 60, y + 15, x - 10, y + 60, x - 50, y + 65);dibujo(root, x - 30 * tamanio, y + 10 * tamanio, x + 5 * tamanio, y - 30 * tamanio, x + 20 * tamanio, y + 85 * tamanio, x - 25 * tamanio, y + 30 * tamanio);
+                        dibujo(root, x - 35 * tamanio, y, x - 10 * tamanio, y + 60 * tamanio, x - 50 * tamanio, y + 65 * tamanio, x - 60 * tamanio, y + 15 * tamanio);
+                    } else {
+                        pts(textoCoord, root, puntosDeControl, x + 30, y + 10, x + 25, y + 30, x - 5, y - 30, x - 20, y + 85);
+                        pts(textoCoord, root, puntosDeControl, x + 35, y, x + 60, y + 15, x + 10, y + 60, x + 50, y + 65);
 
+                        fun(root, puntosDeControl, x + 30, y + 10, x - 5, y - 30, x - 20, y + 85, x + 25, y + 30, x + 35, y, x + 10, y + 60, x + 50, y + 65, x + 60, y + 15);
 
-                    CubicCurve c2 = new CubicCurve(x+ 35*tamanio, y, x + 10*tamanio, y + 60*tamanio, x + 50*tamanio, y + 65*tamanio, x + 60*tamanio, y + 15*tamanio);
-                    c2.setFill(Color.TRANSPARENT);
-                    c2.setStroke(color);
-                    c2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(c);
-                    root.getChildren().add(c2);
-
+                        dibujo(root, x +30 * tamanio, y + 10 * tamanio, x - 5 * tamanio, y - 30 * tamanio, x - 20 * tamanio, y + 85 * tamanio, x + 25 * tamanio, y + 30 * tamanio);
+                        dibujo(root, x + 35 * tamanio, y, x + 10 * tamanio, y + 60 * tamanio, x + 50 * tamanio, y + 65 * tamanio, x + 60 * tamanio, y + 15 * tamanio);
+                    }
                     if (caracter == 'á') {
-                        Line tilde = new Line(x + 15*tamanio, y - 10*tamanio, x + 30*tamanio, y - 30*tamanio);
+                        Line tilde = new Line(x + 15 * tamanio, y - 10 * tamanio, x + 30 * tamanio, y - 30 * tamanio);
                         tilde.setFill(Color.TRANSPARENT);
                         tilde.setStroke(color);
                         tilde.setStrokeWidth(grosor);
-
-                        if(cont < 1){
-                            pts(textoCoord, root, puntosDeControl, x+15, y-10, x+30, y-30);
+                        if (cont < 1) {
+                            pts(textoCoord, root, puntosDeControl, x + 15, y - 10, x + 30, y - 30);
                             fun(root, puntosDeControl, x + 15, y - 10, x + 30, y - 30);
                         }
-
-                        root.getChildren().add(tilde);
                     }
-
                     if(auxBold > 1){
                         x++;
                     }
                     cont++;
                 }
+                xinicial=xinicial+60*tamanio;
                 x=x+60*tamanio;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, root);
@@ -306,6 +294,10 @@ public class Dibujo {
                     root.getChildren().add(cb1);
                     root.getChildren().add(cb2);
                     root.getChildren().add(cb3);
+
+                    objetos.add(cb1);
+                    objetos.add(cb2);
+                    objetos.add(cb3);
 
                     if(auxBold > 1){
                         x++;
@@ -924,6 +916,9 @@ public class Dibujo {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, root, puntosDeControl, x+2, y, x+40, y+15, x-10, y+80, x+30, y+40);
+                int aux = ((y+15)*(tamanio)*2)-35, dif1 = 15, dif2 = -65, dif3 = -25, difPunto = 25;
+                dibujo(root, (x + 2)*tamanio, aux+dif1, (x - 10)*tamanio, aux+dif2, (x + 30)*tamanio, aux+dif3, (x + 40)*tamanio, aux);
+                dibujo(root, (x + 3)*tamanio, aux+difPunto, tamanio);
 
                 fun(root, puntosDeControl, x + 2, y, x - 10, y + 80, x + 30, y + 40, x + 40, y + 15);
                 while(cont < auxBold) {
@@ -2792,6 +2787,10 @@ public class Dibujo {
                 }
             }
         }
+        for (Node s : root.getChildren()){
+            s.setLayoutY(60 - (60*tamanio));
+            s.setLayoutX(60 - (60*tamanio));
+        }
     }
 
     public void Simbolos(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
@@ -2822,7 +2821,7 @@ public class Dibujo {
         }
         if (caracter == ' ') {
             if (x != 30) {
-                x = x + 50*tamanio;
+                x = x + 50+(50*tamanio);
             }
             auxSub = false;
             auxBold = 1;
@@ -3595,7 +3594,6 @@ public class Dibujo {
 
     public void pts(TextFlow textoCoord, AnchorPane root, ToggleButton puntosdeControl, int... lista){
 
-
         if(lista.length == 8) {
             Text t1 = new Text(String.format("\n%s%-4s %s%-6s %s%-4s %s%s", "X1:", lista[0], "Y1:" , lista[1], "X2:", lista[2], "Y2:", lista[3]));
             Text t2 = new Text(String.format("\n%s%-4s %s%-6s %s%-4s %s%s\n", "X3:", lista[4], "Y3:" , lista[5], "X4:", lista[6], "Y4:", lista[7]));
@@ -3623,6 +3621,39 @@ public class Dibujo {
         }
     }
 
+    public void dibujo(AnchorPane root, int... lista){
+        if(lista.length == 8) {
+            //cubica
+            CubicCurve c1 = new CubicCurve(lista[0], lista[1], lista[2], lista[3], lista[4], lista[5], lista[6], lista[7]);
+            c1.setFill(Color.TRANSPARENT);
+            c1.setStroke(color);
+            c1.setStrokeWidth(grosor);
+
+            root.getChildren().add(c1);
+        }
+        else if(lista.length == 6) {
+            //cuadratica
+        }
+        else if(lista.length == 4) {
+            //linea
+            Line l = new Line(lista[0], lista[1], lista[2], lista[3]);
+            l.setFill(Color.TRANSPARENT);
+            l.setStroke(color);
+            l.setStrokeWidth(grosor);
+
+            root.getChildren().add(l);
+        }
+        else if(lista.length == 3) {
+            //punto
+            Circle p = new Circle(lista[0], lista[1], lista[2]);
+            p.setFill(Color.TRANSPARENT);
+            p.setStroke(color);
+            p.setStrokeWidth(grosor);
+
+            root.getChildren().add(p);
+        }
+    }
+
     public void Cursivas(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio){
         int curv=25;
 
@@ -3645,13 +3676,13 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            if(!tras) {
-                x = 30;
-                y = y + 150;
-                xInicialSu = x;
-                yInicialSu = y + 55;
-            }
+
+            x = 30;
+            y = y + 150;
+            xInicialSu = x;
+            yInicialSu = y + 55;
         }
+
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
@@ -6418,9 +6449,12 @@ public class Dibujo {
 
         if (borrar == 1) {
 
-            if(!tras){
+            if(tras == false){
                 x = 30;
                 y = 100;
+            }else{
+                x = xTras;
+                y = yTras;
             }
 
         }
@@ -6432,13 +6466,13 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            if(!tras) {
-                x = 30;
-                y = y + 150;
-                xInicialSu = x;
-                yInicialSu = y + 55;
-            }
+
+            x = 30;
+            y = y + 150;
+            xInicialSu = x;
+            yInicialSu = y + 55;
         }
+
         if (caracter == ' ') {
             if (x != 30) {
                 x = x + 50;
