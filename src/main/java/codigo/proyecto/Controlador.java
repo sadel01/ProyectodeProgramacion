@@ -1,6 +1,5 @@
 package codigo.proyecto;
 
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,23 +8,19 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import java.net.URL;
-import java.nio.channels.Selector;
 import java.util.ResourceBundle;
 
-public class Controlador extends Dibujo implements Initializable{
-    String tamanio="";
-    int numTam=1;
-    int a=0;
+public class Controlador extends Dibujo implements Initializable {
+    String tamanio = "";
+    int numTam = 1;
+    int a = 0;
     @FXML
     private AnchorPane root;
 
@@ -45,24 +40,38 @@ public class Controlador extends Dibujo implements Initializable{
     private ToggleButton puntosDeControl;
 
     @FXML
+    private ToggleButton botonTraslacion;
+
+    @FXML
     private ToggleButton botonEspejo;
 
     @FXML
     private ScrollPane scrollPane;
 
+    @FXML
+    private VBox vbox;
 
     @FXML
-    private void obtenerLetra(KeyEvent event) {
+    private Text T;
+
+    @FXML
+    private BorderPane bord;
+
+
+    private void obtenerLetra() {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
         String frase = " " + CuadroTexto.getText();
         root.getChildren().clear();
+        root.getChildren().add(T);
         textoCoord.getChildren().clear();
         boolean cursiva = false;
 
+        String estilos = EstilodePalabras(frase);
+
         for (int i = 0; i < frase.length(); i++) {
 
-            if(frase.contains("^R")){
+            if (frase.contains("^R")) {
 
                 String fraseAux = " ";
 
@@ -71,41 +80,37 @@ public class Controlador extends Dibujo implements Initializable{
                 }
 
                 frase = InvertirOrden(fraseAux);
-
-                System.out.println(frase);
             }
 
 
-
-            if(i>=3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i-1)=='T' && frase.charAt(i-2)=='^'){
-                a=1;
-                tamanio=tamanio+frase.charAt(i);
-            } else if (a==1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
-                tamanio=tamanio+frase.charAt(i);
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'T' && frase.charAt(i - 2) == '^') {
+                a = 1;
+                tamanio = tamanio + frase.charAt(i);
+            } else if (a == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                tamanio = tamanio + frase.charAt(i);
+            } else if (frase.charAt(i) == ' ') {
+                a = 0;
+                tamanio = "";
+                numTam = 1;
+                estilos = "";
             }
-            else if(frase.charAt(i)==' '){
-                a=0;
-                tamanio="";
-                numTam=1;
-            }
 
-            if(tamanio.length()!=0) {
+            if (tamanio.length() != 0) {
                 numTam = Integer.parseInt(tamanio);
             }
 
             if (i == 0) {
-                if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                    Letras(" ", frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
 
-                }
-                else{
-                    Simbolos(frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                } else {
+                    Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
                 }
 
             } else {
 
                 if (frase.charAt(i) == 'K') {
-                    if (frase.charAt(i-1) == '^') {
+                    if (frase.charAt(i - 1) == '^' || frase.charAt(i - 1) == '+') {
                         cursiva = true;
                     }
                 }
@@ -114,21 +119,18 @@ public class Controlador extends Dibujo implements Initializable{
                     cursiva = false;
                 }
 
-                if(String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                     if (cursiva) {
-                        Cursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        Cursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    } else {
+                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                     }
-                    else {
-                        Letras(" ", frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                    }
-                }
-                else{
+                } else {
                     if (cursiva) {
-                        SimbolosCursivas(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
-                    }
-                    else {
-                        Simbolos(frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                    } else {
+                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                     }
                 }
 
@@ -142,21 +144,21 @@ public class Controlador extends Dibujo implements Initializable{
 
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
-            botonEspejo.setDisable(true);
         } else {
             puntosDeControl.setDisable(false);
+            botonTraslacion.setDisable(false);
             botonEspejo.setDisable(false);
         }
     }
 
-    private String InvertirOrden(String palabra){
-        String palabraInvertida = "";
-        char car;
+    private String InvertirOrden(String palabra) {
 
-        for (int i = 0; i < palabra.length(); i++) {
+        String p[] = palabra.split(" ");
 
-            car = palabra.charAt(i);
-            palabraInvertida = car + palabraInvertida;
+        String palabraInvertida = " ";
+
+        for (int i = p.length - 1; i >= 0; i--) {
+            palabraInvertida = palabraInvertida + p[i] + " ";
         }
 
         return palabraInvertida;
@@ -196,11 +198,99 @@ public class Controlador extends Dibujo implements Initializable{
             rectColor.setFill(Color.PINK);
             rectColor.setStroke(Color.PINK);
         }
+
+        obtenerLetra();
     }
 
     private void activarEspejo() {
         espejo = botonEspejo.isSelected();
+
+        if (botonEspejo.isSelected()){
+            botonEspejo.setText("Desactivar espejo");
+        }else{
+            botonEspejo.setText("Activar espejo");
+        }
+
+        obtenerLetra();
     }
+    public String EstilodePalabras(String frase) {
+
+        String p[] = frase.split(" ");
+
+        for (int i = 0; i < p.length; i++) {
+
+            String estilos = "";
+
+            if (p[i].contains("^N") || p[i].contains("^S") || p[i].contains("^K")) {
+
+                if (p[i].contains("^S") || p[i].contains("+S")) {
+                    estilos = estilos + "S";
+                }
+
+                if (p[i].contains("^N") || p[i].contains("+N")) {
+                    estilos = estilos + "N";
+                }
+
+                if (p[i].contains("^K") || p[i].contains("+K")) {
+                    estilos = estilos + "K";
+                }
+
+                return estilos;
+            }
+        }
+        return "";
+    }
+
+    @FXML
+    void activarTraslacion() {
+
+        if (botonTraslacion.isSelected()){
+
+            vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
+            {
+                @Override
+                public void handle(MouseEvent ev) {
+                    int xNuevo = (int)ev.getSceneX() - 50;
+                    int yNuevo = (int)ev.getSceneY() - 100;
+                    traslacion(xNuevo, yNuevo);
+                    obtenerLetra();
+                }
+            });
+
+            vbox.setCursor(Cursor.HAND);
+
+            vbox.setOnMouseMoved(e -> {
+
+                T.setText("X:" + (int)e.getX() + "\nY:" + (int)e.getY() + "");
+                T.setX(e.getSceneX());
+                T.setY(e.getSceneY());
+
+                if (T.getX() > scrollPane.getWidth() - 110){
+                    T.setLayoutX(-105);
+                }else{
+                    T.setLayoutX(0);
+                }
+
+                if (T.getY() > scrollPane.getHeight() - 60){
+                    T.setLayoutY(-100);
+                }else{
+                    T.setLayoutY(15);
+                }
+
+            });
+
+            botonTraslacion.setText("Desactivar traslación");
+        }else{
+            vbox.setOnMouseClicked(null);
+            vbox.setOnMouseMoved(null);
+            T.setText("");
+            vbox.setCursor(Cursor.DEFAULT);
+            botonTraslacion.setText("Activar traslación");
+        }
+
+    }
+
+
 
 
     @Override
@@ -208,14 +298,30 @@ public class Controlador extends Dibujo implements Initializable{
         Colores.getItems().addAll("Azul", "Celeste", "Gris", "Morado", "Naranjo", "Negro", "Rojo", "Rosado", "Verde", "Violeta");
         Colores.setStyle("-fx-font-size: 15px; -fx-font-weight: bold; -fx-font-family: Arial");
         Colores.setValue("Negro");
-        Colores.setOnAction(actionEvent -> {
-            SelectorColor(Colores.getValue());
-            ColorRectangulo();
-        });
+        Colores.setOnAction(actionEvent -> { SelectorColor(Colores.getValue()); ColorRectangulo();});
         puntosDeControl.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
+        botonTraslacion.setCursor(Cursor.HAND);
+        botonTraslacion.setOnAction(actionEvent -> activarTraslacion());
+        CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
         botonEspejo.setOnAction(actionEvent -> activarEspejo());
+
+        vbox.widthProperty().addListener((observable, oldValue, newValue) ->
+                {
+                    if (newValue != oldValue) {
+                        obtenerLetra();
+                    }
+                }
+        );
+
+        vbox.heightProperty().addListener((observable, oldValue, newValue) ->
+                {
+                    if (newValue != oldValue) {
+                        obtenerLetra();
+                    }
+                }
+        );
     }
 
 }
