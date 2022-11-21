@@ -110,7 +110,7 @@ public class Dibujo {
     }
 
     public void setTraslacion(){
-        if (tras == true){
+        if (tras){
             this.x = xTras;
             this.y = yTras;
         }else{
@@ -123,7 +123,7 @@ public class Dibujo {
 
         if (borrar == 1) {
 
-            if(tras == false){
+            if(!tras){
                 x = 30;
                 y = 100;
             }else{
