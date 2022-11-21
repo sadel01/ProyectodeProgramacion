@@ -1848,7 +1848,7 @@ public class Dibujo {
         }
         if (caracter == ' ') {
             if (x != 30) {
-                x = x + 50+(50*tamanio);
+                x = x + 50;
             }
             auxSub = false;
             auxBold = 1;
