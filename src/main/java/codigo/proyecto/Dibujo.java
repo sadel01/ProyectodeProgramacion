@@ -155,16 +155,6 @@ public class Dibujo {
             auxBold = 1;
         }
 
-        if(estilo.contains("N")){
-            auxBold = 4;
-        }
-
-        if(estilo.contains("S")){
-            auxSub = true;
-            xInicialSu = x;
-            yInicialSu = y + 55;
-        }
-
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {

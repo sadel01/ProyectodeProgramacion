@@ -1,7 +1,5 @@
 package codigo.proyecto;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,8 +8,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -19,9 +15,11 @@ import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import java.net.URL;
-import java.nio.channels.Selector;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
@@ -46,7 +44,7 @@ public class Controlador extends Dibujo implements Initializable {
     private ToggleButton puntosDeControl;
 
     @FXML
-    private ToggleButton Traslacion;
+    private ToggleButton botonTraslacion;
 
     @FXML
     private ToggleButton botonEspejo;
@@ -72,21 +70,67 @@ public class Controlador extends Dibujo implements Initializable {
         root.getChildren().add(T);
         textoCoord.getChildren().clear();
         boolean cursiva = false;
+        String estilos = "";
 
-        String estilos = EstilodePalabras(frase);
+        String[] estilosComa = {};
+
+        ArrayList<String> estilosFIN = new ArrayList<>();
 
         for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i) == ' '){
+                estilosFIN.add(" ");
+            }
+        }
+
+        /*
+
+        Pattern ptr2 = Pattern.compile("\\S+");
+        Matcher mtc2 = ptr2.matcher(frase);
+
+        int contadorPalabras = 0;
+        while(mtc2.find()){
+            contadorPalabras++;
+        }
+
+         */
+
+
+        if (frase.matches("((.*)\\^[NKS]\\+[NKS]\\+[NKS],(.*))|((.*)\\^[NKS],(.*))|((.*)\\^[NKS]\\+[NKS],(.*))|((.*)(\\^,)(.*))|((.*)\\^[NKS]\\+,(.*))|((.*)\\^[NKS]\\+[NKS]\\+,(.*))")){
+
+            Pattern ptr = Pattern.compile("(\\^[NKS]\\+[NKS]\\+[NKS],(.*))|(\\^[NKS],(.*))|(\\^[NKS]\\+[NKS],(.*))|(\\^,)(.*)|(\\^[NKS]\\+,(.*))|(\\^[NKS]\\+[NKS]\\+,(.*))");
+            Matcher mtc = ptr.matcher(frase);
+
+            if (mtc.find()){
+                estilosComa = mtc.group(0).split(", ");
+            }
+
+            String[] fraseAux = frase.split("(\\^[NKS]\\+[NKS]\\+[NKS],(.*))|(\\^[NKS],(.*))|(\\^[NKS]\\+[NKS],(.*))|(\\^,)(.*)|(\\^[NKS]\\+,(.*))|(\\^[NKS]\\+[NKS]\\+,(.*))");
+
+            frase = fraseAux[0];
+
+        }
+
+        for (int i = 0; i < estilosComa.length; i++) {
+            estilosFIN.set(i, estilosComa[i]);
+        }
+
+
+        int k = 0;
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i) == ' '){
+                estilos = estilosFIN.get(k);
+                k++;
+            }
 
             if (frase.contains("^R")) {
 
                 String fraseAux = " ";
 
-                for (int j = 2; j < frase.length(); j++) {
+                for (int j = 3; j < frase.length(); j++) {
                     fraseAux = fraseAux + frase.charAt(j);
                 }
 
                 frase = InvertirOrden(fraseAux);
-
             }
 
 
@@ -99,7 +143,6 @@ public class Controlador extends Dibujo implements Initializable {
                 a = 0;
                 tamanio = "";
                 numTam = 1;
-                estilos = "";
             }
 
             if (tamanio.length() != 0) {
@@ -120,6 +163,10 @@ public class Controlador extends Dibujo implements Initializable {
                     if (frase.charAt(i - 1) == '^' || frase.charAt(i - 1) == '+') {
                         cursiva = true;
                     }
+                }
+
+                if (estilos.contains("K")){
+                    cursiva = true;
                 }
 
                 if (frase.charAt(i) == ' ') {
@@ -149,14 +196,15 @@ public class Controlador extends Dibujo implements Initializable {
         }
 
 
+
+
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
-            Traslacion.setDisable(true);
-            Traslacion.setSelected(false);
-            activarTraslacion();
+            auxSub = false;
+            auxBold = 1;
         } else {
             puntosDeControl.setDisable(false);
-            Traslacion.setDisable(false);
+            botonTraslacion.setDisable(false);
             botonEspejo.setDisable(false);
         }
     }
@@ -214,40 +262,20 @@ public class Controlador extends Dibujo implements Initializable {
 
     private void activarEspejo() {
         espejo = botonEspejo.isSelected();
-        obtenerLetra();
-    }
-    public String EstilodePalabras(String frase) {
 
-        String p[] = frase.split(" ");
-
-        for (int i = 0; i < p.length; i++) {
-
-            String estilos = "";
-
-            if (p[i].contains("^N") || p[i].contains("^S") || p[i].contains("^K")) {
-
-                if (p[i].contains("^S") || p[i].contains("+S")) {
-                    estilos = estilos + "S";
-                }
-
-                if (p[i].contains("^N") || p[i].contains("+N")) {
-                    estilos = estilos + "N";
-                }
-
-                if (p[i].contains("^K") || p[i].contains("+K")) {
-                    estilos = estilos + "K";
-                }
-
-                return estilos;
-            }
+        if (botonEspejo.isSelected()){
+            botonEspejo.setText("Desactivar espejo");
+        }else{
+            botonEspejo.setText("Activar espejo");
         }
-        return "";
+
+        obtenerLetra();
     }
 
     @FXML
     void activarTraslacion() {
 
-        if (Traslacion.isSelected()){
+        if (botonTraslacion.isSelected()){
 
             vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
             {
@@ -282,13 +310,13 @@ public class Controlador extends Dibujo implements Initializable {
 
             });
 
-            Traslacion.setText("Desactivar traslación");
+            botonTraslacion.setText("Desactivar traslación");
         }else{
             vbox.setOnMouseClicked(null);
             vbox.setOnMouseMoved(null);
             T.setText("");
             vbox.setCursor(Cursor.DEFAULT);
-            Traslacion.setText("Activar traslación");
+            botonTraslacion.setText("Activar traslación");
         }
 
     }
@@ -305,9 +333,8 @@ public class Controlador extends Dibujo implements Initializable {
         puntosDeControl.setDisable(true);
         puntosDeControl.setCursor(Cursor.HAND);
         puntosDeControl.setOnAction(actionEvent -> BotonAct(puntosDeControl));
-        Traslacion.setDisable(true);
-        Traslacion.setCursor(Cursor.HAND);
-        Traslacion.setOnAction(actionEvent -> activarTraslacion());
+        botonTraslacion.setCursor(Cursor.HAND);
+        botonTraslacion.setOnAction(actionEvent -> activarTraslacion());
         CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
         botonEspejo.setOnAction(actionEvent -> activarEspejo());
 
