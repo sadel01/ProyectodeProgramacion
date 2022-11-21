@@ -255,10 +255,6 @@ public class Dibujo {
                     cb3.setStroke(color);
                     cb3.setStrokeWidth(grosor);
 
-                    root.getChildren().add(cb1);
-                    root.getChildren().add(cb2);
-                    root.getChildren().add(cb3);
-
                     if(auxBold > 1){
                         x++;
                     }
@@ -1825,10 +1821,7 @@ public class Dibujo {
                 }
             }
         }
-        for (Node s : root.getChildren()){
-            s.setLayoutY(60 - (60*tamanio));
-            s.setLayoutX(60 - (60*tamanio));
-        }
+
     }
 
     public void Simbolos(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
