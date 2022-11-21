@@ -147,6 +147,8 @@ public class Dibujo {
             yInicialSu = y + 55*tamanio;
         }
 
+    
+
         if(estilo.contains("N")){
             auxBold = 4;
         }
@@ -156,7 +158,7 @@ public class Dibujo {
             xInicialSu = x;
             yInicialSu = y + 55;
         }
-        ArrayList<Shape> objetos = new ArrayList<Shape>();
+
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
