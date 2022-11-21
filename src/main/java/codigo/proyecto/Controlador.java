@@ -252,8 +252,10 @@ public class Controlador extends Dibujo implements Initializable {
         espejo = botonEspejo.isSelected();
 
         if (botonEspejo.isSelected()){
+            e = -1;
             botonEspejo.setText("Desactivar espejo");
         }else{
+            e = 1;
             botonEspejo.setText("Activar espejo");
         }
 
