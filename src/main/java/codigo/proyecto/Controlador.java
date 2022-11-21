@@ -134,9 +134,11 @@ public class Controlador extends Dibujo implements Initializable {
             }
 
 
-            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'T' && frase.charAt(i - 2) == '^') {
-                a = 1;
-                tamanio = tamanio + frase.charAt(i);
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'T') {
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    a = 1;
+                    tamanio = tamanio + frase.charAt(i);
+                }
             } else if (a == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
                 tamanio = tamanio + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
@@ -146,7 +148,7 @@ public class Controlador extends Dibujo implements Initializable {
             }
 
             if (tamanio.length() != 0) {
-                numTam = Integer.parseInt(tamanio);
+                numTam = Integer.parseInt(tamanio)/10;
             }
 
             if (i == 0) {
