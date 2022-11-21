@@ -2366,85 +2366,43 @@ public class Dibujo {
                 rep = 2;
             }
             for(int j = 0;j<rep;j++) {
-                if (aux == 0) {
-                    pts(textoCoord, root, puntosDeControl, x+5, y-20, x+5, y-50);
-                    pts(textoCoord, root, puntosDeControl, x+5, y-20, x+7, y-20);
-                    fun(root, puntosDeControl, x + 5, y - 20, x, y - 35, x + 5, y - 50, x + 5, y - 20, x + 25, y + 15, x + 35, y - 20, x + 7, y - 20);
 
-                    cont = 0;
+                pts(textoCoord, root, puntosDeControl, x+5, y-20, x+5, y-50);
+                pts(textoCoord, root, puntosDeControl, x+5, y-20, x+7, y-20);
+                fun(root, puntosDeControl, x + 5, y - 20, x, y - 35, x + 5, y - 50, x + 5, y - 20, x + 25, y + 15, x + 35, y - 20, x + 7, y - 20);
 
-                    while(cont < auxBold) {
+                cont = 0;
 
-                        QuadCurve a = new QuadCurve(x + 5, y - 20, x, y - 35, x + 5, y - 50);
-                        a.setFill(Color.TRANSPARENT);
-                        a.setStroke(color);
-                        a.setStrokeWidth(grosor);
+                while(cont < auxBold) {
 
-                        CubicCurve b = new CubicCurve(x + 5, y - 20, x + 25, y + 15, x + 35, y - 20, x + 7, y - 20);
-                        b.setFill(color);
-                        b.setStroke(color);
-                        b.setStrokeWidth(grosor);
+                    QuadCurve a = new QuadCurve(x + 5, y - 20, x, y - 35, x + 5, y - 50);
+                    a.setFill(Color.TRANSPARENT);
+                    a.setStroke(color);
+                    a.setStrokeWidth(grosor);
 
-                        root.getChildren().add(a);
-                        root.getChildren().add(b);
+                    CubicCurve b = new CubicCurve(x + 5, y - 20, x + 25, y + 15, x + 35, y - 20, x + 7, y - 20);
+                    b.setFill(color);
+                    b.setStroke(color);
+                    b.setStrokeWidth(grosor);
 
-                        if(auxBold > 1){
-                            x++;
-                        }
+                    root.getChildren().add(a);
+                    root.getChildren().add(b);
 
-                        cont++;
+                    if(auxBold > 1){
+                        x++;
                     }
 
-                    x = x + 25;
-                    if(auxSub){
-                        Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
-                    }
-                } else {
+                    cont++;
+                }
 
-                    pts(textoCoord, root, puntosDeControl, x+5, y-20, x+5, y-50);
-                    pts(textoCoord, root, puntosDeControl, x+5, y-50, x+3, y-50);
-                    fun(root, puntosDeControl, x + 5, y - 20, x + 10, y - 35, x + 5, y - 50, x + 5, y - 50, x - 25, y - 90, x - 25, y - 40, x + 3, y - 50);
-
-                    cont = 0;
-
-                    while(cont < auxBold) {
-                        QuadCurve a = new QuadCurve(x + 5, y - 20, x + 10, y - 35, x + 5, y - 50);
-                        a.setFill(Color.TRANSPARENT);
-                        a.setStroke(color);
-                        a.setStrokeWidth(grosor);
-
-                        CubicCurve b = new CubicCurve(x + 5, y - 50, x - 25, y - 90, x - 25, y - 40, x + 3, y - 50);
-                        b.setFill(color);
-                        b.setStroke(color);
-                        b.setStrokeWidth(grosor);
-
-                        root.getChildren().add(a);
-                        root.getChildren().add(b);
-
-
-                        if(auxBold > 1){
-                            x++;
-                        }
-
-                        cont++;
-                    }
-
-                    x = x + 25;
-                    if(auxSub){
-                        Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
-                    }
+                x = x + 25;
+                if(auxSub){
+                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
             x=x+20;
             if(auxSub){
                 Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
-            }
-
-            if(aux == 0){
-                aux = 1;
-            }
-            else{
-                aux = 0;
             }
 
         }
