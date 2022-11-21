@@ -82,6 +82,18 @@ public class Controlador extends Dibujo implements Initializable {
             }
         }
 
+        /*
+
+        Pattern ptr2 = Pattern.compile("\\S+");
+        Matcher mtc2 = ptr2.matcher(frase);
+
+        int contadorPalabras = 0;
+        while(mtc2.find()){
+            contadorPalabras++;
+        }
+
+         */
+
 
         if (frase.matches("((.*)\\^[NKS]\\+[NKS]\\+[NKS],(.*))|((.*)\\^[NKS],(.*))|((.*)\\^[NKS]\\+[NKS],(.*))|((.*)(\\^,)(.*))|((.*)\\^[NKS]\\+,(.*))|((.*)\\^[NKS]\\+[NKS]\\+,(.*))")){
 
