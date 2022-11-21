@@ -17,6 +17,7 @@ import javafx.scene.text.TextFlow;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -82,19 +83,6 @@ public class Controlador extends Dibujo implements Initializable {
             }
         }
 
-        /*
-
-        Pattern ptr2 = Pattern.compile("\\S+");
-        Matcher mtc2 = ptr2.matcher(frase);
-
-        int contadorPalabras = 0;
-        while(mtc2.find()){
-            contadorPalabras++;
-        }
-
-         */
-
-
         if (frase.matches("((.*)\\^[NKS]\\+[NKS]\\+[NKS],(.*))|((.*)\\^[NKS],(.*))|((.*)\\^[NKS]\\+[NKS],(.*))|((.*)(\\^,)(.*))|((.*)\\^[NKS]\\+,(.*))|((.*)\\^[NKS]\\+[NKS]\\+,(.*))")){
 
             Pattern ptr = Pattern.compile("(\\^[NKS]\\+[NKS]\\+[NKS],(.*))|(\\^[NKS],(.*))|(\\^[NKS]\\+[NKS],(.*))|(\\^,)(.*)|(\\^[NKS]\\+,(.*))|(\\^[NKS]\\+[NKS]\\+,(.*))");
@@ -114,6 +102,25 @@ public class Controlador extends Dibujo implements Initializable {
             estilosFIN.set(i, estilosComa[i]);
         }
 
+        /*
+
+        Pattern ptr2 = Pattern.compile("\\S+");
+        Matcher mtc2 = ptr2.matcher(frase);
+
+        int contadorPalabras = 0;
+        while(mtc2.find()){
+            contadorPalabras++;
+        }
+
+        String[] palabra = frase.split("\\s+");
+
+
+        for (String s : palabra) {
+
+
+        }
+
+         */
 
         int k = 0;
         for (int i = 0; i < frase.length(); i++) {
@@ -196,8 +203,6 @@ public class Controlador extends Dibujo implements Initializable {
         }
 
 
-
-
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
             auxSub = false;
@@ -207,6 +212,8 @@ public class Controlador extends Dibujo implements Initializable {
             botonTraslacion.setDisable(false);
             botonEspejo.setDisable(false);
         }
+
+
     }
 
     private String InvertirOrden(String palabra) {
