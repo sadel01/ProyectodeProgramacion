@@ -15,9 +15,7 @@ import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,9 +56,6 @@ public class Controlador extends Dibujo implements Initializable {
     @FXML
     private Text T;
 
-    @FXML
-    private BorderPane bord;
-
 
     private void obtenerLetra() {
 
@@ -76,24 +71,6 @@ public class Controlador extends Dibujo implements Initializable {
 
         ArrayList<String> estilosFIN = new ArrayList<>();
 
-        for (int i = 0; i < frase.length(); i++) {
-            if (frase.charAt(i) == ' '){
-                estilosFIN.add(" ");
-            }
-        }
-
-        /*
-
-        Pattern ptr2 = Pattern.compile("\\S+");
-        Matcher mtc2 = ptr2.matcher(frase);
-
-        int contadorPalabras = 0;
-        while(mtc2.find()){
-            contadorPalabras++;
-        }
-
-         */
-
 
         if (frase.matches("((.*)\\^[NKS]\\+[NKS]\\+[NKS],(.*))|((.*)\\^[NKS],(.*))|((.*)\\^[NKS]\\+[NKS],(.*))|((.*)(\\^,)(.*))|((.*)\\^[NKS]\\+,(.*))|((.*)\\^[NKS]\\+[NKS]\\+,(.*))")){
 
@@ -101,36 +78,74 @@ public class Controlador extends Dibujo implements Initializable {
             Matcher mtc = ptr.matcher(frase);
 
             if (mtc.find()){
-                estilosComa = mtc.group(0).split(", ");
+                estilosComa = mtc.group(0).split(", "); // Se añaden los estilos por separado a estilosComa
             }
 
             String[] fraseAux = frase.split("(\\^[NKS]\\+[NKS]\\+[NKS],(.*))|(\\^[NKS],(.*))|(\\^[NKS]\\+[NKS],(.*))|(\\^,)(.*)|(\\^[NKS]\\+,(.*))|(\\^[NKS]\\+[NKS]\\+,(.*))");
 
-            frase = fraseAux[0];
+            frase = fraseAux[0]; // frase = [texto] (se elimina todo el texto de estilos)
 
         }
 
-        for (int i = 0; i < estilosComa.length; i++) {
-            estilosFIN.set(i, estilosComa[i]);
+
+        int contadorPalabras = 0;
+
+        String[] palabra = frase.split("\\s+");
+
+        for (int i = 1; i < palabra.length; i++) { // Por cada palabra en el texto se añade un espacio vacio en estilosFIN
+            estilosFIN.add(" ");
+            contadorPalabras++;
+        }
+
+
+        for (int i = 0; i < estilosComa.length && i < contadorPalabras; i++) {
+            estilosFIN.set(i, estilosComa[i]); // Se setean los estilos en estilosFIN, para que corresponda con cada palabra del texto
         }
 
 
         int k = 0;
         for (int i = 0; i < frase.length(); i++) {
-            if (frase.charAt(i) == ' '){
-                estilos = estilosFIN.get(k);
-                k++;
+
+            if (i == 0){
+                estilosFIN.add(" ");
             }
 
-            if (frase.contains("^R")) {
+            if (frase.contains("^R")) { // Invertir el texto
 
-                String fraseAux = " ";
+                if (frase.length() <= 3){
+                    frase = " ";
+                }else{ // (*) = puede ser ""
+                    String[] fraseAux = frase.split(" \\^[R]"); // Dividir el texto: [texto (*)] ^R[texto que se va a invertir]
 
-                for (int j = 3; j < frase.length(); j++) {
-                    fraseAux = fraseAux + frase.charAt(j);
+                    if (fraseAux.length != 1){ // Si existe texto, es decir, no es solo ^R
+                        String[] cantPalabrasAux = fraseAux[1].split(" "); // Dividir las palabras que se van a invertir: [texto (*)] ^R[frase que se divide]
+
+                        String[] cantPalabrasNoReverse = fraseAux[0].split(" "); // Dividir las palabras que no se van a invertir: [frase que se divide (*))] ^R[texto]
+
+                        frase = fraseAux[0] + InvertirOrden(fraseAux[1]); // frase = palabras que no se invierten (*) + palabras invertidas
+
+                        if (cantPalabrasAux.length >= 2){ // Si existen dos o mas palabras a invertir
+
+                            if (cantPalabrasNoReverse.length - 1 != 0){ // Si existen palabras que no se van a invertir
+                                List<String> estilosReverse = estilosFIN.subList(cantPalabrasNoReverse.length-1, estilosFIN.size()-1); // Se seleccionan los estilos que si se van a invertir
+                                Collections.reverse(estilosReverse); // Se invierten los estilos
+                            }else{
+                                Collections.reverse(estilosFIN); // Se invierte la lista de estilos completa
+                                estilosFIN.remove(0); // Se elimina el primer estilo (es vacio)
+                                estilosFIN.add(" "); // Se añade el estilo vacio al final (necesario)
+                            }
+                        }
+
+                    }else{
+                        frase = fraseAux[0];
+                    }
                 }
 
-                frase = InvertirOrden(fraseAux);
+            }
+
+            if (frase.charAt(i) == ' ' && k < palabra.length){
+                estilos = estilosFIN.get(k);
+                k++;
             }
 
 
@@ -198,8 +213,6 @@ public class Controlador extends Dibujo implements Initializable {
         }
 
 
-
-
         if (frase.length() < 2) {
             puntosDeControl.setDisable(true);
             auxSub = false;
@@ -209,19 +222,21 @@ public class Controlador extends Dibujo implements Initializable {
             botonTraslacion.setDisable(false);
             botonEspejo.setDisable(false);
         }
+
+
     }
 
-    private String InvertirOrden(String palabra) {
+    private String InvertirOrden(String frase) {
 
-        String p[] = palabra.split(" ");
+        String[] p = frase.split(" "); // Se divide la frase
 
-        String palabraInvertida = " ";
+        String fraseInvertida = " "; // Donde se guarda la nueva frase
 
-        for (int i = p.length - 1; i >= 0; i--) {
-            palabraInvertida = palabraInvertida + p[i] + " ";
+        for (int i = p.length - 1; i >= 0; i--) { // Se invierte la frase
+            fraseInvertida = fraseInvertida + p[i] + " ";
         }
 
-        return palabraInvertida;
+        return fraseInvertida;
 
     }
 
@@ -285,8 +300,8 @@ public class Controlador extends Dibujo implements Initializable {
             {
                 @Override
                 public void handle(MouseEvent ev) {
-                    int xNuevo = (int)ev.getSceneX() - 50;
-                    int yNuevo = (int)ev.getSceneY() - 100;
+                    int xNuevo = (int)ev.getSceneX() - 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                    int yNuevo = (int)ev.getSceneY() - 100; // Se obtiene la posicion de Y del mouse y se le resta 100 por la altura de las letras
                     traslacion(xNuevo, yNuevo);
                     obtenerLetra();
                 }
@@ -296,10 +311,12 @@ public class Controlador extends Dibujo implements Initializable {
 
             vbox.setOnMouseMoved(e -> {
 
+                // Setear texto y posicion del texto que muestra la posicion de X e Y
                 T.setText("X:" + (int)e.getX() + "\nY:" + (int)e.getY() + "");
                 T.setX(e.getSceneX());
                 T.setY(e.getSceneY());
 
+                // Para que el texto siempre sea visible
                 if (T.getX() > scrollPane.getWidth() - 110){
                     T.setLayoutX(-105);
                 }else{

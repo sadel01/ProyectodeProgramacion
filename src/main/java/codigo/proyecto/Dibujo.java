@@ -110,7 +110,7 @@ public class Dibujo {
     }
 
     public void setTraslacion(){
-        if (tras == true){
+        if (tras){
             this.x = xTras;
             this.y = yTras;
         }else{
@@ -123,7 +123,7 @@ public class Dibujo {
 
         if (borrar == 1) {
 
-            if(tras == false){
+            if(!tras){
                 x = 30;
                 y = 100;
                 xinicial=200;
@@ -148,8 +148,6 @@ public class Dibujo {
             yInicialSu = y + 55*tamanio;
         }
 
-    
-
         if(estilo.contains("N")){
             auxBold = 4;
         }
@@ -159,6 +157,7 @@ public class Dibujo {
             xInicialSu = x;
             yInicialSu = y + 55;
         }
+        ArrayList<Shape> objetos = new ArrayList<Shape>();
 
 
         int cont = 0;
@@ -249,11 +248,6 @@ public class Dibujo {
                     dibujo(root, x * tamanio, y + 15 * tamanio, x + 70 * e * tamanio, y - 80 * tamanio, x - 10 * e * tamanio, y - 80 * tamanio, x * tamanio, y + 50 * tamanio);
                     dibujo(root, x * tamanio, y + 30 * tamanio, x + 50 * e * tamanio, y - 50 * tamanio, x + 35 * e * tamanio, y + 100 * tamanio, x + 5 * e * tamanio, y + 50 * tamanio);
                     dibujo(root, x + 5*e* tamanio, y + 50 * tamanio, x* tamanio, y + 30 * tamanio, x + 60 *e* tamanio, y + 50 * tamanio, x + 60 * e * tamanio, y + 20 * tamanio);
-
-                    CubicCurve cb3 = new CubicCurve(x + 5*tamanio, y + 50*tamanio, x, y + 30*tamanio, x + 60*tamanio, y + 50*tamanio, x + 60*tamanio, y + 20*tamanio);
-                    cb3.setFill(Color.TRANSPARENT);
-                    cb3.setStroke(color);
-                    cb3.setStrokeWidth(grosor);
 
                     if(auxBold > 1){
                         x++;
@@ -1852,7 +1846,7 @@ public class Dibujo {
         }
         if (caracter == ' ') {
             if (x != 30) {
-                x = x + 50+(50*tamanio);
+                x = x + 50;
             }
             auxSub = false;
             auxBold = 1;
