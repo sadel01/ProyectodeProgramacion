@@ -1108,7 +1108,6 @@ public class Dibujo {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
-
         }
         if (caracter == 'r' || caracter == 'R') {
             if (caracter == 'r') {
