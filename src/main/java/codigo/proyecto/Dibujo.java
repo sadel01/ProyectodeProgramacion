@@ -142,7 +142,7 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            x = 30*tamanio;
+            x = 30*tamanio*-e;
             y = y + 150*tamanio;
             xInicialSu = x;
             yInicialSu = y + 55*tamanio;
@@ -190,7 +190,7 @@ public class Dibujo {
                     cont++;
                 }
                 xinicial=xinicial+60*tamanio;
-                x=x+60*tamanio;
+                x=x+60*tamanio*e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu, x, root);
                 }
@@ -573,7 +573,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio*e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -782,7 +782,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 30*tamanio;
+                x = x + 30*tamanio*e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
 
@@ -981,7 +981,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio*e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1846,7 +1846,7 @@ public class Dibujo {
         }
         if (caracter == ' ') {
             if (x != 30) {
-                x = x + 50;
+                x = x + 50*e;
             }
             auxSub = false;
             auxBold = 1;

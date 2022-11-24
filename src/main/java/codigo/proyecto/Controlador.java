@@ -104,7 +104,7 @@ public class Controlador extends Dibujo implements Initializable {
 
 
         int k = 0;
-        for (int i = 0; i < frase.length(); i++) {
+        for (int i =0; i <frase.length(); i++) {
 
             if (i == 0){
                 estilosFIN.add(" ");
