@@ -228,7 +228,7 @@ public class Dibujo {
                     cont++;
                 }
 
-                x = x + 65*tamanio;
+                x = x + 65*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -257,7 +257,7 @@ public class Dibujo {
                     cont++;
                 }
 
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -285,7 +285,7 @@ public class Dibujo {
                     cont++;
                 }
 
-                x = x + 80*tamanio;
+                x = x + 80*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -309,7 +309,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -331,7 +331,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -361,7 +361,7 @@ public class Dibujo {
                 }
 
 
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -386,7 +386,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 90*tamanio;
+                x = x + 90*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -422,7 +422,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -453,7 +453,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -481,7 +481,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -502,7 +502,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -527,7 +527,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -550,7 +550,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 80*tamanio;
+                x = x + 80*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -598,7 +598,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 70*tamanio;
+                x = x + 70*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -632,7 +632,7 @@ public class Dibujo {
                     cont++;
                 }
 
-                x = x + 40*tamanio;
+                x = x + 40*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -662,7 +662,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 55*tamanio;
+                x = x + 55*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -690,7 +690,7 @@ public class Dibujo {
                     cont++;
                 }
 
-                x = x + 30*tamanio;
+                x = x + 30*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -712,7 +712,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -737,7 +737,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 55*tamanio;
+                x = x + 55*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -761,7 +761,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 80*tamanio;
+                x = x + 80*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
 
@@ -806,7 +806,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
 
@@ -832,7 +832,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 70*tamanio;
+                x = x + 70*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -854,7 +854,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 78*tamanio;
+                x = x + 78*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -878,7 +878,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -927,7 +927,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -949,7 +949,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 55*tamanio;
+                x = x + 55*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1010,7 +1010,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 65*tamanio;
+                x = x + 65*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1035,7 +1035,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 55*tamanio;
+                x = x + 55*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1054,7 +1054,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 58*tamanio;
+                x = x + 58*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1079,7 +1079,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1099,7 +1099,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 65*tamanio;
+                x = x + 65*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1122,7 +1122,7 @@ public class Dibujo {
                     cont++;
                 }
                 //EspacioDecaracterR
-                x = x + 55*tamanio;
+                x = x + 55*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1146,7 +1146,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 80*tamanio;
+                x = x + 80*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1170,7 +1170,7 @@ public class Dibujo {
                     cont++;
                 }
                 //Espaciocaracter s
-                x = x + 40*tamanio;
+                x = x + 40*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1195,7 +1195,7 @@ public class Dibujo {
                         }
                         cont++;
                     }
-                    x = x + 70*tamanio;
+                    x = x + 70*tamanio* e;
                     if (auxSub) {
                         Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                     }
@@ -1225,7 +1225,7 @@ public class Dibujo {
                     cont++;
                 }
                 //EspaciocaracterT
-                x = x + 30*tamanio;
+                x = x + 30*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1248,7 +1248,7 @@ public class Dibujo {
                         }
                         cont++;
                     }
-                    x = x + 30*tamanio;
+                    x = x + 30*tamanio* e;
                     if (auxSub) {
                         Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                     }
@@ -1298,7 +1298,7 @@ public class Dibujo {
                     cont++;
                 }
                 //largo de caracter i
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1342,7 +1342,7 @@ public class Dibujo {
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
-                x = x + 55*tamanio;
+                x = x + 55*tamanio* e;
             }
         }
         if (caracter == 'v' || caracter == 'V') {
@@ -1363,7 +1363,7 @@ public class Dibujo {
                     cont++;
                 }
                 //espaciocaracter v
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1390,7 +1390,7 @@ public class Dibujo {
                     x++;
                 }
                 //espaciocaracter v
-                x = x + 50*tamanio;
+                x = x + 50*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1418,7 +1418,7 @@ public class Dibujo {
                     cont++;
                 }
                 //espaciocaracter v
-                x = x + 65*tamanio;
+                x = x + 65*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1447,7 +1447,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 70*tamanio;
+                x = x + 70*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1469,7 +1469,7 @@ public class Dibujo {
                     cont++;
                 }
                 //tamaÃ±ocaracter x
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1490,7 +1490,7 @@ public class Dibujo {
                     cont++;
                 }
                 //tamaÃ±ocaracter x
-                x = x + 80*tamanio;
+                x = x + 80*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1517,7 +1517,7 @@ public class Dibujo {
                     cont++;
                 }
                 //espaciocaracter v
-                x = x + 45*tamanio;
+                x = x + 45*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1543,7 +1543,7 @@ public class Dibujo {
                     cont++;
                 }
 
-                x = x + 46*tamanio;
+                x = x + 46*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1573,7 +1573,7 @@ public class Dibujo {
                     cont++;
                 }
                 //largo de z
-                x = x + 60*tamanio;
+                x = x + 60*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -1596,7 +1596,7 @@ public class Dibujo {
 
                     cont++;
                 }
-                x = x + 65*tamanio;
+                x = x + 65*tamanio* e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
