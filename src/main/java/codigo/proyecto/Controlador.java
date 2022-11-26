@@ -21,8 +21,10 @@ import java.util.regex.Pattern;
 
 public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
-    int numTam = 1;
+    String grados="";
+    int numTam = 1, numGra=0;
     int a = 0;
+    int b= 0;
     @FXML
     private AnchorPane root;
 
@@ -165,10 +167,29 @@ public class Controlador extends Dibujo implements Initializable {
             if (tamanio.length() != 0) {
                 numTam = Integer.parseInt(tamanio)/10;
             }
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'a') {
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    b = 1;
+                    grados = grados + frase.charAt(i);
+                }
+            } else if (b == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                grados = grados + frase.charAt(i);
+            } else if (frase.charAt(i) == ' ') {
+                b = 0;
+                grados = "";
+                numGra = 0;
+            }
+
+            if (tamanio.length() != 0) {
+                numTam = Integer.parseInt(tamanio)/10;
+            }
+            if (grados.length() != 0) {
+                numGra = Integer.parseInt(grados);
+            }
 
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam, numGra);
 
                 } else {
                     Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
@@ -195,13 +216,13 @@ public class Controlador extends Dibujo implements Initializable {
                     if (cursiva) {
                         Cursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
                     } else {
-                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam, numGra);
                     }
                 } else {
                     if (cursiva) {
-                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam/10);
                     } else {
-                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam/10);
                     }
                 }
 
