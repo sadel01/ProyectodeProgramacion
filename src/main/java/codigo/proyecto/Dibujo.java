@@ -143,7 +143,7 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-            x = 30*tamanio*-e;
+            x = 30*tamanio*e;
             y = y + 150*tamanio;
             xInicialSu = x;
             yInicialSu = y + 55*tamanio;
