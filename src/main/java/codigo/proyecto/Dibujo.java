@@ -1506,7 +1506,7 @@ public class Dibujo {
                 while(cont < auxBold) {
                     dibujo(root, x + 2*e*tamanio, y, x - 6*e*tamanio, y + 30*tamanio, x + 9*e*tamanio, y + 80*tamanio, x + 24*e*tamanio, y + 15*tamanio);
                     dibujo(root, x + 24*e*tamanio, y, x + 35*e*tamanio, y + 113*tamanio, x - 40*e*tamanio, y + 98*tamanio, x + 24*e*tamanio, y + 50*tamanio);
-                    dibujo(root, x + 23*e*tamanio, y + 5*tamanio, x + 35*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 15*tamanio);
+                    dibujo(root, x + 23*e*tamanio, y + 51*tamanio, x + 35*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 15*tamanio);
                     if(auxBold > 1){
                         x++;
                     }
