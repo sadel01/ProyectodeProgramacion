@@ -1,18 +1,14 @@
 package codigo.proyecto;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.*;
@@ -25,6 +21,7 @@ public class Controlador extends Dibujo implements Initializable {
     int numTam = 1, numGra=0;
     int a = 0;
     int b= 0;
+
     @FXML
     private AnchorPane root;
 
@@ -67,7 +64,7 @@ public class Controlador extends Dibujo implements Initializable {
     @FXML
     private Button botonTraslacionText;
 
-
+    int g =0;
     private void obtenerLetra() {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
@@ -81,6 +78,7 @@ public class Controlador extends Dibujo implements Initializable {
         String[] estilosComa = {};
 
         ArrayList<String> estilosFIN = new ArrayList<>();
+        ArrayList<String> comas = new ArrayList<>();
 
 
         if (frase.matches("((.*)\\^[NKS]\\+[NKS]\\+[NKS],(.*))|((.*)\\^[NKS],(.*))|((.*)\\^[NKS]\\+[NKS],(.*))|((.*)(\\^,)(.*))|((.*)\\^[NKS]\\+,(.*))|((.*)\\^[NKS]\\+[NKS]\\+,(.*))")){
@@ -103,9 +101,19 @@ public class Controlador extends Dibujo implements Initializable {
 
         String[] palabra = frase.split("\\s+");
 
+        System.out.println(palabra.length);
+
         for (int i = 1; i < palabra.length; i++) { // Por cada palabra en el texto se añade un espacio vacio en estilosFIN
             estilosFIN.add(" ");
             contadorPalabras++;
+        }
+
+        for (int i = 1; i < palabra.length; i++) {
+            if (palabra[i].contains("^S")){
+                comas.add("S");
+            }else{
+                comas.add(" ");
+            }
         }
 
 
@@ -113,9 +121,22 @@ public class Controlador extends Dibujo implements Initializable {
             estilosFIN.set(i, estilosComa[i]); // Se setean los estilos en estilosFIN, para que corresponda con cada palabra del texto
         }
 
+        System.out.println("Comas" + comas);
+
 
         int k = 0;
+        int g = -1;
         for (int i =0; i <frase.length(); i++) {
+
+            if (frase.charAt(i) == ' '){
+                g++;
+            }
+
+            if (palabra.length > 3 && comas.get(g).equals("S") && comas.get(g-1).equals("S")){
+                auxSub = true;
+            }
+
+
 
             if (i == 0){
                 estilosFIN.add(" ");
@@ -160,12 +181,13 @@ public class Controlador extends Dibujo implements Initializable {
             }
 
 
-            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'T') {
+            boolean matches = String.valueOf(frase.charAt(i)).matches("[0-9]");
+            if (i >= 3 && matches && frase.charAt(i - 1) == 'T') {
                 if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
                     a = 1;
                     tamanio = tamanio + frase.charAt(i);
                 }
-            } else if (a == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+            } else if (a == 1 && matches) {
                 tamanio = tamanio + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
                 a = 0;
@@ -176,12 +198,12 @@ public class Controlador extends Dibujo implements Initializable {
             if (tamanio.length() != 0) {
                 numTam = Integer.parseInt(tamanio)/10;
             }
-            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'a') {
+            if (i >= 3 && matches && frase.charAt(i - 1) == 'a') {
                 if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
                     b = 1;
                     grados = grados + frase.charAt(i);
                 }
-            } else if (b == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+            } else if (b == 1 && matches) {
                 grados = grados + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
                 b = 0;
@@ -197,11 +219,11 @@ public class Controlador extends Dibujo implements Initializable {
             }
 
             if (i == 0) {
-                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam, numGra);
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
 
                 } else {
-                    Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                    Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam);
                 }
 
             } else {
@@ -220,18 +242,18 @@ public class Controlador extends Dibujo implements Initializable {
                     cursiva = false;
                 }
 
-                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]||[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                     if (cursiva) {
-                        Cursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam);
+                        Cursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam);
                     } else {
-                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam, numGra);
+                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, numGra);
                     }
                 } else {
                     if (cursiva) {
-                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam/10);
+                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
                     } else {
-                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam/10);
+                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
                     }
                 }
 
@@ -369,17 +391,13 @@ public class Controlador extends Dibujo implements Initializable {
 
             });
 
-            vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
-            {
-                @Override
-                public void handle(MouseEvent ev) {
-                    int xNuevo = (int)ev.getSceneX() - 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                    int yNuevo = (int)ev.getSceneY() - 100; // Se obtiene la posicion de Y del mouse y se le resta 100 por la altura de las letras
-                    traslacion(xNuevo, yNuevo);
-                    XTRASTEXT.setText(String.valueOf((int)ev.getX()));
-                    YTRASTEXT.setText(String.valueOf((int)ev.getY()));
-                    obtenerLetra();
-                }
+            vbox.setOnMouseClicked(ev ->{
+                int xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                int yNuevo = (int)ev.getY() - 50; // Se obtiene la posicion de Y del mouse y se le resta 100 por la altura de las letras
+                traslacion(xNuevo, yNuevo);
+                XTRASTEXT.setText(String.valueOf((int)ev.getX()));
+                YTRASTEXT.setText(String.valueOf((int)ev.getY()));
+                obtenerLetra();
             });
 
             vbox.setCursor(Cursor.HAND);
@@ -388,19 +406,19 @@ public class Controlador extends Dibujo implements Initializable {
 
                 // Setear texto y posicion del texto que muestra la posicion de X e Y
 
-                T.setText("X:" + (int)e.getX() + "\nY:" + (int)e.getY() + "");
-                T.setX(e.getSceneX());
-                T.setY(e.getSceneY());
+                T.setText("X:" + (int)e.getX() + "\nY:" + ((int)e.getY()) + "");
+                T.setX(e.getX());
+                T.setY(e.getY()+50);
 
                 // Para que el texto siempre sea visible
 
-                if (T.getX() > scrollPane.getWidth() - 110){
+                if (T.getX() > vbox.getWidth() - 110){
                     T.setLayoutX(-105);
                 }else{
                     T.setLayoutX(0);
                 }
 
-                if (T.getY() > scrollPane.getHeight() - 60){
+                if (T.getY() > vbox.getHeight() - 60){
                     T.setLayoutY(-100);
                 }else{
                     T.setLayoutY(15);
