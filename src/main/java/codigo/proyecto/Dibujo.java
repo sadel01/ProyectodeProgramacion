@@ -1527,9 +1527,9 @@ public class Dibujo {
                 fun(root, puntosDeControl, x + 2*e, y, x - 6*e, y + 30, x + 9*e, y + 80, x + 24*e, y + 15, x + 24*e, y, x + 35*e, y + 113, x - 40*e, y + 98, x + 24*e, y + 50, x + 23*e, y + 51, x + 35*e, y + 50, x + 45*e, y + 15);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 2*e*tamanio, y, x - 6*e*tamanio, y + 30*tamanio, x + 9*e*tamanio, y + 80*tamanio, x + 24*e*tamanio, y + 15*tamanio);
-                    dibujo(grados,root, x + 24*e*tamanio, y, x + 35*e*tamanio, y + 113*tamanio, x - 40*e*tamanio, y + 98*tamanio, x + 24*e*tamanio, y + 50*tamanio);
-                    dibujo(grados,root, x + 23*e*tamanio, y + 5*tamanio, x + 35*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 15*tamanio);
+                    dibujo(grados, root, x + 2*e*tamanio, y, x - 6*e*tamanio, y + 30*tamanio, x + 9*e*tamanio, y + 80*tamanio, x + 24*e*tamanio, y + 15*tamanio);
+                    dibujo(grados, root, x + 24*e*tamanio, y, x + 35*e*tamanio, y + 113*tamanio, x - 40*e*tamanio, y + 98*tamanio, x + 24*e*tamanio, y + 50*tamanio);
+                    dibujo(grados, root, x + 23*e*tamanio, y + 51*tamanio, x + 35*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 15*tamanio);
                     if(auxBold > 1){
                         x++;
                     }

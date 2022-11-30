@@ -4,16 +4,16 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -57,6 +57,15 @@ public class Controlador extends Dibujo implements Initializable {
 
     @FXML
     private Text T;
+
+    @FXML
+    private TextField XTRASTEXT;
+
+    @FXML
+    private TextField YTRASTEXT;
+
+    @FXML
+    private Button botonTraslacionText;
 
 
     private void obtenerLetra() {
@@ -317,6 +326,49 @@ public class Controlador extends Dibujo implements Initializable {
 
         if (botonTraslacion.isSelected()){
 
+            XTRASTEXT.setVisible(true);
+            YTRASTEXT.setVisible(true);
+            botonTraslacionText.setVisible(true);
+            botonTraslacionText.setDisable(true);
+
+            XTRASTEXT.setOnKeyTyped(e ->{
+                if (XTRASTEXT.getText().equals("") || YTRASTEXT.getText().equals("")){
+                    botonTraslacionText.setDisable(true);
+                }else{
+                    botonTraslacionText.setDisable(false);
+                }
+            });
+
+            YTRASTEXT.setOnKeyTyped(e->{
+                if (XTRASTEXT.getText().equals("") || YTRASTEXT.getText().equals("")){
+                    botonTraslacionText.setDisable(true);
+                }else{
+                    botonTraslacionText.setDisable(false);
+                }
+            });
+
+            botonTraslacionText.setOnAction(actionEvent -> {
+
+                try{
+                    Integer.parseInt(XTRASTEXT.getText());
+                    Integer.parseInt(YTRASTEXT.getText());
+
+                    int xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 50;
+                    int yNuevo = Integer.parseInt(YTRASTEXT.getText()) - 50;
+                    traslacion(xNuevo, yNuevo);
+                    obtenerLetra();
+
+                }catch (NumberFormatException e){
+
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setHeaderText("Error");
+                    alerta.setContentText("Solo ingresar números");
+                    alerta.showAndWait();
+                }
+
+
+            });
+
             vbox.setOnMouseClicked(new EventHandler<MouseEvent>()
             {
                 @Override
@@ -324,6 +376,8 @@ public class Controlador extends Dibujo implements Initializable {
                     int xNuevo = (int)ev.getSceneX() - 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
                     int yNuevo = (int)ev.getSceneY() - 100; // Se obtiene la posicion de Y del mouse y se le resta 100 por la altura de las letras
                     traslacion(xNuevo, yNuevo);
+                    XTRASTEXT.setText(String.valueOf((int)ev.getX()));
+                    YTRASTEXT.setText(String.valueOf((int)ev.getY()));
                     obtenerLetra();
                 }
             });
@@ -333,11 +387,13 @@ public class Controlador extends Dibujo implements Initializable {
             vbox.setOnMouseMoved(e -> {
 
                 // Setear texto y posicion del texto que muestra la posicion de X e Y
+
                 T.setText("X:" + (int)e.getX() + "\nY:" + (int)e.getY() + "");
                 T.setX(e.getSceneX());
                 T.setY(e.getSceneY());
 
                 // Para que el texto siempre sea visible
+
                 if (T.getX() > scrollPane.getWidth() - 110){
                     T.setLayoutX(-105);
                 }else{
@@ -349,8 +405,21 @@ public class Controlador extends Dibujo implements Initializable {
                 }else{
                     T.setLayoutY(15);
                 }
+            });
+
+            scrollPane.setOnMouseMoved(e->{
+
+              if (e.getX() > vbox.getWidth()){
+                  T.setText("");
+              }else if (e.getY() > vbox.getHeight()){
+                  T.setText("");
+              }else if (e.getY() < 1){
+                  T.setText("");
+              }
 
             });
+
+            T.setText("");
 
             botonTraslacion.setText("Desactivar traslación");
         }else{
@@ -359,7 +428,16 @@ public class Controlador extends Dibujo implements Initializable {
             T.setText("");
             vbox.setCursor(Cursor.DEFAULT);
             botonTraslacion.setText("Activar traslación");
+            XTRASTEXT.setVisible(false);
+            YTRASTEXT.setVisible(false);
+            botonTraslacionText.setVisible(false);
+            XTRASTEXT.setText("");
+            YTRASTEXT.setText("");
+            XTRASTEXT.setPromptText("X:");
+            YTRASTEXT.setPromptText("Y:");
         }
+
+
 
     }
 
