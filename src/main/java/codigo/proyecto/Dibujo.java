@@ -634,7 +634,7 @@ public class Dibujo {
                 while(cont < auxBold) {
                     dibujo(grados,root, x + 2*e*tamanio, y, x - 10*e*tamanio, y + 80*tamanio, x + 30*e*tamanio, y + 40*tamanio, x + 40*e*tamanio, y + 15*tamanio);
                     if (caracter == 'í') {
-                        dibujo(grados,root, x*e, y - 10*tamanio, x + 15*e*tamanio, y - 30*tamanio);
+                        dibujo(grados,root, x, y - 10*tamanio, x + 15*e*tamanio, y - 30*tamanio);
                         if(cont < 1){
                             pts(textoCoord, root, puntosDeControl, x, y-10, x+15*e, y-30);
                             fun(root, puntosDeControl, x, y - 10, x + 15*e, y - 30);
@@ -1111,7 +1111,7 @@ public class Dibujo {
                 pts(textoCoord, root, puntosDeControl, x+35*e, y+37, x+65*e, y+47, x+45*e, y+27, x+55*e, y+62);
                 fun(root, puntosDeControl, x + 13*e, y - 10, x + 57*e, y - 10, x, y + 70, x + 57*e, y + 70, x + 57*e, y - 10, x + 45*e, y + 10, x + 40*e, y - 125, x - 55*e, y + 50, x + 35*e, y + 37, x + 65*e, y + 47, x + 45*e, y + 27, x + 55*e, y + 62);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 13*e*tamanio, y - 10*tamanio, x, y + 70*tamanio, x + 57*e*tamanio, y + 70*tamanio, x + 5*e*tamanio, y - 10*tamanio);
+                    dibujo(grados,root, x + 13*e*tamanio, y - 10*tamanio, x, y + 70*tamanio, x + 57*e*tamanio, y + 70*tamanio, x + 57*e*tamanio, y - 10*tamanio);
                     dibujo(grados,root, x + 57*e*tamanio, y - 10*tamanio, x + 40*e*tamanio, y - 125*tamanio, x - 55*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 10*tamanio); //Semi ovalo
                     dibujo(grados,root, x + 35*e*tamanio, y + 37*tamanio, x + 45*e*tamanio, y + 27*tamanio, x + 55*e*tamanio, y + 62*tamanio, x + 65*e*tamanio, y + 47*tamanio);  //Curva derecha (conector)
                     if(auxBold > 1){
