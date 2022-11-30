@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Dibujo {
-    int x;
-    int y;
+    int x, xa;
+    int y, ya;
     int xinicial, yinicial;
     //int yi = 100;
     int aux = 0;
@@ -129,13 +129,14 @@ public class Dibujo {
 
     public void Letras(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
 
-        System.out.println("X: " + x +  ", Y: " + y);
 
         if (borrar == 1) {
 
             if(!tras){
                 x = 30;
                 y = 100;
+                xa = x;
+                ya = y;
                 xinicial=200;
                 yinicial=400;
             }else if (tras){
@@ -191,6 +192,7 @@ public class Dibujo {
                     pts(textoCoord, root, puntosDeControl, x + 30 * e, y + 10, x + 25 * e, y + 30, x - 5 * e, y - 30, x - 20 * e, y + 85);
                     pts(textoCoord, root, puntosDeControl, x + 35 * e, y, x + 60 * e, y + 15, x + 10 * e, y + 60, x + 50 * e, y + 65);
                     fun(root, puntosDeControl, x + 30 * e, y + 10, x - 5 * e, y - 30, x - 20 * e, y + 85, x + 25 * e, y + 30, x + 35 * e, y, x + 10 * e, y + 60, x + 50 * e, y + 65, x + 60 * e, y + 15);
+
 
                     while (cont < auxBold) {
 
@@ -1666,6 +1668,8 @@ public class Dibujo {
             }
             auxSub = false;
             auxBold = 1;
+            xa=x;
+            ya=y;
         }
         if(estilo.contains("N")){
             auxBold = 4;
@@ -2427,7 +2431,7 @@ public class Dibujo {
             c1.setFill(Color.TRANSPARENT);
             c1.setStroke(color);
             c1.setStrokeWidth(grosor);
-            c1.getTransforms().add(new Rotate(r, x,y));
+            c1.getTransforms().add(new Rotate(r, xa,ya));
 
             root.getChildren().add(c1);
         }
@@ -2437,7 +2441,7 @@ public class Dibujo {
             q.setFill(Color.TRANSPARENT);
             q.setStroke(color);
             q.setStrokeWidth(grosor);
-            q.getTransforms().add(new Rotate(r, x,y));
+            q.getTransforms().add(new Rotate(r, xa,ya));
 
             root.getChildren().add(q);
         }
@@ -2447,7 +2451,7 @@ public class Dibujo {
             l.setFill(Color.TRANSPARENT);
             l.setStroke(color);
             l.setStrokeWidth(grosor);
-            l.getTransforms().add(new Rotate(r, x,y));
+            l.getTransforms().add(new Rotate(r, xa,ya));
 
             root.getChildren().add(l);
         }
@@ -2457,7 +2461,7 @@ public class Dibujo {
             p.setFill(Color.TRANSPARENT);
             p.setStroke(color);
             p.setStrokeWidth(grosor);
-            p.getTransforms().add(new Rotate(r, x,y));
+            p.getTransforms().add(new Rotate(r, xa,ya));
 
             root.getChildren().add(p);
         }
@@ -6067,19 +6071,5 @@ public class Dibujo {
         }
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
 }
