@@ -120,7 +120,16 @@ public class Dibujo {
         }
     }
 
+    public void setEspejo(int xN) {
+        this.x = xN;
+        System.out.println(x);
+    }
+
+
+
     public void Letras(String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
+
+        System.out.println("X: " + x +  ", Y: " + y);
 
         if (borrar == 1) {
 
@@ -129,12 +138,24 @@ public class Dibujo {
                 y = 100;
                 xinicial=200;
                 yinicial=400;
-            }else{
+            }else if (tras){
                 x = xTras;
                 y = yTras;
             }
 
         }
+
+        if (e == -1 && x <= 80) {
+            if (caracter != ' ' && caracterAnt != ' ') {
+                dibujo(grados, root, x - 5, y + 30, x - 30, y + 30);
+            }
+
+            x = 1450;
+            y = y + 150;
+            xInicialSu = x;
+            yInicialSu = y + 55*tamanio;
+        }
+
         if (x >= scrollPane.getWidth() - 120) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
@@ -159,7 +180,6 @@ public class Dibujo {
             yInicialSu = y + 55;
         }
         ArrayList<Shape> objetos = new ArrayList<Shape>();
-
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
@@ -1633,7 +1653,16 @@ public class Dibujo {
         }
         if (caracter == ' ') {
             if (x != 30) {
-                x = x + 50*e;
+                if (e == 1) {
+                    x = x + 50 * e;
+                }
+            }
+            if (e == -1 && x == 30) {
+                x = 1450;
+            }
+
+            if (x != 1450 && e == -1) {
+                x = x - 50;
             }
             auxSub = false;
             auxBold = 1;
@@ -6044,5 +6073,13 @@ public class Dibujo {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
