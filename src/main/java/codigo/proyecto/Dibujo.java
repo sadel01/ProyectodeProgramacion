@@ -127,6 +127,7 @@ public class Dibujo {
     }
 
     public void Letras(boolean cursiva,String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
+
         auxK=cursiva;
         if (borrar == 1) {
             if(!tras){
@@ -148,7 +149,7 @@ public class Dibujo {
                 dibujo(grados,root, x - 5, y + 30, x - 30, y + 30);
             }
 
-            x = 1450;
+            x = (int) (scrollPane.getWidth() - 120) - 50;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55*tamanio;
@@ -1659,9 +1660,9 @@ public class Dibujo {
                 }
             }
             if (e == -1 && x == 30) {
-                x = 1450;
+                x = (int) (scrollPane.getWidth() - 120) - 50;
             }
-            if (x != 1450 && e == -1) {
+            if ((x != scrollPane.getWidth() - 120) && e == -1) {
                 x = x - 50;
             }
             auxSub = false;
