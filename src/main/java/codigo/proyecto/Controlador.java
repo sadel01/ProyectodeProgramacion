@@ -100,20 +100,11 @@ public class Controlador extends Dibujo implements Initializable {
         int contadorPalabras = 0;
 
         String[] palabra = frase.split("\\s+");
-
-        System.out.println(palabra.length);
+        
 
         for (int i = 1; i < palabra.length; i++) { // Por cada palabra en el texto se añade un espacio vacio en estilosFIN
             estilosFIN.add(" ");
             contadorPalabras++;
-        }
-
-        for (int i = 1; i < palabra.length; i++) {
-            if (palabra[i].contains("^S")){
-                comas.add("S");
-            }else{
-                comas.add(" ");
-            }
         }
 
 
@@ -121,22 +112,12 @@ public class Controlador extends Dibujo implements Initializable {
             estilosFIN.set(i, estilosComa[i]); // Se setean los estilos en estilosFIN, para que corresponda con cada palabra del texto
         }
 
-        System.out.println("Comas" + comas);
-
-
         int k = 0;
-        int g = -1;
         for (int i =0; i <frase.length(); i++) {
 
             if (frase.charAt(i) == ' '){
                 g++;
             }
-
-            if (palabra.length > 3 && comas.get(g).equals("S") && comas.get(g-1).equals("S")){
-                auxSub = true;
-            }
-
-
 
             if (i == 0){
                 estilosFIN.add(" ");
