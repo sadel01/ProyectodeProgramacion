@@ -23,8 +23,7 @@ public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
     String grados="";
     int numTam = 1, numGra=0;
-    int a = 0;
-    int b= 0;
+    int a = 0, b= 0, c = 0;
     @FXML
     private AnchorPane root;
 
@@ -183,10 +182,21 @@ public class Controlador extends Dibujo implements Initializable {
                 }
             } else if (b == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
                 grados = grados + frase.charAt(i);
+            }
+
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'A') {
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    c = 1;
+                    grados = grados + frase.charAt(i);
+                }
+            } else if (c == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                grados = grados + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
-                b = 0;
-                grados = "";
-                numGra = 0;
+                if (frase.contains("^a")) {
+                    b = 0;
+                    grados = "";
+                    numGra = 0;
+                }
             }
 
             if (tamanio.length() != 0) {

@@ -126,8 +126,6 @@ public class Dibujo {
         System.out.println(x);
     }
 
-
-
     public void Letras(boolean cursiva,String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
         auxK=cursiva;
         if (borrar == 1) {
@@ -217,41 +215,41 @@ public class Dibujo {
                         Subrayar(xInicialSu, yInicialSu, x, root);
                     }
                 }
-
             } else {
+                if(caracterAnt!='^' && caracterAnt!='+') {
+                    Text t = new Text("\n" + caracter + ":");
+                    textoCoord.getChildren().add(t);
+                    pts(textoCoord, root, puntosDeControl, x, y + 50, x + 30 * e, y - 50, x + 20 * e, y + 60, x + 20 * e, y - 50);
+                    pts(textoCoord, root, puntosDeControl, x + 30 * e, y - 50, x + 65 * e, y + 15, x + 50 * e, y - 60, x + 40 * e, y + 120);
+                    pts(textoCoord, root, puntosDeControl, x, y + 15, x + 44 * e, y, x + 10 * e, y - 10, x + 30 * e, y + 30);
+                    fun(root, puntosDeControl, x, y + 50, x + 20 * e, y + 60, x + 20 * e, y - 50, x + 30 * e, y - 50, x + 30 * e, y - 50, x + 50 * e, y - 60, x + 40 * e, y + 120, x + 65 * e, y + 15, x, y + 15, x + 10 * e, y - 10, x + 30 * e, y + 30, x + 44 * e, y);
 
-                Text t = new Text("\n"+caracter+":");
-                textoCoord.getChildren().add(t);
-                pts(textoCoord, root, puntosDeControl, x, y+50, x+30*e, y-50, x+20*e, y+60, x+20*e, y-50);
-                pts(textoCoord, root, puntosDeControl, x+30*e, y-50, x+65*e, y+15, x+50*e, y-60, x+40*e, y+120);
-                pts(textoCoord, root, puntosDeControl, x, y+15, x+44*e, y, x+10*e, y-10, x+30*e, y+30);
-                fun(root, puntosDeControl, x, y + 50, x + 20*e, y + 60, x + 20*e, y - 50, x + 30*e, y - 50, x + 30*e, y - 50, x + 50*e, y - 60, x + 40*e, y + 120, x + 65*e, y + 15, x, y + 15, x + 10*e, y - 10, x + 30*e, y + 30, x + 44*e, y);
+                    while (cont < auxBold) {
 
-                while(cont < auxBold) {
-
-                    dibujo(grados,root, x, y + 50*tamanio, x + 20*e*tamanio, y + 60*tamanio, x + 20*e*tamanio, y - 50*tamanio, x + 30*e*tamanio, y - 50*tamanio);
-                    dibujo(grados,root, x + 30*e*tamanio, y - 50*tamanio, x + 50*e*tamanio, y - 60*tamanio, x + 40*e*tamanio, y + 120*tamanio, x + 65*e*tamanio, y + 15*tamanio);
-                    dibujo(grados,root, x, y + 15*tamanio, x + 10*e*tamanio, y - 10*tamanio, x + 30*e*tamanio, y + 30*tamanio, x + 44*e*tamanio, y);
+                        dibujo(grados, root, x, y + 50 * tamanio, x + 20 * e * tamanio, y + 60 * tamanio, x + 20 * e * tamanio, y - 50 * tamanio, x + 30 * e * tamanio, y - 50 * tamanio);
+                        dibujo(grados, root, x + 30 * e * tamanio, y - 50 * tamanio, x + 50 * e * tamanio, y - 60 * tamanio, x + 40 * e * tamanio, y + 120 * tamanio, x + 65 * e * tamanio, y + 15 * tamanio);
+                        dibujo(grados, root, x, y + 15 * tamanio, x + 10 * e * tamanio, y - 10 * tamanio, x + 30 * e * tamanio, y + 30 * tamanio, x + 44 * e * tamanio, y);
 
 
-                    if (caracter == 'Á') {
-                        dibujo(grados,root, x + 30*e*tamanio, y - 60*tamanio, x + 45*e*tamanio, y - 80*tamanio);
+                        if (caracter == 'Á') {
+                            dibujo(grados, root, x + 30 * e * tamanio, y - 60 * tamanio, x + 45 * e * tamanio, y - 80 * tamanio);
 
-                        if(cont < 1){
-                            pts(textoCoord, root, puntosDeControl, x+30*e, y-60, x+45*e, y-80);
-                            fun(root, puntosDeControl, x + 30*e, y - 60, x + 45*e, y - 80);
+                            if (cont < 1) {
+                                pts(textoCoord, root, puntosDeControl, x + 30 * e, y - 60, x + 45 * e, y - 80);
+                                fun(root, puntosDeControl, x + 30 * e, y - 60, x + 45 * e, y - 80);
+                            }
                         }
+
+                        if (auxBold > 1) {
+                            x++;
+                        }
+                        cont++;
                     }
 
-                    if(auxBold > 1){
-                        x++;
+                    x = x + 65 * tamanio * e;
+                    if (auxSub) {
+                        Subrayar(xInicialSu, yInicialSu * tamanio, x * tamanio, root);
                     }
-                    cont++;
-                }
-
-                x = x + 65*tamanio* e;
-                if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -2484,7 +2482,5 @@ public class Dibujo {
             root.getChildren().add(p);
         }
     }
-    
-
 
 }
