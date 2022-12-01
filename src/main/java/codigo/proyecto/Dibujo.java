@@ -16,7 +16,6 @@ public class Dibujo {
     int y, ya;
     int xinicial, yinicial;
     //int yi = 100;
-    int aux = 0;
     int grosor = 4;
     //variables para el subrayado
     boolean auxSub=false;
@@ -107,14 +106,10 @@ public class Dibujo {
         }
     }
 
-    public void setEspejo(int xN) {
-        this.x = xN;
-        System.out.println(x);
-    }
 
 
 
-    public void Letras(boolean cursiva,String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
+    public void Letras(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
         auxK=cursiva;
         if (borrar == 1) {
             if(!tras){
@@ -124,7 +119,7 @@ public class Dibujo {
                 ya = y;
                 xinicial=200;
                 yinicial=400;
-            }else if (tras){
+            }else{
                 x = xTras;
                 y = yTras;
             }
@@ -751,10 +746,10 @@ public class Dibujo {
                 if(caracterAnt!='^' && caracterAnt!='+' ) {
                     Text t = new Text("\n" + caracter + ":");
                     textoCoord.getChildren().add(t);
-                    pts(textoCoord, root, puntosDeControl, x, y - 20, x + 10 * e, y + 40, x + 40 * e, y - 120, x + 40 * e, y + 80);
-                    pts(textoCoord, root, puntosDeControl, x + 10 * e, y + 40, x + 60 * e, y - 50, x - 20 * e, y, x + 60 * e, y);
-                    pts(textoCoord, root, puntosDeControl, x + 33 * e, y - 5, x + 80 * e, y + 15, x + 60 * e, y - 10, x + 60 * e, y + 115);
-                    fun(root, puntosDeControl, x, y - 20, x + 40 * e, y - 120, x + 40 * e, y + 80, x - 20 * e, y, x + 60 * e, y, x + 60 * e, y - 10, x + 60 * e, y + 115, x + 10 * e, y + 40, x + 10 * e, y + 40, x + 60 * e, y - 50, x + 33 * e, y - 5, x + 80 * e, y + 15);
+                    pts(textoCoord,  x, y - 20, x + 10 * e, y + 40, x + 40 * e, y - 120, x + 40 * e, y + 80);
+                    pts(textoCoord,  x + 10 * e, y + 40, x + 60 * e, y - 50, x - 20 * e, y, x + 60 * e, y);
+                    pts(textoCoord, x + 33 * e, y - 5, x + 80 * e, y + 15, x + 60 * e, y - 10, x + 60 * e, y + 115);
+                    fun(root, x, y - 20, x + 40 * e, y - 120, x + 40 * e, y + 80, x - 20 * e, y, x + 60 * e, y, x + 60 * e, y - 10, x + 60 * e, y + 115, x + 10 * e, y + 40, x + 10 * e, y + 40, x + 60 * e, y - 50, x + 33 * e, y - 5, x + 80 * e, y + 15);
 
                     while (cont < auxBold) {
                         dibujo(grados, root, x, y - 20 * tamanio, x + 40 * e * tamanio, y - 120 * tamanio, x + 40 * e * tamanio, y + 80 * tamanio, x + 10 * e * tamanio, y + 40 * tamanio); // primera curva hacia
@@ -1610,7 +1605,7 @@ public class Dibujo {
 
     }
 
-    public void Simbolos(boolean cursiva,String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
+    public void Simbolos(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio ){
         auxK=cursiva;
         if (borrar == 1) {
 
@@ -2140,7 +2135,7 @@ public class Dibujo {
         if(caracter == '"' || caracter =='\''){
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
-            int rep = 0;
+            int rep;
             if(caracter == '\''){
                 rep = 1;
             }

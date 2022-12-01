@@ -200,10 +200,10 @@ public class Controlador extends Dibujo implements Initializable {
 
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                    Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam, numGra);
+                    Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
 
                 } else {
-                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, puntosDeControl, 1, scrollPane, numTam);
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam);
                 }
 
             } else {
@@ -225,15 +225,15 @@ public class Controlador extends Dibujo implements Initializable {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                     if (cursiva) {
-                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam, 15);
+                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, 15);
                     } else {
-                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam, numGra);
+                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, numGra);
                     }
                 } else {
                     if (cursiva) {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
                     } else {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, puntosDeControl, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
                     }
                 }
 
