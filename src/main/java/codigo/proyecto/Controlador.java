@@ -192,9 +192,9 @@ public class Controlador extends Dibujo implements Initializable {
             } else if (c == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
                 grados = grados + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
+                b = 0;
+                grados = "";
                 if (frase.contains("^a")) {
-                    b = 0;
-                    grados = "";
                     numGra = 0;
                 }
             }

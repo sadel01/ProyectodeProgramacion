@@ -1623,7 +1623,6 @@ public class Dibujo {
                 }
             }
         }
-
     }
 
     public void Simbolos(boolean cursiva,String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio ){
@@ -1662,15 +1661,14 @@ public class Dibujo {
             if (e == -1 && x == 30) {
                 x = 1450;
             }
-
             if (x != 1450 && e == -1) {
                 x = x - 50;
             }
             auxSub = false;
             auxK = false;
             auxBold = 1;
-            xa=x;
-            ya=y;
+            xa = x;
+            ya = y;
         }
         if(estilo.contains("N")){
             auxBold = 4;
