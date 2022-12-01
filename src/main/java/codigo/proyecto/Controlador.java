@@ -78,7 +78,6 @@ public class Controlador extends Dibujo implements Initializable {
         String[] estilosComa = {};
 
         ArrayList<String> estilosFIN = new ArrayList<>();
-        ArrayList<String> comas = new ArrayList<>();
 
 
         if (frase.matches("((.*)\\^[NKS]\\+[NKS]\\+[NKS],(.*))|((.*)\\^[NKS],(.*))|((.*)\\^[NKS]\\+[NKS],(.*))|((.*)(\\^,)(.*))|((.*)\\^[NKS]\\+,(.*))|((.*)\\^[NKS]\\+[NKS]\\+,(.*))")){
@@ -100,7 +99,7 @@ public class Controlador extends Dibujo implements Initializable {
         int contadorPalabras = 0;
 
         String[] palabra = frase.split("\\s+");
-        
+
 
         for (int i = 1; i < palabra.length; i++) { // Por cada palabra en el texto se añade un espacio vacio en estilosFIN
             estilosFIN.add(" ");
