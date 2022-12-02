@@ -20,6 +20,7 @@ public class Dibujo {
     //variables para el subrayado
     boolean auxSub=false;
     boolean auxK=false;
+    boolean auxA=false;
     int xInicialSu=30;
     int yInicialSu=100;
     //-----------------------
@@ -109,7 +110,10 @@ public class Dibujo {
 
 
 
-    public void Letras(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
+    public void Letras(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados, int grA) {
+        if(auxA){
+            grados=grA;
+        }
         auxK=cursiva;
         if (borrar == 1) {
             if(!tras){
@@ -199,39 +203,42 @@ public class Dibujo {
                 }
 
             } else {
+                if(caracterAnt!='^') {
+                    Text t = new Text("\n" + caracter + ":");
+                    textoCoord.getChildren().add(t);
+                    pts(textoCoord, x, y + 50, x + 30 * e, y - 50, x + 20 * e, y + 60, x + 20 * e, y - 50);
+                    pts(textoCoord, x + 30 * e, y - 50, x + 65 * e, y + 15, x + 50 * e, y - 60, x + 40 * e, y + 120);
+                    pts(textoCoord, x, y + 15, x + 44 * e, y, x + 10 * e, y - 10, x + 30 * e, y + 30);
+                    fun(root, x, y + 50, x + 20 * e, y + 60, x + 20 * e, y - 50, x + 30 * e, y - 50, x + 30 * e, y - 50, x + 50 * e, y - 60, x + 40 * e, y + 120, x + 65 * e, y + 15, x, y + 15, x + 10 * e, y - 10, x + 30 * e, y + 30, x + 44 * e, y);
 
-                Text t = new Text("\n"+caracter+":");
-                textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+50, x+30*e, y-50, x+20*e, y+60, x+20*e, y-50);
-                pts(textoCoord, x+30*e, y-50, x+65*e, y+15, x+50*e, y-60, x+40*e, y+120);
-                pts(textoCoord, x, y+15, x+44*e, y, x+10*e, y-10, x+30*e, y+30);
-                fun(root, x, y + 50, x + 20*e, y + 60, x + 20*e, y - 50, x + 30*e, y - 50, x + 30*e, y - 50, x + 50*e, y - 60, x + 40*e, y + 120, x + 65*e, y + 15, x, y + 15, x + 10*e, y - 10, x + 30*e, y + 30, x + 44*e, y);
+                    while (cont < auxBold) {
 
-                while(cont < auxBold) {
-
-                    dibujo(grados,root, x, y + 50*tamanio, x + 20*e*tamanio, y + 60*tamanio, x + 20*e*tamanio, y - 50*tamanio, x + 30*e*tamanio, y - 50*tamanio);
-                    dibujo(grados,root, x + 30*e*tamanio, y - 50*tamanio, x + 50*e*tamanio, y - 60*tamanio, x + 40*e*tamanio, y + 120*tamanio, x + 65*e*tamanio, y + 15*tamanio);
-                    dibujo(grados,root, x, y + 15*tamanio, x + 10*e*tamanio, y - 10*tamanio, x + 30*e*tamanio, y + 30*tamanio, x + 44*e*tamanio, y);
+                        dibujo(grados, root, x, y + 50 * tamanio, x + 20 * e * tamanio, y + 60 * tamanio, x + 20 * e * tamanio, y - 50 * tamanio, x + 30 * e * tamanio, y - 50 * tamanio);
+                        dibujo(grados, root, x + 30 * e * tamanio, y - 50 * tamanio, x + 50 * e * tamanio, y - 60 * tamanio, x + 40 * e * tamanio, y + 120 * tamanio, x + 65 * e * tamanio, y + 15 * tamanio);
+                        dibujo(grados, root, x, y + 15 * tamanio, x + 10 * e * tamanio, y - 10 * tamanio, x + 30 * e * tamanio, y + 30 * tamanio, x + 44 * e * tamanio, y);
 
 
-                    if (caracter == 'Á') {
-                        dibujo(grados,root, x + 30*e*tamanio, y - 60*tamanio, x + 45*e*tamanio, y - 80*tamanio);
+                        if (caracter == 'Á') {
+                            dibujo(grados, root, x + 30 * e * tamanio, y - 60 * tamanio, x + 45 * e * tamanio, y - 80 * tamanio);
 
-                        if(cont < 1){
-                            pts(textoCoord, x+30*e, y-60, x+45*e, y-80);
-                            fun(root, x + 30*e, y - 60, x + 45*e, y - 80);
+                            if (cont < 1) {
+                                pts(textoCoord, x + 30 * e, y - 60, x + 45 * e, y - 80);
+                                fun(root, x + 30 * e, y - 60, x + 45 * e, y - 80);
+                            }
                         }
+
+                        if (auxBold > 1) {
+                            x++;
+                        }
+                        cont++;
                     }
 
-                    if (auxBold > 1) {
-                        x++;
+                    x = x + 65 * tamanio * e;
+                    if (auxSub) {
+                        Subrayar(xInicialSu, yInicialSu * tamanio, x * tamanio, root);
                     }
-                    cont++;
-                }
-
-                x = x + 65*tamanio* e;
-                if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                }else{
+                    auxA=true;
                 }
             }
         }
@@ -1633,23 +1640,28 @@ public class Dibujo {
             yInicialSu = y + 55;
         }
         if (caracter == ' ') {
-            if (x != 30) {
-                if (e == 1) {
-                    x = x + 50 * e;
+            if(auxA){
+                x=x+40;
+            }else {
+                if (x != 30) {
+                    if (e == 1) {
+                        x = x + 50 * e;
+                    }
                 }
-            }
-            if (e == -1 && x == 30) {
-                x = 1450;
-            }
+                if (e == -1 && x == 30) {
+                    x = 1450;
+                }
 
-            if (x != 1450 && e == -1) {
-                x = x - 50;
+                if (x != 1450 && e == -1) {
+                    x = x - 50;
+                }
+
+                auxSub = false;
+                auxK = false;
+                auxBold = 1;
+                xa = x;
+                ya = y;
             }
-            auxSub = false;
-            auxK = false;
-            auxBold = 1;
-            xa=x;
-            ya=y;
         }
         if(estilo.contains("N")){
             auxBold = 4;
@@ -2378,7 +2390,8 @@ public class Dibujo {
         }
     }
 
-    public void dibujo(int r,AnchorPane root, int... lista){
+    public void dibujo(int gra,AnchorPane root, int... lista){
+
         if(lista.length == 8) {
             //cubica
             CubicCurve c1 = new CubicCurve(lista[0], lista[1], lista[2], lista[3], lista[4], lista[5], lista[6], lista[7]);
@@ -2386,9 +2399,9 @@ public class Dibujo {
             c1.setStroke(color);
             c1.setStrokeWidth(grosor);
             if(auxK){
-                c1.getTransforms().add(new Rotate(r, x,y));
+                c1.getTransforms().add(new Rotate(gra, x,y));
             }else{
-                c1.getTransforms().add(new Rotate(r, xa,ya));
+                c1.getTransforms().add(new Rotate(gra, xa,ya));
             }
             root.getChildren().add(c1);
         }
@@ -2399,9 +2412,9 @@ public class Dibujo {
             q.setStroke(color);
             q.setStrokeWidth(grosor);
             if(auxK){
-                q.getTransforms().add(new Rotate(r, x,y));
+                q.getTransforms().add(new Rotate(gra, x,y));
             }else{
-                q.getTransforms().add(new Rotate(r, xa,ya));
+                q.getTransforms().add(new Rotate(gra, xa,ya));
             }
 
             root.getChildren().add(q);
@@ -2413,9 +2426,9 @@ public class Dibujo {
             l.setStroke(color);
             l.setStrokeWidth(grosor);
             if(auxK){
-                l.getTransforms().add(new Rotate(r, x,y));
+                l.getTransforms().add(new Rotate(gra, x,y));
             }else{
-                l.getTransforms().add(new Rotate(r, xa,ya));
+                l.getTransforms().add(new Rotate(gra, xa,ya));
             }
 
             root.getChildren().add(l);
@@ -2427,9 +2440,9 @@ public class Dibujo {
             p.setStroke(color);
             p.setStrokeWidth(grosor);
             if(auxK){
-                p.getTransforms().add(new Rotate(r, x,y));
+                p.getTransforms().add(new Rotate(gra, x,y));
             }else{
-                p.getTransforms().add(new Rotate(r, xa,ya));
+                p.getTransforms().add(new Rotate(gra, xa,ya));
             }
 
             root.getChildren().add(p);
