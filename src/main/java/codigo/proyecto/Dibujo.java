@@ -158,7 +158,7 @@ public class Dibujo {
         if(estilo.contains("S")){
             auxSub = true;
             xInicialSu = x;
-            yInicialSu = y + 55;
+            yInicialSu = y + 55 + 10;
         }
 
         int cont = 0;
@@ -1206,7 +1206,7 @@ public class Dibujo {
                 else {// Cuando quiere subrayar
                     auxSub = true;
                     xInicialSu = x;
-                    yInicialSu = y + 55;
+                    yInicialSu = y + 55 + 15;
                 }
 
             }
