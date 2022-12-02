@@ -1,6 +1,5 @@
 package codigo.proyecto;
 
-import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
@@ -10,9 +9,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.scene.transform.Rotate;
-
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Dibujo {
     int x, xa;
@@ -24,6 +21,7 @@ public class Dibujo {
     //variables para el subrayado
     boolean auxSub=false;
     boolean auxK=false;
+    boolean auxAng = false;
     int xInicialSu=30;
     int yInicialSu=100;
     //-----------------------
@@ -120,12 +118,7 @@ public class Dibujo {
             this.y = 100;
         }
     }
-
-    public void setEspejo(int xN) {
-        this.x = xN;
-        System.out.println(x);
-    }
-
+    
     public void Letras(boolean cursiva,String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
 
         auxK=cursiva;
@@ -251,6 +244,9 @@ public class Dibujo {
                     if (auxSub) {
                         Subrayar(xInicialSu, yInicialSu * tamanio, x * tamanio, root);
                     }
+                }
+                else {
+                    auxAng = true;
                 }
             }
         }
@@ -1654,22 +1650,32 @@ public class Dibujo {
             yInicialSu = y + 55;
         }
         if (caracter == ' ') {
-            if (x != 30) {
-                if (e == 1) {
-                    x = x + 50 * e;
+            if (!auxAng) {
+                if (x != 30) {
+                    if (e == 1) {
+                        x = x + 50 * e;
+                    }
                 }
+                if (e == -1 && x == 30) {
+                    x = (int) (scrollPane.getWidth() - 120) - 50;
+                }
+                if ((x != scrollPane.getWidth() - 120) && e == -1) {
+                    x = x - 50;
+                }
+                auxSub = false;
+                auxK = false;
+                auxBold = 1;
+                xa = x;
+                ya = y;
             }
-            if (e == -1 && x == 30) {
-                x = (int) (scrollPane.getWidth() - 120) - 50;
+            else {
+                Line l1 = new Line(x + 50, y + 30, x + 50, y + 30);
+                l1.setFill(Color.TRANSPARENT);
+                l1.setStroke(Color.TRANSPARENT);
+                l1.setStrokeWidth(grosor);
+                root.getChildren().add(l1);
+                x = x + 50;
             }
-            if ((x != scrollPane.getWidth() - 120) && e == -1) {
-                x = x - 50;
-            }
-            auxSub = false;
-            auxK = false;
-            auxBold = 1;
-            xa = x;
-            ya = y;
         }
         if(estilo.contains("N")){
             auxBold = 4;
