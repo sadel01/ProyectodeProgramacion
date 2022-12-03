@@ -124,18 +124,18 @@ public class Dibujo {
 
         }
 
-        if (e == -1 && x <= 80) {
+        if (e == -1 && x <= 90) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 dibujo(grados,root, x - 5, y + 30, x - 30, y + 30);
             }
 
-            x = (int) (scrollPane.getWidth() - 120) - 50;
+            x = (int) (scrollPane.getWidth()) - 60;
             y = y + 150;
             xInicialSu = x;
             yInicialSu = y + 55*tamanio;
         }
 
-        if (x >= scrollPane.getWidth() - 120) {
+        if (x >= scrollPane.getWidth() - 120 && e != -1) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
                 l1.setFill(Color.TRANSPARENT);
@@ -1618,7 +1618,7 @@ public class Dibujo {
             }
 
         }
-        if (x >= scrollPane.getWidth() - 120) {
+        if (x >= scrollPane.getWidth() - 120 && e != -1) {
             if (caracter != ' ' && caracterAnt != ' ') {
                 Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
                 l1.setFill(Color.TRANSPARENT);
@@ -1626,7 +1626,6 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
             }
-
             x = 30;
             y = y + 150;
             xInicialSu = x;
@@ -1640,9 +1639,9 @@ public class Dibujo {
                     }
                 }
                 if (e == -1 && x == 30) {
-                    x = (int) (scrollPane.getWidth() - 120) - 50;
+                    x = (int) (scrollPane.getWidth() - 10);
                 }
-                if ((x != scrollPane.getWidth() - 120) && e == -1) {
+                if ((x != scrollPane.getWidth() - 60) && e == -1) {
                     x = x - 50;
                 }
                 auxSub = false;
