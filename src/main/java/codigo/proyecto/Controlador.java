@@ -381,8 +381,14 @@ public class Controlador extends Dibujo implements Initializable {
             });
 
             vbox.setOnMouseClicked(ev ->{
-                int xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                int yNuevo = (int)ev.getY() - 50; // Se obtiene la posicion de Y del mouse y se le resta 100 por la altura de las letras
+                int xNuevo;
+                int yNuevo = (int)ev.getY() - 50;
+
+                if (e != -1){
+                    xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                    }else{
+                    xNuevo = (int)ev.getSceneX() + 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                }
                 traslacion(xNuevo, yNuevo);
                 XTRASTEXT.setText(String.valueOf((int)ev.getX()));
                 YTRASTEXT.setText(String.valueOf((int)ev.getY()));
