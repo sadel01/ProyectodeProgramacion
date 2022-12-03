@@ -210,7 +210,7 @@ public class Dibujo {
                     }
                 }
             } else {
-                if(caracterAnt!='^' && caracterAnt!='+') {
+                if(caracterAnt!='^') {
                     Text t = new Text("\n" + caracter + ":");
                     textoCoord.getChildren().add(t);
                     pts(textoCoord, root, puntosDeControl, x, y + 50, x + 30 * e, y - 50, x + 20 * e, y + 60, x + 20 * e, y - 50);
@@ -872,7 +872,7 @@ public class Dibujo {
                     }
                     cont++;
                 }
-                x = x + 78*tamanio* e;
+                x = x + 78*tamanio*e;
                 if (auxSub) {
                     Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
@@ -915,7 +915,7 @@ public class Dibujo {
                         }
                         cont++;
                     }
-                    x = x + 55*tamanio;
+                    x = x + 55*tamanio*e;
                     if (auxSub) {
                         Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
 
@@ -1675,6 +1675,9 @@ public class Dibujo {
                 l1.setStrokeWidth(grosor);
                 root.getChildren().add(l1);
                 x = x + 50;
+                auxSub = false;
+                auxK = false;
+                auxBold = 1;
             }
         }
         if(estilo.contains("N")){
