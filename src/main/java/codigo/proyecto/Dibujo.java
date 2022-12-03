@@ -9,6 +9,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Transform;
+
 import java.util.ArrayList;
 
 public class Dibujo {
@@ -81,11 +83,20 @@ public class Dibujo {
 
     }
 
-    public void Subrayar(int xa,int ya,int xb, AnchorPane root){
-        Line subrayado = new Line(xa,ya,xb,ya);
-        subrayado.setFill(Color.TRANSPARENT);
-        subrayado.setStroke(color);
-        subrayado.setStrokeWidth(grosor);
+    public void Subrayar(int gra,int x,int y,int xb, AnchorPane root){
+        Line subrayado;
+        if(gra==0) {
+            subrayado = new Line(x, y, xb, y);
+            subrayado.setFill(Color.TRANSPARENT);
+            subrayado.setStroke(color);
+            subrayado.setStrokeWidth(grosor);
+        }else{
+            subrayado = new Line(x , y, xb, y );
+            subrayado.setFill(Color.TRANSPARENT);
+            subrayado.setStroke(color);
+            subrayado.setStrokeWidth(grosor);
+            subrayado.getTransforms().add(new Rotate(gra, xa,ya));
+        }
         root.getChildren().add(subrayado);
     }
 
@@ -198,7 +209,7 @@ public class Dibujo {
                     xinicial = xinicial + 60 * tamanio;
                     x = x + 60 * tamanio * e;
                     if (auxSub) {
-                        Subrayar(xInicialSu, yInicialSu, x, root);
+                        Subrayar(grados,xInicialSu, yInicialSu, x, root);
                     }
                 }
 
@@ -235,7 +246,7 @@ public class Dibujo {
 
                     x = x + 65 * tamanio * e;
                     if (auxSub) {
-                        Subrayar(xInicialSu, yInicialSu * tamanio, x * tamanio, root);
+                        Subrayar(grados,xInicialSu, yInicialSu * tamanio, x * tamanio, root);
                     }
                 }else{
                     auxA=true;
@@ -267,7 +278,7 @@ public class Dibujo {
 
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -295,7 +306,7 @@ public class Dibujo {
 
                 x = x + 80*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -319,7 +330,7 @@ public class Dibujo {
                 }
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
 
@@ -341,7 +352,7 @@ public class Dibujo {
                 }
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
 
@@ -371,7 +382,7 @@ public class Dibujo {
 
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
 
@@ -396,7 +407,7 @@ public class Dibujo {
                 }
                 x = x + 90*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -432,7 +443,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
 
@@ -463,7 +474,7 @@ public class Dibujo {
                 }
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
 
@@ -491,7 +502,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -512,7 +523,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -537,7 +548,7 @@ public class Dibujo {
                 }
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -560,7 +571,7 @@ public class Dibujo {
                 }
                 x = x + 80*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -585,7 +596,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio*e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -608,7 +619,7 @@ public class Dibujo {
                 }
                 x = x + 70*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -642,7 +653,7 @@ public class Dibujo {
 
                 x = x + 40*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -672,7 +683,7 @@ public class Dibujo {
                 }
                 x = x + 55*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -700,7 +711,7 @@ public class Dibujo {
 
                 x = x + 30*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -722,7 +733,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -747,7 +758,7 @@ public class Dibujo {
                 }
                 x = x + 55*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else{
                 if(caracterAnt!='^' && caracterAnt!='+' ) {
@@ -772,7 +783,7 @@ public class Dibujo {
                     }
                     x = x + 80 * tamanio * e;
                     if (auxSub) {
-                        Subrayar(xInicialSu, yInicialSu * tamanio, x * tamanio, root);
+                        Subrayar(grados,xInicialSu, yInicialSu * tamanio, x * tamanio, root);
 
                     }
                 }
@@ -796,7 +807,7 @@ public class Dibujo {
                 }
                 x = x + 30*tamanio*e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
 
                 }
             } else {
@@ -818,7 +829,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
 
                 }
             }
@@ -844,7 +855,7 @@ public class Dibujo {
                 }
                 x = x + 70*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -866,7 +877,7 @@ public class Dibujo {
                 }
                 x = x + 78*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -890,7 +901,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 if(caracterAnt != '^' && caracterAnt != '+') {
@@ -909,7 +920,7 @@ public class Dibujo {
                     }
                     x = x + 55*tamanio;
                     if (auxSub) {
-                        Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                        Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
 
                     }
                 }else{
@@ -939,7 +950,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -961,7 +972,7 @@ public class Dibujo {
                 }
                 x = x + 55*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -995,7 +1006,7 @@ public class Dibujo {
                 }
                 x = x + 50*tamanio*e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1022,7 +1033,7 @@ public class Dibujo {
                 }
                 x = x + 65*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -1047,7 +1058,7 @@ public class Dibujo {
                 }
                 x = x + 55*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1066,7 +1077,7 @@ public class Dibujo {
                 }
                 x = x + 58*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -1091,7 +1102,7 @@ public class Dibujo {
                 }
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1111,7 +1122,7 @@ public class Dibujo {
                 }
                 x = x + 65*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -1134,7 +1145,7 @@ public class Dibujo {
                 //EspacioDecaracterR
                 x = x + 55*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1158,7 +1169,7 @@ public class Dibujo {
                 }
                 x = x + 80*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -1182,7 +1193,7 @@ public class Dibujo {
                 //Espaciocaracter s
                 x = x + 40*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 if (caracterAnt != '^' && caracterAnt != '+') {
@@ -1207,7 +1218,7 @@ public class Dibujo {
                     }
                     x = x + 70*tamanio* e;
                     if (auxSub) {
-                        Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                        Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                     }
                 }
                 else {// Cuando quiere subrayar
@@ -1237,7 +1248,7 @@ public class Dibujo {
                 //EspaciocaracterT
                 x = x + 30*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                  {
@@ -1257,7 +1268,7 @@ public class Dibujo {
                     }
                     x = x + 30*tamanio* e;
                     if (auxSub) {
-                        Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                        Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                     }
                 }
             }
@@ -1307,7 +1318,7 @@ public class Dibujo {
                 //largo de caracter i
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1347,7 +1358,7 @@ public class Dibujo {
                 }
                 //largo de caracter i
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
                 x = x + 55*tamanio* e;
             }
@@ -1372,7 +1383,7 @@ public class Dibujo {
                 //espaciocaracter v
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1399,7 +1410,7 @@ public class Dibujo {
                 //espaciocaracter v
                 x = x + 50*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
 
             }
@@ -1427,7 +1438,7 @@ public class Dibujo {
                 //espaciocaracter v
                 x = x + 65*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
 
             } else {
@@ -1456,7 +1467,7 @@ public class Dibujo {
                 }
                 x = x + 70*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
@@ -1478,7 +1489,7 @@ public class Dibujo {
                 //tamaÃ±ocaracter x
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1499,7 +1510,7 @@ public class Dibujo {
                 //tamaÃ±ocaracter x
                 x = x + 80*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
 
             }
@@ -1526,7 +1537,7 @@ public class Dibujo {
                 //espaciocaracter v
                 x = x + 45*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1552,7 +1563,7 @@ public class Dibujo {
 
                 x = x + 46*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
 
             }
@@ -1582,7 +1593,7 @@ public class Dibujo {
                 //largo de z
                 x = x + 60*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             } else {
                 Text t = new Text("\n"+caracter+":");
@@ -1605,14 +1616,14 @@ public class Dibujo {
                 }
                 x = x + 65*tamanio* e;
                 if (auxSub) {
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
         }
 
     }
 
-    public void Simbolos(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio ){
+    public void Simbolos(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados ){
         auxK=cursiva;
         if (borrar == 1) {
 
@@ -1640,25 +1651,23 @@ public class Dibujo {
             yInicialSu = y + 55;
         }
         if (caracter == ' ') {
-            if(auxA){
-                x=x+40;
-            }else {
-                if (x != 30) {
-                    if (e == 1) {
-                        x = x + 50 * e;
-                    }
+            if (x != 30) {
+                if (e == 1) {
+                    x = x + 50 * e;
                 }
-                if (e == -1 && x == 30) {
-                    x = 1450;
-                }
+            }
+            if (e == -1 && x == 30) {
+                x = 1450;
+            }
 
-                if (x != 1450 && e == -1) {
-                    x = x - 50;
-                }
+            if (x != 1450 && e == -1) {
+                x = x - 50;
+            }
 
-                auxSub = false;
-                auxK = false;
-                auxBold = 1;
+            auxSub = false;
+            auxK = false;
+            auxBold = 1;
+            if(!auxA) {
                 xa = x;
                 ya = y;
             }
@@ -1722,7 +1731,7 @@ public class Dibujo {
                 x = x + 25;
             }
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == '[' || caracter == ']'){
@@ -1803,7 +1812,7 @@ public class Dibujo {
                 x = x + 35;
             }
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == '-' || caracter == '_'){
@@ -1853,7 +1862,7 @@ public class Dibujo {
                 x = x + 70;
             }
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == '«' || caracter == '»'){
@@ -1947,7 +1956,7 @@ public class Dibujo {
             }
             x = x + 65;
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == '.' || caracter == ','){
@@ -2004,7 +2013,7 @@ public class Dibujo {
 
             x = x + 20;
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == ':' || caracter == ';'){
@@ -2075,7 +2084,7 @@ public class Dibujo {
 
             x = x + 30;
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == '{' || caracter == '}'){
@@ -2141,7 +2150,7 @@ public class Dibujo {
             }
             x = x + 40;
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == '"' || caracter =='\''){
@@ -2186,12 +2195,12 @@ public class Dibujo {
 
                 x = x + 25;
                 if(auxSub){
-                    Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                    Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
                 }
             }
             x=x+20;
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
 
         }
@@ -2275,7 +2284,7 @@ public class Dibujo {
             }
             x = x +25;
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
         if(caracter == '¿' || caracter == '?'){
@@ -2356,7 +2365,7 @@ public class Dibujo {
             }
             x=x+45;
             if(auxSub){
-                Subrayar(xInicialSu, yInicialSu*tamanio, x*tamanio, root);
+                Subrayar(grados,xInicialSu, yInicialSu*tamanio, x*tamanio, root);
             }
         }
     }
