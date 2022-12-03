@@ -19,9 +19,7 @@ public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
     String grados="";
     int numTam = 1, numGra=0;
-    int a = 0;
-    int b= 0;
-
+    int a = 0, b= 0, c = 0;
     @FXML
     private AnchorPane root;
 
@@ -185,10 +183,21 @@ public class Controlador extends Dibujo implements Initializable {
                 }
             } else if (b == 1 && matches) {
                 grados = grados + frase.charAt(i);
+            }
+
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'A') {
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    c = 1;
+                    grados = grados + frase.charAt(i);
+                }
+            } else if (c == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                grados = grados + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
                 b = 0;
                 grados = "";
-                numGra = 0;
+                if (frase.contains("^a")) {
+                    numGra = 0;
+                }
             }
 
             if (tamanio.length() != 0) {
@@ -200,10 +209,10 @@ public class Controlador extends Dibujo implements Initializable {
 
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                    Letras(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
+                    Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
 
                 } else {
-                    Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam);
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam);
                 }
 
             } else {
@@ -225,15 +234,15 @@ public class Controlador extends Dibujo implements Initializable {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                     if (cursiva) {
-                        Cursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam);
+                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, 15);
                     } else {
-                        Letras(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, numGra);
+                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, numGra);
                     }
                 } else {
                     if (cursiva) {
-                        SimbolosCursivas(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
                     } else {
-                        Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
                     }
                 }
 
