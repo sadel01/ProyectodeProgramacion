@@ -17,9 +17,10 @@ import java.util.regex.Pattern;
 
 public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
-    String grados="";
-    int numTam = 1, numGra=0;
-    int a = 0, b= 0, c = 0;
+    String grados="", grados2="";
+    int numTam = 1, numGra=0, numGra2=0;
+    int a = 0,b=0,c=0;
+
     @FXML
     private AnchorPane root;
 
@@ -173,9 +174,6 @@ public class Controlador extends Dibujo implements Initializable {
                 numTam = 1;
             }
 
-            if (tamanio.length() != 0) {
-                numTam = Integer.parseInt(tamanio)/10;
-            }
             if (i >= 3 && matches && frase.charAt(i - 1) == 'a') {
                 if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
                     b = 1;
@@ -199,6 +197,24 @@ public class Controlador extends Dibujo implements Initializable {
                     numGra = 0;
                 }
             }
+            if (i >= 3 && matches && frase.charAt(i - 1) == 'A') {
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    c = 1;
+                    grados2 = grados2 + frase.charAt(i);
+                }
+            } else if (c == 1 && matches) {
+                grados2 = grados2 + frase.charAt(i);
+            } else if ( String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                if (grados2.length() != 0) {
+                    numGra2 = Integer.parseInt(grados2);
+                }
+                c = 0;
+                grados2="";
+            } else if (!frase.contains("^A")) {
+                numGra2=0;
+                auxA=false;
+            }
+
 
             if (tamanio.length() != 0) {
                 numTam = Integer.parseInt(tamanio)/10;
@@ -209,10 +225,10 @@ public class Controlador extends Dibujo implements Initializable {
 
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
-                    Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
+                    Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra, numGra2);
 
                 } else {
-                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam);
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
                 }
 
             } else {
@@ -234,15 +250,15 @@ public class Controlador extends Dibujo implements Initializable {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
 
                     if (cursiva) {
-                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, 15);
+                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, 15, numGra2);
                     } else {
-                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, numGra);
+                        Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, numGra, numGra2);
                     }
                 } else {
                     if (cursiva) {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10, numGra);
                     } else {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10, numGra);
                     }
                 }
 
