@@ -1649,34 +1649,13 @@ public class Dibujo {
             yInicialSu = y + 55;
         }
         if (caracter == ' ') {
-            if (!auxAng) {
-                if (x != 30) {
-                    if (e == 1) {
-                        x = x + 50 * e;
-                    }
+            if (x != 30) {
+                if (e == 1) {
+                    x = x + 50 * e;
                 }
-                if (e == -1 && x == 30) {
-                    x = (int) (scrollPane.getWidth() - 120) - 50;
-                }
-                if ((x != scrollPane.getWidth() - 120) && e == -1) {
-                    x = x - 50;
-                }
-                auxSub = false;
-                auxK = false;
-                auxBold = 1;
-                xa = x;
-                ya = y;
             }
-            else {
-                Line l1 = new Line(x + 50, y + 30, x + 50, y + 30);
-                l1.setFill(Color.TRANSPARENT);
-                l1.setStroke(Color.TRANSPARENT);
-                l1.setStrokeWidth(grosor);
-                root.getChildren().add(l1);
-                x = x + 50;
-                auxSub = false;
-                auxK = false;
-                auxBold = 1;
+            if (e == -1 && x == 30) {
+                x = 1450;
             }
 
             if (x != 1450 && e == -1) {
