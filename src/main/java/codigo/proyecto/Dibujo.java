@@ -106,11 +106,6 @@ public class Dibujo {
             this.y = 100;
         }
     }
-    
-    public void Letras(boolean cursiva,String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, ToggleButton puntosDeControl, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
-
-
-
 
     public void Letras(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
         auxK=cursiva;
@@ -204,10 +199,10 @@ public class Dibujo {
                 if(caracterAnt!='^') {
                     Text t = new Text("\n" + caracter + ":");
                     textoCoord.getChildren().add(t);
-                    pts(textoCoord, root, puntosDeControl, x, y + 50, x + 30 * e, y - 50, x + 20 * e, y + 60, x + 20 * e, y - 50);
-                    pts(textoCoord, root, puntosDeControl, x + 30 * e, y - 50, x + 65 * e, y + 15, x + 50 * e, y - 60, x + 40 * e, y + 120);
-                    pts(textoCoord, root, puntosDeControl, x, y + 15, x + 44 * e, y, x + 10 * e, y - 10, x + 30 * e, y + 30);
-                    fun(root, puntosDeControl, x, y + 50, x + 20 * e, y + 60, x + 20 * e, y - 50, x + 30 * e, y - 50, x + 30 * e, y - 50, x + 50 * e, y - 60, x + 40 * e, y + 120, x + 65 * e, y + 15, x, y + 15, x + 10 * e, y - 10, x + 30 * e, y + 30, x + 44 * e, y);
+                    pts(textoCoord, x, y + 50, x + 30 * e, y - 50, x + 20 * e, y + 60, x + 20 * e, y - 50);
+                    pts(textoCoord, x + 30 * e, y - 50, x + 65 * e, y + 15, x + 50 * e, y - 60, x + 40 * e, y + 120);
+                    pts(textoCoord, x, y + 15, x + 44 * e, y, x + 10 * e, y - 10, x + 30 * e, y + 30);
+                    fun(root, x, y + 50, x + 20 * e, y + 60, x + 20 * e, y - 50, x + 30 * e, y - 50, x + 30 * e, y - 50, x + 50 * e, y - 60, x + 40 * e, y + 120, x + 65 * e, y + 15, x, y + 15, x + 10 * e, y - 10, x + 30 * e, y + 30, x + 44 * e, y);
 
                     while (cont < auxBold) {
 
@@ -220,8 +215,8 @@ public class Dibujo {
                             dibujo(grados, root, x + 30 * e * tamanio, y - 60 * tamanio, x + 45 * e * tamanio, y - 80 * tamanio);
 
                             if (cont < 1) {
-                                pts(textoCoord, root, puntosDeControl, x + 30 * e, y - 60, x + 45 * e, y - 80);
-                                fun(root, puntosDeControl, x + 30 * e, y - 60, x + 45 * e, y - 80);
+                                pts(textoCoord, x + 30 * e, y - 60, x + 45 * e, y - 80);
+                                fun(root, x + 30 * e, y - 60, x + 45 * e, y - 80);
                             }
                         }
 
