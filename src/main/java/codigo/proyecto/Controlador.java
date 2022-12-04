@@ -45,6 +45,9 @@ public class Controlador extends Dibujo implements Initializable {
     private ToggleButton botonEspejo;
 
     @FXML
+    private ToggleButton botonEspejoY;
+
+    @FXML
     private ScrollPane scrollPane;
 
     @FXML
@@ -262,6 +265,7 @@ public class Controlador extends Dibujo implements Initializable {
             puntosDeControl.setDisable(false);
             botonTraslacion.setDisable(false);
             botonEspejo.setDisable(false);
+            botonEspejoY.setDisable(false);
         }
 
 
@@ -323,10 +327,24 @@ public class Controlador extends Dibujo implements Initializable {
 
         if (botonEspejo.isSelected()){
             e = -1;
-            botonEspejo.setText("Desactivar espejo");
+            botonEspejo.setText("Desactivar espejo (x)");
         }else{
             e = 1;
-            botonEspejo.setText("Activar espejo");
+            botonEspejo.setText("Activar espejo (x)");
+        }
+
+        obtenerLetra();
+    }
+
+    private void activarEspejoY() {
+        espejoY = botonEspejoY.isSelected();
+
+        if (botonEspejoY.isSelected()){
+            eY = -1;
+            botonEspejoY.setText("Desactivar espejo (y)");
+        }else{
+            eY = 1;
+            botonEspejoY.setText("Activar espejo (y)");
         }
 
         obtenerLetra();
@@ -454,9 +472,6 @@ public class Controlador extends Dibujo implements Initializable {
 
     }
 
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Colores.getItems().addAll("Azul", "Celeste", "Gris", "Morado", "Naranjo", "Negro", "Rojo", "Rosado", "Verde", "Violeta");
@@ -470,6 +485,7 @@ public class Controlador extends Dibujo implements Initializable {
         botonTraslacion.setOnAction(actionEvent -> activarTraslacion());
         CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
         botonEspejo.setOnAction(actionEvent -> activarEspejo());
+        botonEspejoY.setOnAction(actionEvent -> activarEspejoY());
 
         vbox.widthProperty().addListener((observable, oldValue, newValue) ->
                 {
