@@ -16,9 +16,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Controlador extends Dibujo implements Initializable {
-    String grados="", grados2="";
+    String grados="";
     int numGra=0, numGra2=0;
-    int b= 0, c = 0;
+    int b= 0;
     @FXML
     private AnchorPane root;
 
@@ -196,13 +196,13 @@ public class Controlador extends Dibujo implements Initializable {
 
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                    Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra, numGra2);
+                    Letras1(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra, numGra2);
 
                 } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                    Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra, numGra2);
+                    Letras2(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra, numGra2);
                 }
                 else {
-                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra);
+                    Simbolos(estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra);
                 }
 
             } else {
@@ -223,21 +223,21 @@ public class Controlador extends Dibujo implements Initializable {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
                     if (cursiva) {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Cursivas1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
+                            Cursivas1(estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Cursivas2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
+                            Cursivas2(estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
                         }
                     } else {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
+                            Letras1(estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
+                            Letras2(estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numGra, numGra2);
                         }
                     }
                 } else {
-                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numGra);
+                    Simbolos(estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numGra);
                 }
 
             }
@@ -372,13 +372,7 @@ public class Controlador extends Dibujo implements Initializable {
                 try{
                     Integer.parseInt(XTRASTEXT.getText());
                     Integer.parseInt(YTRASTEXT.getText());
-                    int xNuevo;
-
-                    if (e != -1){
-                        xNuevo = Integer.parseInt(XTRASTEXT.getText())-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                    }else{
-                        xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 100; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                    }
+                    int xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 50;
                     int yNuevo = Integer.parseInt(YTRASTEXT.getText()) - 50;
                     traslacion(xNuevo, yNuevo);
                     obtenerLetra();
