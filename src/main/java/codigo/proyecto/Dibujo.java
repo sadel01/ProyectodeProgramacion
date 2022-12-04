@@ -218,7 +218,9 @@ public class Dibujo {
             }
 
             x = (int) (scrollPane.getWidth()) - 60;
-            y = y + 150;
+            if(y != 150){
+                y = y + 150;
+            }
             xInicialSu = x;
             yInicialSu = y + 55;
         }
@@ -984,7 +986,9 @@ public class Dibujo {
             }
 
             x = (int) (scrollPane.getWidth()) - 60;
-            y = y + 150;
+            if(y != 150){
+                y = y + 150;
+            }
             xInicialSu = x;
             yInicialSu = y + 55;
         }
@@ -1493,10 +1497,11 @@ public class Dibujo {
                     cont++;
                 }
                 //largo de caracter i
+                x = x + 55* e;
                 if (auxSub) {
                     Subrayar(grados,xInicialSu, yInicialSu, x, root);
                 }
-                x = x + 55* e;
+
             }
         }
         if (caracter == 'v' || caracter == 'V') {

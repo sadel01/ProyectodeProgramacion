@@ -214,8 +214,6 @@ public class Controlador extends Dibujo implements Initializable {
                 numGra = Integer.parseInt(grados);
             }
 
-            String letra = String.valueOf(frase.charAt(i));
-
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
                     Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra, numGra2);
@@ -513,7 +511,7 @@ public class Controlador extends Dibujo implements Initializable {
 
         vbox.widthProperty().addListener((observable, oldValue, newValue) ->
                 {
-                    if (newValue != oldValue) {
+                    if (!newValue.equals(oldValue)) {
                         obtenerLetra();
                     }
                 }
@@ -521,7 +519,7 @@ public class Controlador extends Dibujo implements Initializable {
 
         vbox.heightProperty().addListener((observable, oldValue, newValue) ->
                 {
-                    if (newValue != oldValue) {
+                    if (!newValue.equals(oldValue)) {
                         obtenerLetra();
                     }
                 }
