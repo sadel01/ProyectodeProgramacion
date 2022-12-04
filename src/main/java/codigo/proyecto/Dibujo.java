@@ -126,7 +126,11 @@ public class Dibujo {
 
         if (e == -1 && x <= 90) {
             if (caracter != ' ' && caracterAnt != ' ') {
-                dibujo(grados,root, x - 5, y + 30, x - 30, y + 30);
+                if (eY == -1){
+                    dibujo(grados,root, x - 5, y-10, x - 30, y-10);
+                }else{
+                    dibujo(grados,root, x - 5, y + 30, x - 30, y + 30);
+                }
             }
 
             x = (int) (scrollPane.getWidth()) - 60;
@@ -137,11 +141,11 @@ public class Dibujo {
 
         if (x >= scrollPane.getWidth() - 120 && e != -1) {
             if (caracter != ' ' && caracterAnt != ' ') {
-                Line l1 = new Line(x + 20, y + 30, x + 50, y + 30);
-                l1.setFill(Color.TRANSPARENT);
-                l1.setStroke(color);
-                l1.setStrokeWidth(grosor);
-                root.getChildren().add(l1);
+                if (eY == -1){
+                    dibujo(grados,root, x + 20, y-10, x + 50, y-10);
+                }else{
+                    dibujo(grados,root, x + 20, y + 30, x + 50, y + 30);
+                }
             }
             x = 30*e;
             y = y + 150;
@@ -1666,7 +1670,7 @@ public class Dibujo {
         }
     }
 
-    public void Simbolos(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio ){
+    public void Simbolos(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane ){
         auxK=cursiva;
         if (borrar == 1) {
 

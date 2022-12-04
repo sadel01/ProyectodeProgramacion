@@ -220,7 +220,7 @@ public class Controlador extends Dibujo implements Initializable {
                     Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
                 }
                 else {
-                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam);
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane);
                 }
 
             } else {
@@ -256,9 +256,9 @@ public class Controlador extends Dibujo implements Initializable {
                     }
                 } else {
                     if (cursiva) {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane);
                     } else {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane);
                     }
                 }
 
@@ -402,6 +402,7 @@ public class Controlador extends Dibujo implements Initializable {
                         xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 100; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
                     }
                     int yNuevo = Integer.parseInt(YTRASTEXT.getText()) - 50;
+                    traslacion(xNuevo, yNuevo);
                     obtenerLetra();
 
                 }catch (NumberFormatException e){
@@ -421,6 +422,10 @@ public class Controlador extends Dibujo implements Initializable {
                     xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
                     }else{
                     xNuevo = (int)ev.getSceneX() + 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                }
+
+                if (eY == -1){
+                    yNuevo = (int)ev.getY() + 50;
                 }
                 traslacion(xNuevo, yNuevo);
                 XTRASTEXT.setText(String.valueOf((int)ev.getX()));
