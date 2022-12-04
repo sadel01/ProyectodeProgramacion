@@ -424,7 +424,7 @@ public class Controlador extends Dibujo implements Initializable {
 
                 if (e != -1){
                     xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                    }else{
+                }else{
                     xNuevo = (int)ev.getSceneX() + 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
                 }
 
@@ -464,13 +464,13 @@ public class Controlador extends Dibujo implements Initializable {
 
             scrollPane.setOnMouseMoved(e->{
 
-              if (e.getX() > vbox.getWidth()){
-                  T.setText("");
-              }else if (e.getY() > vbox.getHeight()){
-                  T.setText("");
-              }else if (e.getY() < 1){
-                  T.setText("");
-              }
+                if (e.getX() > vbox.getWidth()){
+                    T.setText("");
+                }else if (e.getY() > vbox.getHeight()){
+                    T.setText("");
+                }else if (e.getY() < 1){
+                    T.setText("");
+                }
 
             });
 

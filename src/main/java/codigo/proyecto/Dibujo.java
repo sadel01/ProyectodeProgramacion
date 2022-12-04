@@ -120,7 +120,6 @@ public class Dibujo {
         if(auxAng){
             grados=grados2;
         }
-        System.out.println(grados2);
         auxK=cursiva;
         if (borrar == 1) {
             if(!tras){
@@ -178,7 +177,7 @@ public class Dibujo {
 
         int cont = 0;
         if (caracter == 'a' || caracter == 'A' || caracter == 'á' || caracter == 'Á') {
-            
+
             if (caracter == 'a' || caracter == 'á') {
                 if(caracterAnt!='^' && caracterAnt!='+') {
                     Text t = new Text("\n" + caracter + ":");
@@ -1720,20 +1719,20 @@ public class Dibujo {
         }
         if (caracter == ' ') {
 
-                if (x != 30) {
-                    if (e == 1) {
-                        x = x + 50 * e;
-                    }
+            if (x != 30) {
+                if (e == 1) {
+                    x = x + 50 * e;
                 }
-                if (e == -1 && x == 30) {
-                    x = (int) (scrollPane.getWidth() - 10);
-                }
-                if ((x != scrollPane.getWidth() - 60) && e == -1) {
-                    x = x - 50;
-                }
-                auxSub = false;
-                auxK = false;
-                auxBold = 1;
+            }
+            if (e == -1 && x == 30) {
+                x = (int) (scrollPane.getWidth() - 10);
+            }
+            if ((x != scrollPane.getWidth() - 60) && e == -1) {
+                x = x - 50;
+            }
+            auxSub = false;
+            auxK = false;
+            auxBold = 1;
             if (!auxAng) {
                 xa = x;
                 ya = y;
