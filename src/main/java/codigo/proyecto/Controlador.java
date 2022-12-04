@@ -220,7 +220,7 @@ public class Controlador extends Dibujo implements Initializable {
                     Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
                 }
                 else {
-                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam);
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane);
                 }
 
             } else {
@@ -241,24 +241,24 @@ public class Controlador extends Dibujo implements Initializable {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
                     if (cursiva) {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, 15);
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, 15);
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15);
                         }
                     } else {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, numGra);
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, numGra);
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra);
                         }
                     }
                 } else {
                     if (cursiva) {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane);
                     } else {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane);
                     }
                 }
 
@@ -412,8 +412,6 @@ public class Controlador extends Dibujo implements Initializable {
                     alerta.setContentText("Solo ingresar números");
                     alerta.showAndWait();
                 }
-
-
             });
 
             vbox.setOnMouseClicked(ev ->{
@@ -424,6 +422,10 @@ public class Controlador extends Dibujo implements Initializable {
                     xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
                     }else{
                     xNuevo = (int)ev.getSceneX() + 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                }
+
+                if (eY == -1){
+                    yNuevo = (int)ev.getY() + 50;
                 }
                 traslacion(xNuevo, yNuevo);
                 XTRASTEXT.setText(String.valueOf((int)ev.getX()));
