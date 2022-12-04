@@ -181,10 +181,21 @@ public class Controlador extends Dibujo implements Initializable {
                 }
             } else if (b == 1 && matches) {
                 grados = grados + frase.charAt(i);
+            }
+
+            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'A') {
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    c = 1;
+                    grados = grados + frase.charAt(i);
+                }
+            } else if (c == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
+                grados = grados + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
                 b = 0;
                 grados = "";
-                numGra = 0;
+                if (frase.contains("^a")) {
+                    numGra = 0;
+                }
             }
             if (i >= 3 && matches && frase.charAt(i - 1) == 'A') {
                 if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
