@@ -26,8 +26,8 @@ public class Dibujo {
     //-----------------------
     //variables para negrita
     int auxBold = 1;
-    boolean espejo = false;
-    int e = 1; //valor espejo
+    boolean espejo = false, espejoY = false;
+    int e = 1, eY = 1; //valor espejo
 
     int xTras = 0;
     int yTras = 0;
@@ -166,22 +166,22 @@ public class Dibujo {
                 if(caracterAnt!='^' && caracterAnt!='+') {
                     Text t = new Text("\n" + caracter + ":");
                     textoCoord.getChildren().add(t);
-                    pts(textoCoord, x + 30 * e, y + 10, x + 25 * e, y + 30, x - 5 * e, y - 30, x - 20 * e, y + 85);
-                    pts(textoCoord, x + 35 * e, y, x + 60 * e, y + 15, x + 10 * e, y + 60, x + 50 * e, y + 65);
-                    fun(root, x + 30 * e, y + 10, x - 5 * e, y - 30, x - 20 * e, y + 85, x + 25 * e, y + 30, x + 35 * e, y, x + 10 * e, y + 60, x + 50 * e, y + 65, x + 60 * e, y + 15);
+                    pts(textoCoord, x + 30 * e, y + 10*eY, x + 25 * e, y + 30*eY, x - 5 * e, y - 30*eY, x - 20 * e, y + 85*eY);
+                    pts(textoCoord, x + 35 * e, y, x + 60 * e, y + 15*eY, x + 10 * e, y + 60*eY, x + 50 * e, y + 65*eY);
+                    fun(root, x + 30 * e, y + 10*eY, x - 5 * e, y - 30*eY, x - 20 * e, y + 85*eY, x + 25 * e, y + 30*eY, x + 35 * e, y, x + 10 * e, y + 60*eY, x + 50 * e, y + 65*eY, x + 60 * e, y + 15*eY);
 
 
                     while (cont < auxBold) {
 
-                        dibujo(grados,root, x + 30 * e * tamanio, y + 10 * tamanio, x - 5 * e * tamanio, y - 30 * tamanio, x - 20 * e * tamanio, y + 85 * tamanio, x + 25 * e * tamanio, y + 30 * tamanio);
-                        dibujo(grados,root, x + 35 * e * tamanio, y, x + 10 * e * tamanio, y + 60 * tamanio, x + 50 * e * tamanio, y + 65 * tamanio, x + 60 * e * tamanio, y + 15 * tamanio);
+                        dibujo(grados,root, x + 30 * e * tamanio, y + 10 *eY * tamanio, x - 5 * e * tamanio, y - 30 *eY * tamanio, x - 20 * e * tamanio, y + 85 *eY * tamanio, x + 25 * e * tamanio, y + 30*eY * tamanio);
+                        dibujo(grados,root, x + 35 * e * tamanio, y, x + 10 * e * tamanio, y + 60*eY * tamanio, x + 50 * e * tamanio, y + 65*eY * tamanio, x + 60 * e * tamanio, y + 15*eY * tamanio);
 
                         if (caracter == 'á') {
-                            dibujo(grados,root, x + 15 * e * tamanio, y - 10 * tamanio, x + 30 * e * tamanio, y - 30 * tamanio);
+                            dibujo(grados,root, x + 15 * e * tamanio, y - 10*eY * tamanio, x + 30 * e * tamanio, y - 30*eY * tamanio);
 
                             if (cont < 1) {
-                                pts(textoCoord, x + 15 * e, y - 10, x + 30 * e, y - 30);
-                                fun(root, x + 15 * e, y - 10, x + 30 * e, y - 30);
+                                pts(textoCoord, x + 15 * e, y - 10*eY, x + 30 * e, y - 30*eY);
+                                fun(root, x + 15 * e, y - 10*eY, x + 30 * e, y - 30*eY);
                             }
                         }
                         if (auxBold > 1) {
