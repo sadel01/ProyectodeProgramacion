@@ -237,11 +237,7 @@ public class Controlador extends Dibujo implements Initializable {
                         }
                     }
                 } else {
-                    if (cursiva) {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, 15);
-                    } else {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numGra);
-                    }
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numGra);
                 }
 
             }
