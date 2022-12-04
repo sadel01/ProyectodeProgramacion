@@ -241,17 +241,17 @@ public class Controlador extends Dibujo implements Initializable {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
                     if (cursiva) {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, 15);
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, 15);
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15);
                         }
                     } else {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, numGra);
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 0, scrollPane, numTam, numGra);
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra);
                         }
                     }
                 } else {
@@ -402,7 +402,6 @@ public class Controlador extends Dibujo implements Initializable {
                         xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 100; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
                     }
                     int yNuevo = Integer.parseInt(YTRASTEXT.getText()) - 50;
-                    traslacion(xNuevo, yNuevo);
                     obtenerLetra();
 
                 }catch (NumberFormatException e){
@@ -412,8 +411,6 @@ public class Controlador extends Dibujo implements Initializable {
                     alerta.setContentText("Solo ingresar números");
                     alerta.showAndWait();
                 }
-
-
             });
 
             vbox.setOnMouseClicked(ev ->{

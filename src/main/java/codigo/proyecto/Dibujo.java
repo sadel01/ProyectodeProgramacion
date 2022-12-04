@@ -1712,6 +1712,7 @@ public class Dibujo {
                 ya = y;
             }
             else {
+
                 Line l1 = new Line(x + 50, y + 30, x + 50, y + 30);
                 l1.setFill(Color.TRANSPARENT);
                 l1.setStroke(Color.TRANSPARENT);
