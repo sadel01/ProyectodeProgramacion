@@ -190,6 +190,10 @@ public class Controlador extends Dibujo implements Initializable {
                 numGra = Integer.parseInt(grados);
             }
 
+            if (!frase.contains("^A")){
+                auxAng = false;
+            }
+
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
                     Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra, numGra2);
