@@ -19,8 +19,12 @@ public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
     String grados="", grados2="";
     int numTam = 1, numGra=0, numGra2=0;
+<<<<<<< HEAD
     int a = 0,b=0,c=0;
 
+=======
+    int a = 0, b= 0, c = 0;
+>>>>>>> Benja
     @FXML
     private AnchorPane root;
 
@@ -44,6 +48,9 @@ public class Controlador extends Dibujo implements Initializable {
 
     @FXML
     private ToggleButton botonEspejo;
+
+    @FXML
+    private ToggleButton botonEspejoY;
 
     @FXML
     private ScrollPane scrollPane;
@@ -181,21 +188,28 @@ public class Controlador extends Dibujo implements Initializable {
                 }
             } else if (b == 1 && matches) {
                 grados = grados + frase.charAt(i);
-            }
-
-            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'A') {
-                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
-                    c = 1;
-                    grados = grados + frase.charAt(i);
-                }
-            } else if (c == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
-                grados = grados + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
                 b = 0;
                 grados = "";
-                if (frase.contains("^a")) {
-                    numGra = 0;
+                numGra = 0;
+            }
+
+            if (i >= 3 && matches && frase.charAt(i - 1) == 'A') {
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    c = 1;
+                    grados2 = grados2 + frase.charAt(i);
                 }
+            } else if (c == 1 && matches) {
+                grados2 = grados2 + frase.charAt(i);
+            } else if ( String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
+                if (grados2.length() != 0) {
+                    numGra2 = Integer.parseInt(grados2);
+                }
+                c = 0;
+                grados2="";
+            } else if (!frase.contains("^A")) {
+                numGra2=0;
+                auxAng=false;
             }
             if (i >= 3 && matches && frase.charAt(i - 1) == 'A') {
                 if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
@@ -223,12 +237,25 @@ public class Controlador extends Dibujo implements Initializable {
                 numGra = Integer.parseInt(grados);
             }
 
+            String letra = String.valueOf(frase.charAt(i));
+
             if (i == 0) {
+<<<<<<< HEAD
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
                     Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra, numGra2);
 
                 } else {
                     Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
+=======
+                if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
+                    Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra, numGra2);
+
+                } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
+                    Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra, numGra2);
+                }
+                else {
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra);
+>>>>>>> Benja
                 }
 
             } else {
@@ -246,10 +273,9 @@ public class Controlador extends Dibujo implements Initializable {
                 if (frase.charAt(i) == ' ') {
                     cursiva = false;
                 }
-
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
-
                     if (cursiva) {
+<<<<<<< HEAD
                         Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, 15, numGra2);
                     } else {
                         Letras(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam, numGra, numGra2);
@@ -259,6 +285,27 @@ public class Controlador extends Dibujo implements Initializable {
                         Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10, numGra);
                     } else {
                         Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numTam/10, numGra);
+=======
+                        if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15, numGra2);
+
+                        } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15, numGra2);
+                        }
+                    } else {
+                        if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra, numGra2);
+
+                        } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra, numGra2);
+                        }
+                    }
+                } else {
+                    if (cursiva) {
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, 15);
+                    } else {
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numGra);
+>>>>>>> Benja
                     }
                 }
 
@@ -278,6 +325,7 @@ public class Controlador extends Dibujo implements Initializable {
             puntosDeControl.setDisable(false);
             botonTraslacion.setDisable(false);
             botonEspejo.setDisable(false);
+            botonEspejoY.setDisable(false);
         }
 
 
@@ -339,10 +387,24 @@ public class Controlador extends Dibujo implements Initializable {
 
         if (botonEspejo.isSelected()){
             e = -1;
-            botonEspejo.setText("Desactivar espejo");
+            botonEspejo.setText("Desactivar espejo (x)");
         }else{
             e = 1;
-            botonEspejo.setText("Activar espejo");
+            botonEspejo.setText("Activar espejo (x)");
+        }
+
+        obtenerLetra();
+    }
+
+    private void activarEspejoY() {
+        espejoY = botonEspejoY.isSelected();
+
+        if (botonEspejoY.isSelected()){
+            eY = -1;
+            botonEspejoY.setText("Desactivar espejo (y)");
+        }else{
+            eY = 1;
+            botonEspejoY.setText("Activar espejo (y)");
         }
 
         obtenerLetra();
@@ -379,8 +441,13 @@ public class Controlador extends Dibujo implements Initializable {
                 try{
                     Integer.parseInt(XTRASTEXT.getText());
                     Integer.parseInt(YTRASTEXT.getText());
+                    int xNuevo;
 
-                    int xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 50;
+                    if (e != -1){
+                        xNuevo = Integer.parseInt(XTRASTEXT.getText())-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                    }else{
+                        xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 100; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                    }
                     int yNuevo = Integer.parseInt(YTRASTEXT.getText()) - 50;
                     traslacion(xNuevo, yNuevo);
                     obtenerLetra();
@@ -392,13 +459,21 @@ public class Controlador extends Dibujo implements Initializable {
                     alerta.setContentText("Solo ingresar números");
                     alerta.showAndWait();
                 }
-
-
             });
 
             vbox.setOnMouseClicked(ev ->{
-                int xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                int yNuevo = (int)ev.getY() - 50; // Se obtiene la posicion de Y del mouse y se le resta 100 por la altura de las letras
+                int xNuevo;
+                int yNuevo = (int)ev.getY() - 50;
+
+                if (e != -1){
+                    xNuevo = (int)ev.getSceneX()-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                    }else{
+                    xNuevo = (int)ev.getSceneX() + 50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
+                }
+
+                if (eY == -1){
+                    yNuevo = (int)ev.getY() + 50;
+                }
                 traslacion(xNuevo, yNuevo);
                 XTRASTEXT.setText(String.valueOf((int)ev.getX()));
                 YTRASTEXT.setText(String.valueOf((int)ev.getY()));
@@ -464,9 +539,6 @@ public class Controlador extends Dibujo implements Initializable {
 
     }
 
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Colores.getItems().addAll("Azul", "Celeste", "Gris", "Morado", "Naranjo", "Negro", "Rojo", "Rosado", "Verde", "Violeta");
@@ -480,6 +552,7 @@ public class Controlador extends Dibujo implements Initializable {
         botonTraslacion.setOnAction(actionEvent -> activarTraslacion());
         CuadroTexto.setOnKeyTyped(actionEvent -> obtenerLetra());
         botonEspejo.setOnAction(actionEvent -> activarEspejo());
+        botonEspejoY.setOnAction(actionEvent -> activarEspejoY());
 
         vbox.widthProperty().addListener((observable, oldValue, newValue) ->
                 {
