@@ -372,13 +372,7 @@ public class Controlador extends Dibujo implements Initializable {
                 try{
                     Integer.parseInt(XTRASTEXT.getText());
                     Integer.parseInt(YTRASTEXT.getText());
-                    int xNuevo;
-
-                    if (e != -1){
-                        xNuevo = Integer.parseInt(XTRASTEXT.getText())-50; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                    }else{
-                        xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 100; // Se obtiene la posicion de X del mouse y se le resta 50 por el espacio de al princio del texto
-                    }
+                    int xNuevo = Integer.parseInt(XTRASTEXT.getText()) - 50;
                     int yNuevo = Integer.parseInt(YTRASTEXT.getText()) - 50;
                     traslacion(xNuevo, yNuevo);
                     obtenerLetra();
