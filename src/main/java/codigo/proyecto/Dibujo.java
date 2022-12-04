@@ -113,12 +113,24 @@ public class Dibujo {
     public void Subrayar(int gra,int x,int y,int xb, AnchorPane root){
         Line subrayado; //= new Line(xa,ya,xb,ya);
         if(gra==0) {
-            subrayado = new Line(x,y,xb,y);
+
+            if (eY == -1){
+                subrayado = new Line(x,y-140,xb,y-140);
+            }else{
+                subrayado = new Line(x,y,xb,y);
+            }
+
             subrayado.setFill(Color.TRANSPARENT);
             subrayado.setStroke(color);
             subrayado.setStrokeWidth(grosor);
         }else{
-            subrayado = new Line(x,y,xb,y);
+
+            if (eY == -1){
+                subrayado = new Line(x,y-140,xb,y-140);
+            }else{
+                subrayado = new Line(x,y,xb,y);
+            }
+            //subrayado = new Line(x,y,xb,y);
             subrayado.setFill(Color.TRANSPARENT);
             subrayado.setStroke(color);
             subrayado.setStrokeWidth(grosor);
@@ -2202,7 +2214,7 @@ public class Dibujo {
 
         if (borrar == 1) {
 
-            if(tras == false){
+            if(!tras){
                 x = 30;
                 y = 100;
             }else{
@@ -3953,7 +3965,7 @@ public class Dibujo {
                         }
                     }
                     //CurvA
-                    CubicCurve a = new CubicCurve(x + - 1, y + 10, x + 15, y - 21, x - 22 - 10, y + 40, x + 30, y);
+                    CubicCurve a = new CubicCurve(x - 1, y + 10, x + 15, y - 21, x - 22 - 10, y + 40, x + 30, y);
                     a.setFill(Color.TRANSPARENT);
                     a.setStroke(color);
                     a.setStrokeWidth(grosor);
