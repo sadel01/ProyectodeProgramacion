@@ -199,24 +199,24 @@ public class Dibujo {
                 if(caracterAnt!='^') {
                     Text t = new Text("\n" + caracter + ":");
                     textoCoord.getChildren().add(t);
-                    pts(textoCoord, x, y + 50, x + 30 * e, y - 50, x + 20 * e, y + 60, x + 20 * e, y - 50);
-                    pts(textoCoord, x + 30 * e, y - 50, x + 65 * e, y + 15, x + 50 * e, y - 60, x + 40 * e, y + 120);
-                    pts(textoCoord, x, y + 15, x + 44 * e, y, x + 10 * e, y - 10, x + 30 * e, y + 30);
-                    fun(root, x, y + 50, x + 20 * e, y + 60, x + 20 * e, y - 50, x + 30 * e, y - 50, x + 30 * e, y - 50, x + 50 * e, y - 60, x + 40 * e, y + 120, x + 65 * e, y + 15, x, y + 15, x + 10 * e, y - 10, x + 30 * e, y + 30, x + 44 * e, y);
+                    pts(textoCoord, x, y + 50*eY, x + 30 * e, y - 50*eY, x + 20 * e, y + 60*eY, x + 20 * e, y - 50*eY);
+                    pts(textoCoord, x + 30 * e, y - 50*eY, x + 65 * e, y + 15*eY, x + 50 * e, y - 60*eY, x + 40 * e, y + 120*eY);
+                    pts(textoCoord, x, y + 15*eY, x + 44 * e, y, x + 10 * e, y - 10*eY, x + 30 * e, y + 30*eY);
+                    fun(root, x, y + 50*eY, x + 20 * e, y + 60*eY, x + 20 * e, y - 50*eY, x + 30 * e, y - 50*eY, x + 30 * e, y - 50*eY, x + 50 * e, y - 60*eY, x + 40 * e, y + 120*eY, x + 65 * e, y + 15*eY, x, y + 15*eY, x + 10 * e, y - 10*eY, x + 30 * e, y + 30*eY, x + 44 * e, y);
 
                     while (cont < auxBold) {
 
-                        dibujo(grados, root, x, y + 50 * tamanio, x + 20 * e * tamanio, y + 60 * tamanio, x + 20 * e * tamanio, y - 50 * tamanio, x + 30 * e * tamanio, y - 50 * tamanio);
-                        dibujo(grados, root, x + 30 * e * tamanio, y - 50 * tamanio, x + 50 * e * tamanio, y - 60 * tamanio, x + 40 * e * tamanio, y + 120 * tamanio, x + 65 * e * tamanio, y + 15 * tamanio);
-                        dibujo(grados, root, x, y + 15 * tamanio, x + 10 * e * tamanio, y - 10 * tamanio, x + 30 * e * tamanio, y + 30 * tamanio, x + 44 * e * tamanio, y);
+                        dibujo(grados, root, x, y + 50*eY * tamanio, x + 20 * e * tamanio, y + 60*eY * tamanio, x + 20 * e * tamanio, y - 50*eY * tamanio, x + 30 * e * tamanio, y - 50*eY * tamanio);
+                        dibujo(grados, root, x + 30 * e * tamanio, y - 50*eY * tamanio, x + 50 * e * tamanio, y - 60*eY * tamanio, x + 40 * e * tamanio, y + 120*eY * tamanio, x + 65 * e * tamanio, y + 15*eY * tamanio);
+                        dibujo(grados, root, x, y + 15*eY * tamanio, x + 10 * e * tamanio, y - 10*eY * tamanio, x + 30 * e * tamanio, y + 30*eY * tamanio, x + 44 * e * tamanio, y);
 
 
                         if (caracter == 'Á') {
-                            dibujo(grados, root, x + 30 * e * tamanio, y - 60 * tamanio, x + 45 * e * tamanio, y - 80 * tamanio);
+                            dibujo(grados, root, x + 30 * e * tamanio, y - 60*eY * tamanio, x + 45 * e * tamanio, y - 80*eY * tamanio);
 
                             if (cont < 1) {
-                                pts(textoCoord, x + 30 * e, y - 60, x + 45 * e, y - 80);
-                                fun(root, x + 30 * e, y - 60, x + 45 * e, y - 80);
+                                pts(textoCoord, x + 30 * e, y - 60*eY, x + 45 * e, y - 80*eY);
+                                fun(root, x + 30 * e, y - 60*eY, x + 45 * e, y - 80*eY);
                             }
                         }
 
@@ -242,16 +242,16 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                fun(root, x, y + 15, x + 70 * e, y - 80, x - 10 * e, y - 80, x, y + 50, x, y + 30, x + 50 * e, y - 50, x + 35 * e, y + 100, x + 5 * e, y + 50, x + 5 * e, y + 50, x, y + 30, x + 60 * e, y + 50, x + 60 * e, y + 20);
-                pts(textoCoord, x, y + 15, x, y + 50, x + 70, y - 80, x - 10 * e, y - 80);
-                pts(textoCoord, x, y + 30, x + 5 * e, y + 50, x + 50 * e, y - 50, x + 35 * e, y + 100);
-                pts(textoCoord, x + 5 * e, y + 50, x + 60 * e, y + 20, x, y + 30, x + 60 * e, y + 50);
+                fun(root, x, y + 15*eY, x + 70 * e, y - 80*eY, x - 10 * e, y - 80*eY, x, y + 50*eY, x, y + 30*eY, x + 50 * e, y - 50*eY, x + 35 * e, y + 100*eY, x + 5 * e, y + 50*eY, x + 5 * e, y + 50*eY, x, y + 30*eY, x + 60 * e, y + 50*eY, x + 60 * e, y + 20*eY);
+                pts(textoCoord, x, y + 15*eY, x, y + 50*eY, x + 70, y - 80*eY, x - 10 * e, y - 80*eY);
+                pts(textoCoord, x, y + 30*eY, x + 5 * e, y + 50*eY, x + 50 * e, y - 50*eY, x + 35 * e, y + 100*eY);
+                pts(textoCoord, x + 5 * e, y + 50*eY, x + 60 * e, y + 20*eY, x, y + 30*eY, x + 60 * e, y + 50*eY);
 
                 while(cont < auxBold) {
 
-                    dibujo(grados,root, x * tamanio, y + 15 * tamanio, x + 70 * e * tamanio, y - 80 * tamanio, x - 10 * e * tamanio, y - 80 * tamanio, x * tamanio, y + 50 * tamanio);
-                    dibujo(grados,root, x * tamanio, y + 30 * tamanio, x + 50 * e * tamanio, y - 50 * tamanio, x + 35 * e * tamanio, y + 100 * tamanio, x + 5 * e * tamanio, y + 50 * tamanio);
-                    dibujo(grados,root, x + 5*e* tamanio, y + 50 * tamanio, x* tamanio, y + 30 * tamanio, x + 60 *e* tamanio, y + 50 * tamanio, x + 60 * e * tamanio, y + 20 * tamanio);
+                    dibujo(grados,root, x * tamanio, y + 15*eY * tamanio, x + 70 * e * tamanio, y - 80*eY * tamanio, x - 10 * e * tamanio, y - 80*eY * tamanio, x * tamanio, y + 50*eY * tamanio);
+                    dibujo(grados,root, x * tamanio, y + 30*eY * tamanio, x + 50 * e * tamanio, y - 50*eY * tamanio, x + 35 * e * tamanio, y + 100*eY * tamanio, x + 5 * e * tamanio, y + 50*eY * tamanio);
+                    dibujo(grados,root, x + 5*e* tamanio, y + 50*eY * tamanio, x* tamanio, y + 30*eY * tamanio, x + 60 *e* tamanio, y + 50*eY * tamanio, x + 60 * e * tamanio, y + 20*eY * tamanio);
 
                     if (auxBold > 1) {
                         x++;
@@ -266,21 +266,21 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+30*e, y-20, x+40*e, y+50, x+30*e, y+50);
-                pts(textoCoord, x+40*e, y+50, x+30*e, y+20, x+60*e, y+60, x+80*e, y-10);
-                pts(textoCoord, x+20*e, y+10, x+30*e, y-50, x-10*e, y+10, x, y-50);
-                pts(textoCoord, x+30*e, y-50, x+30*e, y+20, x+70*e, y-50, x+70*e, y);
-                pts(textoCoord, x+58*e, y+40, x+80*e, y+15, x+70*e, y+60);
-                fun(root, x + 30*e, y - 20, x + 30*e, y + 50, x + 40*e, y + 50, x + 40*e, y + 50, x + 60*e, y + 60, x + 80*e, y - 10, x + 30*e, y + 20, x + 20*e, y + 10, x - 10*e,
-                        y + 10, x, y - 50, x + 30*e, y - 50, x + 30*e, y - 50, x + 70*e, y - 50, x + 70*e, y, x + 30*e, y + 20, x + 58*e, y + 40, x + 70*e, y + 60, x + 80*e, y + 15);
+                pts(textoCoord, x+30*e, y-20*eY, x+40*e, y+50*eY, x+30*e, y+50*eY);
+                pts(textoCoord, x+40*e, y+50*eY, x+30*e, y+20*eY, x+60*e, y+60*eY, x+80*e, y-10*eY);
+                pts(textoCoord, x+20*e, y+10*eY, x+30*e, y-50*eY, x-10*e, y+10*eY, x, y-50*eY);
+                pts(textoCoord, x+30*e, y-50*eY, x+30*e, y+20*eY, x+70*e, y-50*eY, x+70*e, y);
+                pts(textoCoord, x+58*e, y+40*eY, x+80*e, y+15*eY, x+70*e, y+60*eY);
+                fun(root, x + 30*e, y - 20*eY, x + 30*e, y + 50*eY, x + 40*e, y + 50*eY, x + 40*e, y + 50*eY, x + 60*e, y + 60*eY, x + 80*e, y - 10*eY, x + 30*e, y + 20*eY, x + 20*e, y + 10*eY, x - 10*e,
+                        y + 10*eY, x, y - 50*eY, x + 30*e, y - 50*eY, x + 30*e, y - 50*eY, x + 70*e, y - 50*eY, x + 70*e, y, x + 30*e, y + 20*eY, x + 58*e, y + 40*eY, x + 70*e, y + 60*eY, x + 80*e, y + 15*eY);
 
                 while(cont < auxBold) {
 
-                    dibujo(grados,root, x + 30*e*tamanio, y - 20*tamanio, x + 30*e*tamanio, y + 50*tamanio, x + 40*e*tamanio, y + 50*tamanio);
-                    dibujo(grados,root, x + 40*e*tamanio, y + 50*tamanio, x + 60*e*tamanio, y + 60*tamanio, x + 80*e*tamanio, y - 10*tamanio,x + 30*e*tamanio, y + 20*tamanio);
-                    dibujo(grados,root, x + 20*e*tamanio, y + 10*tamanio, x - 10*e*tamanio, y + 10*tamanio, x, y - 50*tamanio, x + 30*e*tamanio, y - 50*tamanio);
-                    dibujo(grados,root, x + 30*e*tamanio, y - 50*tamanio, x + 70*e*tamanio, y - 50*tamanio, x + 70*e*tamanio, y, x + 30*e*tamanio, y + 20*tamanio);
-                    dibujo(grados,root, x + 58*e*tamanio, y + 40*tamanio, x + 70*e*tamanio, y + 60*tamanio, x + 80*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x + 30*e*tamanio, y - 20*eY*tamanio, x + 30*e*tamanio, y + 50*eY*tamanio, x + 40*e*tamanio, y + 50*eY*tamanio);
+                    dibujo(grados,root, x + 40*e*tamanio, y + 50*eY*tamanio, x + 60*e*tamanio, y + 60*eY*tamanio, x + 80*e*tamanio, y - 10*eY*tamanio,x + 30*e*tamanio, y + 20*eY*tamanio);
+                    dibujo(grados,root, x + 20*e*tamanio, y + 10*eY*tamanio, x - 10*e*tamanio, y + 10*eY*tamanio, x, y - 50*eY*tamanio, x + 30*e*tamanio, y - 50*eY*tamanio);
+                    dibujo(grados,root, x + 30*e*tamanio, y - 50*eY*tamanio, x + 70*e*tamanio, y - 50*eY*tamanio, x + 70*e*tamanio, y, x + 30*e*tamanio, y + 20*eY*tamanio);
+                    dibujo(grados,root, x + 58*e*tamanio, y + 40*eY*tamanio, x + 70*e*tamanio, y + 60*eY*tamanio, x + 80*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -299,12 +299,12 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+25, x+25*e, y+15, x, y-20, x+40*e, y-5);
-                pts(textoCoord, x, y+25, x+60*e, y+15, x, y+45, x+30*e, y+80);
-                fun(root, x, y + 25, x, y - 20, x + 40*e, y - 5, x + 25*e, y + 15, x, y + 25, x, y + 45, x + 30*e, y + 80, x + 60*e, y + 15);
+                pts(textoCoord, x, y+25*eY, x+25*e, y+15*eY, x, y-20*eY, x+40*e, y-5*eY);
+                pts(textoCoord, x, y+25*eY, x+60*e, y+15*eY, x, y+45*eY, x+30*e, y+80*eY);
+                fun(root, x, y + 25*eY, x, y - 20*eY, x + 40*e, y - 5*eY, x + 25*e, y + 15*eY, x, y + 25*eY, x, y + 45*eY, x + 30*e, y + 80*eY, x + 60*e, y + 15*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y + 25*tamanio, x, y - 20*tamanio, x + 40*e*tamanio, y - 5*tamanio, x + 25*e*tamanio, y + 15*tamanio );
-                    dibujo(grados,root, x, y + 25*tamanio, x, y + 45*tamanio, x + 30*e*tamanio, y + 80*tamanio, x + 60*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x, y + 25*eY*tamanio, x, y - 20*eY*tamanio, x + 40*e*tamanio, y - 5*eY*tamanio, x + 25*e*tamanio, y + 15*eY*tamanio );
+                    dibujo(grados,root, x, y + 25*eY*tamanio, x, y + 45*eY*tamanio, x + 30*e*tamanio, y + 80*eY*tamanio, x + 60*e*tamanio, y + 15*eY*tamanio);
 
                     if (auxBold > 1) {
                         x++;
@@ -319,14 +319,14 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+20*e, y-40, x+60*e, y+15, x-25*e, y-10, x+10*e, y+110);
-                pts(textoCoord, x+20*e, y-40, x+10*e, y, x+45*e, y-60, x+75*e, y-35);
-                pts(textoCoord, x+10*e, y, x, y-40, x-20*e, y+10, x-20*e, y-30);
-                fun(root, x + 20*e, y - 40, x - 25*e, y - 10, x + 10*e, y + 110, x + 60*e, y + 15, x + 20*e, y - 40, x + 45*e, y - 60, x + 75*e, y - 35, x + 10*e, y, x + 10*e, y, x - 20*e, y + 10, x - 20*e, y - 30, x, y - 40);
+                pts(textoCoord, x+20*e, y-40*eY, x+60*e, y+15*eY, x-25*e, y-10*eY, x+10*e, y+110*eY);
+                pts(textoCoord, x+20*e, y-40*eY, x+10*e, y, x+45*e, y-60*eY, x+75*e, y-35*eY);
+                pts(textoCoord, x+10*e, y, x, y-40*eY, x-20*e, y+10*eY, x-20*e, y-30*eY);
+                fun(root, x + 20*e, y - 40*eY, x - 25*e, y - 10*eY, x + 10*e, y + 110*eY, x + 60*e, y + 15*eY, x + 20*e, y - 40*eY, x + 45*e, y - 60*eY, x + 75*e, y - 35*eY, x + 10*e, y, x + 10*e, y, x - 20*e, y + 10*eY, x - 20*e, y - 30*eY, x, y - 40*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 20*e*tamanio, y - 40*tamanio, x - 25*e*tamanio, y - 10*tamanio, x + 10*e*tamanio, y + 110*tamanio, x + 60*e*tamanio, y + 15*tamanio);
-                    dibujo(grados,root, x + 20*e*tamanio, y - 40*tamanio, x + 45*e*tamanio, y - 60*tamanio, x + 75*e*tamanio, y - 35*tamanio, x + 10*e*tamanio, y);
-                    dibujo(grados,root, x + 10*e*tamanio, y, x - 20*e*tamanio, y + 10*tamanio, x - 20*e*tamanio, y - 30*tamanio, x, y - 40*tamanio);
+                    dibujo(grados,root, x + 20*e*tamanio, y - 40*eY*tamanio, x - 25*e*tamanio, y - 10*eY*tamanio, x + 10*e*tamanio, y + 110*eY*tamanio, x + 60*e*tamanio, y + 15*eY*tamanio);
+                    dibujo(grados,root, x + 20*e*tamanio, y - 40*eY*tamanio, x + 45*e*tamanio, y - 60*eY*tamanio, x + 75*e*tamanio, y - 35*eY*tamanio, x + 10*e*tamanio, y);
+                    dibujo(grados,root, x + 10*e*tamanio, y, x - 20*e*tamanio, y + 10*eY*tamanio, x - 20*e*tamanio, y - 30*eY*tamanio, x, y - 40*eY*tamanio);
 
                     if (auxBold > 1) {
                         x++;
@@ -346,15 +346,15 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+25*e, y+15, x+25*e, y+25, x-15*e, y-30, x, y+90);
-                pts(textoCoord, x+25*e, y+5, x+25*e, y+25, x+80*e, y-50, x+20*e, y-80);
-                pts(textoCoord, x+25*e, y+25, x+60*e, y+15, x+30*e, y+50, x+50*e, y+50);
-                fun(root, x + 25*e, y + 15, x - 15*e, y - 30, x, y + 90, x + 25*e, y + 25, x + 25*e, y + 5, x + 80*e, y - 50, x + 20*e, y - 80, x + 25*e, y + 25, x + 25*e, y + 25, x + 30*e, y + 50, x + 50*e, y + 50, x + 60*e, y + 15);
+                pts(textoCoord, x+25*e, y+15*eY, x+25*e, y+25*eY, x-15*e, y-30*eY, x, y+90*eY);
+                pts(textoCoord, x+25*e, y+5*eY, x+25*e, y+25*eY, x+80*e, y-50*eY, x+20*e, y-80*eY);
+                pts(textoCoord, x+25*e, y+25*eY, x+60*e, y+15*eY, x+30*e, y+50*eY, x+50*e, y+50*eY);
+                fun(root, x + 25*e, y + 15*eY, x - 15*e, y - 30*eY, x, y + 90*eY, x + 25*e, y + 25*eY, x + 25*e, y + 5*eY, x + 80*e, y - 50*eY, x + 20*e, y - 80*eY, x + 25*e, y + 25*eY, x + 25*e, y + 25*eY, x + 30*e, y + 50*eY, x + 50*e, y + 50*eY, x + 60*e, y + 15*eY);
                 while(cont < auxBold) {
 
-                    dibujo(grados,root, x + 25*e*tamanio, y + 15*tamanio, x - 15*e*tamanio, y - 30*tamanio, x, y + 90*tamanio, x + 25*e*tamanio, y + 25*tamanio);
-                    dibujo(grados,root, x + 25*e*tamanio, y + 5*tamanio, x + 80*e*tamanio, y - 50*tamanio, x + 20*e*tamanio, y - 80*tamanio, x + 25*e*tamanio, y + 25*tamanio);
-                    dibujo(grados,root, x + 25*e*tamanio, y + 25*tamanio, x + 30*e*tamanio, y + 50*tamanio, x + 50*e*tamanio, y + 50*tamanio, x + 60*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x + 25*e*tamanio, y + 15*eY*tamanio, x - 15*e*tamanio, y - 30*eY*tamanio, x, y + 90*eY*tamanio, x + 25*e*tamanio, y + 25*eY*tamanio);
+                    dibujo(grados,root, x + 25*e*tamanio, y + 5*eY*tamanio, x + 80*e*tamanio, y - 50*eY*tamanio, x + 20*e*tamanio, y - 80*eY*tamanio, x + 25*e*tamanio, y + 25*eY*tamanio);
+                    dibujo(grados,root, x + 25*e*tamanio, y + 25*eY*tamanio, x + 30*e*tamanio, y + 50*eY*tamanio, x + 50*e*tamanio, y + 50*eY*tamanio, x + 60*e*tamanio, y + 15*eY*tamanio);
 
                     if (auxBold > 1) {
                         x++;
@@ -371,17 +371,17 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+20*e, y+10, x+30*e, y-50, x-10*e, y+10, x, y-50);
-                pts(textoCoord, x+30*e, y-50, x+50*e, y+50, x+80*e, y-50, x+80*e, y+50);
-                pts(textoCoord, x+50*e, y+50, x+30*e, y-30, x+30*e, y+50, x+30*e, y+50);
+                pts(textoCoord, x+20*e, y+10*eY, x+30*e, y-50*eY, x-10*e, y+10*eY, x, y-50*eY);
+                pts(textoCoord, x+30*e, y-50*eY, x+50*e, y+50*eY, x+80*e, y-50*eY, x+80*e, y+50*eY);
+                pts(textoCoord, x+50*e, y+50*eY, x+30*e, y-30*eY, x+30*e, y+50*eY, x+30*e, y+50*eY);
 
-                fun(root, x + 20*e, y + 10, x - 10, y + 10, x, y - 50, x + 30*e, y - 50, x + 30*e, y - 50, x + 80*e, y - 50, x + 80*e, y + 50, x + 50*e, y + 50, x + 50*e, y + 50, x + 30*e, y + 50, x + 30*e, y + 50, x + 30*e, y - 30);
+                fun(root, x + 20*e, y + 10*eY, x - 10, y + 10*eY, x, y - 50*eY, x + 30*e, y - 50*eY, x + 30*e, y - 50*eY, x + 80*e, y - 50*eY, x + 80*e, y + 50*eY, x + 50*e, y + 50*eY, x + 50*e, y + 50*eY, x + 30*e, y + 50*eY, x + 30*e, y + 50*eY, x + 30*e, y - 30*eY);
 
                 while(cont < auxBold) {
 
-                    dibujo(grados,root, x + 2*e*tamanio, y + 10*tamanio, x - 10*e*tamanio, y + 10*tamanio, x, y - 50*tamanio, x + 30*e*tamanio, y - 50*tamanio);
-                    dibujo(grados,root, x + 30*e*tamanio, y - 50*tamanio, x + 80*e*tamanio, y - 50*tamanio, x + 80*e*tamanio, y + 50*tamanio, x + 50*e*tamanio, y + 50*tamanio);
-                    dibujo(grados,root, x + 50*e*tamanio, y + 50*tamanio, x + 30*e*tamanio, y + 50*tamanio, x + 30*e*tamanio, y + 50*tamanio, x + 30*e*tamanio, y - 30*tamanio);
+                    dibujo(grados,root, x + 2*e*tamanio, y + 10*eY*tamanio, x - 10*e*tamanio, y + 10*eY*tamanio, x, y - 50*eY*tamanio, x + 30*e*tamanio, y - 50*eY*tamanio);
+                    dibujo(grados,root, x + 30*e*tamanio, y - 50*eY*tamanio, x + 80*e*tamanio, y - 50*eY*tamanio, x + 80*e*tamanio, y + 50*eY*tamanio, x + 50*e*tamanio, y + 50*eY*tamanio);
+                    dibujo(grados,root, x + 50*e*tamanio, y + 50*eY*tamanio, x + 30*e*tamanio, y + 50*eY*tamanio, x + 30*e*tamanio, y + 50*eY*tamanio, x + 30*e*tamanio, y - 30*eY*tamanio);
 
                     if (auxBold > 1) {
                         x++;
@@ -400,21 +400,21 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+25, x+2*e, y+30, x-5*e, y-20, x+53*e, y);
-                pts(textoCoord, x, y+25, x+50*e, y+15, x, y+50, x+40*e, y+70);
+                pts(textoCoord, x, y+25*eY, x+2*e, y+30*eY, x-5*e, y-20*eY, x+53*e, y);
+                pts(textoCoord, x, y+25*eY, x+50*e, y+15*eY, x, y+50*eY, x+40*e, y+70*eY);
 
-                fun(root, x, y + 25, x - 5*e, y - 20, x + 53*e, y, x + 2*e, y + 30, x, y + 25, x, y + 50, x + 40*e, y + 70, x + 50*e, y + 15);
+                fun(root, x, y + 25*eY, x - 5*e, y - 20*eY, x + 53*e, y, x + 2*e, y + 30*eY, x, y + 25*eY, x, y + 50*eY, x + 40*e, y + 70*eY, x + 50*e, y + 15*eY);
                 while(cont < auxBold) {
 
-                    dibujo(grados,root, x, y + 25*tamanio, x - 5*e*tamanio, y - 20*tamanio, x + 53*e*tamanio, y, x + 2*e*tamanio, y + 30*tamanio);
-                    dibujo(grados,root, x, y + 25*tamanio, x, y + 50*tamanio, x + 40*e*tamanio, y + 70*tamanio, x + 50*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x, y + 25*eY*tamanio, x - 5*e*tamanio, y - 20*eY*tamanio, x + 53*e*tamanio, y, x + 2*e*tamanio, y + 30*eY*tamanio);
+                    dibujo(grados,root, x, y + 25*eY*tamanio, x, y + 50*eY*tamanio, x + 40*e*tamanio, y + 70*eY*tamanio, x + 50*e*tamanio, y + 15*eY*tamanio);
 
                     if (caracter == 'é') {
-                        dibujo(grados,root, x + 20*e*tamanio, y - 10*tamanio, x + 35*e*tamanio, y - 30*tamanio);
+                        dibujo(grados,root, x + 20*e*tamanio, y - 10*eY*tamanio, x + 35*e*tamanio, y - 30*eY*tamanio);
 
                         if(cont < 1){
-                            pts(textoCoord, x+20*e, y-10, x+35*e, y-30);
-                            fun(root, x + 20*e, y - 10, x + 35*e, y - 30);
+                            pts(textoCoord, x+20*e, y-10*eY, x+35*e, y-30*eY);
+                            fun(root, x + 20*e, y - 10*eY, x + 35*e, y - 30*eY);
                         }
                     }
 
@@ -432,20 +432,20 @@ public class Dibujo {
 
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+25*e, y-10, x+60*e, y+15, x-20*e, y-10, x, y+120);
-                pts(textoCoord, x+25*e, y-10, x+20*e, y-50, x-20*e, y-10, x+10*e, y-50);
+                pts(textoCoord, x+25*e, y-10*eY, x+60*e, y+15*eY, x-20*e, y-10*eY, x, y+120*eY);
+                pts(textoCoord, x+25*e, y-10*eY, x+20*e, y-50*eY, x-20*e, y-10*eY, x+10*e, y-50*eY);
 
-                fun(root, x + 25*e, y - 10, x - 20*e, y - 10, x, y + 120, x + 60*e, y + 15, x + 25*e, y - 10, x - 20*e, y - 10, x + 10*e, y - 50, x + 20*e, y - 50, x + 20*e, y - 50, x + 40*e, y - 50, x + 30*e, y - 10, x, y - 50);
+                fun(root, x + 25*e, y - 10*eY, x - 20*e, y - 10*eY, x, y + 120*eY, x + 60*e, y + 15*eY, x + 25*e, y - 10*eY, x - 20*e, y - 10*eY, x + 10*e, y - 50*eY, x + 20*e, y - 50*eY, x + 20*e, y - 50*eY, x + 40*e, y - 50*eY, x + 30*e, y - 10*eY, x, y - 50*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 25*e*tamanio, y - 10*tamanio, x - 20*e*tamanio, y - 10*tamanio, x, y + 120*tamanio, x + 60*e*tamanio, y + 15*tamanio);
-                    dibujo(grados,root, x + 25*e*tamanio, y - 10*tamanio, x - 20*e*tamanio, y - 10*tamanio, x + 10*e*tamanio, y - 50*tamanio, x + 20*e*tamanio, y - 50*tamanio);
-                    dibujo(grados,root, x + 20*e*tamanio, y - 50*tamanio, x + 40*e*tamanio, y - 50*tamanio, x + 30*e*tamanio, y - 10*tamanio, x, y - 50*tamanio);
+                    dibujo(grados,root, x + 25*e*tamanio, y - 10*eY*tamanio, x - 20*e*tamanio, y - 10*eY*tamanio, x, y + 120*eY*tamanio, x + 60*e*tamanio, y + 15*eY*tamanio);
+                    dibujo(grados,root, x + 25*e*tamanio, y - 10*eY*tamanio, x - 20*e*tamanio, y - 10*eY*tamanio, x + 10*e*tamanio, y - 50*eY*tamanio, x + 20*e*tamanio, y - 50*eY*tamanio);
+                    dibujo(grados,root, x + 20*e*tamanio, y - 50*eY*tamanio, x + 40*e*tamanio, y - 50*eY*tamanio, x + 30*e*tamanio, y - 10*eY*tamanio, x, y - 50*eY*tamanio);
 
                     if (caracter == 'É') {
-                        dibujo(grados,root, x + 30*e*tamanio, y - 60*tamanio, x + 45*e*tamanio, y - 80*tamanio);
+                        dibujo(grados,root, x + 30*e*tamanio, y - 60*eY*tamanio, x + 45*e*tamanio, y - 80*eY*tamanio);
                         if(cont < 1){
-                            pts(textoCoord, x+30*e, y-60, x+45*e, y-80);
-                            fun(root, x + 30*e, y - 60, x + 45*e, y - 80);
+                            pts(textoCoord, x+30*e, y-60*eY, x+45*e, y-80*eY);
+                            fun(root, x + 30*e, y - 60*eY, x + 45*e, y - 80*eY);
                         }
                     }
 
@@ -468,15 +468,15 @@ public class Dibujo {
             if (caracter == 'f') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+10, x, y+10, x, y-60, x+60*e, y-60);
-                pts(textoCoord, x, y, x+2*e, y+15, x, y+110, x+50*e, y+60);
-                pts(textoCoord, x+2*e, y+25, x+50*e, y+15, x+35*e, y+60);
-                fun(root, x, y + 10, x, y - 60, x + 60*e, y - 60, x, y + 10, x, y, x, y + 110, x + 50*e, y + 60, x + 2*e, y + 15, x + 2*e, y + 25, x + 35*e, y + 60, x + 50*e, y + 15);
+                pts(textoCoord, x, y+10*eY, x, y+10*eY, x, y-60*eY, x+60*e, y-60*eY);
+                pts(textoCoord, x, y, x+2*e, y+15*eY, x, y+110*eY, x+50*e, y+60*eY);
+                pts(textoCoord, x+2*e, y+25*eY, x+50*e, y+15*eY, x+35*e, y+60*eY);
+                fun(root, x, y + 10*eY, x, y - 60*eY, x + 60*e, y - 60*eY, x, y + 10*eY, x, y, x, y + 110*eY, x + 50*e, y + 60*eY, x + 2*e, y + 15*eY, x + 2*e, y + 25*eY, x + 35*e, y + 60*eY, x + 50*e, y + 15*eY);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y + 10*tamanio, x, y - 60*tamanio, x + 60*e*tamanio, y - 60*tamanio, x, y + 10*tamanio); // Curva Superior
-                    dibujo(grados,root, x, y, x, y + 110*tamanio, x + 50*e*tamanio, y + 60*tamanio, x + 2*e*tamanio, y + 15*tamanio); // Curva inferior
-                    dibujo(grados,root, x + 2*e*tamanio, y + 25*tamanio, x + 35*e*tamanio, y + 60*tamanio, x + 50*e*tamanio, y + 15*tamanio); // Conexion
+                    dibujo(grados,root, x, y + 10*eY*tamanio, x, y - 60*eY*tamanio, x + 60*e*tamanio, y - 60*eY*tamanio, x, y + 10*eY*tamanio); // Curva Superior
+                    dibujo(grados,root, x, y, x, y + 110*eY*tamanio, x + 50*e*tamanio, y + 60*eY*tamanio, x + 2*e*tamanio, y + 15*eY*tamanio); // Curva inferior
+                    dibujo(grados,root, x + 2*e*tamanio, y + 25*eY*tamanio, x + 35*e*tamanio, y + 60*eY*tamanio, x + 50*e*tamanio, y + 15*eY*tamanio); // Conexion
                     if (auxBold > 1) {
                         x++;
                     }
@@ -490,15 +490,15 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y-40, x+60*e, y-50, x+10*e, y-70, x+50*e, y-10);
-                pts(textoCoord, x+30*e, y-37, x+10*e, y+40, x+20*e, y+70);
-                pts(textoCoord, x+10*e, y+10, x+50*e, y+15, x+20*e, y, x+30*e, y+20);
-                fun(root, x, y - 40, x + 10*e, y - 70, x + 50*e, y - 10, x + 60*e, y - 50, x + 30*e, y - 37, x + 20*e, y + 70, x + 10, y + 10, x + 20*e, y, x + 30*e, y + 20, x + 50*e, y + 15);
+                pts(textoCoord, x, y-40*eY, x+60*e, y-50*eY, x+10*e, y-70*eY, x+50*e, y-10*eY);
+                pts(textoCoord, x+30*e, y-37*eY, x+10*e, y+40*eY, x+20*e, y+70*eY);
+                pts(textoCoord, x+10*e, y+10*eY, x+50*e, y+15*eY, x+20*e, y, x+30*e, y+20*eY);
+                fun(root, x, y - 40*eY, x + 10*e, y - 70*eY, x + 50*e, y - 10*eY, x + 60*e, y - 50*eY, x + 30*e, y - 37*eY, x + 20*e, y + 70*eY, x + 10, y + 10*eY, x + 20*e, y, x + 30*e, y + 20*eY, x + 50*e, y + 15*eY);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y - 40*tamanio, x + 10*e*tamanio, y - 70*tamanio, x + 50*e*tamanio, y - 10*tamanio, x + 60*e*tamanio, y - 50*tamanio);
-                    dibujo(grados,root, x + 30*e*tamanio, y - 37*tamanio, x + 20*e*tamanio, y + 70*tamanio, x + 10*e*tamanio, y + 40*tamanio);
-                    dibujo(grados,root, x + 10*e*tamanio, y + 10*tamanio, x + 20*e*tamanio, y, x + 30*e*tamanio, y + 20*tamanio, x + 50*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x, y - 40*eY*tamanio, x + 10*e*tamanio, y - 70*eY*tamanio, x + 50*e*tamanio, y - 10*eY*tamanio, x + 60*e*tamanio, y - 50*eY*tamanio);
+                    dibujo(grados,root, x + 30*e*tamanio, y - 37*eY*tamanio, x + 20*e*tamanio, y + 70*eY*tamanio, x + 10*e*tamanio, y + 40*eY*tamanio);
+                    dibujo(grados,root, x + 10*e*tamanio, y + 10*eY*tamanio, x + 20*e*tamanio, y, x + 30*e*tamanio, y + 20*eY*tamanio, x + 50*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -515,15 +515,15 @@ public class Dibujo {
             if (caracter == 'g') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+25*e, y+10, x+25*e, y+40, x-10*e, y-20, x-10*e, y+70);
-                pts(textoCoord, x+25*e, y, x+10*e, y+80, x+35*e, y+90, x+10*e, y+90);
-                pts(textoCoord, x+10*e, y+80, x+60*e, y+15, x+10*e, y+30, x+60*e, y+60);
-                fun(root, x + 25*e, y + 10, x - 10*e, y - 20, x - 10*e, y + 70, x + 25*e, y + 40, x + 25*e, y, x + 35*e, y + 90, x + 10*e, y + 90, x + 10*e, y + 80, x + 10*e, y + 80, x + 10*e, y + 30, x + 60*e, y + 60, x + 60*e, y + 15);
+                pts(textoCoord, x+25*e, y+10*eY, x+25*e, y+40*eY, x-10*e, y-20*eY, x-10*e, y+70*eY);
+                pts(textoCoord, x+25*e, y, x+10*e, y+80*eY, x+35*e, y+90*eY, x+10*e, y+90*eY);
+                pts(textoCoord, x+10*e, y+80*eY, x+60*e, y+15*eY, x+10*e, y+30*eY, x+60*e, y+60*eY);
+                fun(root, x + 25*e, y + 10*eY, x - 10*e, y - 20*eY, x - 10*e, y + 70*eY, x + 25*e, y + 40*eY, x + 25*e, y, x + 35*e, y + 90*eY, x + 10*e, y + 90*eY, x + 10*e, y + 80*eY, x + 10*e, y + 80*eY, x + 10*e, y + 30*eY, x + 60*e, y + 60*eY, x + 60*e, y + 15*eY);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 25*e*tamanio, y + 10*tamanio, x - 10*e*tamanio, y - 20*tamanio, x - 10*e*tamanio, y + 70*tamanio, x + 25*e*tamanio, y + 40*tamanio); // Circulo
-                    dibujo(grados,root, x + 25*e*tamanio, y, x + 35*e*tamanio, y + 90*tamanio, x + 10*e*tamanio, y + 90*tamanio, x + 10*e*tamanio, y + 80*tamanio);
-                    dibujo(grados,root, x + 10*e*tamanio, y + 80*tamanio, x + 10*e*tamanio, y + 30*tamanio, x + 60*e*tamanio, y + 60*tamanio, x + 60*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x + 25*e*tamanio, y + 10*eY*tamanio, x - 10*e*tamanio, y - 20*eY*tamanio, x - 10*e*tamanio, y + 70*eY*tamanio, x + 25*e*tamanio, y + 40*eY*tamanio); // Circulo
+                    dibujo(grados,root, x + 25*e*tamanio, y, x + 35*e*tamanio, y + 90*eY*tamanio, x + 10*e*tamanio, y + 90*eY*tamanio, x + 10*e*tamanio, y + 80*eY*tamanio);
+                    dibujo(grados,root, x + 10*e*tamanio, y + 80*eY*tamanio, x + 10*e*tamanio, y + 30*eY*tamanio, x + 60*e*tamanio, y + 60*eY*tamanio, x + 60*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -536,17 +536,17 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+20, x+40*e, y-50, x+70*e, y+10, x+60*e, y-50);
-                pts(textoCoord, x+40*e, y-50, x+59*e, y+20, x, y-50, x+10*e, y+110);
-                pts(textoCoord, x+60*e, y+10, x+30*e, y+80, x+60*e, y+100, x+20*e, y+100);
-                pts(textoCoord, x+30*e, y+80, x+80*e, y+15, x+40*e, y+60, x+60*e, y+60);
-                fun(root, x, y + 20, x + 70*e, y + 10, x + 60*e, y - 50, x + 40*e, y - 50, x + 40*e, y - 50, x, y - 50, x + 10*e, y + 110, x + 59*e, y + 20, x + 60*e, y + 10, x + 60*e, y + 100, x + 20*e, y + 100, x + 30*e, y + 80, x + 30*e, y + 80, x + 40*e, y + 60, x + 60*e, y + 60, x + 80*e, y + 15);
+                pts(textoCoord, x, y+20*eY, x+40*e, y-50*eY, x+70*e, y+10*eY, x+60*e, y-50*eY);
+                pts(textoCoord, x+40*e, y-50*eY, x+59*e, y+20*eY, x, y-50*eY, x+10*e, y+110*eY);
+                pts(textoCoord, x+60*e, y+10*eY, x+30*e, y+80*eY, x+60*e, y+100*eY, x+20*e, y+100*eY);
+                pts(textoCoord, x+30*e, y+80*eY, x+80*e, y+15*eY, x+40*e, y+60*eY, x+60*e, y+60*eY);
+                fun(root, x, y + 20*eY, x + 70*e, y + 10*eY, x + 60*e, y - 50*eY, x + 40*e, y - 50*eY, x + 40*e, y - 50*eY, x, y - 50*eY, x + 10*e, y + 110*eY, x + 59*e, y + 20*eY, x + 60*e, y + 10*eY, x + 60*e, y + 100*eY, x + 20*e, y + 100*eY, x + 30*e, y + 80*eY, x + 30*e, y + 80*eY, x + 40*e, y + 60*eY, x + 60*e, y + 60*eY, x + 80*e, y + 15*eY);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y + 20*tamanio, x + 70*e*tamanio, y + 10*tamanio, x + 60*e*tamanio, y - 50*tamanio, x + 40*e*tamanio, y - 50*tamanio); // mitad e
-                    dibujo(grados,root, x + 40*e*tamanio, y - 50*tamanio, x, y - 50*tamanio, x + 10*e*tamanio, y + 110*tamanio, x + 59*e*tamanio, y + 20*tamanio); // otra mitad
-                    dibujo(grados,root, x + 60*e*tamanio, y + 10*tamanio, x + 60*e*tamanio, y + 100*tamanio, x + 20*e*tamanio, y + 100*tamanio, x + 30*e*tamanio, y + 80*tamanio); // mitad j
-                    dibujo(grados,root, x + 30*e*tamanio, y + 80*tamanio, x + 40*e*tamanio, y + 60*tamanio, x + 60*e*tamanio, y + 60*tamanio, x + 80*e*tamanio, y + 15*tamanio); // otra mitad j
+                    dibujo(grados,root, x, y + 20*eY*tamanio, x + 70*e*tamanio, y + 10*eY*tamanio, x + 60*e*tamanio, y - 50*eY*tamanio, x + 40*e*tamanio, y - 50*eY*tamanio); // mitad e
+                    dibujo(grados,root, x + 40*e*tamanio, y - 50*eY*tamanio, x, y - 50*eY*tamanio, x + 10*e*tamanio, y + 110*eY*tamanio, x + 59*e*tamanio, y + 20*eY*tamanio); // otra mitad
+                    dibujo(grados,root, x + 60*e*tamanio, y + 10*eY*tamanio, x + 60*e*tamanio, y + 100*eY*tamanio, x + 20*e*tamanio, y + 100*eY*tamanio, x + 30*e*tamanio, y + 80*eY*tamanio); // mitad j
+                    dibujo(grados,root, x + 30*e*tamanio, y + 80*eY*tamanio, x + 40*e*tamanio, y + 60*eY*tamanio, x + 60*e*tamanio, y + 60*eY*tamanio, x + 80*e*tamanio, y + 15*eY*tamanio); // otra mitad j
                     if (auxBold > 1) {
                         x++;
                     }
@@ -563,14 +563,14 @@ public class Dibujo {
             if (caracter == 'h') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+15, x, y+50, x+50*e, y-50, x-10*e, y-90);
-                pts(textoCoord, x, y+40, x+25*e, y+35, x+10*e, y, x+25*e, y+5);
-                pts(textoCoord, x+25*e, y+35, x+50*e, y+15, x+25*e, y+60, x+40*e, y+60);
-                fun(root, x, y + 15, x + 50*e, y - 50, x - 10*e, y - 90, x, y + 50, x, y + 40, x + 10*e, y, x + 25*e, y + 5, x + 25*e, y + 35, x + 25*e, y + 35, x + 25*e, y + 60, x + 40*e, y + 60, x + 50*e, y + 15);
+                pts(textoCoord, x, y+15*eY, x, y+50*eY, x+50*e, y-50*eY, x-10*e, y-90*eY);
+                pts(textoCoord, x, y+40*eY, x+25*e, y+35*eY, x+10*e, y, x+25*e, y+5*eY);
+                pts(textoCoord, x+25*e, y+35*eY, x+50*e, y+15*eY, x+25*e, y+60*eY, x+40*e, y+60*eY);
+                fun(root, x, y + 15*eY, x + 50*e, y - 50*eY, x - 10*e, y - 90*eY, x, y + 50*eY, x, y + 40*eY, x + 10*e, y, x + 25*e, y + 5*eY, x + 25*e, y + 35*eY, x + 25*e, y + 35*eY, x + 25*e, y + 60*eY, x + 40*e, y + 60*eY, x + 50*e, y + 15*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y + 15*tamanio, x + 50*e*tamanio, y - 50*tamanio, x - 10*e*tamanio, y - 90*tamanio, x, y + 50*tamanio); // l
-                    dibujo(grados,root, x, y + 40*tamanio, x + 10*e*tamanio, y, x + 25*e*tamanio, y + 5*tamanio, x + 25*e*tamanio, y + 35*tamanio); // guata
-                    dibujo(grados,root, x + 25*e*tamanio, y + 35*tamanio, x + 25*e*tamanio, y + 60*tamanio, x + 40*e*tamanio, y + 60*tamanio, x + 50*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x, y + 15*eY*tamanio, x + 50*e*tamanio, y - 50*eY*tamanio, x - 10*e*tamanio, y - 90*eY*tamanio, x, y + 50*eY*tamanio); // l
+                    dibujo(grados,root, x, y + 40*eY*tamanio, x + 10*e*tamanio, y, x + 25*e*tamanio, y + 5*eY*tamanio, x + 25*e*tamanio, y + 35*eY*tamanio); // guata
+                    dibujo(grados,root, x + 25*e*tamanio, y + 35*eY*tamanio, x + 25*e*tamanio, y + 60*eY*tamanio, x + 40*e*tamanio, y + 60*eY*tamanio, x + 50*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -584,17 +584,17 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y-40, x+20*e, y+40, x+10*e, y-60, x+30*e, y-30);
-                pts(textoCoord, x+20*e, y+40, x+40*e, y, x+10*e, y+80, x-10*e, y+30);
-                pts(textoCoord, x+40*e, y, x+50*e, y-50, x+60*e, y-10, x+60*e, y-50);
-                pts(textoCoord, x+50*e, y-50, x+70*e, y+15, x+40*e, y-50, x+40*e, y+120);
-                fun(root, x, y - 40, x + 10*e, y - 60, x + 30*e, y - 30, x + 20*e, y + 40, x + 20*e, y + 40, x + 10*e, y + 80, x - 10*e, y + 30, x + 40*e, y, x + 40*e, y, x + 60*e, y - 10, x + 60*e, y - 50, x + 50*e, y - 50, x + 50*e, y - 50, x + 40*e, y - 50, x + 40*e, y + 120, x + 70*e, y + 15);
+                pts(textoCoord, x, y-40*eY, x+20*e, y+40*eY, x+10*e, y-60*eY, x+30*e, y-30*eY);
+                pts(textoCoord, x+20*e, y+40*eY, x+40*e, y, x+10*e, y+80*eY, x-10*e, y+30*eY);
+                pts(textoCoord, x+40*e, y, x+50*e, y-50*eY, x+60*e, y-10*eY, x+60*e, y-50*eY);
+                pts(textoCoord, x+50*e, y-50*eY, x+70*e, y+15*eY, x+40*e, y-50*eY, x+40*e, y+120*eY);
+                fun(root, x, y - 40*eY, x + 10*e, y - 60*eY, x + 30*e, y - 30*eY, x + 20*e, y + 40*eY, x + 20*e, y + 40*eY, x + 10*e, y + 80*eY, x - 10*e, y + 30*eY, x + 40*e, y, x + 40*e, y, x + 60*e, y - 10*eY, x + 60*e, y - 50*eY, x + 50*e, y - 50*eY, x + 50*e, y - 50*eY, x + 40*e, y - 50*eY, x + 40*e, y + 120*eY, x + 70*e, y + 15*eY);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y - 40*tamanio, x + 10*e*tamanio, y - 60*tamanio, x + 30*e*tamanio, y - 30*tamanio, x + 20*e*tamanio, y + 40*tamanio); // primera curva hacia abajo
-                    dibujo(grados,root, x + 20*e*tamanio, y + 40*tamanio, x + 10*e*tamanio, y + 80*tamanio, x - 10*e*tamanio, y + 30*tamanio, x + 40*e*tamanio, y); // segunda curva
-                    dibujo(grados,root, x + 40*e*tamanio, y, x + 60*e*tamanio, y - 10*tamanio, x + 60*e*tamanio, y - 50*tamanio, x + 50*e*tamanio, y - 50*tamanio);
-                    dibujo(grados,root, x + 50*e*tamanio, y - 50*tamanio, x + 40*e*tamanio, y - 50*tamanio, x + 40*e*tamanio, y + 120*tamanio, x + 70*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x, y - 40*eY*tamanio, x + 10*e*tamanio, y - 60*eY*tamanio, x + 30*e*tamanio, y - 30*eY*tamanio, x + 20*e*tamanio, y + 40*eY*tamanio); // primera curva hacia abajo
+                    dibujo(grados,root, x + 20*e*tamanio, y + 40*eY*tamanio, x + 10*e*tamanio, y + 80*eY*tamanio, x - 10*e*tamanio, y + 30*eY*tamanio, x + 40*e*tamanio, y); // segunda curva
+                    dibujo(grados,root, x + 40*e*tamanio, y, x + 60*e*tamanio, y - 10*eY*tamanio, x + 60*e*tamanio, y - 50*eY*tamanio, x + 50*e*tamanio, y - 50*eY*tamanio);
+                    dibujo(grados,root, x + 50*e*tamanio, y - 50*eY*tamanio, x + 40*e*tamanio, y - 50*eY*tamanio, x + 40*e*tamanio, y + 120*eY*tamanio, x + 70*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -611,21 +611,21 @@ public class Dibujo {
             if (caracter == 'i' || caracter == 'í') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+2*e, y, x+40*e, y+15, x-10*e, y+80, x+30*e, y+40);
-                fun(root, x + 2*e, y, x - 10*e, y + 80, x + 30*e, y + 40, x + 40*e, y + 15);
+                pts(textoCoord, x+2*e, y, x+40*e, y+15*eY, x-10*e, y+80*eY, x+30*e, y+40*eY);
+                fun(root, x + 2*e, y, x - 10*e, y + 80*eY, x + 30*e, y + 40*eY, x + 40*e, y + 15*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 2*e*tamanio, y, x - 10*e*tamanio, y + 80*tamanio, x + 30*e*tamanio, y + 40*tamanio, x + 40*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x + 2*e*tamanio, y, x - 10*e*tamanio, y + 80*eY*tamanio, x + 30*e*tamanio, y + 40*eY*tamanio, x + 40*e*tamanio, y + 15*eY*tamanio);
                     if (caracter == 'í') {
-                        dibujo(grados,root, x, y - 10*tamanio, x + 15*e*tamanio, y - 30*tamanio);
+                        dibujo(grados,root, x, y - 10*eY*tamanio, x + 15*e*tamanio, y - 30*eY*tamanio);
                         if(cont < 1){
-                            pts(textoCoord, x, y-10, x+15*e, y-30);
-                            fun(root, x, y - 10, x + 15*e, y - 30);
+                            pts(textoCoord, x, y-10*eY, x+15*e, y-30*eY);
+                            fun(root, x, y - 10*eY, x + 15*e, y - 30*eY);
                         }
                     } else {
-                        dibujo(grados,root, x + 3*e*tamanio, y - 10*tamanio, tamanio);
+                        dibujo(grados,root, x + 3*e*tamanio, y - 10*eY*tamanio, tamanio);
                         if(cont < 1){
-                            pts(textoCoord, x+3*e, y-10);
-                            fun(root, x + 3*e, y - 10);
+                            pts(textoCoord, x+3*e, y-10*eY);
+                            fun(root, x + 3*e, y - 10*eY);
                         }
                     }
                     if (auxBold > 1) {
@@ -641,20 +641,20 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y-50, x+50*e, y-40, x+20*e, y-60, x+30*e, y-40);
-                pts(textoCoord, x+50*e, y-40, x+40*e, y+20, x+70*e, x-40, x+50*e, y-120);
-                pts(textoCoord, x+40*e, y+20, x, y+30, x+35*e, y+70, x, y+40);
-                fun(root, x, y - 50, x + 20*e, y - 60, x + 30*e, y - 40, x + 50*e, y - 40, x + 50*e, y - 40, x + 70*e, y - 40, x + 50*e, y - 120, x + 40*e, y + 20, x + 40*e, y + 20, x + 35*e, y + 70, x, y + 40, x, y + 30);
+                pts(textoCoord, x, y-50*eY, x+50*e, y-40*eY, x+20*e, y-60*eY, x+30*e, y-40*eY);
+                pts(textoCoord, x+50*e, y-40*eY, x+40*e, y+20*eY, x+70*e, y-40*eY, x+50*e, y-120*eY);
+                pts(textoCoord, x+40*e, y+20*eY, x, y+30*eY, x+35*e, y+70*eY, x, y+40*eY);
+                fun(root, x, y - 50*eY, x + 20*e, y - 60*eY, x + 30*e, y - 40*eY, x + 50*e, y - 40*eY, x + 50*e, y - 40*eY, x + 70*e, y - 40*eY, x + 50*e, y - 120*eY, x + 40*e, y + 20*eY, x + 40*e, y + 20*eY, x + 35*e, y + 70*eY, x, y + 40*eY, x, y + 30*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y - 50*tamanio, x + 20*e*tamanio, y - 60*tamanio, x + 30*e*tamanio, y - 40*tamanio, x + 50*e*tamanio, y - 40*tamanio);
-                    dibujo(grados,root, x + 50*e*tamanio, y - 40*tamanio, x + 70*e*tamanio, y - 40*tamanio, x + 50*e*tamanio, y - 120*tamanio, x + 40*e*tamanio, y + 20*tamanio);
-                    dibujo(grados,root, x + 40*e*tamanio, y + 20*tamanio, x + 35*e*tamanio, y + 70*tamanio, x, y + 40*tamanio, x, y + 30*tamanio);
+                    dibujo(grados,root, x, y - 50*eY*tamanio, x + 20*e*tamanio, y - 60*eY*tamanio, x + 30*e*tamanio, y - 40*eY*tamanio, x + 50*e*tamanio, y - 40*eY*tamanio);
+                    dibujo(grados,root, x + 50*e*tamanio, y - 40*eY*tamanio, x + 70*e*tamanio, y - 40*eY*tamanio, x + 50*e*tamanio, y - 120*eY*tamanio, x + 40*e*tamanio, y + 20*eY*tamanio);
+                    dibujo(grados,root, x + 40*e*tamanio, y + 20*eY*tamanio, x + 35*e*tamanio, y + 70*eY*tamanio, x, y + 40*eY*tamanio, x, y + 30*eY*tamanio);
 
                     if (caracter == 'Í') {
-                        dibujo(grados,root, x + 30*e*tamanio, y - 60*tamanio, x + 45*e*tamanio, y - 80*tamanio);
+                        dibujo(grados,root, x + 30*e*tamanio, y - 60*eY*tamanio, x + 45*e*tamanio, y - 80*eY*tamanio);
                         if(cont < 1){
-                            pts(textoCoord, x+30*e, y-60, x+45*e, y-80);
-                            fun(root, x + 30*e, y - 60, x + 45*e, y - 80);
+                            pts(textoCoord, x+30*e, y-60*eY, x+45*e, y-80*eY);
+                            fun(root, x + 30*e, y - 60*eY, x + 45*e, y - 80*eY);
                         }
                     }
 
@@ -675,17 +675,17 @@ public class Dibujo {
             if (caracter == 'j') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x-15*e, y+65, x+30*e, y+15, x-15*e, y+50, x+30*e, y+35);
-                pts(textoCoord, x, y+70, x-15*e, y+65, x-5*e, y+95, x-20*e, y+85);
-                pts(textoCoord, x, y, x, y+70, x- e, y+20, x+5*e, y+60);
-                pts(textoCoord, x, y-10);
-                fun(root, x - 15*e, y + 65, x - 15*e, y + 50, x + 30*e, y + 35, x + 30*e, y + 15, x, y + 70, x - 5*e, y + 95, x - 20*e, y + 85, x - 15*e, y + 65, x, y, x - e, y + 20, x + 5*e, y + 60, x, y + 70);
+                pts(textoCoord, x-15*e, y+65*eY, x+30*e, y+15*eY, x-15*e, y+50*eY, x+30*e, y+35*eY);
+                pts(textoCoord, x, y+70*eY, x-15*e, y+65*eY, x-5*e, y+95*eY, x-20*e, y+85*eY);
+                pts(textoCoord, x, y, x, y+70*eY, x- e, y+20*eY, x+5*e, y+60*eY);
+                pts(textoCoord, x, y-10*eY);
+                fun(root, x - 15*e, y + 65*eY, x - 15*e, y + 50*eY, x + 30*e, y + 35*eY, x + 30*e, y + 15*eY, x, y + 70*eY, x - 5*e, y + 95*eY, x - 20*e, y + 85*eY, x - 15*e, y + 65*eY, x, y, x - e, y + 20*eY, x + 5*e, y + 60*eY, x, y + 70*eY);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x - 15*e*tamanio, y + 65*tamanio, x - 15*e*tamanio, y + 50*tamanio, x + 30*e*tamanio, y + 35*tamanio, x + 30*e*tamanio, y + 15*tamanio);
-                    dibujo(grados,root, x, y + 70*tamanio, x - 5*e*tamanio, y + 95*tamanio, x - 20*e*tamanio, y + 85*tamanio, x - 15*e*tamanio, y + 65*tamanio);
-                    dibujo(grados,root, x, y, x - e * tamanio, y + 20*tamanio, x + 5*e*tamanio, y + 60*tamanio, x, y + 70*tamanio);
-                    dibujo(grados,root, x, y - 10*tamanio, tamanio);
+                    dibujo(grados,root, x - 15*e*tamanio, y + 65*eY*tamanio, x - 15*e*tamanio, y + 50*eY*tamanio, x + 30*e*tamanio, y + 35*eY*tamanio, x + 30*e*tamanio, y + 15*eY*tamanio);
+                    dibujo(grados,root, x, y + 70*eY*tamanio, x - 5*e*tamanio, y + 95*eY*tamanio, x - 20*e*tamanio, y + 85*eY*tamanio, x - 15*e*tamanio, y + 65*eY*tamanio);
+                    dibujo(grados,root, x, y, x - e * tamanio, y + 20*eY*tamanio, x + 5*e*tamanio, y + 60*eY*tamanio, x, y + 70*eY*tamanio);
+                    dibujo(grados,root, x, y - 10*eY*tamanio, tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -699,16 +699,16 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y-40, x+50*e, y-40, x+20*e, y-50);
-                pts(textoCoord, x+50*e, y-40, x+40*e, y+30, x+70*e, y-40, x+50*e, y-120);
-                pts(textoCoord, x+40*e, y+30, x+5*e, y+40, x+40*e, y+55, x+10*e, y+60);
-                pts(textoCoord, x+5*e, y+40, x+50*e, y-15, x, y+20, x+15*e, y);
-                fun(root, x, y - 40, x + 50*e, y - 40, x + 20*e, y - 50, x + 70*e, y - 40, x + 50*e, y - 120, x + 40*e, y + 55, x + 10*e, y + 60, x + 50*e, y - 40, x + 40*e, y + 30, x + 40*e, y + 30, x + 5*e, y + 40, x + 5*e, y + 40, x + 50*e, y - 15);
+                pts(textoCoord, x, y-40*eY, x+50*e, y-40*eY, x+20*e, y-50*eY);
+                pts(textoCoord, x+50*e, y-40*eY, x+40*e, y+30*eY, x+70*e, y-40*eY, x+50*e, y-120*eY);
+                pts(textoCoord, x+40*e, y+30*eY, x+5*e, y+40*eY, x+40*e, y+55*eY, x+10*e, y+60*eY);
+                pts(textoCoord, x+5*e, y+40*eY, x+50*e, y-15*eY, x, y+20*eY, x+15*e, y);
+                fun(root, x, y - 40*eY, x + 50*e, y - 40*eY, x + 20*e, y - 50*eY, x + 70*e, y - 40*eY, x + 50*e, y - 120*eY, x + 40*e, y + 55*eY, x + 10*e, y + 60*eY, x + 50*e, y - 40*eY, x + 40*e, y + 30*eY, x + 40*e, y + 30*eY, x + 5*e, y + 40*eY, x + 5*e, y + 40*eY, x + 50*e, y - 15*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y - 40*tamanio, x + 20*e*tamanio, y - 50*tamanio, x + 50*e*tamanio, y - 40*tamanio);
-                    dibujo(grados,root, x + 50*e*tamanio, y - 40*tamanio, x + 70*e*tamanio, y - 40*tamanio, x + 50*e*tamanio, y - 120*tamanio, x + 40*e*tamanio, y + 30*tamanio);
-                    dibujo(grados,root, x + 40*e*tamanio, y + 30*tamanio, x + 40*e*tamanio, y + 55*tamanio, x + 10*e*tamanio, y + 60*tamanio, x + 5*e*tamanio, y + 40*tamanio);
-                    dibujo(grados,root, x + 5*e*tamanio, y + 40*tamanio, x, y + 20*tamanio, x + 15*e*tamanio, y, x + 50*e*tamanio, y - 15*tamanio);
+                    dibujo(grados,root, x, y - 40*eY*tamanio, x + 20*e*tamanio, y - 50*eY*tamanio, x + 50*e*tamanio, y - 40*eY*tamanio);
+                    dibujo(grados,root, x + 50*e*tamanio, y - 40*eY*tamanio, x + 70*e*tamanio, y - 40*eY*tamanio, x + 50*e*tamanio, y - 120*eY*tamanio, x + 40*e*tamanio, y + 30*eY*tamanio);
+                    dibujo(grados,root, x + 40*e*tamanio, y + 30*eY*tamanio, x + 40*e*tamanio, y + 55*eY*tamanio, x + 10*e*tamanio, y + 60*eY*tamanio, x + 5*e*tamanio, y + 40*eY*tamanio);
+                    dibujo(grados,root, x + 5*e*tamanio, y + 40*eY*tamanio, x, y + 20*eY*tamanio, x + 15*e*tamanio, y, x + 50*e*tamanio, y - 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -725,15 +725,15 @@ public class Dibujo {
             if (caracter == 'k') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+2*e, y, x- e, y+50, x+37*e, y, x-3*e, y-150);
-                pts(textoCoord, x, y+18, x+17*e, y+30, x+7*e, y-10, x+42*e, y+20);
-                pts(textoCoord, x+17*e, y+30, x+55*e, y+15, x+37*e, y+72, x+47*e, y+50);
-                fun(root, x + 2*e, y, x + 37*e, y, x - 3*e, y - 150, x + 7*e, y - 10, x + 42*e, y + 20, x + 37*e, y + 72, x + 47*e, y + 50, x - e, y + 50, x, y + 18, x + 17*e, y + 30, x + 17*e, y + 30, x + 55*e, y + 15);
+                pts(textoCoord, x+2*e, y, x- e, y+50*eY, x+37*e, y, x-3*e, y-150*eY);
+                pts(textoCoord, x, y+18*eY, x+17*e, y+30*eY, x+7*e, y-10*eY, x+42*e, y+20*eY);
+                pts(textoCoord, x+17*e, y+30*eY, x+55*e, y+15*eY, x+37*e, y+72*eY, x+47*e, y+50*eY);
+                fun(root, x + 2*e, y, x + 37*e, y, x - 3*e, y - 150*eY, x + 7*e, y - 10*eY, x + 42*e, y + 20*eY, x + 37*e, y + 72*eY, x + 47*e, y + 50*eY, x - e, y + 50*eY, x, y + 18*eY, x + 17*e, y + 30*eY, x + 17*e, y + 30*eY, x + 55*e, y + 15*eY);
 
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 2*e*tamanio, y, x + 37*e*tamanio, y, x - 3*e*tamanio, y - 150*tamanio, x - tamanio, y + 50*tamanio);
-                    dibujo(grados,root, x, y + 18*tamanio, x + 7*e*tamanio, y - 10*tamanio, x + 42*e*tamanio, y + 20*tamanio, x + 17*e*tamanio, y + 30*tamanio);
-                    dibujo(grados,root, x + 17*e*tamanio, y + 30*tamanio, x + 37*e*tamanio, y + 72*tamanio, x + 35*e*tamanio, y + 50*tamanio, x + 55*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x + 2*e*tamanio, y, x + 37*e*tamanio, y, x - 3*e*tamanio, y - 150*eY*tamanio, x - tamanio, y + 50*eY*tamanio);
+                    dibujo(grados,root, x, y + 18*eY*tamanio, x + 7*e*tamanio, y - 10*eY*tamanio, x + 42*e*tamanio, y + 20*eY*tamanio, x + 17*e*tamanio, y + 30*eY*tamanio);
+                    dibujo(grados,root, x + 17*e*tamanio, y + 30*eY*tamanio, x + 37*e*tamanio, y + 72*eY*tamanio, x + 35*e*tamanio, y + 50*eY*tamanio, x + 55*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -747,16 +747,16 @@ public class Dibujo {
                 if(caracterAnt!='^' && caracterAnt!='+' ) {
                     Text t = new Text("\n" + caracter + ":");
                     textoCoord.getChildren().add(t);
-                    pts(textoCoord,  x, y - 20, x + 10 * e, y + 40, x + 40 * e, y - 120, x + 40 * e, y + 80);
-                    pts(textoCoord,  x + 10 * e, y + 40, x + 60 * e, y - 50, x - 20 * e, y, x + 60 * e, y);
-                    pts(textoCoord, x + 33 * e, y - 5, x + 80 * e, y + 15, x + 60 * e, y - 10, x + 60 * e, y + 115);
-                    fun(root, x, y - 20, x + 40 * e, y - 120, x + 40 * e, y + 80, x - 20 * e, y, x + 60 * e, y, x + 60 * e, y - 10, x + 60 * e, y + 115, x + 10 * e, y + 40, x + 10 * e, y + 40, x + 60 * e, y - 50, x + 33 * e, y - 5, x + 80 * e, y + 15);
+                    pts(textoCoord,  x, y - 20*eY, x + 10 * e, y + 40*eY, x + 40 * e, y - 120*eY, x + 40 * e, y + 80*eY);
+                    pts(textoCoord,  x + 10 * e, y + 40*eY, x + 60 * e, y - 50*eY, x - 20 * e, y, x + 60 * e, y);
+                    pts(textoCoord, x + 33 * e, y - 5*eY, x + 80 * e, y + 15*eY, x + 60 * e, y - 10*eY, x + 60 * e, y + 115*eY);
+                    fun(root, x, y - 20*eY, x + 40 * e, y - 120*eY, x + 40 * e, y + 80*eY, x - 20 * e, y, x + 60 * e, y, x + 60 * e, y - 10*eY, x + 60 * e, y + 115*eY, x + 10 * e, y + 40*eY, x + 10 * e, y + 40*eY, x + 60 * e, y - 50*eY, x + 33 * e, y - 5*eY, x + 80 * e, y + 15*eY);
 
                     while (cont < auxBold) {
-                        dibujo(grados, root, x, y - 20 * tamanio, x + 40 * e * tamanio, y - 120 * tamanio, x + 40 * e * tamanio, y + 80 * tamanio, x + 10 * e * tamanio, y + 40 * tamanio); // primera curva hacia
+                        dibujo(grados, root, x, y - 20*eY * tamanio, x + 40 * e * tamanio, y - 120*eY * tamanio, x + 40 * e * tamanio, y + 80*eY * tamanio, x + 10 * e * tamanio, y + 40*eY * tamanio); // primera curva hacia
                         // abajo
-                        dibujo(grados, root, x + 10 * e * tamanio, y + 40 * tamanio, x - 20 * e * tamanio, y, x + 60 * e * tamanio, y, x + 60 * e * tamanio, y - 50 * tamanio);
-                        dibujo(grados, root, x + 33 * e * tamanio, y - 5 * tamanio, x + 60 * e * tamanio, y - 10 * tamanio, x + 60 * e * tamanio, y + 115 * tamanio, x + 80 * e * tamanio, y + 15 * tamanio);
+                        dibujo(grados, root, x + 10 * e * tamanio, y + 40*eY * tamanio, x - 20 * e * tamanio, y, x + 60 * e * tamanio, y, x + 60 * e * tamanio, y - 50 *eY* tamanio);
+                        dibujo(grados, root, x + 33 * e * tamanio, y - 5*eY * tamanio, x + 60 * e * tamanio, y - 10*eY * tamanio, x + 60 * e * tamanio, y + 115*eY * tamanio, x + 80 * e * tamanio, y + 15*eY * tamanio);
 
                         if (auxBold > 1) {
                             x++;
@@ -776,13 +776,13 @@ public class Dibujo {
             if (caracter == 'l') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+15, x- e, y+40, x+37*e, y-40, x-3*e, y-120);
-                pts(textoCoord, x- e, y+40, x+30*e, y+15, x, y+60, x+20*e, y+60);
+                pts(textoCoord, x, y+15*eY, x- e, y+40*eY, x+37*e, y-40*eY, x-3*e, y-120*eY);
+                pts(textoCoord, x- e, y+40*eY, x+30*e, y+15*eY, x, y+60*eY, x+20*e, y+60*eY);
 
-                fun(root, x, y + 15, x + 37*e, y - 40, x - 3*e, y - 120, x, y + 60, x + 20*e, y + 60, x - e, y + 40, x - e, y + 40, x + 30*e, y + 15);
+                fun(root, x, y + 15*eY, x + 37*e, y - 40*eY, x - 3*e, y - 120*eY, x, y + 60*eY, x + 20*e, y + 60*eY, x - e, y + 40*eY, x - e, y + 40*eY, x + 30*e, y + 15*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y + 15*tamanio, x + 37*e*tamanio, y - 40*tamanio, x - 3*e*tamanio, y - 120*tamanio, x - tamanio, y + 40*tamanio); //Curva principal
-                    dibujo(grados,root, x - tamanio, y + 40*tamanio, x, y + 60*tamanio, x + 20*e*tamanio, y + 60*tamanio, x + 30*e*tamanio, y + 15*tamanio);  //Curva derecha (conector)
+                    dibujo(grados,root, x, y + 15*eY*tamanio, x + 37*e*tamanio, y - 40*eY*tamanio, x - 3*e*tamanio, y - 120*eY*tamanio, x - tamanio, y + 40*eY*tamanio); //Curva principal
+                    dibujo(grados,root, x - tamanio, y + 40*eY*tamanio, x, y + 60*eY*tamanio, x + 20*e*tamanio, y + 60*eY*tamanio, x + 30*e*tamanio, y + 15*eY*tamanio);  //Curva derecha (conector)
                     if (auxBold > 1) {
                         x++;
                     }
@@ -796,15 +796,15 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y+15, x+15*e, y-5, x+80*e, y-80, x+5*e, y-60);
-                pts(textoCoord, x+15*e, y-5, x+20*e, y+50, x+15*e, y+100, x-30*e, y+10);
-                pts(textoCoord, x+20*e, y+50, x+50*e, y+15, x+45*e, y+60);
+                pts(textoCoord, x, y+15*eY, x+15*e, y-5*eY, x+80*e, y-80*eY, x+5*e, y-60*eY);
+                pts(textoCoord, x+15*e, y-5*eY, x+20*e, y+50*eY, x+15*e, y+100*eY, x-30*e, y+10*eY);
+                pts(textoCoord, x+20*e, y+50*eY, x+50*e, y+15*eY, x+45*e, y+60*eY);
 
-                fun(root, x, y + 15, x + 15*e, y + 100, x - 30*e, y + 10, x + 45*e, y + 60, x + 15*e, y - 5, x + 15*e, y - 5, x + 20*e, y + 50, x + 20*e, y + 50, x + 50*e, y + 15);
+                fun(root, x, y + 15*eY, x + 15*e, y + 100*eY, x - 30*e, y + 10*eY, x + 45*e, y + 60*eY, x + 15*e, y - 5*eY, x + 15*e, y - 5*eY, x + 20*e, y + 50*eY, x + 20*e, y + 50*eY, x + 50*e, y + 15*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y + 15*tamanio, x + 80*e*tamanio, y - 80*tamanio, x + 5*e*tamanio, y - 60*tamanio, x + 15*e*tamanio, y - 5*tamanio); //Curva principal
-                    dibujo(grados,root, x + 15*e*tamanio, y - 5*tamanio, x + 15*e*tamanio, y + 100*tamanio, x - 30*e*tamanio, y + 10*tamanio, x + 20*e*tamanio, y + 50*tamanio); //Semi ovalo
-                    dibujo(grados,root, x + 20*e*tamanio, y + 50*tamanio, x + 45*e*tamanio, y + 60*tamanio, x + 50*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x, y + 15*eY*tamanio, x + 80*e*tamanio, y - 80*eY*tamanio, x + 5*e*tamanio, y - 60*eY*tamanio, x + 15*e*tamanio, y - 5*eY*tamanio); //Curva principal
+                    dibujo(grados,root, x + 15*e*tamanio, y - 5*eY*tamanio, x + 15*e*tamanio, y + 100*eY*tamanio, x - 30*e*tamanio, y + 10*eY*tamanio, x + 20*e*tamanio, y + 50*eY*tamanio); //Semi ovalo
+                    dibujo(grados,root, x + 20*e*tamanio, y + 50*eY*tamanio, x + 45*e*tamanio, y + 60*eY*tamanio, x + 50*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -821,16 +821,16 @@ public class Dibujo {
             if (caracter == 'm') {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x, y, x+8*e, y+50, x- e, y+50);
-                pts(textoCoord, x+8*e, y+50, x+28*e, y+48, x+15*e, y-50);
-                pts(textoCoord, x+28*e, y+48, x+48*e, y+48, x+40*e, y-50);
-                pts(textoCoord, x+48*e, y+48, x+70*e, x+15, x+50*e, y+60, x+68*e, y+65);
-                fun(root, x, y, x - e, y + 50, x + 15*e, y - 50, x + 40*e, y - 50, x + 50*e, y + 60, x + 68*e, y + 65, x + 8*e, y + 50, x + 8*e, y + 50, x + 28*e, y + 48, x + 28*e, y + 48, x + 48*e, y + 48, x + 48*e, y + 48, x + 70*e, y + 15);
+                pts(textoCoord, x, y, x+8*e, y+50*eY, x- e, y+50*eY);
+                pts(textoCoord, x+8*e, y+50*eY, x+28*e, y+48*eY, x+15*e, y-50*eY);
+                pts(textoCoord, x+28*e, y+48*eY, x+48*e, y+48*eY, x+40*e, y-50*eY);
+                pts(textoCoord, x+48*e, y+48*eY, x+70*e, y+15*eY, x+50*e, y+60*eY, x+68*e, y+65*eY);
+                fun(root, x, y, x - e, y + 50*eY, x + 15*e, y - 50*eY, x + 40*e, y - 50*eY, x + 50*e, y + 60*eY, x + 68*e, y + 65*eY, x + 8*e, y + 50*eY, x + 8*e, y + 50*eY, x + 28*e, y + 48*eY, x + 28*e, y + 48*eY, x + 48*e, y + 48*eY, x + 48*e, y + 48*eY, x + 70*e, y + 15*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x, y, x - tamanio, y + 50*tamanio, x + 8*e*tamanio, y + 50*tamanio);
-                    dibujo(grados,root, x + 8*e*tamanio, y + 50*tamanio, x + 15*e*tamanio, y - 50*tamanio, x + 28*e*tamanio, y + 48*tamanio);
-                    dibujo(grados,root, x + 28*e*tamanio, y + 48*tamanio, x + 40*e*tamanio, y - 50*tamanio, x + 48*e*tamanio, y + 48*tamanio);
-                    dibujo(grados,root, x + 48*e*tamanio, y + 48*tamanio, x + 50*e*tamanio, y + 60*tamanio, x + 68*e*tamanio, y + 65*tamanio, x + 70*e*tamanio, y + 15*tamanio);
+                    dibujo(grados,root, x, y, x - tamanio, y + 50*eY*tamanio, x + 8*e*tamanio, y + 50*eY*tamanio);
+                    dibujo(grados,root, x + 8*e*tamanio, y + 50*eY*tamanio, x + 15*e*tamanio, y - 50*eY*tamanio, x + 28*e*tamanio, y + 48*eY*tamanio);
+                    dibujo(grados,root, x + 28*e*tamanio, y + 48*eY*tamanio, x + 40*e*tamanio, y - 50*eY*tamanio, x + 48*e*tamanio, y + 48*eY*tamanio);
+                    dibujo(grados,root, x + 48*e*tamanio, y + 48*eY*tamanio, x + 50*e*tamanio, y + 60*eY*tamanio, x + 68*e*tamanio, y + 65*eY*tamanio, x + 70*e*tamanio, y + 15*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
@@ -843,16 +843,16 @@ public class Dibujo {
             } else {
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
-                pts(textoCoord, x+5*e, y+15, x+15*e, y+50, x-15*e, y-70, x+29*e, y-85);
-                pts(textoCoord, x+15*e, y+50, x+40*e, y+40, x+35*e, y-90);
-                pts(textoCoord, x+40*e, y+40, x+65*e, y+50, x+60*e, y-83);
+                pts(textoCoord, x+5*e, y+15*eY, x+15*e, y+50*eY, x-15*e, y-70*eY, x+29*e, y-85*eY);
+                pts(textoCoord, x+15*e, y+50*eY, x+40*e, y+40*eY, x+35*e, y-90*eY);
+                pts(textoCoord, x+40*e, y+40*eY, x+65*e, y+50*eY, x+60*e, y-83*eY);
 
-                fun(root, x + 5*e, y + 15, x - 15*e, y - 70, x + 29*e, y - 85, x + 35*e, y - 90, x + 60*e, y - 83, x + 15*e, y + 50, x + 15*e, y + 50, x + 40*e, y + 40, x + 40*e, y + 40, x + 65*e, y + 50);
+                fun(root, x + 5*e, y + 15*eY, x - 15*e, y - 70*eY, x + 29*e, y - 85*eY, x + 35*e, y - 90*eY, x + 60*e, y - 83*eY, x + 15*e, y + 50*eY, x + 15*e, y + 50*eY, x + 40*e, y + 40*eY, x + 40*e, y + 40*eY, x + 65*e, y + 50*eY);
                 while(cont < auxBold) {
-                    dibujo(grados,root, x + 5*e*tamanio, y + 15*tamanio, x - 15*e*tamanio, y - 70*tamanio, x + 29*e*tamanio, y - 85*tamanio, x + 15*e*tamanio, y + 50*tamanio); // primera curva hacia
+                    dibujo(grados,root, x + 5*e*tamanio, y + 15*eY*tamanio, x - 15*e*tamanio, y - 70*eY*tamanio, x + 29*e*tamanio, y - 85*eY*tamanio, x + 15*e*tamanio, y + 50*eY*tamanio); // primera curva hacia
                     // abajo
-                    dibujo(grados,root, x + 15*e*tamanio, y + 50*tamanio, x + 35*e*tamanio, y - 90*tamanio, x + 40*e*tamanio, y + 40*tamanio);
-                    dibujo(grados,root, x + 40*e*tamanio, y + 40*tamanio, x + 60*e*tamanio, y - 83*tamanio, x + 65*e*tamanio, y + 50*tamanio);
+                    dibujo(grados,root, x + 15*e*tamanio, y + 50*eY*tamanio, x + 35*e*tamanio, y - 90*eY*tamanio, x + 40*e*tamanio, y + 40*eY*tamanio);
+                    dibujo(grados,root, x + 40*e*tamanio, y + 40*eY*tamanio, x + 60*e*tamanio, y - 83*eY*tamanio, x + 65*e*tamanio, y + 50*eY*tamanio);
                     if (auxBold > 1) {
                         x++;
                     }
