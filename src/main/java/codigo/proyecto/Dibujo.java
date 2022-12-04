@@ -1284,7 +1284,7 @@ public class Dibujo {
                 fun(root, x - e, y + 10*eY, x + 10 - 10, y - 21*eY, x - 22 - 10, y + 40*eY, x + 30*e, y, x + 30*e, y, x + 9*e, y + 28*eY, x + 25*e, y + 95*eY, x + 55*e, y + 15*eY);
                 while(cont < auxBold) {
                     //CurvA
-                    dibujo(grados,root, x  *e, y + 10*eY, x , y - 21*eY, x - 32*e, y + 40*eY, x + 30*e, y);
+                    dibujo(grados,root, x, y + 10*eY, x , y - 21*eY, x - 32*e, y + 40*eY, x + 30*e, y);
                     dibujo(grados,root, x + 30*e, y, x + 9*e, y + 28*eY, x + 25*e, y + 95*eY, x + 55*e, y + 15*eY);
                     if (auxBold > 1) {
                         x++;
