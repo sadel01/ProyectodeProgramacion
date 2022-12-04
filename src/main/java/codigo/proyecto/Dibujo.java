@@ -1757,44 +1757,27 @@ public class Dibujo {
 
                 pts(textoCoord, x+20, y-50, x+20, y+50);
                 fun(root, x + 20, y - 50, x, y, x + 20, y + 50);
-
-
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x + 20, y - 50, x, y, x + 20, y + 50);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    root.getChildren().add(qv1);
-
+                    dibujo(grados, root, x + 20*e, y - 50*eY, x, y, x + 20*e, y + 50*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-                x = x + 30;
+                x = x + 30*e;
             }
             else{
-
                 pts(textoCoord, x+5, y-50, x+5, y+50);
                 fun(root, x + 5, y - 50, x + 25, y, x + 5, y + 50);
-
                 while(cont < auxBold) {
-                    QuadCurve qv1 = new QuadCurve(x + 5, y - 50, x + 25, y, x + 5, y + 50);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    root.getChildren().add(qv1);
-
+                    dibujo(grados, root, x + 5*e, y - 50*eY, x + 25*e, y, x + 5*e, y + 50*eY);
                     if (auxBold > 1) {
                         x++;
                     }
 
                     cont++;
                 }
-                x = x + 25;
+                x = x + 25*e;
             }
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
@@ -1808,74 +1791,35 @@ public class Dibujo {
                 pts(textoCoord, x, y-50, x, y+50);
                 pts(textoCoord, x, y-50, x+20, y-50);
                 pts(textoCoord, x, y+50, x+20, y+50);
-
                 fun(root, x, y - 50, x, y + 50, x, y - 50, x + 20, y - 50, x, y + 50, x + 20, y + 50);
 
                 while(cont < auxBold) {
-                    Line l1 = new Line(x, y - 50, x, y + 50);
-                    l1.setFill(Color.TRANSPARENT);
-                    l1.setStroke(color);
-                    l1.setStrokeWidth(grosor);
-
-                    Line l2 = new Line(x, y - 50, x + 20, y - 50);
-                    l2.setFill(Color.TRANSPARENT);
-                    l2.setStroke(color);
-                    l2.setStrokeWidth(grosor);
-
-                    Line l3 = new Line(x, y + 50, x + 20, y + 50);
-                    l3.setFill(Color.TRANSPARENT);
-                    l3.setStroke(color);
-                    l3.setStrokeWidth(grosor);
-
-                    root.getChildren().add(l1);
-                    root.getChildren().add(l2);
-                    root.getChildren().add(l3);
-
-
+                    dibujo(grados, root, x, y - 50*eY, x, y + 50*eY);
+                    dibujo(grados, root, x, y - 50*eY, x + 20*e, y - 50*eY);
+                    dibujo(grados, root, x, y + 50*eY, x + 20*e, y + 50*eY);
                     if (auxBold > 1) {
                         x++;
                     }
 
                     cont++;
                 }
-                x = x + 30;
+                x = x + 30*e;
             }
             else{
-
                 pts(textoCoord, x+20, y-50, x+20, y+50);
                 pts(textoCoord, x, y-50, x+20, y-50);
                 pts(textoCoord, x, y+50, x+20, y+50);
                 fun(root, x + 20, y - 50, x + 20, y + 50, x, y - 50, x + 20, y - 50, x, y + 50, x + 20, y + 50);
-
                 while(cont < auxBold) {
-                    Line l1 = new Line(x + 20, y - 50, x + 20, y + 50);
-                    l1.setFill(Color.TRANSPARENT);
-                    l1.setStroke(color);
-                    l1.setStrokeWidth(grosor);
-
-                    Line l2 = new Line(x, y - 50, x + 20, y - 50);
-                    l2.setFill(Color.TRANSPARENT);
-                    l2.setStroke(color);
-                    l2.setStrokeWidth(grosor);
-
-                    Line l3 = new Line(x, y + 50, x + 20, y + 50);
-                    l3.setFill(Color.TRANSPARENT);
-                    l3.setStroke(color);
-                    l3.setStrokeWidth(grosor);
-
-
-                    root.getChildren().add(l1);
-                    root.getChildren().add(l2);
-                    root.getChildren().add(l3);
-
+                    dibujo(grados, root, x + 20*e, y - 50*eY, x + 20*e, y + 50*eY);
+                    dibujo(grados, root, x, y - 50*eY, x + 20*e, y - 50*eY);
+                    dibujo(grados, root, x, y + 50*eY, x + 20*e, y + 50*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-
-                x = x + 35;
+                x = x + 35*e;
             }
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
@@ -1888,44 +1832,26 @@ public class Dibujo {
 
                 pts(textoCoord, x+10, y+25, x+40, y+25);
                 fun(root, x + 10, y + 25, x + 40, y + 25);
-
                 while(cont < auxBold) {
-                    Line l1 = new Line(x + 10, y + 25, x + 40, y + 25);
-                    l1.setFill(Color.TRANSPARENT);
-                    l1.setStroke(color);
-                    l1.setStrokeWidth(grosor);
-
-                    root.getChildren().add(l1);
-
+                    dibujo(grados, root, x + 10*e, y + 25*eY, x + 40*e, y + 25*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-                x = x + 55;
+                x = x + 55*e;
             }
             else{
-
                 pts(textoCoord, x+10, y+50, x+60, y+50);
                 fun(root, x + 10, y + 50, x + 60, y + 50);
-
                 while(cont < auxBold) {
-                    Line l1 = new Line(x + 10, y + 50, x + 60, y + 50);
-                    l1.setFill(Color.TRANSPARENT);
-                    l1.setStroke(color);
-                    l1.setStrokeWidth(grosor);
-
-                    root.getChildren().add(l1);
-
+                    dibujo(grados, root, x + 10*e, y + 50*eY, x + 60*e, y + 50*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-
-                x = x + 70;
+                x = x + 70*e;
             }
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
@@ -1935,92 +1861,39 @@ public class Dibujo {
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
             if (caracter == '«'){
-
                 pts(textoCoord, x+10, y+25, x+50, y);
                 pts(textoCoord, x+10, y+25, x+50, y+50);
                 fun(root, x + 10, y + 25, x + 50, y, x + 10, y + 25, x + 50, y + 50);
-
                 while(cont < auxBold) {
-                    Line l1 = new Line(x + 10, y + 25, x + 50, y);
-                    l1.setFill(Color.TRANSPARENT);
-                    l1.setStroke(color);
-                    l1.setStrokeWidth(grosor);
-
-                    Line l2 = new Line(x + 10, y + 25, x + 50, y + 50);
-                    l2.setFill(Color.TRANSPARENT);
-                    l2.setStroke(color);
-                    l2.setStrokeWidth(grosor);
-
-                    x = x + 20;
-
-                    Line l3 = new Line(x + 10, y + 25, x + 50, y);
-                    l3.setFill(Color.TRANSPARENT);
-                    l3.setStroke(color);
-                    l3.setStrokeWidth(grosor);
-
-                    Line l4 = new Line(x + 10, y + 25, x + 50, y + 50);
-                    l4.setFill(Color.TRANSPARENT);
-                    l4.setStroke(color);
-                    l4.setStrokeWidth(grosor);
-
-                    root.getChildren().add(l1);
-                    root.getChildren().add(l2);
-                    root.getChildren().add(l3);
-                    root.getChildren().add(l4);
-
+                    dibujo(grados, root, x + 10*e, y + 25*eY, x + 50*e, y);
+                    dibujo(grados, root, x + 10*e, y + 25*eY, x + 50*e, y + 50*eY);
+                    x = x + 20*e;
+                    dibujo(grados, root, x + 10*e, y + 25*eY, x + 50*e, y);
+                    dibujo(grados, root, x + 10*e, y + 25*eY, x + 50*e, y + 50*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-
             }
             else{
-
                 pts(textoCoord, x+10, y, x+50, y+25);
                 pts(textoCoord, x+10, y+50, x+50, y+25);
                 fun(root, x + 10, y, x + 50, y + 25, x + 10, y + 50, x + 50, y + 25);
-
                 while(cont < auxBold) {
-                    Line l1 = new Line(x + 10, y, x + 50, y + 25);
-                    l1.setFill(Color.TRANSPARENT);
-                    l1.setStroke(color);
-                    l1.setStrokeWidth(grosor);
-
-                    Line l2 = new Line(x + 10, y + 50, x + 50, y + 25);
-                    l2.setFill(Color.TRANSPARENT);
-                    l2.setStroke(color);
-                    l2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(l1);
-                    root.getChildren().add(l2);
-
-                    x = x + 20;
-
-                    Line l3 = new Line(x + 10, y, x + 50, y + 25);
-                    l3.setFill(Color.TRANSPARENT);
-                    l3.setStroke(color);
-                    l3.setStrokeWidth(grosor);
-
-                    Line l4 = new Line(x + 10, y + 50, x + 50, y + 25);
-                    l4.setFill(Color.TRANSPARENT);
-                    l4.setStroke(color);
-                    l4.setStrokeWidth(grosor);
-
-                    root.getChildren().add(l3);
-                    root.getChildren().add(l4);
-
-
+                    dibujo(grados, root, x + 10*e, y, x + 50*e, y + 25*eY);
+                    dibujo(grados, root, x + 10*e, y + 50*eY, x + 50*e, y + 25*eY);
+                    x = x + 20*e;
+                    dibujo(grados, root, x + 10*e, y, x + 50*e, y + 25*eY);
+                    dibujo(grados, root, x + 10*e, y + 50*eY, x + 50*e, y + 25*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
 
             }
-            x = x + 65;
+            x = x + 65*e;
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
             }
@@ -2034,50 +1907,26 @@ public class Dibujo {
                 fun(root, x + 10, y + 50);
 
                 while(cont < auxBold) {
-                    Circle cd1 = new Circle(x + 10, y + 50, grosor - 1);
-                    cd1.setFill(color);
-                    cd1.setStroke(color);
-
-                    root.getChildren().add(cd1);
-
+                    dibujo(grados, root, x + 10*e, y + 50*eY, grosor - 1);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-            }
-
-            else{
-
+            } else{
                 pts(textoCoord, x+15, y+50);
                 pts(textoCoord, x+15, y+50, x+10, y+65);
                 fun(root, x + 15, y + 50, x + 15, y + 50, x + 14, y + 60, x + 10, y + 65);
-
                 while(cont < auxBold) {
-                    Circle cd1 = new Circle(x + 15, y + 50, grosor - 1);
-                    cd1.setFill(color);
-                    cd1.setStroke(color);
-
-                    QuadCurve qv1 = new QuadCurve(x + 15, y + 50, x + 14, y + 60, x + 10, y + 65);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-                    root.getChildren().add(qv1);
-                    root.getChildren().add(cd1);
-
-
+                    dibujo(grados, root, x + 15*e, y + 50*eY, grosor - 1);
+                    dibujo(grados, root, x + 15*e, y + 50*eY, x + 14*e, y + 60*eY, x + 10*e, y + 65*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
             }
-
-
-            x = x + 20;
+            x = x + 20*e;
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
             }
@@ -2086,69 +1935,34 @@ public class Dibujo {
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
             if (caracter == ';'){
-
                 pts(textoCoord, x+20, y+10);
                 pts(textoCoord, x+20, y+50);
                 pts(textoCoord, x+20, y+50, x+15, y+65);
                 fun(root, x + 20, y + 10, x + 20, y + 50, x + 20, y + 50, x + 19, y + 60, x + 15, y + 65);
-
                 while(cont < auxBold) {
-
-                    Circle cd1 = new Circle(x + 20, y+10, grosor - 1);
-                    cd1.setFill(color);
-                    cd1.setStroke(color);
-
-                    Circle cd2 = new Circle(x + 20, y+50, grosor - 1);
-                    cd2.setFill(color);
-                    cd2.setStroke(color);
-
-                    QuadCurve qv1 = new QuadCurve(x + 20, y + 50, x + 19, y + 60, x + 15, y + 65);
-                    qv1.setFill(Color.TRANSPARENT);
-                    qv1.setStroke(color);
-                    qv1.setStrokeWidth(grosor);
-
-
-                    root.getChildren().add(cd1);
-                    root.getChildren().add(cd2);
-                    root.getChildren().add(qv1);
-
-
+                    dibujo(grados, root, x + 20*e, y+10*eY, grosor - 1);
+                    dibujo(grados, root, x + 20*e, y+50*eY, grosor - 1);
+                    dibujo(grados, root, x + 20*e, y + 50*eY, x + 19*e, y + 60*eY, x + 15*e, y + 65*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
             }
             else{
-
                 pts(textoCoord, x+20, y+10);
                 pts(textoCoord, x+20, y+50);
                 fun(root, x + 20, y + 10, x + 20, y + 50);
-
                 while(cont < auxBold) {
-
-                    Circle cd1 = new Circle(x + 20, y+10, grosor - 1);
-                    cd1.setFill(color);
-                    cd1.setStroke(color);
-
-                    Circle cd2 = new Circle(x + 20, y+50, grosor - 1);
-                    cd2.setFill(color);
-                    cd2.setStroke(color);
-
-                    root.getChildren().add(cd1);
-                    root.getChildren().add(cd2);
-
+                    dibujo(grados, root, x + 20*e, y+10*eY, grosor - 1);
+                    dibujo(grados, root, x + 20*e, y+50*eY, grosor - 1);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
             }
-
-
-            x = x + 30;
+            x = x + 30*e;
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
             }
@@ -2157,64 +1971,33 @@ public class Dibujo {
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
             if (caracter == '{'){
-
                 pts(textoCoord, x+25, y-50, x+5, y);
                 pts(textoCoord, x+25, y+50, x+5, y);
                 fun(root, x + 25, y - 50, x + 10, y - 50, x + 30, y, x + 5, y, x + 25, y + 50, x + 10, y + 50, x + 30, y, x + 5, y);
-
                 while(cont < auxBold) {
-                    CubicCurve c1 = new CubicCurve(x + 25, y - 50, x + 10, y - 50, x + 30, y, x + 5, y); // Curva Superior
-                    c1.setFill(Color.TRANSPARENT);
-                    c1.setStroke(color);
-                    c1.setStrokeWidth(grosor);
-
-                    CubicCurve c2 = new CubicCurve(x + 25, y + 50, x + 10, y + 50, x + 30, y, x + 5, y); // Curva Superior
-                    c2.setFill(Color.TRANSPARENT);
-                    c2.setStroke(color);
-                    c2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(c1);
-                    root.getChildren().add(c2);
-
-
+                    dibujo(grados, root, x + 25*e, y - 50*eY, x + 10*e, y - 50*eY, x + 30*e, y, x + 5*e, y);
+                    dibujo(grados, root, x + 25*e, y + 50*eY, x + 10*e, y + 50*eY, x + 30*e, y, x + 5*e, y);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
 
             }
             else{
-
                 pts(textoCoord, x+25, y, x+5, y-50);
                 pts(textoCoord, x+25, y, x+5, y+50);
                 fun(root, x + 25, y, x, y, x + 25, y - 50, x + 5, y - 50, x + 25, y, x, y, x + 25, y + 50, x + 5, y + 50);
-
                 while(cont < auxBold) {
-                    CubicCurve c1 = new CubicCurve(x + 25, y, x, y, x + 25, y - 50, x + 5, y - 50); // Curva Superior
-                    c1.setFill(Color.TRANSPARENT);
-                    c1.setStroke(color);
-                    c1.setStrokeWidth(grosor);
-
-                    CubicCurve c2 = new CubicCurve(x + 25, y, x, y, x + 25, y + 50, x + 5, y + 50); // Curva Superior
-                    c2.setFill(Color.TRANSPARENT);
-                    c2.setStroke(color);
-                    c2.setStrokeWidth(grosor);
-
-                    root.getChildren().add(c1);
-                    root.getChildren().add(c2);
-
-
+                    dibujo(grados, root, x + 25*e, y, x, y, x + 25*e, y - 50*eY, x + 5*e, y - 50*eY);
+                    dibujo(grados, root, x + 25*e, y, x, y, x + 25*e, y + 50*eY, x + 5*e, y + 50*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-
             }
-            x = x + 40;
+            x = x + 40*e;
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
             }
@@ -2234,37 +2017,23 @@ public class Dibujo {
                 pts(textoCoord, x+5, y-20, x+5, y-50);
                 pts(textoCoord, x+5, y-20, x+7, y-20);
                 fun(root, x + 5, y - 20, x, y - 35, x + 5, y - 50, x + 5, y - 20, x + 25, y + 15, x + 35, y - 20, x + 7, y - 20);
-
                 cont = 0;
 
                 while(cont < auxBold) {
-
-                    QuadCurve a = new QuadCurve(x + 5, y - 20, x, y - 35, x + 5, y - 50);
-                    a.setFill(Color.TRANSPARENT);
-                    a.setStroke(color);
-                    a.setStrokeWidth(grosor);
-
-                    CubicCurve b = new CubicCurve(x + 5, y - 20, x + 25, y + 15, x + 35, y - 20, x + 7, y - 20);
-                    b.setFill(color);
-                    b.setStroke(color);
-                    b.setStrokeWidth(grosor);
-
-                    root.getChildren().add(a);
-                    root.getChildren().add(b);
-
+                    dibujo(grados, root, x + 5*e, y - 20*eY, x, y - 35*eY, x + 5*e, y - 50*eY);
+                    dibujo(grados, root, x + 5*e, y - 20*eY, x + 25*e, y + 15*eY, x + 35*e, y - 20*eY, x + 7*e, y - 20*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
 
-                x = x + 25;
+                x = x + 25*e;
                 if(auxSub){
                     Subrayar(grados,xInicialSu, yInicialSu, x, root);
                 }
             }
-            x=x+20;
+            x=x+20*e;
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
             }
@@ -2274,81 +2043,37 @@ public class Dibujo {
             Text t = new Text("\n"+caracter+":");
             textoCoord.getChildren().add(t);
             if(caracter == '¡'){
-
                 pts(textoCoord, x+10, y+10, x+10, y+80);
                 pts(textoCoord, x+10, y);
                 pts(textoCoord, x+10, y+10, x+10, y+80);
                 fun(root, x + 10, y, x + 10, y + 10, x + 5, y + 80, x + 10, y + 80, x + 10, y + 10, x + 15, y + 80, x + 10, y + 80);
-
                 while(cont < auxBold) {
-                    Circle a = new Circle(x + 10, y, 2);
-                    a.setFill(color);
-                    a.setStroke(color);
-                    a.setStrokeWidth(grosor);
-
-                    QuadCurve b = new QuadCurve(x + 10, y + 10, x + 5, y + 80, x + 10, y + 80);
-                    b.setFill(color);
-                    b.setStroke(color);
-                    b.setStrokeWidth(grosor);
-
-                    QuadCurve c = new QuadCurve(x + 10, y + 10, x + 15, y + 80, x + 10, y + 80);
-                    c.setFill(color);
-                    c.setStroke(color);
-                    c.setStrokeWidth(grosor);
-
-
-                    root.getChildren().add(a);
-                    root.getChildren().add(b);
-                    root.getChildren().add(c);
-
-
+                    dibujo(grados, root, x + 10*e, y, 2);
+                    dibujo(grados, root, x + 10*e, y + 10*eY, x + 5*e, y + 80*eY, x + 10*e, y + 80*eY);
+                    dibujo(grados, root, x + 10*e, y + 10*eY, x + 15*e, y + 80*eY, x + 10*e, y + 80*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
 
             }
             else{
-
                 pts(textoCoord, x+10, y+80);
                 pts(textoCoord, x+10, y+70, x+10, y);
                 pts(textoCoord, x+10, y+70, x+10, y);
                 fun(root, x + 10, y + 80, x + 10, y + 70, x + 5, y, x + 10, y, x + 10, y + 70, x + 15, y, x + 10, y);
-
-
                 while(cont < auxBold) {
-                    Circle a = new Circle(x + 10, y + 80, 2);
-                    a.setFill(color);
-                    a.setStroke(color);
-                    a.setStrokeWidth(grosor);
-
-                    QuadCurve b = new QuadCurve(x + 10, y + 70, x + 5, y, x + 10, y);
-                    b.setFill(color);
-                    b.setStroke(color);
-                    b.setStrokeWidth(grosor);
-
-                    QuadCurve c = new QuadCurve(x + 10, y + 70, x + 15, y, x + 10, y);
-                    c.setFill(color);
-                    c.setStroke(color);
-                    c.setStrokeWidth(grosor);
-
-
-                    root.getChildren().add(a);
-                    root.getChildren().add(b);
-                    root.getChildren().add(c);
-
-
+                    dibujo(grados, root, x + 10*e, y + 80*eY, 2);
+                    dibujo(grados, root, x + 10*e, y + 70*eY, x + 5*e, y, x + 10*e, y);
+                    dibujo(grados, root, x + 10*e, y + 70*eY, x + 15*e, y, x + 10*e, y);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-
             }
-            x = x +25;
+            x = x +25*e;
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
             }
@@ -2364,72 +2089,31 @@ public class Dibujo {
                 fun(root, x + 10, y, x + 7, y + 30, x, y, x + 25, y, x, y + 50, x, y + 50, x - 15, y + 90, x + 30, y + 90, x + 25, y + 60);
 
                 while(cont < auxBold) {
-                    Circle a = new Circle(x + 10, y, 2);
-                    a.setFill(color);
-                    a.setStroke(color);
-                    a.setStrokeWidth(grosor);
-
-                    CubicCurve b = new CubicCurve(x + 7, y + 30, x, y, x + 25, y, x, y + 50);
-                    b.setFill(color);
-                    b.setStroke(color);
-                    b.setStrokeWidth(grosor);
-
-                    CubicCurve c = new CubicCurve(x, y + 50, x - 15, y + 90, x + 30, y + 90, x + 25, y + 60);
-                    c.setFill(Color.TRANSPARENT);
-                    c.setStroke(color);
-                    c.setStrokeWidth(grosor);
-
-                    root.getChildren().add(a);
-                    root.getChildren().add(b);
-                    root.getChildren().add(c);
-
-
+                    dibujo(grados, root, x + 10*e, y, 2);
+                    dibujo(grados, root, x + 7*e, y + 30*eY, x, y, x + 25*e, y, x, y + 50*eY);
+                    dibujo(grados, root, x, y + 50*eY, x - 15*e, y + 90*eY, x + 30*e, y + 90*eY, x + 25*e, y + 60*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-
             }
             else{
-
                 pts(textoCoord, x+30, y+80);
                 pts(textoCoord, x+27, y+50, x+30, y+47);
                 pts(textoCoord, x+27, y+50, x+10, y+20);
                 fun(root, x + 30, y + 80, x + 27, y + 50, x + 20, y + 75, x + 35, y + 80, x + 30, y + 47, x + 27, y + 50, x + 65, y - 15, x + 5, y - 20, x + 10, y + 20);
-
                 while(cont < auxBold) {
-                    Circle a = new Circle(x + 30, y + 80, 2);
-                    a.setFill(color);
-                    a.setStroke(color);
-                    a.setStrokeWidth(grosor);
-
-                    CubicCurve b = new CubicCurve(x + 27, y + 50, x + 20, y + 75, x + 35, y + 80, x + 30, y + 47);
-                    b.setFill(color);
-                    b.setStroke(color);
-                    b.setStrokeWidth(grosor);
-
-                    CubicCurve c = new CubicCurve(x + 27, y + 50, x + 65, y - 15, x + 5, y - 20, x + 10, y + 20);
-                    c.setFill(Color.TRANSPARENT);
-                    c.setStroke(color);
-                    c.setStrokeWidth(grosor);
-
-
-                    root.getChildren().add(a);
-                    root.getChildren().add(b);
-                    root.getChildren().add(c);
-
-
+                    dibujo(grados, root, x + 30*e, y + 80*eY, 2);
+                    dibujo(grados, root, x + 27*e, y + 50*eY, x + 20*e, y + 75*eY, x + 35*e, y + 80*eY, x + 30*e, y + 47*eY);
+                    dibujo(grados, root, x + 27*e, y + 50*eY, x + 65*e, y - 15*eY, x + 5*e, y - 20*eY, x + 10*e, y + 20*eY);
                     if (auxBold > 1) {
                         x++;
                     }
-
                     cont++;
                 }
-
             }
-            x=x+45;
+            x=x+45*e;
             if(auxSub){
                 Subrayar(grados,xInicialSu, yInicialSu, x, root);
             }
