@@ -318,10 +318,10 @@ public class Controlador extends Dibujo implements Initializable {
 
         if (botonEspejo.isSelected()){
             e = -1;
-            botonEspejo.setText("Desactivar espejo (x)");
+            botonEspejo.setText("Desactivar espejo (X)");
         }else{
             e = 1;
-            botonEspejo.setText("Activar espejo (x)");
+            botonEspejo.setText("Activar espejo (X)");
         }
 
         obtenerLetra();
@@ -332,10 +332,10 @@ public class Controlador extends Dibujo implements Initializable {
 
         if (botonEspejoY.isSelected()){
             eY = -1;
-            botonEspejoY.setText("Desactivar espejo (y)");
+            botonEspejoY.setText("Desactivar espejo (Y)");
         }else{
             eY = 1;
-            botonEspejoY.setText("Activar espejo (y)");
+            botonEspejoY.setText("Activar espejo (Y)");
         }
 
         obtenerLetra();
