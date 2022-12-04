@@ -220,7 +220,7 @@ public class Controlador extends Dibujo implements Initializable {
                     Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
                 }
                 else {
-                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane);
+                    Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra);
                 }
 
             } else {
@@ -256,9 +256,9 @@ public class Controlador extends Dibujo implements Initializable {
                     }
                 } else {
                     if (cursiva) {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, 15);
                     } else {
-                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane);
+                        Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i - 1), root, textoCoord, 0, scrollPane, numGra);
                     }
                 }
 
