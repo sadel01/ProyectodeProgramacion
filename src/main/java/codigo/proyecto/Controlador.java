@@ -63,8 +63,7 @@ public class Controlador extends Dibujo implements Initializable {
 
     @FXML
     private Button botonTraslacionText;
-
-    //int g =0;
+    
     private void obtenerLetra() {
 
         textoCoord.setStyle("-fx-font-size: 15px; -fx-padding: 5 0 0 5; -fx-font-weight: bold; -fx-font-family: Arial");
