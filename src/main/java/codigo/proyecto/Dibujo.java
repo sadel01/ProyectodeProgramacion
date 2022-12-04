@@ -5574,7 +5574,7 @@ public class Dibujo {
         if (caracter == 'j' || caracter == 'J') {
 
             if (caracter == 'j') {
-                x = x -14;
+                x = x -14*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x-15*e, y+65*eY, x+30*e, y+15*eY, x-15*e, y+50*eY, x+30*e, y+35*eY);
@@ -5625,7 +5625,7 @@ public class Dibujo {
         if (caracter == 'k' || caracter == 'K') {
 
             if (caracter == 'k') {
-                x = x-10;
+                x = x-10*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x+2*e, y, x- e, y+50*eY, x+37*e, y, x-3*e, y-150*eY);
@@ -5677,7 +5677,7 @@ public class Dibujo {
         }
         if (caracter == 'l' || caracter == 'L') {
             if (caracter == 'l') {
-                x = x-5;
+                x = x-5*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x, y+15*eY, x- e, y+40*eY, x+37*e, y-40*eY, x-3*e, y-120*eY);
@@ -5723,7 +5723,7 @@ public class Dibujo {
         }
         if (caracter == 'm' || caracter == 'M') {
             if (caracter == 'm') {
-                x = x-10;
+                x = x-10*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x, y, x+8*e, y+50*eY, x- e, y+50*eY);
@@ -5833,7 +5833,7 @@ public class Dibujo {
         int cont = 0;
         if (caracter == 'n' || caracter == 'N') {
             if (caracter == 'n') {
-                x = x-9;
+                x = x-9*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x, y, x+8*e, y+50*eY, x+50*e, y+50*eY);
@@ -5881,7 +5881,7 @@ public class Dibujo {
         }
         if (caracter == 'ñ' || caracter == 'Ñ') {
             if (caracter == 'ñ') {
-                x = x-10;
+                x = x-10*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x, y, x+8*e, y+50*eY, x+50*e, y+50*eY);
@@ -5930,7 +5930,7 @@ public class Dibujo {
         }
         if (caracter == 'o' || caracter == 'O' || caracter == 'ó' || caracter == 'Ó') {
             if (caracter == 'o' || caracter == 'ó') {
-                x = x +2;
+                x = x +2*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x, y+20*eY, x+30*e, y+20*eY, x, y+60*eY, x+30*e, y+60*eY);
@@ -5992,7 +5992,7 @@ public class Dibujo {
         }
         if (caracter == 'p' || caracter == 'P') {
             if (caracter == 'p') {
-                x = x-18;
+                x = x-18*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x, y, x, y+85*eY, x-2*e, y+15*eY);
@@ -6037,7 +6037,7 @@ public class Dibujo {
         }
         if (caracter == 'q' || caracter == 'Q') {
             if (caracter == 'q') {
-                x = x-11;
+                x = x-11*e;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x+30*e, y, x+30*e, y+85*eY, x+28*e, y+28*eY);
