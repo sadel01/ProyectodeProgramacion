@@ -17,8 +17,8 @@ import java.util.regex.Pattern;
 
 public class Controlador extends Dibujo implements Initializable {
     String tamanio = "";
-    String grados="";
-    int numTam = 1, numGra=0;
+    String grados="", grados2="";
+    int numTam = 1, numGra=0, numGra2=0;
     int a = 0, b= 0, c = 0;
     @FXML
     private AnchorPane root;
@@ -176,9 +176,6 @@ public class Controlador extends Dibujo implements Initializable {
                 numTam = 1;
             }
 
-            if (tamanio.length() != 0) {
-                numTam = Integer.parseInt(tamanio)/10;
-            }
             if (i >= 3 && matches && frase.charAt(i - 1) == 'a') {
                 if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
                     b = 1;
@@ -186,21 +183,36 @@ public class Controlador extends Dibujo implements Initializable {
                 }
             } else if (b == 1 && matches) {
                 grados = grados + frase.charAt(i);
-            }
-
-            if (i >= 3 && String.valueOf(frase.charAt(i)).matches("[0-9]") && frase.charAt(i - 1) == 'A') {
-                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
-                    c = 1;
-                    grados = grados + frase.charAt(i);
-                }
-            } else if (c == 1 && String.valueOf(frase.charAt(i)).matches("[0-9]")) {
-                grados = grados + frase.charAt(i);
             } else if (frase.charAt(i) == ' ') {
                 b = 0;
                 grados = "";
                 if (frase.contains("^a")) {
                     numGra = 0;
                 }
+            }
+            if(i>=3 && matches && frase.charAt(i-1)=='A'){
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    c = 1;
+                    grados = grados + frase.charAt(i);
+                }
+            }
+
+            if(i>=3 && matches && frase.charAt(i-1)=='A'){
+                if(frase.charAt(i - 2) == '^' ||  frase.charAt(i - 2) == '+') {
+                    c = 1;
+                    grados2 = grados2 + frase.charAt(i);
+                }
+            } else if (c == 1 && matches) {
+                grados2 = grados2 + frase.charAt(i);
+            } else if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z][áéíóúÁÉÍÓÚÜüñÑ]")) {
+                if(grados2.length()!=0){
+                    numGra2=Integer.parseInt(grados2);
+                }
+                c=0;
+                grados2="";
+            } else if (!frase.contains("^A")) {
+                numGra2=0;
+                auxAng=false;
             }
 
             if (tamanio.length() != 0) {
@@ -214,10 +226,10 @@ public class Controlador extends Dibujo implements Initializable {
 
             if (i == 0) {
                 if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                    Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
+                    Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra, numGra2);
 
                 } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                    Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra);
+                    Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numTam, numGra, numGra2);
                 }
                 else {
                     Simbolos(cursiva,estilos, frase.charAt(i), frase.charAt(i), root, textoCoord, 1, scrollPane, numGra);
@@ -241,17 +253,17 @@ public class Controlador extends Dibujo implements Initializable {
                 if (String.valueOf(frase.charAt(i)).matches("[a-zA-Z]|[áéíóúÁÉÍÓÚÜüñÑ]")) {
                     if (cursiva) {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15);
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15, numGra2);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15);
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, 15, numGra2);
                         }
                     } else {
                         if (String.valueOf(frase.charAt(i)).matches("[a-mA-M]|[áéíÁÉÍ]")) {
-                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra);
+                            Letras1(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra, numGra2);
 
                         } else if (String.valueOf(frase.charAt(i)).matches("[n-zN-Z]|[óúÓÚÜüñÑ]")) {
-                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra);
+                            Letras2(cursiva,estilos, frase.charAt(i), frase.charAt(i-1), root, textoCoord, 0, scrollPane, numTam, numGra, numGra2);
                         }
                     }
                 } else {

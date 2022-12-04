@@ -107,7 +107,11 @@ public class Dibujo {
         }
     }
 
-    public void Letras1(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
+    public void Letras1(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados, int grados2) {
+        if(grados2!=0){
+            grados=grados2;
+        }
+        System.out.println(grados2);
         auxK=cursiva;
         if (borrar == 1) {
             if(!tras){
@@ -870,7 +874,10 @@ public class Dibujo {
         }
     }
 
-    public void Letras2(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados) {
+    public void Letras2(boolean cursiva, String estilo, char caracter, char caracterAnt, AnchorPane root, TextFlow textoCoord, int borrar, ScrollPane scrollPane, int tamanio, int grados, int grados2) {
+        if(auxAng){
+            grados=grados2;
+        }
         auxK=cursiva;
         if (borrar == 1) {
             if(!tras){
@@ -1701,7 +1708,7 @@ public class Dibujo {
             yInicialSu = y + 55;
         }
         if (caracter == ' ') {
-            if (!auxAng) {
+
                 if (x != 30) {
                     if (e == 1) {
                         x = x + 50 * e;
@@ -1716,6 +1723,7 @@ public class Dibujo {
                 auxSub = false;
                 auxK = false;
                 auxBold = 1;
+            if (!auxAng) {
                 xa = x;
                 ya = y;
             }
