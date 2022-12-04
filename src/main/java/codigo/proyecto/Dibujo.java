@@ -3306,7 +3306,7 @@ public class Dibujo {
                 fun(root, x - e, y + 10*eY, x + 10 - 10, y - 21*eY, x - 22 - 10, y + 40*eY, x + 30*e, y, x + 30*e, y, x + 9*e, y + 28*eY, x + 25*e, y + 95*eY, x + 55*e, y + 15*eY);
                 while(cont < auxBold) {
                     //CurvA
-                    dibujo(grados, root, x -1*e, y + 10*eY, x + 15*e, y - 21*eY, x - 32*e, y + 40*eY, x + 30*e, y);
+                    dibujo(grados, root, x, y + 10*eY, x + 15*e, y - 21*eY, x - 32*e, y + 40*eY, x + 30*e, y);
                     dibujo(grados, root, x + 30*e, y, x, y + 35*eY, x + 15*e, y + 95*eY, x + 50*e, y + 15*eY);
                     if (auxBold > 1) {
                         x++;
@@ -3346,6 +3346,7 @@ public class Dibujo {
         }
         if (caracter == 's' || caracter == 'S') {
             if (caracter == 's') {
+                x = x-1;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x+20*e, y+35*eY, x, y+15*eY, x-40*e, y-15*eY, x+40*e, y-15*eY);
@@ -3363,7 +3364,7 @@ public class Dibujo {
                     cont++;
                 }
                 //Espaciocaracter s
-                x = x + 34* e;
+                x = x + 37* e;
                 if (auxSub) {
                     Subrayar(grados,xInicialSu, yInicialSu, x, root);
                 }
@@ -3404,6 +3405,7 @@ public class Dibujo {
         }
         if (caracter == 't' || caracter == 'T') {
             if (caracter == 't') {
+                x = x-5;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x+10*e, y-40*eY, x+30*e, y+15*eY, x-15*e, y, x+15*e, y+100*eY);
@@ -3449,6 +3451,7 @@ public class Dibujo {
         }
         if (caracter == 'u' || caracter == 'U' || caracter == 'ü' || caracter == 'Ü' || caracter == 'ú' || caracter == 'Ú') {
             if (caracter == 'u' || caracter == 'ü' || caracter == 'ú') {
+                x = x-4;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 fun(root, x + 2*e, y, x - 6*e, y + 30*eY, x + 9*e, y + 80*eY, x + 24*e, y + 15*eY, x + 28*e, y, x + 18*e, y + 30*eY, x + 33*e, y + 100*eY, x + 48*e, y + 15*eY);
@@ -3539,6 +3542,7 @@ public class Dibujo {
         }
         if (caracter == 'v' || caracter == 'V') {
             if (caracter == 'v') {
+                x = x+ 11;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x-3*e, y, x+63*e, y, x+10*e, y+63*eY, x+25*e, y+63*eY);
@@ -3592,6 +3596,7 @@ public class Dibujo {
         }
         if (caracter == 'w' || caracter == 'W') {
             if (caracter == 'w') {
+                x = x+12;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x+4*e, y, x+24*e, y+15*eY, x-6*e, y+30*eY, x+9*e, y+80*eY);
@@ -3650,6 +3655,7 @@ public class Dibujo {
         }
         if (caracter == 'x' || caracter == 'X') {
             if (caracter == 'x') {
+                x = x-10;
                 Text t = new Text("\n"+caracter+":");
                 textoCoord.getChildren().add(t);
                 pts(textoCoord, x-3*e, y+10*eY, x+60*e, y+15*eY, x+45*e, y+100*eY, x+50*e, y+50*eY);
